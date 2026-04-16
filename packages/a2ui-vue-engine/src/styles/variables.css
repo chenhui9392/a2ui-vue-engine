@@ -1,0 +1,288 @@
+/**
+ * A2UI Vue Engine - 统一样式变量标准
+ * @Author: hui.chenn
+ * @Description: 定义所有组件的统一样式变量，包括颜色、间距、尺寸等
+ * @Version: 1.0.0
+ */
+
+/* ========================================
+   一、颜色系统 (Color System)
+   ======================================== */
+
+/* 主色调 */
+:root {
+  --a2-color-primary: #409eff;           /* 主要操作按钮、选中状态 */
+  --a2-color-primary-light: #79bbff;     /* 主色浅色变体 */
+  --a2-color-primary-lighter: #a0cfff;   /* 主色更浅变体 */
+  --a2-color-primary-dark: #337ecc;      /* 主色深色变体 */
+
+  /* 功能色 */
+  --a2-color-success: #67c23a;           /* 成功状态 */
+  --a2-color-warning: #e6a23c;           /* 警告状态 */
+  --a2-color-danger: #f56c6c;            /* 危险/删除操作 */
+  --a2-color-info: #909399;              /* 信息/普通状态 */
+
+  /* 中性色 - 文本 */
+  --a2-text-primary: #303133;            /* 主要文本 */
+  --a2-text-regular: #606266;            /* 常规文本 */
+  --a2-text-secondary: #909399;          /* 次级文本 */
+  --a2-text-placeholder: #a8abb2;        /* 占位符文本 */
+  --a2-text-disabled: #c0c4cc;           /* 禁用文本 */
+
+  /* 中性色 - 边框 */
+  --a2-border-base: #dcdfe6;             /* 基础边框 */
+  --a2-border-light: #e4e7ed;            /* 浅色边框 */
+  --a2-border-lighter: #ebeef5;          /* 更浅边框 */
+  --a2-border-extra-light: #f2f6fc;      /* 特别浅边框 */
+  --a2-border-dark: #d4d7de;             /* 深色边框 */
+
+  /* 中性色 - 背景 */
+  --a2-bg-base: #ffffff;                 /* 基础背景 */
+  --a2-bg-page: #f5f7fa;                 /* 页面背景 */
+  --a2-bg-card: #ffffff;                 /* 卡片背景 */
+  --a2-bg-hover: #f5f7fa;                /* 悬停背景 */
+  --a2-bg-active: #ecf5ff;               /* 激活背景 */
+  --a2-bg-disabled: #f5f7fa;             /* 禁用背景 */
+
+  /* ========================================
+     二、间距系统 (Spacing System)
+     ======================================== */
+
+  /* 基础间距单位 - 4px 为基准 */
+  --a2-spacing-xs: 4px;                  /* 最小间距 */
+  --a2-spacing-sm: 8px;                  /* 小间距 */
+  --a2-spacing-md: 12px;                 /* 中等间距 */
+  --a2-spacing-lg: 16px;                 /* 大间距 */
+  --a2-spacing-xl: 20px;                 /* 较大间距 */
+  --a2-spacing-xxl: 24px;                /* 最大间距 */
+
+  /* 组件间距 */
+  --a2-gap-inline: 10px;                 /* 行内元素间距（按钮之间） */
+  --a2-gap-block: 12px;                  /* 块级元素间距（表单项之间） */
+  --a2-gap-section: 24px;                /* 区块间距 */
+
+  /* ========================================
+     三、尺寸系统 (Size System)
+     ======================================== */
+
+  /* Card 宽度标准 - 用于不同类型的表单/卡片 */
+  --a2-card-width-sm: 400px;             /* 简单表单、小卡片 */
+  --a2-card-width-md: 560px;             /* 默认表单宽度 */
+  --a2-card-width-lg: 720px;             /* 复杂表单、大卡片 */
+  --a2-card-width-xl: 960px;             /* 详情页、大表单 */
+  --a2-card-width-full: 100%;            /* 全宽卡片 */
+
+  /* 输入组件宽度 - 默认自适应 Card 宽度 */
+  --a2-input-width: 100%;                /* 输入框默认全宽（自适应） */
+
+  /* 搜索/筛选专用宽度 */
+  --a2-search-width: 240px;              /* 搜索框宽度 */
+  --a2-filter-width: 180px;              /* 筛选下拉宽度 */
+
+  /* 按钮尺寸 */
+  --a2-button-min-width: 80px;           /* 按钮最小宽度 */
+  --a2-button-width-sm: 80px;            /* 小按钮宽度 */
+  --a2-button-width-md: 100px;           /* 默认按钮宽度 */
+  --a2-button-width-lg: 120px;           /* 大按钮宽度 */
+
+  /* 按钮高度 */
+  --a2-button-height-sm: 24px;           /* small 尺寸 */
+  --a2-button-height-md: 32px;           /* default 尺寸 */
+  --a2-button-height-lg: 40px;           /* large 尺寸 */
+
+  /* 表单项标签宽度 */
+  --a2-label-width-sm: 80px;             /* 短标签 */
+  --a2-label-width-md: 100px;            /* 默认标签 */
+  --a2-label-width-lg: 120px;            /* 长标签 */
+
+  /* ========================================
+     四、圆角系统 (Border Radius System)
+     ======================================== */
+
+  --a2-radius-sm: 2px;                   /* 小圆角 */
+  --a2-radius-md: 4px;                   /* 默认圆角 */
+  --a2-radius-lg: 8px;                   /* 大圆角 */
+  --a2-radius-xl: 12px;                  /* 更大圆角 */
+
+  /* ========================================
+     五、字体系统 (Font System)
+     ======================================== */
+
+  /* 字体家族 */
+  --a2-font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+                   'Helvetica Neue', Arial, 'Noto Sans', sans-serif,
+                   'Apple Color Emoji', 'Segoe UI Emoji';
+
+  /* 字号 */
+  --a2-font-size-xs: 12px;               /* 极小字号 */
+  --a2-font-size-sm: 13px;               /* 小字号 */
+  --a2-font-size-md: 14px;               /* 默认字号 */
+  --a2-font-size-lg: 16px;               /* 大字号 */
+  --a2-font-size-xl: 18px;               /* 更大字号 */
+  --a2-font-size-title: 20px;            /* 标题字号 */
+
+  /* 行高 */
+  --a2-line-height-sm: 1.25;
+  --a2-line-height-md: 1.5;
+  --a2-line-height-lg: 1.75;
+
+  /* ========================================
+     六、阴影系统 (Shadow System)
+     ======================================== */
+
+  --a2-shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.06);
+  --a2-shadow-md: 0 4px 8px rgba(0, 0, 0, 0.08);
+  --a2-shadow-lg: 0 8px 16px rgba(0, 0, 0, 0.12);
+  --a2-shadow-card: 0 2px 12px 0 rgba(0, 0, 0, 0.1);
+
+  /* ========================================
+     七、动画系统 (Animation System)
+     ======================================== */
+
+  --a2-transition-fast: 0.15s ease;
+  --a2-transition-normal: 0.3s ease;
+  --a2-transition-slow: 0.5s ease;
+}
+
+/* ========================================
+   八、组件样式类 (Component Classes)
+   ======================================== */
+
+/* 表单项容器 - 统一间距 */
+.a2-form-item {
+  margin-bottom: var(--a2-gap-block);
+}
+
+/* 行内元素组 - 统一间距 */
+.a2-inline-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--a2-gap-inline);
+  align-items: center;
+}
+
+/* Card 宽度类 */
+.a2-card-sm { width: var(--a2-card-width-sm); }
+.a2-card-md { width: var(--a2-card-width-md); }
+.a2-card-lg { width: var(--a2-card-width-lg); }
+.a2-card-xl { width: var(--a2-card-width-xl); }
+.a2-card-full { width: var(--a2-card-width-full); }
+
+/* 搜索框专用 */
+.a2-search-input { width: var(--a2-search-width); }
+
+/* 筛选下拉专用 */
+.a2-filter-select { width: var(--a2-filter-width); }
+
+/* 按钮尺寸类 */
+.a2-btn-sm { min-width: var(--a2-button-width-sm); }
+.a2-btn-md { min-width: var(--a2-button-width-md); }
+.a2-btn-lg { min-width: var(--a2-button-width-lg); }
+
+/* 卡片样式 */
+.a2-card {
+  width: 100%;
+  border-radius: var(--a2-radius-lg);
+  box-shadow: var(--a2-shadow-card);
+}
+
+.a2-card-body {
+  padding: var(--a2-spacing-xl);
+}
+
+/* 表格容器 */
+.a2-table-container {
+  padding: var(--a2-spacing-xl);
+  background: var(--a2-bg-card);
+  border-radius: var(--a2-radius-lg);
+}
+
+/* 分页容器 */
+.a2-pagination-container {
+  display: flex;
+  justify-content: flex-end;
+  padding: var(--a2-spacing-lg) 0;
+}
+
+/* 操作按钮组 */
+.a2-action-buttons {
+  display: flex;
+  justify-content: flex-end;
+  gap: var(--a2-gap-inline);
+  padding-top: var(--a2-spacing-xl);
+}
+
+/* ========================================
+   九、Element Plus 样式覆盖
+   ======================================== */
+
+/* 输入框统一样式 */
+.el-input,
+.el-select,
+.el-date-editor,
+.el-cascader {
+  --el-input-border-radius: var(--a2-radius-md);
+}
+
+/* 默认输入框宽度 */
+.el-input:not(.el-input--large):not(.el-input--small) {
+  width: var(--a2-input-width-md);
+}
+
+/* 按钮样式覆盖 */
+.el-button {
+  min-width: var(--a2-button-min-width);
+  border-radius: var(--a2-radius-md);
+  transition: all var(--a2-transition-fast);
+}
+
+.el-button--small {
+  min-width: var(--a2-button-width-sm);
+}
+
+.el-button--large {
+  min-width: var(--a2-button-width-lg);
+}
+
+/* 主要按钮悬停 */
+.el-button--primary:hover {
+  background-color: var(--a2-color-primary-light);
+  border-color: var(--a2-color-primary-light);
+}
+
+/* 卡片样式覆盖 */
+.el-card {
+  border-radius: var(--a2-radius-lg);
+  --el-card-padding: var(--a2-spacing-xl);
+}
+
+/* 表格样式覆盖 */
+.el-table {
+  border-radius: var(--a2-radius-md);
+}
+
+/* 分页样式覆盖 */
+.el-pagination {
+  --el-pagination-button-radius: var(--a2-radius-md);
+}
+
+/* Textarea 样式覆盖 */
+.el-textarea {
+  border-radius: var(--a2-radius-md);
+}
+
+.el-textarea__inner {
+  border-radius: var(--a2-radius-md);
+  min-height: calc(var(--a2-textarea-rows) * 22px);
+}
+
+/* Form Item 样式覆盖 */
+.el-form-item {
+  margin-bottom: var(--a2-gap-block);
+}
+
+.el-form-item__label {
+  width: var(--a2-label-width-md);
+  font-size: var(--a2-font-size-md);
+  color: var(--a2-text-regular);
+}

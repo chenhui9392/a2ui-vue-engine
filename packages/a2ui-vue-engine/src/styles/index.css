@@ -1,0 +1,11 @@
+/**
+ * A2UI Vue Engine - 统一样式入口
+ * @Author: hui.chenn
+ * @Description: 样式入口文件，导入所有样式模块
+ */
+
+/* 导入变量和全局样式 */
+@import './variables.css';
+
+/* 组件样式由各组件内部 scope 样式处理 */
+/* 在 dev mode，Vite 会自动提取 Vue 组件中的样式 */

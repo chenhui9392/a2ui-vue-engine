@@ -1,0 +1,25 @@
+{
+  "name": "a2ui-studio",
+  "version": "0.0.1",
+  "private": true,
+  "description": "A2UI Studio - Vue3 UI Library for A2UI Render Engine",
+  "scripts": {
+    "dev": "pnpm -F demo-app dev",
+    "build": "pnpm -r build",
+    "build:engine": "pnpm -F a2ui-vue-engine build",
+    "playground": "pnpm -F a2ui-playground dev",
+    "docs": "pnpm -F a2ui-docs dev"
+  },
+  "keywords": [
+    "a2ui",
+    "vue3",
+    "ui-library",
+    "render-engine"
+  ],
+  "author": "",
+  "license": "MIT",
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "packageManager": "pnpm@8.15.0"
+}
