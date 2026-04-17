@@ -1,7 +1,7 @@
 {
   "name": "a2ui-vue-engine",
-  "version": "0.0.1",
-  "description": "A2UI Vue3 Render Engine SDK",
+  "version": "1.0.1",
+  "description": "A2UI Vue3 Render Engine - JSON Schema driven UI rendering for Vue3 applications",
   "type": "module",
   "main": "./dist/a2ui-vue-engine.umd.cjs",
   "module": "./dist/a2ui-vue-engine.js",
@@ -12,10 +12,12 @@
       "require": "./dist/a2ui-vue-engine.umd.cjs",
       "types": "./dist/index.d.ts"
     },
-    "./style.css": "./dist/style.css"
+    "./style.css": "./dist/style.css",
+    "./styles": "./dist/style.css"
   },
   "files": [
-    "dist"
+    "dist",
+    "README.md"
   ],
   "scripts": {
     "build": "vite build",
@@ -25,16 +27,24 @@
     "a2ui",
     "vue3",
     "render-engine",
-    "ui-library"
+    "json-schema",
+    "ui-library",
+    "element-plus",
+    "dynamic-ui"
   ],
-  "author": "",
+  "author": "A2UI Team",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://gitee.com/chenhuis-blank-memory/a2ui-vue-engine.git"
+  },
+  "homepage": "https://gitee.com/chenhuis-blank-memory/a2ui-vue-engine#readme",
+  "bugs": {
+    "url": "https://gitee.com/chenhuis-blank-memory/a2ui-vue-engine/issues"
+  },
   "peerDependencies": {
     "vue": "^3.4.0",
     "element-plus": "^2.5.0"
-  },
-  "dependencies": {
-    "@a2ui/web_core": "^0.9.0"
   },
   "devDependencies": {
     "@types/node": "^20.10.0",
