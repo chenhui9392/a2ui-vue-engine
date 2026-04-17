@@ -3,6 +3,7 @@ import path from 'path'
 
 export default defineConfig({
   title: 'A2UI',
+  base: '/a2ui-vue-engine/',
 
   vite: {
     server: {
@@ -163,7 +164,7 @@ export default defineConfig({
   themeConfig: {
     logo: '/logo.svg',
     socialLinks: [
-      { icon: 'github', link: 'https://github.com/a2ui/a2ui-vue-engine' }
+      { icon: 'github', link: 'https://github.com/chenhui9392/a2ui-vue-engine' }
     ],
   },
 })

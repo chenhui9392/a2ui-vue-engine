@@ -1,6 +1,6 @@
 {
   "name": "a2ui-vue-engine",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "A2UI Vue3 Render Engine - JSON Schema driven UI rendering for Vue3 applications",
   "type": "module",
   "main": "./dist/a2ui-vue-engine.umd.cjs",
@@ -38,7 +38,7 @@
     "type": "git",
     "url": "git+https://github.com/chenhui9392/a2ui-vue-engine.git"
   },
-  "homepage": "https://github.com/chenhui9392/a2ui-vue-engine#readme",
+  "homepage": "https://chenhui9392.github.io/a2ui-vue-engine/",
   "bugs": {
     "url": "https://github.com/chenhui9392/a2ui-vue-engine/issues"
   },
