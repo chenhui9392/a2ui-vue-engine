@@ -61,9 +61,11 @@ export default defineConfig({
               items: [
                 { text: 'A2TextField', link: '/components/a2-text-field' },
                 { text: 'A2Input', link: '/components/a2-input' },
+                { text: 'A2Select', link: '/components/a2-select' },
                 { text: 'A2SelectField', link: '/components/a2-select-field' },
                 { text: 'A2DatePicker', link: '/components/a2-date-picker' },
                 { text: 'A2DateTimeInput', link: '/components/a2-date-time-input' },
+                { text: 'A2ChoicePicker', link: '/components/a2-choice-picker' },
               ]
             },
             {
@@ -136,9 +138,11 @@ export default defineConfig({
               items: [
                 { text: 'A2TextField', link: '/en/components/a2-text-field' },
                 { text: 'A2Input', link: '/en/components/a2-input' },
+                { text: 'A2Select', link: '/en/components/a2-select' },
                 { text: 'A2SelectField', link: '/en/components/a2-select-field' },
                 { text: 'A2DatePicker', link: '/en/components/a2-date-picker' },
                 { text: 'A2DateTimeInput', link: '/en/components/a2-date-time-input' },
+                { text: 'A2ChoicePicker', link: '/en/components/a2-choice-picker' },
               ]
             },
             {

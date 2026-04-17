@@ -15,9 +15,11 @@ A2UI 提供完整的 JSON 驱动组件库。
 
 - [A2TextField](/components/a2-text-field) - 带标签的表单字段
 - [A2Input](/components/a2-input) - 基础输入框
-- [A2SelectField](/components/a2-select-field) - 下拉选择框
+- [A2Select](/components/a2-select) - 基础选择框
+- [A2SelectField](/components/a2-select-field) - 下拉选择框（带标签）
 - [A2DatePicker](/components/a2-date-picker) - 日期选择
 - [A2DateTimeInput](/components/a2-date-time-input) - 日期时间选择
+- [A2ChoicePicker](/components/a2-choice-picker) - 多选/单选卡片选择
 
 ### 展示组件
 
