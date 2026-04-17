@@ -1,8 +1,8 @@
 /*
  * @Author: hui.chenn
- * @Description: 
+ * @Description:
  * @Date: 2026-04-15 15:42:06
- * @LastEditTime: 2026-04-15 15:42:24
+ * @LastEditTime: 2026-04-16 18:00:00
  * @LastEditors: hui.chenn
  */
 import A2UIRoot from './A2UIRoot.vue'
@@ -10,6 +10,9 @@ import type { App } from 'vue'
 
 // Export component
 export { A2UIRoot }
+
+// Export types
+export type { FormDataResult } from '../types'
 
 // Default export for plugin registration
 export default A2UIRoot

@@ -1,14 +1,19 @@
 import type { Component } from 'vue'
 
+// Form Data Result - for extracting form fields from schema
+export interface FormDataResult {
+  form: Record<string, string>
+}
+
 // 扁平化节点格式（新格式）- 节点通过 child/children 引用其他节点ID
 export interface FlatA2Node {
   id: string
-  component: string // 组件名称：Card, Row, Column, Text, TextField, DateTimeInput, Button, Icon, SelectField
+  component: string // 组件名称：Card, Row, Column, Text, TextField, DateTimeInput, Button, Icon, SelectField, ChoicePicker
   child?: string | string[] // 单个子节点ID或ID数组
   children?: string[] // 子节点ID数组
   text?: string // Text组件的文本内容，或Button的按钮文字
-  label?: string // TextField/DateTimeInput/SelectField的标签
-  variant?: string // Text/TextField的变体：shortText, longText, h3等
+  label?: string // TextField/DateTimeInput/SelectField/ChoicePicker的标签
+  variant?: string // Text/TextField的变体：shortText, longText, h3等；ChoicePicker: mutuallyExclusive
   value?: { path: string } // 数据绑定路径
   align?: string // Row/Column的对齐方式：center, stretch, start, end
   justify?: string // Row的水平分布：start, end, center, space-between
@@ -18,8 +23,8 @@ export interface FlatA2Node {
   action?: { event?: { name: string } } // Button的事件配置
   enableDate?: boolean // DateTimeInput是否启用日期
   enableTime?: boolean // DateTimeInput是否启用时间
-  // Card 宽度标准：sm=400px, md=560px, lg=720px, xl=960px, full=100%
-  width?: 'sm' | 'md' | 'lg' | 'xl' | 'full'
+  // Card 宽度标准：xs=300px, sm=400px, md=560px, lg=720px, xl=960px, full=100%
+  width?: 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'full'
   // Textarea 相关属性
   rows?: number
   placeholder?: string
@@ -27,6 +32,16 @@ export interface FlatA2Node {
   options?: Array<{ label: string; value: string | number; disabled?: boolean }>
   // Select 是否可清空
   clearable?: boolean
+  // ChoicePicker 多选选项
+  choiceOptions?: Array<{ label: string; value: string | number; description?: string; disabled?: boolean }>
+  // ChoicePicker 列数
+  columns?: number
+  // ChoicePicker 显示样式: chips
+  displayStyle?: 'default' | 'chips'
+  // 禁用/只读
+  disabled?: boolean
+  // 必填
+  required?: boolean
 }
 
 // A2UI Node Schema (树形格式 - 用于渲染)

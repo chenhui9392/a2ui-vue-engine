@@ -109,6 +109,7 @@
               ref="a2uiRootRef"
               :component-map="componentMap"
               @message="handleAction"
+              @formData-change="handleFormDataChange"
             />
           </el-form>
         </div>
@@ -130,7 +131,7 @@ import { ref, computed, onMounted, onUnmounted } from 'vue'
 import { ElMessage } from 'element-plus'
 import { VideoPlay, Document, CopyDocument } from '@element-plus/icons-vue'
 import { A2UIRoot, defaultComponentMap } from 'a2ui-vue-engine'
-import type { A2Node, ComponentMapper } from 'a2ui-vue-engine'
+import type { A2Node, ComponentMapper, FormDataResult } from 'a2ui-vue-engine'
 import { defaultJson } from './mock'
 
 // Refs
@@ -144,6 +145,7 @@ const renderSuccess = ref(false)
 const messageCount = ref(0)
 const lastRunTime = ref('')
 const componentMap: ComponentMapper = { ...defaultComponentMap }
+const currentFormData = ref<FormDataResult>({ form: {} })
 
 // 行数计算
 const lineCount = computed(() => {
@@ -196,59 +198,9 @@ function highlightJson(jsonStr: string): string {
 // 高亮 JSON Schema
 const highlightedJson = computed(() => highlightJson(jsonContent.value))
 
-// Extract form fields and generate form data structure (supports flat format)
-interface FormDataResult {
-  form: Record<string, string>
-}
-
-function generateFormData(jsonData: any): FormDataResult {
-  const form: Record<string, string> = {}
-
-  // Check if it's flat format (array with id/component)
-  if (Array.isArray(jsonData) && jsonData.length > 0 && jsonData[0].id && jsonData[0].component) {
-    // Flat format - extract value.path from each node
-    jsonData.forEach((node) => {
-      if (node.value?.path) {
-        const pathMatch = node.value.path.match(/\/form\/(.+)/)
-        if (pathMatch) {
-          form[pathMatch[1]] = ''
-        }
-      }
-    })
-  } else {
-    // Tree format - traverse and extract props.prop
-    function traverse(n: any) {
-      if (!n) return
-
-      const type = n.type || ''
-      const props = n.props || {}
-
-      // 只提取带 prop 的字段
-      if (type === 'a2-text-field' && props.prop) {
-        form[props.prop] = ''
-      }
-
-      // Traverse children
-      if (n.children && Array.isArray(n.children)) {
-        n.children.forEach(traverse)
-      }
-    }
-
-    traverse(jsonData)
-  }
-
-  return { form }
-}
-
-// Form Data JSON
+// Form Data JSON - from A2UIRoot
 const formDataJson = computed<string>(() => {
-  try {
-    const node = JSON.parse(jsonContent.value)
-    const formData = generateFormData(node)
-    return JSON.stringify(formData, null, 2)
-  } catch {
-    return ''
-  }
+  return JSON.stringify(currentFormData.value, null, 2)
 })
 
 // 高亮 Form Data
@@ -329,6 +281,8 @@ function handleRun() {
         type: 'node',
         node: node,
       })
+      // Get formData from A2UIRoot after processing
+      currentFormData.value = a2uiRootRef.value.getFormData()
     }
 
     messageCount.value = 1
@@ -368,6 +322,11 @@ async function handleCopy() {
 function handleAction(payload: any) {
   console.log('A2UI Action:', payload)
   ElMessage.info(`Action: ${payload.type}`)
+}
+
+// Handle form data change from A2UIRoot
+function handleFormDataChange(formData: FormDataResult) {
+  currentFormData.value = formData
 }
 
 onUnmounted(() => {

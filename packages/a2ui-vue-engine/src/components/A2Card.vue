@@ -39,8 +39,8 @@ interface A2CardProps {
   children?: A2Node[] | string
   slots?: Record<string, A2Node[]>
   context?: RenderContext
-  // Card 统一宽度标准：sm=400px, md=560px, lg=720px, xl=960px, full=100%
-  width?: 'sm' | 'md' | 'lg' | 'xl' | 'full'
+  // Card 统一宽度标准：xs=300px, sm=400px, md=560px, lg=720px, xl=960px, full=100%
+  width?: 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'full'
 }
 
 const props = withDefaults(defineProps<A2CardProps>(), {
@@ -78,6 +78,7 @@ const cardClass = computed(() => {
 
 const cardStyle = computed(() => {
   const widthMap = {
+    xs: '300px',
     sm: '400px',
     md: '560px',
     lg: '720px',
@@ -118,6 +119,10 @@ export default {
 }
 
 /* Card 统一宽度标准 */
+.a2-card--xs {
+  width: 300px;
+}
+
 .a2-card--sm {
   width: 400px;
 }

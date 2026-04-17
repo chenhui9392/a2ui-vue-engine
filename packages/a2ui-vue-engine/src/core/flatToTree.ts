@@ -192,6 +192,31 @@ function buildProps(flatNode: FlatA2Node): Record<string, any> {
     props.clearable = flatNode.clearable
   }
 
+  // ChoicePicker 多选选项
+  if (flatNode.choiceOptions && Array.isArray(flatNode.choiceOptions)) {
+    props.options = flatNode.choiceOptions
+  }
+
+  // ChoicePicker 列数
+  if (flatNode.columns !== undefined) {
+    props.columns = flatNode.columns
+  }
+
+  // ChoicePicker 显示样式
+  if (flatNode.displayStyle) {
+    props.displayStyle = flatNode.displayStyle
+  }
+
+  // 禁用/只读
+  if (flatNode.disabled !== undefined) {
+    props.disabled = flatNode.disabled
+  }
+
+  // 必填
+  if (flatNode.required !== undefined) {
+    props.required = flatNode.required
+  }
+
   return props
 }
 

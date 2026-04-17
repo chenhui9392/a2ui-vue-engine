@@ -32,6 +32,9 @@ importers:
 
   packages/a2ui-docs:
     dependencies:
+      '@element-plus/icons-vue':
+        specifier: ^2.3.0
+        version: 2.3.2(vue@3.5.32(typescript@5.9.3))
       a2ui-vue-engine:
         specifier: workspace:*
         version: link:../a2ui-vue-engine
@@ -45,15 +48,9 @@ importers:
         specifier: ^3.4.0
         version: 3.5.32(typescript@5.9.3)
     devDependencies:
-      '@vitejs/plugin-vue':
-        specifier: ^5.0.0
-        version: 5.2.4(vite@5.4.21(@types/node@20.19.39))(vue@3.5.32(typescript@5.9.3))
       typescript:
         specifier: ^5.3.0
         version: 5.9.3
-      vite:
-        specifier: ^5.0.0
-        version: 5.4.21(@types/node@20.19.39)
 
   packages/a2ui-playground:
     dependencies:

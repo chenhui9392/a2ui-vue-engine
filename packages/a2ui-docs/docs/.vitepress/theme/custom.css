@@ -1,0 +1,27 @@
+/* Custom VitePress layout styles */
+
+/* Playground embed width - only for embedded playgrounds */
+.playground-embed {
+  width: 100%;
+}
+
+/* For Playground page only */
+.vp-doc .playground-page {
+  margin: 0;
+  width: 100%;
+}
+
+/* Playground page specific styles */
+.playground-page {
+  width: 100%;
+}
+
+/* Fix Element Plus form width inside docs */
+.vp-doc .el-form {
+  width: auto;
+}
+
+/* Playground embed styles - scoped to component */
+.playground-embed .el-form-item {
+  margin-bottom: 18px;
+}

@@ -1,30 +1,33 @@
 <template>
-  <div class="a2ui-root" ref="rootRef">
-    <template v-if="error">
-      <div class="a2ui-error">
-        <p>Render Error: {{ error.message }}</p>
-        <button @click="resetError">Retry</button>
-      </div>
-    </template>
-    <template v-else-if="tree">
-      <component :is="renderContent" />
-    </template>
-    <template v-else>
-      <div class="a2ui-loading" v-if="loading">
-        <slot name="loading">Loading...</slot>
-      </div>
-      <div class="a2ui-empty" v-else>
-        <slot name="empty">No content</slot>
-      </div>
-    </template>
-  </div>
+  <el-config-provider :locale="zhCn">
+    <div class="a2ui-root" ref="rootRef">
+      <template v-if="error">
+        <div class="a2ui-error">
+          <p>渲染错误: {{ error.message }}</p>
+          <button @click="resetError">重试</button>
+        </div>
+      </template>
+      <template v-else-if="tree">
+        <component :is="renderContent" />
+      </template>
+      <template v-else>
+        <div class="a2ui-loading" v-if="loading">
+          <slot name="loading">加载中...</slot>
+        </div>
+        <div class="a2ui-empty" v-else>
+          <slot name="empty">无内容</slot>
+        </div>
+      </template>
+    </div>
+  </el-config-provider>
 </template>
 
 <script setup lang="ts">
 import { ref, computed, watch, onMounted, onUnmounted, defineComponent, provide, shallowRef } from 'vue'
-import type { A2Node, A2Message, A2UIRootProps, RenderContext, ComponentMapper } from '../types'
+import { ElConfigProvider } from 'element-plus'
+import zhCn from 'element-plus/es/locale/lang/zh-cn.mjs'
+import type { A2Node, A2Message, A2UIRootProps, RenderContext, ComponentMapper, FlatA2Node, FormDataResult } from '../types'
 import { MessageProcessor, createMessageProcessor, convertFlatToTree } from '../core'
-import type { FlatA2Node } from '../types'
 import { renderTree, createRenderContext } from '../renderer'
 import { createComponentMap } from '../components'
 
@@ -38,11 +41,75 @@ const emit = defineEmits<{
   (e: 'error', error: Error): void
   (e: 'ready'): void
   (e: 'complete'): void
+  (e: 'formDataChange', formData: FormDataResult): void
 }>()
+
+// Generate form data from tree node
+function generateFormDataFromTree(node: A2Node | null): FormDataResult {
+  const form: Record<string, string> = {}
+
+  if (!node) return { form }
+
+  function traverse(n: A2Node) {
+    if (!n) return
+
+    const type = n.type || ''
+    const props = n.props || {}
+
+    // 提取带有 prop 的表单字段
+    if (type === 'a2-text-field' && props.prop) {
+      form[props.prop] = ''
+    }
+    if (type === 'a2-select-field' && props.prop) {
+      form[props.prop] = ''
+    }
+    if (type === 'a2-date-picker' && props.prop) {
+      form[props.prop] = ''
+    }
+    if (type === 'a2-input' && props.prop) {
+      form[props.prop] = ''
+    }
+    if (type === 'a2-date-time-input' && props.prop) {
+      form[props.prop] = ''
+    }
+
+    // Traverse children
+    if (n.children && Array.isArray(n.children)) {
+      n.children.forEach(traverse)
+    }
+    if (n.slots) {
+      Object.values(n.slots).forEach(slotChildren => {
+        if (Array.isArray(slotChildren)) {
+          slotChildren.forEach(traverse)
+        }
+      })
+    }
+  }
+
+  traverse(node)
+  return { form }
+}
+
+// Generate form data from flat nodes (new format)
+function generateFormDataFromFlat(nodes: FlatA2Node[]): FormDataResult {
+  const form: Record<string, string> = {}
+
+  nodes.forEach((node) => {
+    if (node.value?.path) {
+      const pathMatch = node.value.path.match(/\/form\/(.+)/)
+      if (pathMatch) {
+        form[pathMatch[1]] = ''
+      }
+    }
+  })
+
+  return { form }
+}
 
 // State
 const rootRef = ref<HTMLElement | null>(null)
 const tree = shallowRef<A2Node | null>(props.initialTree || null)
+const flatNodes = shallowRef<FlatA2Node[] | null>(null)
 const data = ref<Record<string, any>>({ ...props.initialData })
 const error = ref<Error | null>(null)
 const loading = ref(false)
@@ -72,6 +139,19 @@ const renderContent = computed(() => {
   })
 })
 
+// Form Data - computed from current tree
+const formData = computed<FormDataResult>(() => {
+  if (flatNodes.value && flatNodes.value.length > 0) {
+    return generateFormDataFromFlat(flatNodes.value)
+  }
+  return generateFormDataFromTree(tree.value)
+})
+
+// Get current form data
+function getFormData(): FormDataResult {
+  return formData.value
+}
+
 // Handle events from components
 function handleEvent(event: string, payload: any, context: any): void {
   console.log('A2UI Event:', event, payload, context)
@@ -92,6 +172,8 @@ function initProcessor(): void {
         // Check if it's a flat format (array of nodes with id/component fields)
         const nodeData = message.node
         if (Array.isArray(nodeData) && nodeData.length > 0 && nodeData[0].id && nodeData[0].component) {
+          // Save flat nodes for form data generation
+          flatNodes.value = nodeData as FlatA2Node[]
           // Convert flat format to tree format
           const convertedTree = convertFlatToTree(nodeData as FlatA2Node[])
           if (convertedTree) {
@@ -100,10 +182,12 @@ function initProcessor(): void {
             error.value = new Error('Failed to convert flat format to tree')
           }
         } else {
-          // Regular tree format
+          // Regular tree format - clear flat nodes
+          flatNodes.value = null
           tree.value = message.node
         }
       } else if (message.type === 'node_update') {
+        flatNodes.value = null
         tree.value = message.node
       } else if (message.type === 'node_append' && message.parentId) {
         // Handle node append
@@ -191,6 +275,8 @@ defineExpose({
   updateTree,
   getData,
   getTree,
+  getFormData,
+  formData,
   processMessage,
   processStream,
 })
@@ -216,9 +302,15 @@ watch(() => props.initialData, (newData) => {
 
 watch(() => props.initialTree, (newTree) => {
   if (newTree) {
+    flatNodes.value = null
     tree.value = newTree
   }
 })
+
+// Watch formData changes and emit event
+watch(formData, (newFormData) => {
+  emit('formDataChange', newFormData)
+}, { deep: true })
 </script>
 
 <style scoped>
