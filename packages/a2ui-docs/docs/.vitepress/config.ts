@@ -1,9 +1,12 @@
 import { defineConfig } from 'vitepress'
 import path from 'path'
 
+// GitHub Pages 需要设置 base，本地开发不需要
+const base = process.env.NODE_ENV === 'production' ? '/a2ui-vue-engine/' : '/'
+
 export default defineConfig({
   title: 'A2UI',
-  base: '/a2ui-vue-engine/',
+  base,
 
   vite: {
     server: {

@@ -202,4 +202,3 @@ MIT License
 - [Documentation](https://chenhui9392.github.io/a2ui-vue-engine/)
 - [GitHub](https://github.com/chenhui9392/a2ui-vue-engine)
 - [Issues](https://github.com/chenhui9392/a2ui-vue-engine/issues)
-- [NPM](https://www.npmjs.com/package/a2ui-vue-engine)
