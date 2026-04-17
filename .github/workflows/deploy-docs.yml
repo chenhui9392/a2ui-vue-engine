@@ -49,6 +49,8 @@ jobs:
 
       - name: Setup Pages
         uses: actions/configure-pages@v4
+        with:
+          enablement: true
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
@@ -56,6 +58,9 @@ jobs:
           path: packages/a2ui-docs/docs/.vitepress/dist
 
   deploy:
+    permissions:
+      pages: write
+      id-token: write
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
