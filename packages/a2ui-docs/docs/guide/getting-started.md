@@ -134,6 +134,6 @@ A2UI 提供多种预构建组件：
 
 ## 下一步
 
-- [架构设计](/zh/guide/architecture) - 了解内部架构
-- [JSON 规范](/zh/guide/json-schema) - 详细 Schema 参考
-- [组件文档](/zh/components/) - 浏览所有可用组件
+- [架构设计](/guide/architecture) - 了解内部架构
+- [JSON 规范](/guide/json-schema) - 详细 Schema 参考
+- [组件文档](/components/) - 浏览所有可用组件
