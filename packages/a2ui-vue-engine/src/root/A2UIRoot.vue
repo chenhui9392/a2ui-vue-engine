@@ -150,12 +150,26 @@ const renderContent = computed(() => {
   })
 })
 
-// Form Data - computed from current tree
+// Form Data - computed from current tree and live data
+// This combines initial form field definitions with live user input
 const formData = computed<FormDataResult>(() => {
+  // Get form field keys from schema
+  let formKeys: Record<string, any> = {}
+
   if (flatNodes.value && flatNodes.value.length > 0) {
-    return generateFormDataFromFlat(flatNodes.value)
+    formKeys = extractFormDataPaths(flatNodes.value)
+  } else if (tree.value) {
+    formKeys = generateFormDataFromTree(tree.value).form
   }
-  return generateFormDataFromTree(tree.value)
+
+  // Merge with current live data from data.form
+  const liveForm: Record<string, any> = {}
+  for (const key of Object.keys(formKeys)) {
+    // Use live data if available, otherwise use default/empty value
+    liveForm[key] = data.value.form?.[key] ?? formKeys[key]
+  }
+
+  return { form: liveForm }
 })
 
 // Get current form data

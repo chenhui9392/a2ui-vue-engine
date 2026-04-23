@@ -12,6 +12,48 @@ const SELF_RENDER_CHILDREN_TYPES = [
   'a2-button',
 ]
 
+// Helper function to set value at a nested path in data
+function setPathValue(obj: Record<string, any>, path: string, value: any): void {
+  if (!path) return
+
+  const keys = path.split('.')
+  let current = obj
+
+  for (let i = 0; i < keys.length - 1; i++) {
+    const key = keys[i]
+    // Handle array index access (e.g., "items[0]")
+    const arrayMatch = key.match(/^(\w+)\[(\d+)\]$/)
+    if (arrayMatch) {
+      const [, arrayKey, index] = arrayMatch
+      if (!current[arrayKey]) {
+        current[arrayKey] = []
+      }
+      current = current[arrayKey][parseInt(index, 10)]
+      if (!current) {
+        current = current[arrayKey][parseInt(index, 10)] = {}
+      }
+    } else {
+      if (!current[key]) {
+        current[key] = {}
+      }
+      current = current[key]
+    }
+  }
+
+  // Set the final key
+  const finalKey = keys[keys.length - 1]
+  const finalArrayMatch = finalKey.match(/^(\w+)\[(\d+)\]$/)
+  if (finalArrayMatch) {
+    const [, arrayKey, index] = finalArrayMatch
+    if (!current[arrayKey]) {
+      current[arrayKey] = []
+    }
+    current[arrayKey][parseInt(index, 10)] = value
+  } else {
+    current[finalKey] = value
+  }
+}
+
 // Render a single A2Node to VNode
 export function renderNode(
   node: A2Node,
@@ -51,6 +93,17 @@ export function renderNode(
 
   // Setup event handlers from actions
   const eventHandlers = createEventHandlers(node.actions || [], componentContext)
+
+  // Add two-way binding handler for modelValue
+  if (node.bindings?.modelValue && node.bindings.modelValue.type === 'path') {
+    const bindingPath = node.bindings.modelValue.value
+    eventHandlers['onUpdate:modelValue'] = (value: any) => {
+      // Update the data at the binding path
+      setPathValue(data, bindingPath, value)
+      // Trigger re-render context update
+      onEvent?.('dataUpdate', { path: bindingPath, value }, componentContext)
+    }
+  }
 
   // Pass children and context as props for components that render them internally
   const childrenProps: Record<string, any> = {}

@@ -180,7 +180,7 @@ const mockExamples: Record<string, string> = {
     "component": "TextField",
     "label": "姓名",
     "placeholder": "请输入员工姓名",
-    "value": { "path": "/form/name" }
+    "value": { "path": "/form/name", "default": "张三" }
   },
   {
     "id": "gender-field",
@@ -191,7 +191,7 @@ const mockExamples: Record<string, string> = {
       { "label": "男", "value": "male" },
       { "label": "女", "value": "female" }
     ],
-    "value": { "path": "/form/gender" }
+    "value": { "path": "/form/gender", "default": "male" }
   },
   {
     "id": "education-field",
@@ -669,7 +669,7 @@ const mockExamples: Record<string, string> = {
     "label": "短文本输入",
     "placeholder": "请输入",
     "variant": "shortText",
-    "value": { "path": "/form/shortInput" }
+    "value": { "path": "/form/shortInput", "default": "默认值示例" }
   },
   {
     "id": "textfield-required",
@@ -708,7 +708,7 @@ const mockExamples: Record<string, string> = {
     ],
     "clearable": true,
     "required": true,
-    "value": { "path": "/form/selectField" }
+    "value": { "path": "/form/selectField", "default": "opt1" }
   },
   {
     "id": "form-row-3",
