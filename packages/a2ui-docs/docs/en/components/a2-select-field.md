@@ -23,6 +23,46 @@ interface SelectOption {
 }
 ```
 
+## Default Value (Flat Format)
+
+In flat format, you can set an initial selected option using `value.default`:
+
+```json
+{
+  "id": "genderField",
+  "component": "SelectField",
+  "label": "Gender",
+  "options": [
+    { "label": "Male", "value": "male" },
+    { "label": "Female", "value": "female" }
+  ],
+  "value": { "path": "/form/gender", "default": "male" }
+}
+```
+
+<PlaygroundEmbed 
+  title="SelectField with Default Value"
+  :json-example='[
+  {
+    "id": "root",
+    "component": "Card",
+    "child": "genderField",
+    "width": "xs"
+  },
+  {
+    "id": "genderField",
+    "component": "SelectField",
+    "label": "Gender",
+    "placeholder": "Select gender",
+    "options": [
+      { "label": "Male", "value": "male" },
+      { "label": "Female", "value": "female" }
+    ],
+    "value": { "path": "/form/gender", "default": "male" }
+  }
+]'
+/>
+
 ## Basic Example
 
 <PlaygroundEmbed 

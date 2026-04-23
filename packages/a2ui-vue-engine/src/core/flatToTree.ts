@@ -226,11 +226,18 @@ function buildProps(flatNode: FlatA2Node): Record<string, any> {
 function buildBindings(flatNode: FlatA2Node): Record<string, BindingConfig> | undefined {
   if (!flatNode.value?.path) return undefined
 
-  // Convert /form/name to 'modelValue' binding
+  // Convert /form/name to form.name for path resolution
+  let bindingPath = flatNode.value.path
+  if (bindingPath.startsWith('/')) {
+    // Remove leading slash and convert slashes to dots
+    bindingPath = bindingPath.substring(1).replace(/\//g, '.')
+  }
+
+  // Create modelValue binding
   const bindings: Record<string, BindingConfig> = {
     modelValue: {
       type: 'path',
-      value: flatNode.value.path,
+      value: bindingPath,
     },
   }
 
@@ -303,17 +310,18 @@ function buildChildren(
 }
 
 /**
- * Get form data paths from flat nodes
+ * Get form data paths from flat nodes with default values
  */
-export function extractFormDataPaths(flatNodes: FlatA2Node[]): Record<string, string> {
-  const form: Record<string, string> = {}
+export function extractFormDataPaths(flatNodes: FlatA2Node[]): Record<string, any> {
+  const form: Record<string, any> = {}
 
   flatNodes.forEach(node => {
     if (node.value?.path) {
       // Extract path like /form/name -> name
       const pathMatch = node.value.path.match(/\/form\/(.+)/)
       if (pathMatch) {
-        form[pathMatch[1]] = ''
+        // Use default value if provided, otherwise empty string
+        form[pathMatch[1]] = node.value.default ?? ''
       }
     }
   })

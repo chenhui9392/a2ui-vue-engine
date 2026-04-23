@@ -27,7 +27,7 @@ import { ref, computed, watch, onMounted, onUnmounted, defineComponent, provide,
 import { ElConfigProvider } from 'element-plus'
 import zhCn from 'element-plus/es/locale/lang/zh-cn.mjs'
 import type { A2Node, A2Message, A2UIRootProps, RenderContext, ComponentMapper, FlatA2Node, FormDataResult } from '../types'
-import { MessageProcessor, createMessageProcessor, convertFlatToTree } from '../core'
+import { MessageProcessor, createMessageProcessor, convertFlatToTree, extractFormDataPaths } from '../core'
 import { renderTree, createRenderContext } from '../renderer'
 import { createComponentMap } from '../components'
 
@@ -92,13 +92,24 @@ function generateFormDataFromTree(node: A2Node | null): FormDataResult {
 
 // Generate form data from flat nodes (new format)
 function generateFormDataFromFlat(nodes: FlatA2Node[]): FormDataResult {
-  const form: Record<string, string> = {}
+  const form: Record<string, any> = {}
 
   nodes.forEach((node) => {
     if (node.value?.path) {
       const pathMatch = node.value.path.match(/\/form\/(.+)/)
       if (pathMatch) {
-        form[pathMatch[1]] = ''
+        // Use default value if provided, otherwise empty string
+        form[pathMatch[1]] = node.value.default ?? ''
+
+        // Initialize data binding with default value
+        if (node.value.default !== undefined && node.value.default !== '') {
+          // Build the full path for data binding (e.g., form.name)
+          const fullPath = pathMatch[1]
+          if (!data.value.form) {
+            data.value.form = {}
+          }
+          data.value.form[fullPath] = node.value.default
+        }
       }
     }
   })
@@ -174,6 +185,13 @@ function initProcessor(): void {
         if (Array.isArray(nodeData) && nodeData.length > 0 && nodeData[0].id && nodeData[0].component) {
           // Save flat nodes for form data generation
           flatNodes.value = nodeData as FlatA2Node[]
+          // Initialize data with default values from flat nodes
+          const defaultFormData = extractFormDataPaths(nodeData as FlatA2Node[])
+          if (!data.value.form) {
+            data.value.form = {}
+          }
+          // Merge default values into data.form
+          data.value.form = { ...data.value.form, ...defaultFormData }
           // Convert flat format to tree format
           const convertedTree = convertFlatToTree(nodeData as FlatA2Node[])
           if (convertedTree) {

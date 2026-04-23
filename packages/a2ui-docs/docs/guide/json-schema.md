@@ -85,6 +85,44 @@ interface BindingConfig {
 }
 ```
 
+### 默认值
+
+扁平格式支持在 `value` 对象中设置默认值，组件初始化时会自动显示：
+
+```json
+{
+  "id": "name-field",
+  "component": "TextField",
+  "label": "姓名",
+  "value": { "path": "/form/name", "default": "张三" }
+}
+```
+
+```typescript
+interface FlatA2Node {
+  // ...
+  value?: {
+    path: string
+    default?: string | number | boolean  // 默认值
+  }
+}
+```
+
+支持的类型：
+- `string` - 文本输入框默认值
+- `number` - 数字输入默认值
+- `boolean` - 布尔类型默认值（如开关组件）
+
+示例：
+
+```json
+[
+  { "id": "name", "component": "TextField", "value": { "path": "/form/name", "default": "张三" } },
+  { "id": "gender", "component": "SelectField", "options": [...], "value": { "path": "/form/gender", "default": "male" } },
+  { "id": "age", "component": "TextField", "value": { "path": "/form/age", "default": 25 } }
+]
+```
+
 ## 动作配置
 
 定义事件处理：

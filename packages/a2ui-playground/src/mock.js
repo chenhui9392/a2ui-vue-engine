@@ -49,7 +49,7 @@ export const defaultJson = `[
     "component": "TextField",
     "label": "姓名",
     "placeholder": "请输入员工姓名",
-    "value": { "path": "/form/name" }
+    "value": { "path": "/form/name", "default": "张三" }
   },
   {
     "id": "gender-field",
@@ -60,7 +60,7 @@ export const defaultJson = `[
       { "label": "男", "value": "male" },
       { "label": "女", "value": "female" }
     ],
-    "value": { "path": "/form/gender" }
+    "value": { "path": "/form/gender", "default": "male" }
   },
   {
     "id": "education-field",

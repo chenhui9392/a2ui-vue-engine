@@ -85,6 +85,44 @@ Example:
 }
 ```
 
+### Default Values
+
+Flat format supports setting default values in the `value` object. Components will display the default value on initialization:
+
+```json
+{
+  "id": "name-field",
+  "component": "TextField",
+  "label": "Name",
+  "value": { "path": "/form/name", "default": "John Doe" }
+}
+```
+
+```typescript
+interface FlatA2Node {
+  // ...
+  value?: {
+    path: string
+    default?: string | number | boolean  // Default value
+  }
+}
+```
+
+Supported types:
+- `string` - Default text input value
+- `number` - Default numeric value
+- `boolean` - Default boolean value (e.g., for toggle components)
+
+Examples:
+
+```json
+[
+  { "id": "name", "component": "TextField", "value": { "path": "/form/name", "default": "John Doe" } },
+  { "id": "gender", "component": "SelectField", "options": [...], "value": { "path": "/form/gender", "default": "male" } },
+  { "id": "age", "component": "TextField", "value": { "path": "/form/age", "default": 25 } }
+]
+```
+
 ## Actions
 
 Define event handlers:

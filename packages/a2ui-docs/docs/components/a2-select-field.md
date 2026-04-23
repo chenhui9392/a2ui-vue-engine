@@ -23,6 +23,46 @@ interface SelectOption {
 }
 ```
 
+## 扁平格式默认值
+
+在扁平格式中，可以通过 `value.default` 设置初始选中项：
+
+```json
+{
+  "id": "genderField",
+  "component": "SelectField",
+  "label": "性别",
+  "options": [
+    { "label": "男", "value": "male" },
+    { "label": "女", "value": "female" }
+  ],
+  "value": { "path": "/form/gender", "default": "male" }
+}
+```
+
+<PlaygroundEmbed 
+  title="带默认值的下拉框"
+  :json-example='[
+  {
+    "id": "root",
+    "component": "Card",
+    "child": "genderField",
+    "width": "xs"
+  },
+  {
+    "id": "genderField",
+    "component": "SelectField",
+    "label": "性别",
+    "placeholder": "请选择性别",
+    "options": [
+      { "label": "男", "value": "male" },
+      { "label": "女", "value": "female" }
+    ],
+    "value": { "path": "/form/gender", "default": "male" }
+  }
+]'
+/>
+
 ## 基础示例
 
 <PlaygroundEmbed 

@@ -14,6 +14,38 @@
 | `disabled` | boolean | false | 禁用状态 |
 | `required` | boolean | false | 必填字段 |
 
+## 扁平格式默认值
+
+在扁平格式中，可以通过 `value.default` 设置初始默认值：
+
+```json
+{
+  "id": "nameField",
+  "component": "TextField",
+  "label": "姓名",
+  "value": { "path": "/form/name", "default": "张三" }
+}
+```
+
+<PlaygroundEmbed 
+  title="带默认值的文本字段"
+  :json-example='[
+  {
+    "id": "root",
+    "component": "Card",
+    "child": "nameField",
+    "width": "xs"
+  },
+  {
+    "id": "nameField",
+    "component": "TextField",
+    "label": "姓名",
+    "placeholder": "请输入姓名",
+    "value": { "path": "/form/name", "default": "张三" }
+  }
+]'
+/>
+
 ## 基础示例
 
 <PlaygroundEmbed 

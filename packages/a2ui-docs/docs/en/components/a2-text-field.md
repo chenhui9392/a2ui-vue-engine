@@ -14,6 +14,38 @@ Form field component with label and input.
 | `disabled` | boolean | false | Disabled state |
 | `required` | boolean | false | Required field |
 
+## Default Value (Flat Format)
+
+In flat format, you can set an initial default value using `value.default`:
+
+```json
+{
+  "id": "nameField",
+  "component": "TextField",
+  "label": "Name",
+  "value": { "path": "/form/name", "default": "John Doe" }
+}
+```
+
+<PlaygroundEmbed 
+  title="TextField with Default Value"
+  :json-example='[
+  {
+    "id": "root",
+    "component": "Card",
+    "child": "nameField",
+    "width": "xs"
+  },
+  {
+    "id": "nameField",
+    "component": "TextField",
+    "label": "Name",
+    "placeholder": "Enter your name",
+    "value": { "path": "/form/name", "default": "John Doe" }
+  }
+]'
+/>
+
 ## Basic Example
 
 <PlaygroundEmbed 

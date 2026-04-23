@@ -14,7 +14,7 @@ export interface FlatA2Node {
   text?: string // Text组件的文本内容，或Button的按钮文字
   label?: string // TextField/DateTimeInput/SelectField/ChoicePicker的标签
   variant?: string // Text/TextField的变体：shortText, longText, h3等；ChoicePicker: mutuallyExclusive
-  value?: { path: string } // 数据绑定路径
+  value?: { path: string; default?: string | number | boolean } // 数据绑定路径及默认值
   align?: string // Row/Column的对齐方式：center, stretch, start, end
   justify?: string // Row的水平分布：start, end, center, space-between
   name?: string // Icon的图标名称
