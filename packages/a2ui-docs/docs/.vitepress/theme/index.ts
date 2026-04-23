@@ -3,6 +3,7 @@ import type { Theme } from 'vitepress'
 
 // Element Plus
 import ElementPlus from 'element-plus'
+import { ID_INJECTION_KEY } from 'element-plus'
 import 'element-plus/dist/index.css'
 import * as ElementPlusIconsVue from '@element-plus/icons-vue'
 
@@ -20,8 +21,12 @@ import PlaygroundPage from './components/PlaygroundPage.vue'
 export default {
   extends: DefaultTheme,
   enhanceApp({ app }) {
-    // Register Element Plus
+    // Register Element Plus with SSR ID injection
     app.use(ElementPlus)
+    app.provide(ID_INJECTION_KEY, {
+      prefix: Math.floor(Math.random() * 10000),
+      current: 0,
+    })
 
     // Register Element Plus Icons
     for (const [key, component] of Object.entries(ElementPlusIconsVue)) {
