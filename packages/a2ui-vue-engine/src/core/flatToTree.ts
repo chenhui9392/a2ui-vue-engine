@@ -172,6 +172,16 @@ function buildProps(flatNode: FlatA2Node): Record<string, any> {
     props.width = flatNode.width
   }
 
+  // Card 头部背景色
+  if (flatNode.headerBgColor) {
+    props.headerBgColor = flatNode.headerBgColor
+  }
+
+  // Card 头部图标
+  if (flatNode.headerIcon) {
+    props.headerIcon = flatNode.headerIcon
+  }
+
   // Textarea rows
   if (flatNode.rows !== undefined) {
     props.rows = flatNode.rows

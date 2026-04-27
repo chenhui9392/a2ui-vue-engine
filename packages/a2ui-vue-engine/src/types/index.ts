@@ -25,6 +25,10 @@ export interface FlatA2Node {
   enableTime?: boolean // DateTimeInput是否启用时间
   // Card 宽度标准：xs=300px, sm=400px, md=560px, lg=720px, xl=960px, full=100%
   width?: 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'full'
+  // Card 头部背景色
+  headerBgColor?: string
+  // Card 头部图标
+  headerIcon?: string
   // Textarea 相关属性
   rows?: number
   placeholder?: string

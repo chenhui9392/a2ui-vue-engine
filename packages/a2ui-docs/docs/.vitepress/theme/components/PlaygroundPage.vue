@@ -13,6 +13,7 @@
           <el-option label="网络权限申请单" value="network" />
           <el-option label="创建工单" value="workorder" />
           <el-option label="选项卡片示例" value="optionCard" />
+          <el-option label="创建工单卡片" value="createTicket" />
         </el-select>
         <el-tooltip content="执行 JSON 渲染" placement="bottom">
           <el-button type="primary" @click="handleRun">
@@ -1089,6 +1090,124 @@ const mockExamples: Record<string, string> = {
     "text": "提交申请",
     "type": "primary",
     "name": "Check"
+  }
+]`,
+  createTicket: `[
+  {
+    "id": "root",
+    "component": "Card",
+    "header": "创建工单",
+    "headerIcon": "Folder",
+    "headerBgColor": "#F8F8FB",
+    "children": ["main-column"],
+    "width": "md"
+  },
+  {
+    "id": "main-column",
+    "component": "Column",
+    "children": [
+      "system-row",
+      "system-picker",
+      "module-row",
+      "module-picker",
+      "content-row",
+      "content-field",
+      "submit-row"
+    ],
+    "align": "stretch",
+    "gap": 16
+  },
+  {
+    "id": "system-row",
+    "component": "Row",
+    "children": ["system-icon", "system-label"],
+    "align": "center"
+  },
+  {
+    "id": "system-icon",
+    "component": "Icon",
+    "name": "Monitor"
+  },
+  {
+    "id": "system-label",
+    "component": "Text",
+    "text": "系统名称",
+    "variant": "shortText"
+  },
+  {
+    "id": "system-picker",
+    "component": "ChoicePicker",
+    "variant": "mutuallyExclusive",
+    "displayStyle": "chips",
+    "choiceOptions": [
+      { "label": "国内GOMS", "value": "goms_cn" }
+    ],
+    "value": { "path": "/form/system", "default": "goms_cn" }
+  },
+  {
+    "id": "module-row",
+    "component": "Row",
+    "children": ["module-icon", "module-label"],
+    "align": "center"
+  },
+  {
+    "id": "module-icon",
+    "component": "Icon",
+    "name": "Grid"
+  },
+  {
+    "id": "module-label",
+    "component": "Text",
+    "text": "模块名称",
+    "variant": "shortText"
+  },
+  {
+    "id": "module-picker",
+    "component": "ChoicePicker",
+    "variant": "mutuallyExclusive",
+    "displayStyle": "chips",
+    "choiceOptions": [
+      { "label": "订单管理", "value": "order" }
+    ],
+    "value": { "path": "/form/module", "default": "order" }
+  },
+  {
+    "id": "content-row",
+    "component": "Row",
+    "children": ["content-icon", "content-label"],
+    "align": "center"
+  },
+  {
+    "id": "content-icon",
+    "component": "Icon",
+    "name": "EditPen"
+  },
+  {
+    "id": "content-label",
+    "component": "Text",
+    "text": "提问内容",
+    "variant": "shortText"
+  },
+  {
+    "id": "content-field",
+    "component": "TextField",
+    "variant": "longText",
+    "rows": 3,
+    "placeholder": "请输入问题描述...",
+    "value": { "path": "/form/content" }
+  },
+  {
+    "id": "submit-row",
+    "component": "Row",
+    "children": ["submit-btn"],
+    "justify": "end"
+  },
+  {
+    "id": "submit-btn",
+    "component": "Button",
+    "text": "提交",
+    "type": "primary",
+    "name": "CircleCheck"
   }
 ]`
 }
