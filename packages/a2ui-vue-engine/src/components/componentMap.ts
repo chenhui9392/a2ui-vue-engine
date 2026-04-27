@@ -2,7 +2,7 @@
  * @Author: hui.chenn
  * @Description: Component map for A2UI
  * @Date: 2026-04-15 15:39:39
- * @LastEditTime: 2026-04-15 16:39:28
+ * @LastEditTime: 2026-04-24 10:05:00
  * @LastEditors: hui.chenn
  */
 import type { ComponentMapper } from '../types'
@@ -22,6 +22,7 @@ import A2Icon from './A2Icon.vue'
 import A2DateTimeInput from './A2DateTimeInput.vue'
 import A2SelectField from './A2SelectField.vue'
 import A2ChoicePicker from './A2ChoicePicker.vue'
+import A2OptionCard from './A2OptionCard.vue'
 
 // Default component map - can be extended or overridden
 export const defaultComponentMap: ComponentMapper = {
@@ -39,6 +40,7 @@ export const defaultComponentMap: ComponentMapper = {
   'a2-date-time-input': A2DateTimeInput,
   'a2-select-field': A2SelectField,
   'a2-choice-picker': A2ChoicePicker,
+  'a2-option-card': A2OptionCard,
 }
 
 // Global component map instance

@@ -8,16 +8,16 @@ export interface FormDataResult {
 // 扁平化节点格式（新格式）- 节点通过 child/children 引用其他节点ID
 export interface FlatA2Node {
   id: string
-  component: string // 组件名称：Card, Row, Column, Text, TextField, DateTimeInput, Button, Icon, SelectField, ChoicePicker
+  component: string // 组件名称：Card, Row, Column, Text, TextField, DateTimeInput, Button, Icon, SelectField, ChoicePicker, OptionCard
   child?: string | string[] // 单个子节点ID或ID数组
   children?: string[] // 子节点ID数组
   text?: string // Text组件的文本内容，或Button的按钮文字
-  label?: string // TextField/DateTimeInput/SelectField/ChoicePicker的标签
+  label?: string // TextField/DateTimeInput/SelectField/ChoicePicker的标签；OptionCard的标题
   variant?: string // Text/TextField的变体：shortText, longText, h3等；ChoicePicker: mutuallyExclusive
   value?: { path: string; default?: string | number | boolean } // 数据绑定路径及默认值
   align?: string // Row/Column的对齐方式：center, stretch, start, end
   justify?: string // Row的水平分布：start, end, center, space-between
-  name?: string // Icon的图标名称
+  name?: string // Icon的图标名称；OptionCard标题前的图标名称
   type?: string // Button的类型：primary, success, warning, danger, info, default
   gap?: number // Column/Row的间距（px）
   action?: { event?: { name: string } } // Button的事件配置
@@ -42,6 +42,12 @@ export interface FlatA2Node {
   disabled?: boolean
   // 必填
   required?: boolean
+  // OptionCard 内容文本（第二行显示）
+  content?: string
+  // OptionCard 是否选中
+  selected?: boolean
+  // OptionCard 卡片代表的值（用于单选互斥）
+  cardValue?: string | number | boolean
 }
 
 // A2UI Node Schema (树形格式 - 用于渲染)

@@ -12,6 +12,7 @@
           <el-option label="员工信息登记表" value="employee" />
           <el-option label="网络权限申请单" value="network" />
           <el-option label="创建工单" value="workorder" />
+          <el-option label="选项卡片示例" value="optionCard" />
         </el-select>
         <el-tooltip content="执行 JSON 渲染" placement="bottom">
           <el-button type="primary" @click="handleRun">
@@ -1008,6 +1009,87 @@ const mockExamples: Record<string, string> = {
     "child": "submit-btn-text",
     "type": "primary"
   }
+]`,
+  optionCard: `[
+  {
+    "id": "root",
+    "component": "Card",
+    "child": "main-column",
+    "width": "lg"
+  },
+  {
+    "id": "main-column",
+    "component": "Column",
+    "children": [
+      "page-title",
+      "cards-row",
+      "submit-row"
+    ],
+    "align": "stretch",
+    "gap": 20
+  },
+  {
+    "id": "page-title",
+    "component": "Text",
+    "text": "选择审批方案",
+    "variant": "h3"
+  },
+  {
+    "id": "cards-row",
+    "component": "Row",
+    "children": ["card1", "card2", "card3", "card4"],
+    "gap": 12,
+    "align": "stretch"
+  },
+  {
+    "id": "card1",
+    "component": "OptionCard",
+    "label": "快速审批",
+    "content": "适用于紧急事项，审批周期1天内完成",
+    "name": "Folder",
+    "cardValue": "quick",
+    "value": { "path": "/form/approvalType", "default": "quick" }
+  },
+  {
+    "id": "card2",
+    "component": "OptionCard",
+    "label": "标准审批",
+    "content": "适用于常规事项，审批周期3-5天",
+    "name": "Document",
+    "cardValue": "standard",
+    "value": { "path": "/form/approvalType" }
+  },
+  {
+    "id": "card3",
+    "component": "OptionCard",
+    "label": "详细审批",
+    "content": "适用于复杂事项，审批周期7-10天",
+    "name": "Setting",
+    "cardValue": "detailed",
+    "value": { "path": "/form/approvalType" }
+  },
+  {
+    "id": "card4",
+    "component": "OptionCard",
+    "label": "自定义审批",
+    "content": "根据实际情况灵活调整审批流程",
+    "name": "Star",
+    "cardValue": "custom",
+    "value": { "path": "/form/approvalType" }
+  },
+  {
+    "id": "submit-row",
+    "component": "Row",
+    "children": ["submit-btn"],
+    "justify": "end"
+  },
+  {
+    "id": "submit-btn",
+    "component": "Button",
+    "text": "提交申请",
+    "type": "primary",
+    "name": "Check"
+  }
 ]`
 }
 
@@ -1172,6 +1254,7 @@ function handleReset() {
 // Handle action
 function handleAction(payload: any) {
   console.log('A2UI Action:', payload)
+
   ElMessage.info(`Action: ${payload.type}`)
 }
 

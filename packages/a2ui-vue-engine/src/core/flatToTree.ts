@@ -217,6 +217,34 @@ function buildProps(flatNode: FlatA2Node): Record<string, any> {
     props.required = flatNode.required
   }
 
+  // OptionCard 组件属性
+  if (flatNode.component === 'OptionCard') {
+    // 标题使用 label，标题前的图标使用 name
+    if (flatNode.label) {
+      props.title = flatNode.label
+    }
+    // 内容文本
+    if (flatNode.content) {
+      props.content = flatNode.content
+    }
+    // 图标
+    if (flatNode.name) {
+      props.icon = flatNode.name
+    }
+    // 选中状态
+    if (flatNode.selected !== undefined) {
+      props.selected = flatNode.selected
+    }
+    // 尺寸
+    if (flatNode.variant && ['small', 'default', 'large'].includes(flatNode.variant)) {
+      props.size = flatNode.variant
+    }
+    // 卡片代表的值（用于单选互斥）
+    if (flatNode.cardValue !== undefined) {
+      props.value = flatNode.cardValue
+    }
+  }
+
   return props
 }
 

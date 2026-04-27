@@ -10,6 +10,7 @@ const SELF_RENDER_CHILDREN_TYPES = [
   'a2-column',
   'a2-list',
   'a2-button',
+  'a2-option-card',
 ]
 
 // Helper function to set value at a nested path in data
