@@ -10,7 +10,7 @@ Button component with action support.
 | `type` | `primary | success | warning | danger | info | default` | `default` | Button type |
 | `size` | `large | default | small` | `default` | Button size |
 | `disabled` | boolean | false | Disabled state |
-| `icon` | string | - | Icon name |
+| `icon` | string | - | Icon name (submit/save/confirm/ok buttons auto-use `Promotion` icon) |
 
 ## Basic Example
 

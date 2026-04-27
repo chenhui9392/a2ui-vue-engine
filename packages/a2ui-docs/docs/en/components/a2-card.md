@@ -7,7 +7,8 @@ Card container component with configurable width variants.
 | Property | Type | Default | Description |
 |----------|------|---------|-------------|
 | `width` | `xs | sm | md | lg | xl | full` | `md` | Card width |
-| `title` | string | - | Optional header title |
+| `header` | string | - | Header title (auto-shows Document icon when set) |
+| `headerBgColor` | string | `#F8F8FB` | Header background color |
 | `shadow` | `always | hover | never` | `hover` | Shadow behavior |
 
 ## Width Standards
@@ -30,7 +31,7 @@ Card container component with configurable width variants.
   "type": "a2-card",
   "props": {
     "width": "xs",
-    "title": "User Info"
+    "header": "User Info"
   },
   "children": [
     {
@@ -53,7 +54,7 @@ Card container component with configurable width variants.
   "type": "a2-card",
   "props": {
     "width": "xs",
-    "title": "Contact Form"
+    "header": "Contact Form"
   },
   "children": [
     {
@@ -93,7 +94,7 @@ Card container component with configurable width variants.
   "type": "a2-card",
   "props": {
     "width": "xs",
-    "title": "Card Title",
+    "header": "Card Title",
     "shadow": "hover"
   },
   "children": []

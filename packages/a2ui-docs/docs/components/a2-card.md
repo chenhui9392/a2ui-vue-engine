@@ -7,7 +7,8 @@
 | 属性 | 类型 | 默认值 | 说明 |
 |------|------|--------|------|
 | `width` | `xs | sm | md | lg | xl | full` | `md` | 卡片宽度 |
-| `title` | string | - | 可选标题 |
+| `header` | string | - | 头部标题（设置后自动显示 Document 图标） |
+| `headerBgColor` | string | `#F8F8FB` | 头部背景色 |
 | `shadow` | `always | hover | never` | `hover` | 阴影效果 |
 
 ## 宽度规格
@@ -30,7 +31,7 @@
   "type": "a2-card",
   "props": {
     "width": "xs",
-    "title": "用户信息"
+    "header": "用户信息"
   },
   "children": [
     {
@@ -53,7 +54,7 @@
   "type": "a2-card",
   "props": {
     "width": "xs",
-    "title": "联系表单"
+    "header": "联系表单"
   },
   "children": [
     {
@@ -87,7 +88,7 @@
   "type": "a2-card",
   "props": {
     "width": "xs",
-    "title": "卡片标题",
+    "header": "卡片标题",
     "shadow": "hover"
   },
   "children": []

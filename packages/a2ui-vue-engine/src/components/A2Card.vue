@@ -9,7 +9,7 @@
   <div :class="cardClass" :style="cardStyle">
     <!-- 自定义头部区域 -->
     <div v-if="header" :class="headerClass" :style="headerStyleObj">
-      <component v-if="headerIcon" :is="resolvedIcon" class="card-header-icon" />
+      <component v-if="resolvedIcon" :is="resolvedIcon" class="card-header-icon" />
       <span class="card-header-text">{{ header }}</span>
     </div>
 
@@ -104,7 +104,7 @@ const cardStyle = computed(() => {
 })
 
 const headerClass = computed(() => {
-  return ['card-header', props.headerIcon ? 'card-header--with-icon' : ''].join(' ')
+  return ['card-header', props.header ? 'card-header--with-icon' : ''].join(' ')
 })
 
 const headerStyleObj = computed(() => ({
@@ -112,6 +112,23 @@ const headerStyleObj = computed(() => ({
 }))
 
 const resolvedIcon = computed(() => {
+  // 有 header 时固定显示 Document 图标
+  if (props.header) {
+    try {
+      const icon = resolveComponent('IconDocument')
+      if (icon && typeof icon !== 'string') return icon
+    } catch {
+      // Ignore
+    }
+    try {
+      const icon = resolveComponent('Document')
+      if (icon && typeof icon !== 'string') return icon
+    } catch {
+      // Ignore
+    }
+    return undefined
+  }
+
   if (!props.headerIcon) return undefined
 
   try {
@@ -167,7 +184,7 @@ export default {
 .a2-card {
   background: #FFFFFF;
   border: 1px solid #E4E7ED;
-  border-radius: 8px;
+  border-radius: 12px;
   overflow: hidden;
 }
 

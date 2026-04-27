@@ -25,6 +25,7 @@ A2UI provides a comprehensive set of JSON-driven components.
 
 - [A2Text](/en/components/a2-text) - Text display with variants
 - [A2Icon](/en/components/a2-icon) - Icon element
+- [A2InfoField](/en/components/a2-info-field) - Info display field (label + value)
 
 ### Action Components
 

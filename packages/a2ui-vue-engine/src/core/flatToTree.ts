@@ -45,6 +45,18 @@ export function convertFlatToTree(flatNodes: FlatA2Node[], rootId?: string): A2N
     // Build props from flat node properties
     const props: Record<string, any> = buildProps(flatNode)
 
+    // Row 包含按钮时默认右对齐
+    if (flatNode.component === 'Row' && !props.justify) {
+      const childIds = flatNode.children || []
+      const hasButton = childIds.some(childId => {
+        const childNode = nodeMap.get(childId)
+        return childNode?.component === 'Button'
+      })
+      if (hasButton) {
+        props.justify = 'end'
+      }
+    }
+
     // Build bindings
     const bindings: Record<string, BindingConfig> | undefined = buildBindings(flatNode)
 
@@ -154,8 +166,10 @@ function buildProps(flatNode: FlatA2Node): Record<string, any> {
     props.type = flatNode.type
   }
 
-  // Icon name
-  if (flatNode.name) {
+  // Icon name (兼容 name，优先使用 icon)
+  if (flatNode.icon) {
+    props.icon = flatNode.icon
+  } else if (flatNode.name) {
     props.icon = flatNode.name
   }
 
@@ -170,6 +184,11 @@ function buildProps(flatNode: FlatA2Node): Record<string, any> {
   // Card 宽度标准 - 仅适用于 Card 组件
   if (flatNode.width && flatNode.component === 'Card') {
     props.width = flatNode.width
+  }
+
+  // Card 头部标题
+  if (flatNode.header) {
+    props.header = flatNode.header
   }
 
   // Card 头部背景色
@@ -253,6 +272,27 @@ function buildProps(flatNode: FlatA2Node): Record<string, any> {
     if (flatNode.cardValue !== undefined) {
       props.value = flatNode.cardValue
     }
+  }
+
+  // InfoField 组件属性
+  if (flatNode.component === 'InfoField') {
+    // icon 已由通用逻辑处理
+    // label 已由通用逻辑处理
+    // variant 已由通用逻辑处理
+    // value 由 buildBindings 统一处理为 modelValue
+    // size 处理
+    if (flatNode.size) {
+      props.size = flatNode.size
+    }
+    // bgColor 处理
+    if (flatNode.bgColor) {
+      props.bgColor = flatNode.bgColor
+    }
+  }
+
+  // Button 自定义背景色
+  if (flatNode.component === 'Button' && flatNode.bgColor) {
+    props.bgColor = flatNode.bgColor
   }
 
   return props

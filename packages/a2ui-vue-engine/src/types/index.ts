@@ -18,6 +18,7 @@ export interface FlatA2Node {
   align?: string // Row/Column的对齐方式：center, stretch, start, end
   justify?: string // Row的水平分布：start, end, center, space-between
   name?: string // Icon的图标名称；OptionCard标题前的图标名称
+  icon?: string // 通用图标名称或图片URL（Button/InfoField等）
   type?: string // Button的类型：primary, success, warning, danger, info, default
   gap?: number // Column/Row的间距（px）
   action?: { event?: { name: string } } // Button的事件配置
@@ -25,6 +26,8 @@ export interface FlatA2Node {
   enableTime?: boolean // DateTimeInput是否启用时间
   // Card 宽度标准：xs=300px, sm=400px, md=560px, lg=720px, xl=960px, full=100%
   width?: 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'full'
+  // Card 头部标题
+  header?: string
   // Card 头部背景色
   headerBgColor?: string
   // Card 头部图标
@@ -52,6 +55,10 @@ export interface FlatA2Node {
   selected?: boolean
   // OptionCard 卡片代表的值（用于单选互斥）
   cardValue?: string | number | boolean
+  // Button/InfoField 自定义背景色
+  bgColor?: string
+  // InfoField/OptionCard 等的尺寸
+  size?: 'large' | 'default'
 }
 
 // A2UI Node Schema (树形格式 - 用于渲染)

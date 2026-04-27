@@ -23,6 +23,7 @@ import A2DateTimeInput from './A2DateTimeInput.vue'
 import A2SelectField from './A2SelectField.vue'
 import A2ChoicePicker from './A2ChoicePicker.vue'
 import A2OptionCard from './A2OptionCard.vue'
+import A2InfoField from './A2InfoField.vue'
 
 // Default component map - can be extended or overridden
 export const defaultComponentMap: ComponentMapper = {
@@ -41,6 +42,7 @@ export const defaultComponentMap: ComponentMapper = {
   'a2-select-field': A2SelectField,
   'a2-choice-picker': A2ChoicePicker,
   'a2-option-card': A2OptionCard,
+  'a2-info-field': A2InfoField,
 }
 
 // Global component map instance

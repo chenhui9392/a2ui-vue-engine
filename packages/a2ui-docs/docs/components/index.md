@@ -25,6 +25,7 @@ A2UI 提供完整的 JSON 驱动组件库。
 
 - [A2Text](/components/a2-text) - 文本展示，多种样式
 - [A2Icon](/components/a2-icon) - 图标元素
+- [A2InfoField](/components/a2-info-field) - 信息展示字段（标签+值）
 
 ### 操作组件
 

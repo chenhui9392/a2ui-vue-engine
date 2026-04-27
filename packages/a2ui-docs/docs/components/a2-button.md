@@ -10,7 +10,7 @@
 | `type` | `primary | success | warning | danger | info | default` | `default` | 按钮类型 |
 | `size` | `large | default | small` | `default` | 按钮大小 |
 | `disabled` | boolean | false | 禁用状态 |
-| `icon` | string | - | 图标名称 |
+| `icon` | string | - | 图标名称（提交/保存/确认/确定类按钮自动使用 `Promotion` 图标，无需配置） |
 
 ## 基础示例
 

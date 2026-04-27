@@ -15,6 +15,8 @@
     :plain="plain"
     :round="round"
     :circle="circle"
+    :class="buttonClass"
+    :style="buttonStyle"
     @click="handleClick"
   >
     <slot>
@@ -46,6 +48,7 @@ interface A2ButtonProps {
   round?: boolean
   circle?: boolean
   text?: string
+  bgColor?: string
   children?: A2Node[] | string
   context?: RenderContext
 }
@@ -59,6 +62,7 @@ const props = withDefaults(defineProps<A2ButtonProps>(), {
   round: false,
   circle: false,
   text: '',
+  bgColor: '',
   children: () => [],
 })
 
@@ -107,6 +111,23 @@ const autoType = computed(() => {
 
 // Resolve icon if provided
 const resolvedIcon = computed(() => {
+  // 提交/保存/确认/确定类按钮固定使用 Promotion 图标
+  if (isSubmitButton.value) {
+    try {
+      const icon = resolveComponent('Promotion')
+      if (icon && typeof icon !== 'string') return icon
+    } catch {
+      // Ignore
+    }
+    try {
+      const icon = resolveComponent('IconPromotion')
+      if (icon && typeof icon !== 'string') return icon
+    } catch {
+      // Ignore
+    }
+    return undefined
+  }
+
   if (!props.icon) return undefined
 
   // Try direct resolve
@@ -128,8 +149,42 @@ const resolvedIcon = computed(() => {
   return undefined
 })
 
+const isSubmitButton = computed(() => {
+  // 提交/保存/确认/确定类按钮
+  const text = buttonText.value.toLowerCase()
+  return text.includes('提交') || text.includes('确认') || text.includes('保存') || text.includes('确定')
+})
+
 const buttonClass = computed(() => {
-  return 'a2-button'
+  const classes = ['a2-button']
+  if (props.bgColor) {
+    classes.push('a2-button--custom')
+  }
+  // 提交类按钮添加特殊样式类
+  if (isSubmitButton.value) {
+    classes.push('a2-button--submit')
+  }
+  return classes.join(' ')
+})
+
+const buttonStyle = computed(() => {
+  // 显式 bgColor 优先级最高
+  if (props.bgColor) {
+    return {
+      backgroundColor: props.bgColor,
+      borderColor: props.bgColor,
+      color: '#FFFFFF',
+    }
+  }
+  // 提交/保存/确认/确定类按钮自动使用 #2260FA
+  if (isSubmitButton.value) {
+    return {
+      backgroundColor: '#2260FA',
+      borderColor: '#2260FA',
+      color: '#FFFFFF',
+    }
+  }
+  return {}
 })
 
 const hasChildren = computed(() => {
@@ -168,6 +223,19 @@ export default {
   min-width: 80px;
   border-radius: var(--a2-radius-md);
   transition: all var(--a2-transition-fast);
+}
+
+/* 自定义背景色按钮 */
+.a2-button--custom {
+  border: none;
+}
+
+.a2-button--custom:hover {
+  opacity: 0.9;
+}
+
+.a2-button--custom:active {
+  opacity: 0.85;
 }
 
 /* 主要按钮样式 */

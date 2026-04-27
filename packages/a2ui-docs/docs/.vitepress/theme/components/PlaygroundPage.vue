@@ -12,8 +12,6 @@
           <el-option label="员工信息登记表" value="employee" />
           <el-option label="网络权限申请单" value="network" />
           <el-option label="创建工单" value="workorder" />
-          <el-option label="选项卡片示例" value="optionCard" />
-          <el-option label="创建工单卡片" value="createTicket" />
         </el-select>
         <el-tooltip content="执行 JSON 渲染" placement="bottom">
           <el-button type="primary" @click="handleRun">
@@ -424,93 +422,51 @@ const mockExamples: Record<string, string> = {
     "id": "root",
     "component": "Card",
     "child": "main-column",
-    "width": "md"
+    "width": "md",
+    "header": "创建工单"
   },
   {
     "id": "main-column",
     "component": "Column",
     "children": [
-      "header-row",
-      "workorder-title-field",
-      "system-picker",
-      "module-picker",
-      "problem-desc-field",
-      "submit-button"
+      "system-field",
+      "module-field",
+      "question-field",
+      "submit-row"
     ],
     "align": "stretch",
-    "gap": 16
+    "gap": 20
   },
   {
-    "id": "header-row",
+    "id": "system-field",
+    "component": "InfoField",
+    "label": "系统名称",
+    "value": { "path": "/form/systemName", "default": "国内GOMS" },
+    "variant": "tag"
+  },
+  {
+    "id": "module-field",
+    "component": "InfoField",
+    "label": "模块名称",
+    "value": { "path": "/form/moduleName", "default": "订单管理" },
+    "variant": "tag"
+  },
+  {
+    "id": "question-field",
+    "component": "InfoField",
+    "label": "提问内容",
+    "value": { "path": "/form/question", "default": "提问内容提问内容提问内容，提问内容提问内容提问内容提问内容提问内容提问内容提问内容提问内容提问内容，提问内容提问内容。" },
+    "variant": "quote"
+  },
+  {
+    "id": "submit-row",
     "component": "Row",
-    "children": ["title-text"],
-    "align": "center"
+    "children": ["submit-btn"]
   },
   {
-    "id": "title-text",
-    "component": "Text",
-    "text": "创建工单",
-    "variant": "h3"
-  },
-  {
-    "id": "workorder-title-field",
-    "component": "TextField",
-    "label": "工单标题",
-    "placeholder": "请输入工单标题",
-    "required": true,
-    "value": { "path": "/form/workorderTitle" }
-  },
-  {
-    "id": "system-picker",
-    "component": "ChoicePicker",
-    "label": "所属系统",
-    "variant": "mutuallyExclusive",
-    "displayStyle": "chips",
-    "required": true,
-    "options": [
-      { "label": "国内GOMS", "value": "goms_cn" },
-      { "label": "海外GOMS", "value": "goms_global" },
-      { "label": "ERP系统", "value": "erp" },
-      { "label": "WMS系统", "value": "wms" }
-    ],
-    "value": { "path": "/form/system" }
-  },
-  {
-    "id": "module-picker",
-    "component": "ChoicePicker",
-    "label": "所属模块",
-    "variant": "mutuallyExclusive",
-    "displayStyle": "chips",
-    "required": true,
-    "options": [
-      { "label": "订单管理", "value": "order_management" },
-      { "label": "主数据管理", "value": "master_data_management" },
-      { "label": "库存管理", "value": "inventory" },
-      { "label": "采购管理", "value": "procurement" },
-      { "label": "财务管理", "value": "finance" }
-    ],
-    "value": { "path": "/form/module" }
-  },
-  {
-    "id": "problem-desc-field",
-    "component": "TextField",
-    "label": "问题描述",
-    "placeholder": "请详细描述遇到的问题...",
-    "variant": "longText",
-    "rows": 4,
-    "required": true,
-    "value": { "path": "/form/problemDesc" }
-  },
-  {
-    "id": "submit-button-text",
-    "component": "Text",
-    "text": "提交工单"
-  },
-  {
-    "id": "submit-button",
+    "id": "submit-btn",
     "component": "Button",
-    "child": "submit-button-text",
-    "type": "primary"
+    "text": "提交"
   }
 ]`,
   allComponents: `[
@@ -1011,205 +967,7 @@ const mockExamples: Record<string, string> = {
     "type": "primary"
   }
 ]`,
-  optionCard: `[
-  {
-    "id": "root",
-    "component": "Card",
-    "child": "main-column",
-    "width": "lg"
-  },
-  {
-    "id": "main-column",
-    "component": "Column",
-    "children": [
-      "page-title",
-      "cards-row",
-      "submit-row"
-    ],
-    "align": "stretch",
-    "gap": 20
-  },
-  {
-    "id": "page-title",
-    "component": "Text",
-    "text": "选择审批方案",
-    "variant": "h3"
-  },
-  {
-    "id": "cards-row",
-    "component": "Row",
-    "children": ["card1", "card2", "card3", "card4"],
-    "gap": 12,
-    "align": "stretch"
-  },
-  {
-    "id": "card1",
-    "component": "OptionCard",
-    "label": "快速审批",
-    "content": "适用于紧急事项，审批周期1天内完成",
-    "name": "Folder",
-    "cardValue": "quick",
-    "value": { "path": "/form/approvalType", "default": "quick" }
-  },
-  {
-    "id": "card2",
-    "component": "OptionCard",
-    "label": "标准审批",
-    "content": "适用于常规事项，审批周期3-5天",
-    "name": "Document",
-    "cardValue": "standard",
-    "value": { "path": "/form/approvalType" }
-  },
-  {
-    "id": "card3",
-    "component": "OptionCard",
-    "label": "详细审批",
-    "content": "适用于复杂事项，审批周期7-10天",
-    "name": "Setting",
-    "cardValue": "detailed",
-    "value": { "path": "/form/approvalType" }
-  },
-  {
-    "id": "card4",
-    "component": "OptionCard",
-    "label": "自定义审批",
-    "content": "根据实际情况灵活调整审批流程",
-    "name": "Star",
-    "cardValue": "custom",
-    "value": { "path": "/form/approvalType" }
-  },
-  {
-    "id": "submit-row",
-    "component": "Row",
-    "children": ["submit-btn"],
-    "justify": "end"
-  },
-  {
-    "id": "submit-btn",
-    "component": "Button",
-    "text": "提交申请",
-    "type": "primary",
-    "name": "Check"
-  }
-]`,
-  createTicket: `[
-  {
-    "id": "root",
-    "component": "Card",
-    "header": "创建工单",
-    "headerIcon": "Folder",
-    "headerBgColor": "#F8F8FB",
-    "children": ["main-column"],
-    "width": "md"
-  },
-  {
-    "id": "main-column",
-    "component": "Column",
-    "children": [
-      "system-row",
-      "system-picker",
-      "module-row",
-      "module-picker",
-      "content-row",
-      "content-field",
-      "submit-row"
-    ],
-    "align": "stretch",
-    "gap": 16
-  },
-  {
-    "id": "system-row",
-    "component": "Row",
-    "children": ["system-icon", "system-label"],
-    "align": "center"
-  },
-  {
-    "id": "system-icon",
-    "component": "Icon",
-    "name": "Monitor"
-  },
-  {
-    "id": "system-label",
-    "component": "Text",
-    "text": "系统名称",
-    "variant": "shortText"
-  },
-  {
-    "id": "system-picker",
-    "component": "ChoicePicker",
-    "variant": "mutuallyExclusive",
-    "displayStyle": "chips",
-    "choiceOptions": [
-      { "label": "国内GOMS", "value": "goms_cn" }
-    ],
-    "value": { "path": "/form/system", "default": "goms_cn" }
-  },
-  {
-    "id": "module-row",
-    "component": "Row",
-    "children": ["module-icon", "module-label"],
-    "align": "center"
-  },
-  {
-    "id": "module-icon",
-    "component": "Icon",
-    "name": "Grid"
-  },
-  {
-    "id": "module-label",
-    "component": "Text",
-    "text": "模块名称",
-    "variant": "shortText"
-  },
-  {
-    "id": "module-picker",
-    "component": "ChoicePicker",
-    "variant": "mutuallyExclusive",
-    "displayStyle": "chips",
-    "choiceOptions": [
-      { "label": "订单管理", "value": "order" }
-    ],
-    "value": { "path": "/form/module", "default": "order" }
-  },
-  {
-    "id": "content-row",
-    "component": "Row",
-    "children": ["content-icon", "content-label"],
-    "align": "center"
-  },
-  {
-    "id": "content-icon",
-    "component": "Icon",
-    "name": "EditPen"
-  },
-  {
-    "id": "content-label",
-    "component": "Text",
-    "text": "提问内容",
-    "variant": "shortText"
-  },
-  {
-    "id": "content-field",
-    "component": "TextField",
-    "variant": "longText",
-    "rows": 3,
-    "placeholder": "请输入问题描述...",
-    "value": { "path": "/form/content" }
-  },
-  {
-    "id": "submit-row",
-    "component": "Row",
-    "children": ["submit-btn"],
-    "justify": "end"
-  },
-  {
-    "id": "submit-btn",
-    "component": "Button",
-    "text": "提交",
-    "type": "primary",
-    "name": "CircleCheck"
-  }
-]`
+
 }
 
 // Refs
