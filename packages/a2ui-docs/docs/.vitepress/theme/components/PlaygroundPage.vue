@@ -13,8 +13,8 @@
           <el-option label="网络权限申请单" value="network" />
           <el-option label="创建工单" value="workorder" />
         </el-select>
-        <el-tooltip content="执行 JSON 渲染" placement="bottom">
-          <el-button type="primary" @click="handleRun">
+        <el-tooltip :content="runButtonTooltip" placement="bottom">
+          <el-button type="primary" :disabled="!canRun" @click="handleRun">
             <el-icon><VideoPlay /></el-icon>
             运行
           </el-button>
@@ -422,7 +422,7 @@ const mockExamples: Record<string, string> = {
     "id": "root",
     "component": "Card",
     "child": "main-column",
-    "width": "md",
+    "width": "sm",
     "header": "创建工单"
   },
   {
@@ -1020,6 +1020,25 @@ function highlightJson(jsonStr: string): string {
 
 const highlightedJson = computed(() => highlightJson(jsonContent.value))
 
+// 判断是否可以运行（JSON 非空且格式有效）
+const canRun = computed(() => {
+  const content = jsonContent.value.trim()
+  if (!content) return false
+  try {
+    JSON.parse(content)
+    return true
+  } catch {
+    return false
+  }
+})
+
+// 运行按钮的 tooltip 提示
+const runButtonTooltip = computed(() => {
+  if (!jsonContent.value.trim()) return 'JSON 内容为空'
+  if (!canRun.value) return 'JSON 格式无效'
+  return '执行 JSON 渲染'
+})
+
 const formDataJson = computed<string>(() => {
   return JSON.stringify(currentFormData.value, null, 2)
 })
@@ -1193,6 +1212,13 @@ onMounted(() => {
   display: flex;
   align-items: center;
   gap: 8px;
+}
+
+/* 禁用状态的 primary 按钮显示灰色 */
+.header-right .el-button--primary.is-disabled {
+  background-color: #c0c4cc;
+  border-color: #c0c4cc;
+  color: #ffffff;
 }
 
 /* Main Content */

@@ -73,6 +73,7 @@ export default defineConfig({
               items: [
                 { text: 'A2Text', link: '/components/a2-text' },
                 { text: 'A2Icon', link: '/components/a2-icon' },
+                { text: 'A2InfoField', link: '/components/a2-info-field' },
               ]
             },
             {
@@ -150,6 +151,7 @@ export default defineConfig({
               items: [
                 { text: 'A2Text', link: '/en/components/a2-text' },
                 { text: 'A2Icon', link: '/en/components/a2-icon' },
+                { text: 'A2InfoField', link: '/en/components/a2-info-field' },
               ]
             },
             {

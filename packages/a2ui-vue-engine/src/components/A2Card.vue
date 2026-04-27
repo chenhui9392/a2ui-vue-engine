@@ -40,7 +40,8 @@
 </template>
 
 <script setup lang="ts">
-import { computed, defineComponent, resolveComponent } from 'vue'
+import { computed, defineComponent } from 'vue'
+import { Document } from '@element-plus/icons-vue'
 import type { A2Node, RenderContext } from '../types'
 import { renderNode } from '../renderer/renderNode'
 
@@ -114,37 +115,8 @@ const headerStyleObj = computed(() => ({
 const resolvedIcon = computed(() => {
   // 有 header 时固定显示 Document 图标
   if (props.header) {
-    try {
-      const icon = resolveComponent('IconDocument')
-      if (icon && typeof icon !== 'string') return icon
-    } catch {
-      // Ignore
-    }
-    try {
-      const icon = resolveComponent('Document')
-      if (icon && typeof icon !== 'string') return icon
-    } catch {
-      // Ignore
-    }
-    return undefined
+    return Document
   }
-
-  if (!props.headerIcon) return undefined
-
-  try {
-    const icon = resolveComponent(`Icon${props.headerIcon}`)
-    if (icon && typeof icon !== 'string') return icon
-  } catch {
-    // Ignore
-  }
-
-  try {
-    const icon = resolveComponent(props.headerIcon)
-    if (icon && typeof icon !== 'string') return icon
-  } catch {
-    // Ignore
-  }
-
   return undefined
 })
 

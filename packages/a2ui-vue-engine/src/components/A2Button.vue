@@ -33,7 +33,8 @@
 </template>
 
 <script setup lang="ts">
-import { computed, defineComponent, resolveComponent } from 'vue'
+import { computed, defineComponent } from 'vue'
+import { Promotion } from '@element-plus/icons-vue'
 import { ElButton } from 'element-plus'
 import type { A2Node, RenderContext } from '../types'
 import { renderNode } from '../renderer/renderNode'
@@ -113,39 +114,8 @@ const autoType = computed(() => {
 const resolvedIcon = computed(() => {
   // 提交/保存/确认/确定类按钮固定使用 Promotion 图标
   if (isSubmitButton.value) {
-    try {
-      const icon = resolveComponent('Promotion')
-      if (icon && typeof icon !== 'string') return icon
-    } catch {
-      // Ignore
-    }
-    try {
-      const icon = resolveComponent('IconPromotion')
-      if (icon && typeof icon !== 'string') return icon
-    } catch {
-      // Ignore
-    }
-    return undefined
+    return Promotion
   }
-
-  if (!props.icon) return undefined
-
-  // Try direct resolve
-  try {
-    const icon = resolveComponent(props.icon)
-    if (icon && typeof icon !== 'string') return icon
-  } catch {
-    // Ignore
-  }
-
-  // Try with Icon prefix
-  try {
-    const icon = resolveComponent(`Icon${props.icon}`)
-    if (icon && typeof icon !== 'string') return icon
-  } catch {
-    // Ignore
-  }
-
   return undefined
 })
 
@@ -168,7 +138,15 @@ const buttonClass = computed(() => {
 })
 
 const buttonStyle = computed(() => {
-  // 显式 bgColor 优先级最高
+  // disabled 状态统一显示灰色（优先级最高）
+  if (props.disabled) {
+    return {
+      backgroundColor: '#c0c4cc',
+      borderColor: '#c0c4cc',
+      color: '#ffffff',
+    }
+  }
+  // 显式 bgColor
   if (props.bgColor) {
     return {
       backgroundColor: props.bgColor,
@@ -266,5 +244,15 @@ export default {
 .a2-button.el-button--success {
   background-color: var(--a2-color-success);
   border-color: var(--a2-color-success);
+}
+
+/* disabled 状态统一灰色 */
+.a2-button.is-disabled,
+.a2-button.is-disabled:hover,
+.a2-button.is-disabled:active,
+.a2-button.is-disabled:focus {
+  background-color: #c0c4cc !important;
+  border-color: #c0c4cc !important;
+  color: #ffffff !important;
 }
 </style>
