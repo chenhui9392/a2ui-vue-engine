@@ -1,6 +1,6 @@
 {
   "name": "a2ui-vue-engine",
-  "version": "1.0.9",
+  "version": "1.0.10",
   "description": "A2UI Vue3 Render Engine - JSON Schema driven UI rendering for Vue3 applications",
   "type": "module",
   "main": "./dist/a2ui-vue-engine.umd.cjs",
