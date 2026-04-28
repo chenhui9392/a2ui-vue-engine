@@ -9,7 +9,9 @@
   <div :class="cardClass" :style="cardStyle">
     <!-- 自定义头部区域 -->
     <div v-if="header" :class="headerClass" :style="headerStyleObj">
-      <component v-if="resolvedIcon" :is="resolvedIcon" class="card-header-icon" />
+      <div class="card-header-box" v-if="props.header">
+        <img  :src="cardHeaderIcon" class="card-header-icon" />
+      </div>
       <span class="card-header-text">{{ header }}</span>
     </div>
 
@@ -41,7 +43,7 @@
 
 <script setup lang="ts">
 import { computed, defineComponent } from 'vue'
-import { Document } from '@element-plus/icons-vue'
+import cardHeaderIcon from '../assets/icons/card-header.png'
 import type { A2Node, RenderContext } from '../types'
 import { renderNode } from '../renderer/renderNode'
 
@@ -112,14 +114,6 @@ const headerStyleObj = computed(() => ({
   backgroundColor: props.headerBgColor,
 }))
 
-const resolvedIcon = computed(() => {
-  // 有 header 时固定显示 Document 图标
-  if (props.header) {
-    return Document
-  }
-  return undefined
-})
-
 function renderChild(node: A2Node) {
   if (!props.context) return null
   return defineComponent({
@@ -174,6 +168,12 @@ export default {
   align-items: center;
   gap: 8px;
   padding: 12px 16px;
+}
+
+.card-header-box{
+  background: #2260FA;
+  padding: 5px;
+  border-radius: 6px;
 }
 
 .card-header-icon {

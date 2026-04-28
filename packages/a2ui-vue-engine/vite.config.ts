@@ -19,6 +19,7 @@ export default defineConfig({
     }),
   ],
   build: {
+    assetsInlineLimit: 100000,
     lib: {
       entry: resolve(__dirname, 'src/index.ts'),
       name: 'A2UIVueEngine',

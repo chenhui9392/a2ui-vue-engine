@@ -11,7 +11,7 @@
     :size="size"
     :disabled="disabled"
     :loading="loading"
-    :icon="resolvedIcon"
+    :icon="undefined"
     :plain="plain"
     :round="round"
     :circle="circle"
@@ -21,20 +21,25 @@
   >
     <slot>
       <template v-if="hasChildren">
+        <img v-if="isSubmitButton" :src="submitIcon" class="btn-submit-icon" />
         <component
           v-for="(child, index) in childrenArray"
           :key="index"
           :is="renderChild(child)"
         />
       </template>
-      <template v-else>{{ text }}</template>
+      <template v-else>
+        <img v-if="isSubmitButton" :src="submitIcon" class="btn-submit-icon" />
+        <span v-if="isSubmitButton">{{ text }}</span>
+        <template v-else>{{ text }}</template>
+      </template>
     </slot>
   </el-button>
 </template>
 
 <script setup lang="ts">
 import { computed, defineComponent } from 'vue'
-import { Promotion } from '@element-plus/icons-vue'
+import submitIcon from '../assets/icons/submit.png'
 import { ElButton } from 'element-plus'
 import type { A2Node, RenderContext } from '../types'
 import { renderNode } from '../renderer/renderNode'
@@ -108,15 +113,6 @@ const autoType = computed(() => {
   }
 
   return 'default'
-})
-
-// Resolve icon if provided
-const resolvedIcon = computed(() => {
-  // 提交/保存/确认/确定类按钮固定使用 Promotion 图标
-  if (isSubmitButton.value) {
-    return Promotion
-  }
-  return undefined
 })
 
 const isSubmitButton = computed(() => {
@@ -254,5 +250,13 @@ export default {
   background-color: #c0c4cc !important;
   border-color: #c0c4cc !important;
   color: #ffffff !important;
+}
+
+/* 提交按钮图标 */
+.btn-submit-icon {
+  width: 14px;
+  height: 14px;
+  margin-right: 4px;
+  vertical-align: middle;
 }
 </style>

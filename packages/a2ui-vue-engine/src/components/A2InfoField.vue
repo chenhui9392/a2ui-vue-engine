@@ -109,7 +109,7 @@ const valueStyle = computed(() => {
   if (props.variant === 'tag') {
     return {
       background: '#EFF4FF',
-      borderRadius: '12px',
+      borderRadius: '6px',
       border: '1px solid #CED9F3',
     }
   }
