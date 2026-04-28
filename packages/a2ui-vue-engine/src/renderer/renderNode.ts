@@ -31,7 +31,8 @@ function setPathValue(obj: Record<string, any>, path: string, value: any): void 
       }
       current = current[arrayKey][parseInt(index, 10)]
       if (!current) {
-        current = current[arrayKey][parseInt(index, 10)] = {}
+        current = {} as Record<string, any>
+        current[arrayKey][parseInt(index, 10)] = current
       }
     } else {
       if (!current[key]) {

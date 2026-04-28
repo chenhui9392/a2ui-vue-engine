@@ -24,7 +24,7 @@
         @click="handleItemClick(item, index)"
       >
         <slot name="item" :item="item" :index="index">
-          <span>{{ item.label || item }}</span>
+          <span>{{ (item as ListItem).label || item }}</span>
         </slot>
       </div>
     </template>
@@ -92,8 +92,8 @@ function handleClick(event: MouseEvent) {
   emit('action', { type: 'click', event })
 }
 
-function handleItemClick(item: ListItem, index: number) {
-  emit('itemClick', item, index)
+function handleItemClick(item: ListItem | string, index: number) {
+  emit('itemClick', item as ListItem, index)
   emit('action', { type: 'itemClick', item, index })
 }
 </script>

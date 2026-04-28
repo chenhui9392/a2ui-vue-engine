@@ -6,7 +6,7 @@
  * @LastEditors: hui.chenn
  */
 import { inject, type VNode } from 'vue'
-import type { A2Node, RenderContext, BindingConfig } from '../types'
+import type { A2Node, RenderContext } from '../types'
 import { renderNode } from '../renderer/renderNode'
 
 // Inject render context

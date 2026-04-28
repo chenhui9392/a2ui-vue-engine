@@ -25,11 +25,12 @@ export default defineConfig({
       fileName: 'a2ui-vue-engine',
     },
     rollupOptions: {
-      external: ['vue', 'element-plus', 'element-plus/es', 'element-plus/es/components/message/style/css'],
+      external: ['vue', 'element-plus', 'element-plus/es', 'element-plus/es/components/message/style/css', '@element-plus/icons-vue'],
       output: {
         globals: {
           vue: 'Vue',
           'element-plus': 'ElementPlus',
+          '@element-plus/icons-vue': 'ElementPlusIconsVue',
         },
       },
     },

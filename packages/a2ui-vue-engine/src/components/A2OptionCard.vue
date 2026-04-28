@@ -25,7 +25,7 @@
 </template>
 
 <script setup lang="ts">
-import { computed, ref, watch, resolveComponent } from 'vue'
+import { computed, resolveComponent } from 'vue'
 
 interface A2OptionCardProps {
   modelValue?: string | number | boolean | null

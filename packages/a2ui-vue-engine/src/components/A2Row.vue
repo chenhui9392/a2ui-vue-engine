@@ -7,7 +7,7 @@
 -->
 <template>
   <el-row
-    :gutter="gutter"
+    :gutter="(gutter as number)"
     :justify="justify"
     :align="elAlign"
     :tag="tag"
