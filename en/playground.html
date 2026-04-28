@@ -1,0 +1,1021 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>A2UI</title>
+    <meta name="description" content="A2UI Vue3 Render Engine Documentation">
+    <meta name="generator" content="VitePress v1.6.4">
+    <link rel="preload stylesheet" href="/a2ui-vue-engine/assets/style.DbEEVl_I.css" as="style">
+    <link rel="preload stylesheet" href="/a2ui-vue-engine/vp-icons.css" as="style">
+    
+    <script type="module" src="/a2ui-vue-engine/assets/app.a3XUsYU-.js"></script>
+    <link rel="preload" href="/a2ui-vue-engine/assets/inter-roman-latin.Di8DUHzh.woff2" as="font" type="font/woff2" crossorigin="">
+    <link rel="modulepreload" href="/a2ui-vue-engine/assets/chunks/theme.C-jNzDWZ.js">
+    <link rel="modulepreload" href="/a2ui-vue-engine/assets/chunks/framework.CYjCTK2l.js">
+    <link rel="modulepreload" href="/a2ui-vue-engine/assets/en_playground.md.BcomGOKn.lean.js">
+    <script id="check-dark-mode">(()=>{const e=localStorage.getItem("vitepress-theme-appearance")||"auto",a=window.matchMedia("(prefers-color-scheme: dark)").matches;(!e||e==="auto"?a:e==="dark")&&document.documentElement.classList.add("dark")})();</script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
+  </head>
+  <body>
+    <div id="app"><div style="position:relative;" data-v-4ae90924><div><div class="playground-page" data-v-d6c91482><div class="playground-header" data-v-d6c91482><div class="header-left" data-v-d6c91482><h1 class="title" data-v-d6c91482>A2UI Playground</h1><span class="el-tag el-tag--info el-tag--small el-tag--light" style="" data-v-d6c91482><span class="el-tag__content"><!--[-->JSON 调试工具<!--]--></span><!--v-if--></span></div><div class="header-right" data-v-d6c91482><div class="el-select el-select--default" style="width:180px;margin-right:8px;" data-v-d6c91482><!--[--><div class="el-select__wrapper el-tooltip__trigger el-tooltip__trigger"><!--v-if--><div class="el-select__selection"><!--v-if--><div class="el-select__selected-item el-select__input-wrapper is-hidden"><input value type="text" class="el-select__input is-default" autocomplete="off" style="min-width:11px;" tabindex="0" role="combobox" readonly spellcheck="false" aria-activedescendant aria-controls="el-id-9502-0" aria-expanded="false" aria-autocomplete="none" aria-haspopup="listbox"><!--v-if--></div><div class="el-select__selected-item el-select__placeholder"><!--[--><span></span><!--]--></div></div><div class="el-select__suffix"><i class="el-icon el-select__caret el-select__icon" style=""><!--[--><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024"><path fill="currentColor" d="M831.872 340.864 512 652.672 192.128 340.864a30.59 30.59 0 0 0-42.752 0 29.12 29.12 0 0 0 0 41.6L489.664 714.24a32 32 0 0 0 44.672 0l340.288-331.712a29.12 29.12 0 0 0 0-41.728 30.59 30.59 0 0 0-42.752 0z"></path></svg><!--]--></i><!--v-if--><!--v-if--></div></div><!--teleport start--><!--teleport end--><!--]--></div><!--[--><button ariadisabled="false" type="button" class="el-button el-button--primary el-tooltip__trigger" style="" data-v-d6c91482><!--v-if--><span class=""><!--[--><i class="el-icon" style="" data-v-d6c91482><!--[--><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" data-v-d6c91482><path fill="currentColor" d="M512 64a448 448 0 1 1 0 896 448 448 0 0 1 0-896m0 832a384 384 0 0 0 0-768 384 384 0 0 0 0 768m-48-247.616L668.608 512 464 375.616zm10.624-342.656 249.472 166.336a48 48 0 0 1 0 79.872L474.624 718.272A48 48 0 0 1 400 678.336V345.6a48 48 0 0 1 74.624-39.936z"></path></svg><!--]--></i> 运行 <!--]--></span></button><!--teleport start--><!--teleport end--><!--]--><!--[--><button ariadisabled="false" type="button" class="el-button el-tooltip__trigger" style="" data-v-d6c91482><!--v-if--><span class=""><!--[--><i class="el-icon" style="" data-v-d6c91482><!--[--><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" data-v-d6c91482><path fill="currentColor" d="M832 384H576V128H192v768h640zm-26.496-64L640 154.496V320zM160 64h480l256 256v608a32 32 0 0 1-32 32H160a32 32 0 0 1-32-32V96a32 32 0 0 1 32-32m160 448h384v64H320zm0-192h160v64H320zm0 384h384v64H320z"></path></svg><!--]--></i> 格式化 <!--]--></span></button><!--teleport start--><!--teleport end--><!--]--><!--[--><button ariadisabled="false" type="button" class="el-button el-tooltip__trigger" style="" data-v-d6c91482><!--v-if--><span class=""><!--[--><i class="el-icon" style="" data-v-d6c91482><!--[--><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" data-v-d6c91482><path fill="currentColor" d="M768 832a128 128 0 0 1-128 128H192A128 128 0 0 1 64 832V384a128 128 0 0 1 128-128v64a64 64 0 0 0-64 64v448a64 64 0 0 0 64 64h448a64 64 0 0 0 64-64z"></path><path fill="currentColor" d="M384 128a64 64 0 0 0-64 64v448a64 64 0 0 0 64 64h448a64 64 0 0 0 64-64V192a64 64 0 0 0-64-64zm0-64h448a128 128 0 0 1 128 128v448a128 128 0 0 1-128 128H384a128 128 0 0 1-128-128V192A128 128 0 0 1 384 64"></path></svg><!--]--></i> 复制 <!--]--></span></button><!--teleport start--><!--teleport end--><!--]--><!--[--><button ariadisabled="false" type="button" class="el-button el-tooltip__trigger" style="" data-v-d6c91482><!--v-if--><span class=""><!--[--><i class="el-icon" style="" data-v-d6c91482><!--[--><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" data-v-d6c91482><path fill="currentColor" d="M771.776 794.88A384 384 0 0 1 128 512h64a320 320 0 0 0 555.712 216.448H654.72a32 32 0 1 1 0-64h149.056a32 32 0 0 1 32 32v148.928a32 32 0 1 1-64 0v-50.56zM276.288 295.616h92.992a32 32 0 0 1 0 64H220.16a32 32 0 0 1-32-32V178.56a32 32 0 0 1 64 0v50.56A384 384 0 0 1 896.128 512h-64a320 320 0 0 0-555.776-216.384z"></path></svg><!--]--></i> 重置 <!--]--></span></button><!--teleport start--><!--teleport end--><!--]--></div></div><div class="playground-main" data-v-d6c91482><div class="left-panel" data-v-d6c91482><div class="editor-section" data-v-d6c91482><div class="section-header" data-v-d6c91482><span class="section-title" data-v-d6c91482>JSON Schema</span><span class="el-tag el-tag--warning el-tag--small el-tag--light" style="" data-v-d6c91482><span class="el-tag__content"><!--[-->498 行<!--]--></span><!--v-if--></span></div><div class="editor-body" data-v-d6c91482><div class="code-editor" data-v-d6c91482><div class="line-numbers" data-v-d6c91482><!--[--><span class="line-number" data-v-d6c91482>1</span><span class="line-number" data-v-d6c91482>2</span><span class="line-number" data-v-d6c91482>3</span><span class="line-number" data-v-d6c91482>4</span><span class="line-number" data-v-d6c91482>5</span><span class="line-number" data-v-d6c91482>6</span><span class="line-number" data-v-d6c91482>7</span><span class="line-number" data-v-d6c91482>8</span><span class="line-number" data-v-d6c91482>9</span><span class="line-number" data-v-d6c91482>10</span><span class="line-number" data-v-d6c91482>11</span><span class="line-number" data-v-d6c91482>12</span><span class="line-number" data-v-d6c91482>13</span><span class="line-number" data-v-d6c91482>14</span><span class="line-number" data-v-d6c91482>15</span><span class="line-number" data-v-d6c91482>16</span><span class="line-number" data-v-d6c91482>17</span><span class="line-number" data-v-d6c91482>18</span><span class="line-number" data-v-d6c91482>19</span><span class="line-number" data-v-d6c91482>20</span><span class="line-number" data-v-d6c91482>21</span><span class="line-number" data-v-d6c91482>22</span><span class="line-number" data-v-d6c91482>23</span><span class="line-number" data-v-d6c91482>24</span><span class="line-number" data-v-d6c91482>25</span><span class="line-number" data-v-d6c91482>26</span><span class="line-number" data-v-d6c91482>27</span><span class="line-number" data-v-d6c91482>28</span><span class="line-number" data-v-d6c91482>29</span><span class="line-number" data-v-d6c91482>30</span><span class="line-number" data-v-d6c91482>31</span><span class="line-number" data-v-d6c91482>32</span><span class="line-number" data-v-d6c91482>33</span><span class="line-number" data-v-d6c91482>34</span><span class="line-number" data-v-d6c91482>35</span><span class="line-number" data-v-d6c91482>36</span><span class="line-number" data-v-d6c91482>37</span><span class="line-number" data-v-d6c91482>38</span><span class="line-number" data-v-d6c91482>39</span><span class="line-number" data-v-d6c91482>40</span><span class="line-number" data-v-d6c91482>41</span><span class="line-number" data-v-d6c91482>42</span><span class="line-number" data-v-d6c91482>43</span><span class="line-number" data-v-d6c91482>44</span><span class="line-number" data-v-d6c91482>45</span><span class="line-number" data-v-d6c91482>46</span><span class="line-number" data-v-d6c91482>47</span><span class="line-number" data-v-d6c91482>48</span><span class="line-number" data-v-d6c91482>49</span><span class="line-number" data-v-d6c91482>50</span><span class="line-number" data-v-d6c91482>51</span><span class="line-number" data-v-d6c91482>52</span><span class="line-number" data-v-d6c91482>53</span><span class="line-number" data-v-d6c91482>54</span><span class="line-number" data-v-d6c91482>55</span><span class="line-number" data-v-d6c91482>56</span><span class="line-number" data-v-d6c91482>57</span><span class="line-number" data-v-d6c91482>58</span><span class="line-number" data-v-d6c91482>59</span><span class="line-number" data-v-d6c91482>60</span><span class="line-number" data-v-d6c91482>61</span><span class="line-number" data-v-d6c91482>62</span><span class="line-number" data-v-d6c91482>63</span><span class="line-number" data-v-d6c91482>64</span><span class="line-number" data-v-d6c91482>65</span><span class="line-number" data-v-d6c91482>66</span><span class="line-number" data-v-d6c91482>67</span><span class="line-number" data-v-d6c91482>68</span><span class="line-number" data-v-d6c91482>69</span><span class="line-number" data-v-d6c91482>70</span><span class="line-number" data-v-d6c91482>71</span><span class="line-number" data-v-d6c91482>72</span><span class="line-number" data-v-d6c91482>73</span><span class="line-number" data-v-d6c91482>74</span><span class="line-number" data-v-d6c91482>75</span><span class="line-number" data-v-d6c91482>76</span><span class="line-number" data-v-d6c91482>77</span><span class="line-number" data-v-d6c91482>78</span><span class="line-number" data-v-d6c91482>79</span><span class="line-number" data-v-d6c91482>80</span><span class="line-number" data-v-d6c91482>81</span><span class="line-number" data-v-d6c91482>82</span><span class="line-number" data-v-d6c91482>83</span><span class="line-number" data-v-d6c91482>84</span><span class="line-number" data-v-d6c91482>85</span><span class="line-number" data-v-d6c91482>86</span><span class="line-number" data-v-d6c91482>87</span><span class="line-number" data-v-d6c91482>88</span><span class="line-number" data-v-d6c91482>89</span><span class="line-number" data-v-d6c91482>90</span><span class="line-number" data-v-d6c91482>91</span><span class="line-number" data-v-d6c91482>92</span><span class="line-number" data-v-d6c91482>93</span><span class="line-number" data-v-d6c91482>94</span><span class="line-number" data-v-d6c91482>95</span><span class="line-number" data-v-d6c91482>96</span><span class="line-number" data-v-d6c91482>97</span><span class="line-number" data-v-d6c91482>98</span><span class="line-number" data-v-d6c91482>99</span><span class="line-number" data-v-d6c91482>100</span><span class="line-number" data-v-d6c91482>101</span><span class="line-number" data-v-d6c91482>102</span><span class="line-number" data-v-d6c91482>103</span><span class="line-number" data-v-d6c91482>104</span><span class="line-number" data-v-d6c91482>105</span><span class="line-number" data-v-d6c91482>106</span><span class="line-number" data-v-d6c91482>107</span><span class="line-number" data-v-d6c91482>108</span><span class="line-number" data-v-d6c91482>109</span><span class="line-number" data-v-d6c91482>110</span><span class="line-number" data-v-d6c91482>111</span><span class="line-number" data-v-d6c91482>112</span><span class="line-number" data-v-d6c91482>113</span><span class="line-number" data-v-d6c91482>114</span><span class="line-number" data-v-d6c91482>115</span><span class="line-number" data-v-d6c91482>116</span><span class="line-number" data-v-d6c91482>117</span><span class="line-number" data-v-d6c91482>118</span><span class="line-number" data-v-d6c91482>119</span><span class="line-number" data-v-d6c91482>120</span><span class="line-number" data-v-d6c91482>121</span><span class="line-number" data-v-d6c91482>122</span><span class="line-number" data-v-d6c91482>123</span><span class="line-number" data-v-d6c91482>124</span><span class="line-number" data-v-d6c91482>125</span><span class="line-number" data-v-d6c91482>126</span><span class="line-number" data-v-d6c91482>127</span><span class="line-number" data-v-d6c91482>128</span><span class="line-number" data-v-d6c91482>129</span><span class="line-number" data-v-d6c91482>130</span><span class="line-number" data-v-d6c91482>131</span><span class="line-number" data-v-d6c91482>132</span><span class="line-number" data-v-d6c91482>133</span><span class="line-number" data-v-d6c91482>134</span><span class="line-number" data-v-d6c91482>135</span><span class="line-number" data-v-d6c91482>136</span><span class="line-number" data-v-d6c91482>137</span><span class="line-number" data-v-d6c91482>138</span><span class="line-number" data-v-d6c91482>139</span><span class="line-number" data-v-d6c91482>140</span><span class="line-number" data-v-d6c91482>141</span><span class="line-number" data-v-d6c91482>142</span><span class="line-number" data-v-d6c91482>143</span><span class="line-number" data-v-d6c91482>144</span><span class="line-number" data-v-d6c91482>145</span><span class="line-number" data-v-d6c91482>146</span><span class="line-number" data-v-d6c91482>147</span><span class="line-number" data-v-d6c91482>148</span><span class="line-number" data-v-d6c91482>149</span><span class="line-number" data-v-d6c91482>150</span><span class="line-number" data-v-d6c91482>151</span><span class="line-number" data-v-d6c91482>152</span><span class="line-number" data-v-d6c91482>153</span><span class="line-number" data-v-d6c91482>154</span><span class="line-number" data-v-d6c91482>155</span><span class="line-number" data-v-d6c91482>156</span><span class="line-number" data-v-d6c91482>157</span><span class="line-number" data-v-d6c91482>158</span><span class="line-number" data-v-d6c91482>159</span><span class="line-number" data-v-d6c91482>160</span><span class="line-number" data-v-d6c91482>161</span><span class="line-number" data-v-d6c91482>162</span><span class="line-number" data-v-d6c91482>163</span><span class="line-number" data-v-d6c91482>164</span><span class="line-number" data-v-d6c91482>165</span><span class="line-number" data-v-d6c91482>166</span><span class="line-number" data-v-d6c91482>167</span><span class="line-number" data-v-d6c91482>168</span><span class="line-number" data-v-d6c91482>169</span><span class="line-number" data-v-d6c91482>170</span><span class="line-number" data-v-d6c91482>171</span><span class="line-number" data-v-d6c91482>172</span><span class="line-number" data-v-d6c91482>173</span><span class="line-number" data-v-d6c91482>174</span><span class="line-number" data-v-d6c91482>175</span><span class="line-number" data-v-d6c91482>176</span><span class="line-number" data-v-d6c91482>177</span><span class="line-number" data-v-d6c91482>178</span><span class="line-number" data-v-d6c91482>179</span><span class="line-number" data-v-d6c91482>180</span><span class="line-number" data-v-d6c91482>181</span><span class="line-number" data-v-d6c91482>182</span><span class="line-number" data-v-d6c91482>183</span><span class="line-number" data-v-d6c91482>184</span><span class="line-number" data-v-d6c91482>185</span><span class="line-number" data-v-d6c91482>186</span><span class="line-number" data-v-d6c91482>187</span><span class="line-number" data-v-d6c91482>188</span><span class="line-number" data-v-d6c91482>189</span><span class="line-number" data-v-d6c91482>190</span><span class="line-number" data-v-d6c91482>191</span><span class="line-number" data-v-d6c91482>192</span><span class="line-number" data-v-d6c91482>193</span><span class="line-number" data-v-d6c91482>194</span><span class="line-number" data-v-d6c91482>195</span><span class="line-number" data-v-d6c91482>196</span><span class="line-number" data-v-d6c91482>197</span><span class="line-number" data-v-d6c91482>198</span><span class="line-number" data-v-d6c91482>199</span><span class="line-number" data-v-d6c91482>200</span><span class="line-number" data-v-d6c91482>201</span><span class="line-number" data-v-d6c91482>202</span><span class="line-number" data-v-d6c91482>203</span><span class="line-number" data-v-d6c91482>204</span><span class="line-number" data-v-d6c91482>205</span><span class="line-number" data-v-d6c91482>206</span><span class="line-number" data-v-d6c91482>207</span><span class="line-number" data-v-d6c91482>208</span><span class="line-number" data-v-d6c91482>209</span><span class="line-number" data-v-d6c91482>210</span><span class="line-number" data-v-d6c91482>211</span><span class="line-number" data-v-d6c91482>212</span><span class="line-number" data-v-d6c91482>213</span><span class="line-number" data-v-d6c91482>214</span><span class="line-number" data-v-d6c91482>215</span><span class="line-number" data-v-d6c91482>216</span><span class="line-number" data-v-d6c91482>217</span><span class="line-number" data-v-d6c91482>218</span><span class="line-number" data-v-d6c91482>219</span><span class="line-number" data-v-d6c91482>220</span><span class="line-number" data-v-d6c91482>221</span><span class="line-number" data-v-d6c91482>222</span><span class="line-number" data-v-d6c91482>223</span><span class="line-number" data-v-d6c91482>224</span><span class="line-number" data-v-d6c91482>225</span><span class="line-number" data-v-d6c91482>226</span><span class="line-number" data-v-d6c91482>227</span><span class="line-number" data-v-d6c91482>228</span><span class="line-number" data-v-d6c91482>229</span><span class="line-number" data-v-d6c91482>230</span><span class="line-number" data-v-d6c91482>231</span><span class="line-number" data-v-d6c91482>232</span><span class="line-number" data-v-d6c91482>233</span><span class="line-number" data-v-d6c91482>234</span><span class="line-number" data-v-d6c91482>235</span><span class="line-number" data-v-d6c91482>236</span><span class="line-number" data-v-d6c91482>237</span><span class="line-number" data-v-d6c91482>238</span><span class="line-number" data-v-d6c91482>239</span><span class="line-number" data-v-d6c91482>240</span><span class="line-number" data-v-d6c91482>241</span><span class="line-number" data-v-d6c91482>242</span><span class="line-number" data-v-d6c91482>243</span><span class="line-number" data-v-d6c91482>244</span><span class="line-number" data-v-d6c91482>245</span><span class="line-number" data-v-d6c91482>246</span><span class="line-number" data-v-d6c91482>247</span><span class="line-number" data-v-d6c91482>248</span><span class="line-number" data-v-d6c91482>249</span><span class="line-number" data-v-d6c91482>250</span><span class="line-number" data-v-d6c91482>251</span><span class="line-number" data-v-d6c91482>252</span><span class="line-number" data-v-d6c91482>253</span><span class="line-number" data-v-d6c91482>254</span><span class="line-number" data-v-d6c91482>255</span><span class="line-number" data-v-d6c91482>256</span><span class="line-number" data-v-d6c91482>257</span><span class="line-number" data-v-d6c91482>258</span><span class="line-number" data-v-d6c91482>259</span><span class="line-number" data-v-d6c91482>260</span><span class="line-number" data-v-d6c91482>261</span><span class="line-number" data-v-d6c91482>262</span><span class="line-number" data-v-d6c91482>263</span><span class="line-number" data-v-d6c91482>264</span><span class="line-number" data-v-d6c91482>265</span><span class="line-number" data-v-d6c91482>266</span><span class="line-number" data-v-d6c91482>267</span><span class="line-number" data-v-d6c91482>268</span><span class="line-number" data-v-d6c91482>269</span><span class="line-number" data-v-d6c91482>270</span><span class="line-number" data-v-d6c91482>271</span><span class="line-number" data-v-d6c91482>272</span><span class="line-number" data-v-d6c91482>273</span><span class="line-number" data-v-d6c91482>274</span><span class="line-number" data-v-d6c91482>275</span><span class="line-number" data-v-d6c91482>276</span><span class="line-number" data-v-d6c91482>277</span><span class="line-number" data-v-d6c91482>278</span><span class="line-number" data-v-d6c91482>279</span><span class="line-number" data-v-d6c91482>280</span><span class="line-number" data-v-d6c91482>281</span><span class="line-number" data-v-d6c91482>282</span><span class="line-number" data-v-d6c91482>283</span><span class="line-number" data-v-d6c91482>284</span><span class="line-number" data-v-d6c91482>285</span><span class="line-number" data-v-d6c91482>286</span><span class="line-number" data-v-d6c91482>287</span><span class="line-number" data-v-d6c91482>288</span><span class="line-number" data-v-d6c91482>289</span><span class="line-number" data-v-d6c91482>290</span><span class="line-number" data-v-d6c91482>291</span><span class="line-number" data-v-d6c91482>292</span><span class="line-number" data-v-d6c91482>293</span><span class="line-number" data-v-d6c91482>294</span><span class="line-number" data-v-d6c91482>295</span><span class="line-number" data-v-d6c91482>296</span><span class="line-number" data-v-d6c91482>297</span><span class="line-number" data-v-d6c91482>298</span><span class="line-number" data-v-d6c91482>299</span><span class="line-number" data-v-d6c91482>300</span><span class="line-number" data-v-d6c91482>301</span><span class="line-number" data-v-d6c91482>302</span><span class="line-number" data-v-d6c91482>303</span><span class="line-number" data-v-d6c91482>304</span><span class="line-number" data-v-d6c91482>305</span><span class="line-number" data-v-d6c91482>306</span><span class="line-number" data-v-d6c91482>307</span><span class="line-number" data-v-d6c91482>308</span><span class="line-number" data-v-d6c91482>309</span><span class="line-number" data-v-d6c91482>310</span><span class="line-number" data-v-d6c91482>311</span><span class="line-number" data-v-d6c91482>312</span><span class="line-number" data-v-d6c91482>313</span><span class="line-number" data-v-d6c91482>314</span><span class="line-number" data-v-d6c91482>315</span><span class="line-number" data-v-d6c91482>316</span><span class="line-number" data-v-d6c91482>317</span><span class="line-number" data-v-d6c91482>318</span><span class="line-number" data-v-d6c91482>319</span><span class="line-number" data-v-d6c91482>320</span><span class="line-number" data-v-d6c91482>321</span><span class="line-number" data-v-d6c91482>322</span><span class="line-number" data-v-d6c91482>323</span><span class="line-number" data-v-d6c91482>324</span><span class="line-number" data-v-d6c91482>325</span><span class="line-number" data-v-d6c91482>326</span><span class="line-number" data-v-d6c91482>327</span><span class="line-number" data-v-d6c91482>328</span><span class="line-number" data-v-d6c91482>329</span><span class="line-number" data-v-d6c91482>330</span><span class="line-number" data-v-d6c91482>331</span><span class="line-number" data-v-d6c91482>332</span><span class="line-number" data-v-d6c91482>333</span><span class="line-number" data-v-d6c91482>334</span><span class="line-number" data-v-d6c91482>335</span><span class="line-number" data-v-d6c91482>336</span><span class="line-number" data-v-d6c91482>337</span><span class="line-number" data-v-d6c91482>338</span><span class="line-number" data-v-d6c91482>339</span><span class="line-number" data-v-d6c91482>340</span><span class="line-number" data-v-d6c91482>341</span><span class="line-number" data-v-d6c91482>342</span><span class="line-number" data-v-d6c91482>343</span><span class="line-number" data-v-d6c91482>344</span><span class="line-number" data-v-d6c91482>345</span><span class="line-number" data-v-d6c91482>346</span><span class="line-number" data-v-d6c91482>347</span><span class="line-number" data-v-d6c91482>348</span><span class="line-number" data-v-d6c91482>349</span><span class="line-number" data-v-d6c91482>350</span><span class="line-number" data-v-d6c91482>351</span><span class="line-number" data-v-d6c91482>352</span><span class="line-number" data-v-d6c91482>353</span><span class="line-number" data-v-d6c91482>354</span><span class="line-number" data-v-d6c91482>355</span><span class="line-number" data-v-d6c91482>356</span><span class="line-number" data-v-d6c91482>357</span><span class="line-number" data-v-d6c91482>358</span><span class="line-number" data-v-d6c91482>359</span><span class="line-number" data-v-d6c91482>360</span><span class="line-number" data-v-d6c91482>361</span><span class="line-number" data-v-d6c91482>362</span><span class="line-number" data-v-d6c91482>363</span><span class="line-number" data-v-d6c91482>364</span><span class="line-number" data-v-d6c91482>365</span><span class="line-number" data-v-d6c91482>366</span><span class="line-number" data-v-d6c91482>367</span><span class="line-number" data-v-d6c91482>368</span><span class="line-number" data-v-d6c91482>369</span><span class="line-number" data-v-d6c91482>370</span><span class="line-number" data-v-d6c91482>371</span><span class="line-number" data-v-d6c91482>372</span><span class="line-number" data-v-d6c91482>373</span><span class="line-number" data-v-d6c91482>374</span><span class="line-number" data-v-d6c91482>375</span><span class="line-number" data-v-d6c91482>376</span><span class="line-number" data-v-d6c91482>377</span><span class="line-number" data-v-d6c91482>378</span><span class="line-number" data-v-d6c91482>379</span><span class="line-number" data-v-d6c91482>380</span><span class="line-number" data-v-d6c91482>381</span><span class="line-number" data-v-d6c91482>382</span><span class="line-number" data-v-d6c91482>383</span><span class="line-number" data-v-d6c91482>384</span><span class="line-number" data-v-d6c91482>385</span><span class="line-number" data-v-d6c91482>386</span><span class="line-number" data-v-d6c91482>387</span><span class="line-number" data-v-d6c91482>388</span><span class="line-number" data-v-d6c91482>389</span><span class="line-number" data-v-d6c91482>390</span><span class="line-number" data-v-d6c91482>391</span><span class="line-number" data-v-d6c91482>392</span><span class="line-number" data-v-d6c91482>393</span><span class="line-number" data-v-d6c91482>394</span><span class="line-number" data-v-d6c91482>395</span><span class="line-number" data-v-d6c91482>396</span><span class="line-number" data-v-d6c91482>397</span><span class="line-number" data-v-d6c91482>398</span><span class="line-number" data-v-d6c91482>399</span><span class="line-number" data-v-d6c91482>400</span><span class="line-number" data-v-d6c91482>401</span><span class="line-number" data-v-d6c91482>402</span><span class="line-number" data-v-d6c91482>403</span><span class="line-number" data-v-d6c91482>404</span><span class="line-number" data-v-d6c91482>405</span><span class="line-number" data-v-d6c91482>406</span><span class="line-number" data-v-d6c91482>407</span><span class="line-number" data-v-d6c91482>408</span><span class="line-number" data-v-d6c91482>409</span><span class="line-number" data-v-d6c91482>410</span><span class="line-number" data-v-d6c91482>411</span><span class="line-number" data-v-d6c91482>412</span><span class="line-number" data-v-d6c91482>413</span><span class="line-number" data-v-d6c91482>414</span><span class="line-number" data-v-d6c91482>415</span><span class="line-number" data-v-d6c91482>416</span><span class="line-number" data-v-d6c91482>417</span><span class="line-number" data-v-d6c91482>418</span><span class="line-number" data-v-d6c91482>419</span><span class="line-number" data-v-d6c91482>420</span><span class="line-number" data-v-d6c91482>421</span><span class="line-number" data-v-d6c91482>422</span><span class="line-number" data-v-d6c91482>423</span><span class="line-number" data-v-d6c91482>424</span><span class="line-number" data-v-d6c91482>425</span><span class="line-number" data-v-d6c91482>426</span><span class="line-number" data-v-d6c91482>427</span><span class="line-number" data-v-d6c91482>428</span><span class="line-number" data-v-d6c91482>429</span><span class="line-number" data-v-d6c91482>430</span><span class="line-number" data-v-d6c91482>431</span><span class="line-number" data-v-d6c91482>432</span><span class="line-number" data-v-d6c91482>433</span><span class="line-number" data-v-d6c91482>434</span><span class="line-number" data-v-d6c91482>435</span><span class="line-number" data-v-d6c91482>436</span><span class="line-number" data-v-d6c91482>437</span><span class="line-number" data-v-d6c91482>438</span><span class="line-number" data-v-d6c91482>439</span><span class="line-number" data-v-d6c91482>440</span><span class="line-number" data-v-d6c91482>441</span><span class="line-number" data-v-d6c91482>442</span><span class="line-number" data-v-d6c91482>443</span><span class="line-number" data-v-d6c91482>444</span><span class="line-number" data-v-d6c91482>445</span><span class="line-number" data-v-d6c91482>446</span><span class="line-number" data-v-d6c91482>447</span><span class="line-number" data-v-d6c91482>448</span><span class="line-number" data-v-d6c91482>449</span><span class="line-number" data-v-d6c91482>450</span><span class="line-number" data-v-d6c91482>451</span><span class="line-number" data-v-d6c91482>452</span><span class="line-number" data-v-d6c91482>453</span><span class="line-number" data-v-d6c91482>454</span><span class="line-number" data-v-d6c91482>455</span><span class="line-number" data-v-d6c91482>456</span><span class="line-number" data-v-d6c91482>457</span><span class="line-number" data-v-d6c91482>458</span><span class="line-number" data-v-d6c91482>459</span><span class="line-number" data-v-d6c91482>460</span><span class="line-number" data-v-d6c91482>461</span><span class="line-number" data-v-d6c91482>462</span><span class="line-number" data-v-d6c91482>463</span><span class="line-number" data-v-d6c91482>464</span><span class="line-number" data-v-d6c91482>465</span><span class="line-number" data-v-d6c91482>466</span><span class="line-number" data-v-d6c91482>467</span><span class="line-number" data-v-d6c91482>468</span><span class="line-number" data-v-d6c91482>469</span><span class="line-number" data-v-d6c91482>470</span><span class="line-number" data-v-d6c91482>471</span><span class="line-number" data-v-d6c91482>472</span><span class="line-number" data-v-d6c91482>473</span><span class="line-number" data-v-d6c91482>474</span><span class="line-number" data-v-d6c91482>475</span><span class="line-number" data-v-d6c91482>476</span><span class="line-number" data-v-d6c91482>477</span><span class="line-number" data-v-d6c91482>478</span><span class="line-number" data-v-d6c91482>479</span><span class="line-number" data-v-d6c91482>480</span><span class="line-number" data-v-d6c91482>481</span><span class="line-number" data-v-d6c91482>482</span><span class="line-number" data-v-d6c91482>483</span><span class="line-number" data-v-d6c91482>484</span><span class="line-number" data-v-d6c91482>485</span><span class="line-number" data-v-d6c91482>486</span><span class="line-number" data-v-d6c91482>487</span><span class="line-number" data-v-d6c91482>488</span><span class="line-number" data-v-d6c91482>489</span><span class="line-number" data-v-d6c91482>490</span><span class="line-number" data-v-d6c91482>491</span><span class="line-number" data-v-d6c91482>492</span><span class="line-number" data-v-d6c91482>493</span><span class="line-number" data-v-d6c91482>494</span><span class="line-number" data-v-d6c91482>495</span><span class="line-number" data-v-d6c91482>496</span><span class="line-number" data-v-d6c91482>497</span><span class="line-number" data-v-d6c91482>498</span><!--]--></div><div class="code-content" data-v-d6c91482><pre class="code-highlight" data-v-d6c91482><code data-v-d6c91482>[
+  {
+    <span class="hl-key">"id"</span>: <span class="hl-string">"root"</span>,
+    <span class="hl-key">"component"</span>: <span class="hl-string">"Card"</span>,
+    <span class="hl-key">"child"</span>: <span class="hl-string">"main-column"</span>,
+    <span class="hl-key">"width"</span>: <span class="hl-string">"xl"</span>
+  },
+  {
+    <span class="hl-key">"id"</span>: <span class="hl-string">"main-column"</span>,
+    <span class="hl-key">"component"</span>: <span class="hl-string">"Column"</span>,
+    <span class="hl-key">"children"</span>: [
+      "page-title",
+      "section-divider-1",
+      "text-variants-section",
+      "section-divider-2",
+      "card-widths-section",
+      "section-divider-3",
+      "form-fields-section",
+      "section-divider-4",
+      "choice-pickers-section",
+      "section-divider-5",
+      "buttons-section",
+      "section-divider-6",
+      "icons-section",
+      "section-divider-7",
+      "list-section",
+      "action-buttons-row"
+    ],
+    <span class="hl-key">"align"</span>: <span class="hl-string">"stretch"</span>,
+    <span class="hl-key">"gap"</span>: 8
+  },
+  {
+    <span class="hl-key">"id"</span>: <span class="hl-string">"page-title"</span>,
+    <span class="hl-key">"component"</span>: <span class="hl-string">"Text"</span>,
+    <span class="hl-key">"text"</span>: <span class="hl-string">"组件演示 - 所有场景"</span>,
+    <span class="hl-key">"variant"</span>: <span class="hl-string">"h3"</span>
+  },
+  {
+    <span class="hl-key">"id"</span>: <span class="hl-string">"section-divider-1"</span>,
+    <span class="hl-key">"component"</span>: <span class="hl-string">"Text"</span>,
+    <span class="hl-key">"text"</span>: <span class="hl-string">"━━━ 文本变体展示 ━━━"</span>,
+    <span class="hl-key">"variant"</span>: <span class="hl-string">"shortText"</span>
+  },
+  {
+    <span class="hl-key">"id"</span>: <span class="hl-string">"text-variants-section"</span>,
+    <span class="hl-key">"component"</span>: <span class="hl-string">"Column"</span>,
+    <span class="hl-key">"children"</span>: [
+      "text-h3-demo",
+      "text-short-demo",
+      "text-long-demo"
+    ],
+    <span class="hl-key">"align"</span>: <span class="hl-string">"stretch"</span>,
+    <span class="hl-key">"gap"</span>: 12
+  },
+  {
+    <span class="hl-key">"id"</span>: <span class="hl-string">"text-h3-demo"</span>,
+    <span class="hl-key">"component"</span>: <span class="hl-string">"Text"</span>,
+    <span class="hl-key">"text"</span>: <span class="hl-string">"H3 标题样式"</span>,
+    <span class="hl-key">"variant"</span>: <span class="hl-string">"h3"</span>
+  },
+  {
+    <span class="hl-key">"id"</span>: <span class="hl-string">"text-short-demo"</span>,
+    <span class="hl-key">"component"</span>: <span class="hl-string">"Row"</span>,
+    <span class="hl-key">"children"</span>: ["text-short-label", "text-short-content"],
+    <span class="hl-key">"gap"</span>: <span class="hl-number">8</span>,
+    <span class="hl-key">"align"</span>: <span class="hl-string">"center"</span>
+  },
+  {
+    <span class="hl-key">"id"</span>: <span class="hl-string">"text-short-label"</span>,
+    <span class="hl-key">"component"</span>: <span class="hl-string">"Text"</span>,
+    <span class="hl-key">"text"</span>: <span class="hl-string">"短文本:"</span>,
+    <span class="hl-key">"variant"</span>: <span class="hl-string">"shortText"</span>
+  },
+  {
+    <span class="hl-key">"id"</span>: <span class="hl-string">"text-short-content"</span>,
+    <span class="hl-key">"component"</span>: <span class="hl-string">"Text"</span>,
+    <span class="hl-key">"text"</span>: <span class="hl-string">"这是一段简短的描述文本"</span>,
+    <span class="hl-key">"variant"</span>: <span class="hl-string">"shortText"</span>
+  },
+  {
+    <span class="hl-key">"id"</span>: <span class="hl-string">"text-long-demo"</span>,
+    <span class="hl-key">"component"</span>: <span class="hl-string">"Text"</span>,
+    <span class="hl-key">"text"</span>: <span class="hl-string">"长文本变体：支持多行文本展示，适用于详细说明、备注、条款等需要大量文字描述的场景。可以配合 variant: 'longText' 使用。"</span>,
+    <span class="hl-key">"variant"</span>: <span class="hl-string">"longText"</span>
+  },
+  {
+    <span class="hl-key">"id"</span>: <span class="hl-string">"section-divider-2"</span>,
+    <span class="hl-key">"component"</span>: <span class="hl-string">"Text"</span>,
+    <span class="hl-key">"text"</span>: <span class="hl-string">"━━━ Card 宽度展示 ━━━"</span>,
+    <span class="hl-key">"variant"</span>: <span class="hl-string">"shortText"</span>
+  },
+  {
+    <span class="hl-key">"id"</span>: <span class="hl-string">"card-widths-section"</span>,
+    <span class="hl-key">"component"</span>: <span class="hl-string">"Row"</span>,
+    <span class="hl-key">"children"</span>: [
+      "card-xs-info",
+      "card-sm-info",
+      "card-md-info",
+      "card-lg-info"
+    ],
+    <span class="hl-key">"gap"</span>: <span class="hl-number">12</span>,
+    <span class="hl-key">"align"</span>: <span class="hl-string">"stretch"</span>
+  },
+  {
+    <span class="hl-key">"id"</span>: <span class="hl-string">"card-xs-info"</span>,
+    <span class="hl-key">"component"</span>: <span class="hl-string">"Text"</span>,
+    <span class="hl-key">"text"</span>: <span class="hl-string">"xs=300px | sm=400px | md=560px | lg=720px | xl=960px | full=100%"</span>,
+    <span class="hl-key">"variant"</span>: <span class="hl-string">"shortText"</span>
+  },
+  {
+    <span class="hl-key">"id"</span>: <span class="hl-string">"card-sm-info"</span>,
+    <span class="hl-key">"component"</span>: <span class="hl-string">"Text"</span>,
+    <span class="hl-key">"text"</span>: <span class="hl-string">"宽度规格适用于不同场景：xs适合侧边栏，md适合表单，xl适合复杂页面"</span>,
+    <span class="hl-key">"variant"</span>: <span class="hl-string">"shortText"</span>
+  },
+  {
+    <span class="hl-key">"id"</span>: <span class="hl-string">"card-md-info"</span>,
+    <span class="hl-key">"component"</span>: <span class="hl-string">"Text"</span>,
+    <span class="hl-key">"text"</span>: <span class="hl-string">"默认宽度为 md (560px)，这是最常用的中等宽度"</span>,
+    <span class="hl-key">"variant"</span>: <span class="hl-string">"shortText"</span>
+  },
+  {
+    <span class="hl-key">"id"</span>: <span class="hl-string">"card-lg-info"</span>,
+    <span class="hl-key">"component"</span>: <span class="hl-string">"Text"</span>,
+    <span class="hl-key">"text"</span>: <span class="hl-string">"lg/xl 适合数据密集型页面或需要展示大量信息"</span>,
+    <span class="hl-key">"variant"</span>: <span class="hl-string">"shortText"</span>
+  },
+  {
+    <span class="hl-key">"id"</span>: <span class="hl-string">"section-divider-3"</span>,
+    <span class="hl-key">"component"</span>: <span class="hl-string">"Text"</span>,
+    <span class="hl-key">"text"</span>: <span class="hl-string">"━━━ 表单组件展示 ━━━"</span>,
+    <span class="hl-key">"variant"</span>: <span class="hl-string">"shortText"</span>
+  },
+  {
+    <span class="hl-key">"id"</span>: <span class="hl-string">"form-fields-section"</span>,
+    <span class="hl-key">"component"</span>: <span class="hl-string">"Column"</span>,
+    <span class="hl-key">"children"</span>: [
+      "form-row-1",
+      "form-row-2",
+      "form-row-3",
+      "form-row-4"
+    ],
+    <span class="hl-key">"align"</span>: <span class="hl-string">"stretch"</span>,
+    <span class="hl-key">"gap"</span>: 16
+  },
+  {
+    <span class="hl-key">"id"</span>: <span class="hl-string">"form-row-1"</span>,
+    <span class="hl-key">"component"</span>: <span class="hl-string">"Row"</span>,
+    <span class="hl-key">"children"</span>: ["textfield-short", "textfield-required"],
+    <span class="hl-key">"gap"</span>: <span class="hl-number">16</span>,
+    <span class="hl-key">"align"</span>: <span class="hl-string">"stretch"</span>
+  },
+  {
+    <span class="hl-key">"id"</span>: <span class="hl-string">"textfield-short"</span>,
+    <span class="hl-key">"component"</span>: <span class="hl-string">"TextField"</span>,
+    <span class="hl-key">"label"</span>: <span class="hl-string">"短文本输入"</span>,
+    <span class="hl-key">"placeholder"</span>: <span class="hl-string">"请输入"</span>,
+    <span class="hl-key">"variant"</span>: <span class="hl-string">"shortText"</span>,
+    <span class="hl-key">"value"</span>: { <span class="hl-key">"path"</span>: <span class="hl-string">"/form/shortInput"</span>, <span class="hl-key">"default"</span>: <span class="hl-string">"默认值示例"</span> }
+  },
+  {
+    <span class="hl-key">"id"</span>: <span class="hl-string">"textfield-required"</span>,
+    <span class="hl-key">"component"</span>: <span class="hl-string">"TextField"</span>,
+    <span class="hl-key">"label"</span>: <span class="hl-string">"必填字段"</span>,
+    <span class="hl-key">"placeholder"</span>: <span class="hl-string">"此项必填"</span>,
+    <span class="hl-key">"required"</span>: <span class="hl-boolean">true</span>,
+    <span class="hl-key">"value"</span>: { <span class="hl-key">"path"</span>: <span class="hl-string">"/form/requiredField"</span> }
+  },
+  {
+    <span class="hl-key">"id"</span>: <span class="hl-string">"form-row-2"</span>,
+    <span class="hl-key">"component"</span>: <span class="hl-string">"Row"</span>,
+    <span class="hl-key">"children"</span>: ["textfield-long", "selectfield-demo"],
+    <span class="hl-key">"gap"</span>: <span class="hl-number">16</span>,
+    <span class="hl-key">"align"</span>: <span class="hl-string">"stretch"</span>
+  },
+  {
+    <span class="hl-key">"id"</span>: <span class="hl-string">"textfield-long"</span>,
+    <span class="hl-key">"component"</span>: <span class="hl-string">"TextField"</span>,
+    <span class="hl-key">"label"</span>: <span class="hl-string">"长文本输入"</span>,
+    <span class="hl-key">"placeholder"</span>: <span class="hl-string">"请输入详细描述..."</span>,
+    <span class="hl-key">"variant"</span>: <span class="hl-string">"longText"</span>,
+    <span class="hl-key">"rows"</span>: <span class="hl-number">3</span>,
+    <span class="hl-key">"value"</span>: { <span class="hl-key">"path"</span>: <span class="hl-string">"/form/longInput"</span> }
+  },
+  {
+    <span class="hl-key">"id"</span>: <span class="hl-string">"selectfield-demo"</span>,
+    <span class="hl-key">"component"</span>: <span class="hl-string">"SelectField"</span>,
+    <span class="hl-key">"label"</span>: <span class="hl-string">"下拉选择"</span>,
+    <span class="hl-key">"placeholder"</span>: <span class="hl-string">"请选择选项"</span>,
+    <span class="hl-key">"options"</span>: [
+      { <span class="hl-key">"label"</span>: <span class="hl-string">"选项一"</span>, <span class="hl-key">"value"</span>: <span class="hl-string">"opt1"</span> },
+      { <span class="hl-key">"label"</span>: <span class="hl-string">"选项二"</span>, <span class="hl-key">"value"</span>: <span class="hl-string">"opt2"</span> },
+      { <span class="hl-key">"label"</span>: <span class="hl-string">"选项三"</span>, <span class="hl-key">"value"</span>: <span class="hl-string">"opt3"</span> },
+      { <span class="hl-key">"label"</span>: <span class="hl-string">"选项四"</span>, <span class="hl-key">"value"</span>: <span class="hl-string">"opt4"</span>, <span class="hl-key">"disabled"</span>: <span class="hl-boolean">true</span> }
+    ],
+    <span class="hl-key">"clearable"</span>: <span class="hl-boolean">true</span>,
+    <span class="hl-key">"required"</span>: <span class="hl-boolean">true</span>,
+    <span class="hl-key">"value"</span>: { <span class="hl-key">"path"</span>: <span class="hl-string">"/form/selectField"</span>, <span class="hl-key">"default"</span>: <span class="hl-string">"opt1"</span> }
+  },
+  {
+    <span class="hl-key">"id"</span>: <span class="hl-string">"form-row-3"</span>,
+    <span class="hl-key">"component"</span>: <span class="hl-string">"Row"</span>,
+    <span class="hl-key">"children"</span>: ["datepicker-demo", "datetime-demo"],
+    <span class="hl-key">"gap"</span>: <span class="hl-number">16</span>,
+    <span class="hl-key">"align"</span>: <span class="hl-string">"stretch"</span>
+  },
+  {
+    <span class="hl-key">"id"</span>: <span class="hl-string">"datepicker-demo"</span>,
+    <span class="hl-key">"component"</span>: <span class="hl-string">"DatePicker"</span>,
+    <span class="hl-key">"label"</span>: <span class="hl-string">"日期选择"</span>,
+    <span class="hl-key">"placeholder"</span>: <span class="hl-string">"选择日期"</span>,
+    <span class="hl-key">"value"</span>: { <span class="hl-key">"path"</span>: <span class="hl-string">"/form/datePicker"</span> }
+  },
+  {
+    <span class="hl-key">"id"</span>: <span class="hl-string">"datetime-demo"</span>,
+    <span class="hl-key">"component"</span>: <span class="hl-string">"DateTimeInput"</span>,
+    <span class="hl-key">"label"</span>: <span class="hl-string">"日期时间"</span>,
+    <span class="hl-key">"placeholder"</span>: <span class="hl-string">"选择日期时间"</span>,
+    <span class="hl-key">"enableDate"</span>: <span class="hl-boolean">true</span>,
+    <span class="hl-key">"enableTime"</span>: <span class="hl-boolean">true</span>,
+    <span class="hl-key">"value"</span>: { <span class="hl-key">"path"</span>: <span class="hl-string">"/form/dateTime"</span> }
+  },
+  {
+    <span class="hl-key">"id"</span>: <span class="hl-string">"form-row-4"</span>,
+    <span class="hl-key">"component"</span>: <span class="hl-string">"Row"</span>,
+    <span class="hl-key">"children"</span>: ["input-demo", "input-disabled"],
+    <span class="hl-key">"gap"</span>: <span class="hl-number">16</span>,
+    <span class="hl-key">"align"</span>: <span class="hl-string">"stretch"</span>
+  },
+  {
+    <span class="hl-key">"id"</span>: <span class="hl-string">"input-demo"</span>,
+    <span class="hl-key">"component"</span>: <span class="hl-string">"Input"</span>,
+    <span class="hl-key">"label"</span>: <span class="hl-string">"基础输入"</span>,
+    <span class="hl-key">"placeholder"</span>: <span class="hl-string">"普通输入框"</span>,
+    <span class="hl-key">"value"</span>: { <span class="hl-key">"path"</span>: <span class="hl-string">"/form/basicInput"</span> }
+  },
+  {
+    <span class="hl-key">"id"</span>: <span class="hl-string">"input-disabled"</span>,
+    <span class="hl-key">"component"</span>: <span class="hl-string">"Input"</span>,
+    <span class="hl-key">"label"</span>: <span class="hl-string">"禁用状态"</span>,
+    <span class="hl-key">"placeholder"</span>: <span class="hl-string">"不可编辑"</span>,
+    <span class="hl-key">"disabled"</span>: <span class="hl-boolean">true</span>,
+    <span class="hl-key">"value"</span>: { <span class="hl-key">"path"</span>: <span class="hl-string">"/form/disabledInput"</span> }
+  },
+  {
+    <span class="hl-key">"id"</span>: <span class="hl-string">"section-divider-4"</span>,
+    <span class="hl-key">"component"</span>: <span class="hl-string">"Text"</span>,
+    <span class="hl-key">"text"</span>: <span class="hl-string">"━━━ ChoicePicker 展示 ━━━"</span>,
+    <span class="hl-key">"variant"</span>: <span class="hl-string">"shortText"</span>
+  },
+  {
+    <span class="hl-key">"id"</span>: <span class="hl-string">"choice-pickers-section"</span>,
+    <span class="hl-key">"component"</span>: <span class="hl-string">"Column"</span>,
+    <span class="hl-key">"children"</span>: [
+      "choice-single-label",
+      "choice-single-picker",
+      "choice-multi-label",
+      "choice-multi-picker"
+    ],
+    <span class="hl-key">"align"</span>: <span class="hl-string">"stretch"</span>,
+    <span class="hl-key">"gap"</span>: 8
+  },
+  {
+    <span class="hl-key">"id"</span>: <span class="hl-string">"choice-single-label"</span>,
+    <span class="hl-key">"component"</span>: <span class="hl-string">"Text"</span>,
+    <span class="hl-key">"text"</span>: <span class="hl-string">"单选模式 (mutuallyExclusive):"</span>,
+    <span class="hl-key">"variant"</span>: <span class="hl-string">"shortText"</span>
+  },
+  {
+    <span class="hl-key">"id"</span>: <span class="hl-string">"choice-single-picker"</span>,
+    <span class="hl-key">"component"</span>: <span class="hl-string">"ChoicePicker"</span>,
+    <span class="hl-key">"label"</span>: <span class="hl-string">""</span>,
+    <span class="hl-key">"variant"</span>: <span class="hl-string">"mutuallyExclusive"</span>,
+    <span class="hl-key">"displayStyle"</span>: <span class="hl-string">"chips"</span>,
+    <span class="hl-key">"required"</span>: <span class="hl-boolean">true</span>,
+    <span class="hl-key">"options"</span>: [
+      { <span class="hl-key">"label"</span>: <span class="hl-string">"方案A"</span>, <span class="hl-key">"value"</span>: <span class="hl-string">"plan_a"</span> },
+      { <span class="hl-key">"label"</span>: <span class="hl-string">"方案B"</span>, <span class="hl-key">"value"</span>: <span class="hl-string">"plan_b"</span> },
+      { <span class="hl-key">"label"</span>: <span class="hl-string">"方案C"</span>, <span class="hl-key">"value"</span>: <span class="hl-string">"plan_c"</span> },
+      { <span class="hl-key">"label"</span>: <span class="hl-string">"自定义"</span>, <span class="hl-key">"value"</span>: <span class="hl-string">"custom"</span> }
+    ],
+    <span class="hl-key">"value"</span>: { <span class="hl-key">"path"</span>: <span class="hl-string">"/form/singleChoice"</span> }
+  },
+  {
+    <span class="hl-key">"id"</span>: <span class="hl-string">"choice-multi-label"</span>,
+    <span class="hl-key">"component"</span>: <span class="hl-string">"Text"</span>,
+    <span class="hl-key">"text"</span>: <span class="hl-string">"多选模式 (默认):"</span>,
+    <span class="hl-key">"variant"</span>: <span class="hl-string">"shortText"</span>
+  },
+  {
+    <span class="hl-key">"id"</span>: <span class="hl-string">"choice-multi-picker"</span>,
+    <span class="hl-key">"component"</span>: <span class="hl-string">"ChoicePicker"</span>,
+    <span class="hl-key">"label"</span>: <span class="hl-string">""</span>,
+    <span class="hl-key">"variant"</span>: <span class="hl-string">"default"</span>,
+    <span class="hl-key">"displayStyle"</span>: <span class="hl-string">"chips"</span>,
+    <span class="hl-key">"options"</span>: [
+      { <span class="hl-key">"label"</span>: <span class="hl-string">"功能1"</span>, <span class="hl-key">"value"</span>: <span class="hl-string">"feature_1"</span>, <span class="hl-key">"description"</span>: <span class="hl-string">"基础功能模块"</span> },
+      { <span class="hl-key">"label"</span>: <span class="hl-string">"功能2"</span>, <span class="hl-key">"value"</span>: <span class="hl-string">"feature_2"</span>, <span class="hl-key">"description"</span>: <span class="hl-string">"高级功能模块"</span> },
+      { <span class="hl-key">"label"</span>: <span class="hl-string">"功能3"</span>, <span class="hl-key">"value"</span>: <span class="hl-string">"feature_3"</span>, <span class="hl-key">"description"</span>: <span class="hl-string">"扩展功能模块"</span> },
+      { <span class="hl-key">"label"</span>: <span class="hl-string">"功能4"</span>, <span class="hl-key">"value"</span>: <span class="hl-string">"feature_4"</span>, <span class="hl-key">"description"</span>: <span class="hl-string">"可选功能模块"</span> },
+      { <span class="hl-key">"label"</span>: <span class="hl-string">"功能5"</span>, <span class="hl-key">"value"</span>: <span class="hl-string">"feature_5"</span> },
+      { <span class="hl-key">"label"</span>: <span class="hl-string">"功能6"</span>, <span class="hl-key">"value"</span>: <span class="hl-string">"feature_6"</span>, <span class="hl-key">"disabled"</span>: <span class="hl-boolean">true</span> }
+    ],
+    <span class="hl-key">"value"</span>: { <span class="hl-key">"path"</span>: <span class="hl-string">"/form/multiChoice"</span> }
+  },
+  {
+    <span class="hl-key">"id"</span>: <span class="hl-string">"section-divider-5"</span>,
+    <span class="hl-key">"component"</span>: <span class="hl-string">"Text"</span>,
+    <span class="hl-key">"text"</span>: <span class="hl-string">"━━━ 按钮类型展示 ━━━"</span>,
+    <span class="hl-key">"variant"</span>: <span class="hl-string">"shortText"</span>
+  },
+  {
+    <span class="hl-key">"id"</span>: <span class="hl-string">"buttons-section"</span>,
+    <span class="hl-key">"component"</span>: <span class="hl-string">"Row"</span>,
+    <span class="hl-key">"children"</span>: [
+      "btn-primary-info",
+      "btn-success-info",
+      "btn-warning-info",
+      "btn-danger-info",
+      "btn-info-info",
+      "btn-default-info"
+    ],
+    <span class="hl-key">"gap"</span>: <span class="hl-number">12</span>,
+    <span class="hl-key">"align"</span>: <span class="hl-string">"center"</span>
+  },
+  {
+    <span class="hl-key">"id"</span>: <span class="hl-string">"btn-primary-info"</span>,
+    <span class="hl-key">"component"</span>: <span class="hl-string">"Button"</span>,
+    <span class="hl-key">"text"</span>: <span class="hl-string">"Primary"</span>,
+    <span class="hl-key">"type"</span>: <span class="hl-string">"primary"</span>
+  },
+  {
+    <span class="hl-key">"id"</span>: <span class="hl-string">"btn-success-info"</span>,
+    <span class="hl-key">"component"</span>: <span class="hl-string">"Button"</span>,
+    <span class="hl-key">"text"</span>: <span class="hl-string">"Success"</span>,
+    <span class="hl-key">"type"</span>: <span class="hl-string">"success"</span>
+  },
+  {
+    <span class="hl-key">"id"</span>: <span class="hl-string">"btn-warning-info"</span>,
+    <span class="hl-key">"component"</span>: <span class="hl-string">"Button"</span>,
+    <span class="hl-key">"text"</span>: <span class="hl-string">"Warning"</span>,
+    <span class="hl-key">"type"</span>: <span class="hl-string">"warning"</span>
+  },
+  {
+    <span class="hl-key">"id"</span>: <span class="hl-string">"btn-danger-info"</span>,
+    <span class="hl-key">"component"</span>: <span class="hl-string">"Button"</span>,
+    <span class="hl-key">"text"</span>: <span class="hl-string">"Danger"</span>,
+    <span class="hl-key">"type"</span>: <span class="hl-string">"danger"</span>
+  },
+  {
+    <span class="hl-key">"id"</span>: <span class="hl-string">"btn-info-info"</span>,
+    <span class="hl-key">"component"</span>: <span class="hl-string">"Button"</span>,
+    <span class="hl-key">"text"</span>: <span class="hl-string">"Info"</span>,
+    <span class="hl-key">"type"</span>: <span class="hl-string">"info"</span>
+  },
+  {
+    <span class="hl-key">"id"</span>: <span class="hl-string">"btn-default-info"</span>,
+    <span class="hl-key">"component"</span>: <span class="hl-string">"Button"</span>,
+    <span class="hl-key">"text"</span>: <span class="hl-string">"Default"</span>,
+    <span class="hl-key">"type"</span>: <span class="hl-string">"default"</span>
+  },
+  {
+    <span class="hl-key">"id"</span>: <span class="hl-string">"section-divider-6"</span>,
+    <span class="hl-key">"component"</span>: <span class="hl-string">"Text"</span>,
+    <span class="hl-key">"text"</span>: <span class="hl-string">"━━━ 图标展示 ━━━"</span>,
+    <span class="hl-key">"variant"</span>: <span class="hl-string">"shortText"</span>
+  },
+  {
+    <span class="hl-key">"id"</span>: <span class="hl-string">"icons-section"</span>,
+    <span class="hl-key">"component"</span>: <span class="hl-string">"Row"</span>,
+    <span class="hl-key">"children"</span>: [
+      "icon-label",
+      "icon-row"
+    ],
+    <span class="hl-key">"gap"</span>: <span class="hl-number">16</span>,
+    <span class="hl-key">"align"</span>: <span class="hl-string">"center"</span>
+  },
+  {
+    <span class="hl-key">"id"</span>: <span class="hl-string">"icon-label"</span>,
+    <span class="hl-key">"component"</span>: <span class="hl-string">"Text"</span>,
+    <span class="hl-key">"text"</span>: <span class="hl-string">"Element Plus 图标:"</span>,
+    <span class="hl-key">"variant"</span>: <span class="hl-string">"shortText"</span>
+  },
+  {
+    <span class="hl-key">"id"</span>: <span class="hl-string">"icon-row"</span>,
+    <span class="hl-key">"component"</span>: <span class="hl-string">"Row"</span>,
+    <span class="hl-key">"children"</span>: [
+      "icon-edit",
+      "icon-delete",
+      "icon-search",
+      "icon-setting",
+      "icon-user",
+      "icon-folder"
+    ],
+    <span class="hl-key">"gap"</span>: <span class="hl-number">12</span>,
+    <span class="hl-key">"align"</span>: <span class="hl-string">"center"</span>
+  },
+  {
+    <span class="hl-key">"id"</span>: <span class="hl-string">"icon-edit"</span>,
+    <span class="hl-key">"component"</span>: <span class="hl-string">"Icon"</span>,
+    <span class="hl-key">"name"</span>: <span class="hl-string">"Edit"</span>
+  },
+  {
+    <span class="hl-key">"id"</span>: <span class="hl-string">"icon-delete"</span>,
+    <span class="hl-key">"component"</span>: <span class="hl-string">"Icon"</span>,
+    <span class="hl-key">"name"</span>: <span class="hl-string">"Delete"</span>
+  },
+  {
+    <span class="hl-key">"id"</span>: <span class="hl-string">"icon-search"</span>,
+    <span class="hl-key">"component"</span>: <span class="hl-string">"Icon"</span>,
+    <span class="hl-key">"name"</span>: <span class="hl-string">"Search"</span>
+  },
+  {
+    <span class="hl-key">"id"</span>: <span class="hl-string">"icon-setting"</span>,
+    <span class="hl-key">"component"</span>: <span class="hl-string">"Icon"</span>,
+    <span class="hl-key">"name"</span>: <span class="hl-string">"Setting"</span>
+  },
+  {
+    <span class="hl-key">"id"</span>: <span class="hl-string">"icon-user"</span>,
+    <span class="hl-key">"component"</span>: <span class="hl-string">"Icon"</span>,
+    <span class="hl-key">"name"</span>: <span class="hl-string">"User"</span>
+  },
+  {
+    <span class="hl-key">"id"</span>: <span class="hl-string">"icon-folder"</span>,
+    <span class="hl-key">"component"</span>: <span class="hl-string">"Icon"</span>,
+    <span class="hl-key">"name"</span>: <span class="hl-string">"Folder"</span>
+  },
+  {
+    <span class="hl-key">"id"</span>: <span class="hl-string">"section-divider-7"</span>,
+    <span class="hl-key">"component"</span>: <span class="hl-string">"Text"</span>,
+    <span class="hl-key">"text"</span>: <span class="hl-string">"━━━ 列表展示 ━━━"</span>,
+    <span class="hl-key">"variant"</span>: <span class="hl-string">"shortText"</span>
+  },
+  {
+    <span class="hl-key">"id"</span>: <span class="hl-string">"list-section"</span>,
+    <span class="hl-key">"component"</span>: <span class="hl-string">"Column"</span>,
+    <span class="hl-key">"children"</span>: [
+      "list-demo"
+    ],
+    <span class="hl-key">"align"</span>: <span class="hl-string">"stretch"</span>
+  },
+  {
+    <span class="hl-key">"id"</span>: <span class="hl-string">"list-demo"</span>,
+    <span class="hl-key">"component"</span>: <span class="hl-string">"List"</span>,
+    <span class="hl-key">"items"</span>: [
+      { <span class="hl-key">"id"</span>: <span class="hl-string">"item1"</span>, <span class="hl-key">"label"</span>: <span class="hl-string">"列表项一 - 基本信息"</span> },
+      { <span class="hl-key">"id"</span>: <span class="hl-string">"item2"</span>, <span class="hl-key">"label"</span>: <span class="hl-string">"列表项二 - 详细描述"</span> },
+      { <span class="hl-key">"id"</span>: <span class="hl-string">"item3"</span>, <span class="hl-key">"label"</span>: <span class="hl-string">"列表项三 - 扩展说明"</span> },
+      { <span class="hl-key">"id"</span>: <span class="hl-string">"item4"</span>, <span class="hl-key">"label"</span>: <span class="hl-string">"列表项四 - 补充内容"</span> },
+      "纯文本列表项"
+    ],
+    <span class="hl-key">"value"</span>: { <span class="hl-key">"path"</span>: <span class="hl-string">"/form/listItems"</span> }
+  },
+  {
+    <span class="hl-key">"id"</span>: <span class="hl-string">"action-buttons-row"</span>,
+    <span class="hl-key">"component"</span>: <span class="hl-string">"Row"</span>,
+    <span class="hl-key">"children"</span>: [
+      "reset-btn",
+      "cancel-btn",
+      "submit-btn"
+    ],
+    <span class="hl-key">"justify"</span>: <span class="hl-string">"end"</span>,
+    <span class="hl-key">"gap"</span>: 12
+  },
+  {
+    <span class="hl-key">"id"</span>: <span class="hl-string">"reset-btn-text"</span>,
+    <span class="hl-key">"component"</span>: <span class="hl-string">"Text"</span>,
+    <span class="hl-key">"text"</span>: <span class="hl-string">"重置"</span>
+  },
+  {
+    <span class="hl-key">"id"</span>: <span class="hl-string">"reset-btn"</span>,
+    <span class="hl-key">"component"</span>: <span class="hl-string">"Button"</span>,
+    <span class="hl-key">"child"</span>: <span class="hl-string">"reset-btn-text"</span>,
+    <span class="hl-key">"type"</span>: <span class="hl-string">"warning"</span>
+  },
+  {
+    <span class="hl-key">"id"</span>: <span class="hl-string">"cancel-btn-text"</span>,
+    <span class="hl-key">"component"</span>: <span class="hl-string">"Text"</span>,
+    <span class="hl-key">"text"</span>: <span class="hl-string">"取消"</span>
+  },
+  {
+    <span class="hl-key">"id"</span>: <span class="hl-string">"cancel-btn"</span>,
+    <span class="hl-key">"component"</span>: <span class="hl-string">"Button"</span>,
+    <span class="hl-key">"child"</span>: <span class="hl-string">"cancel-btn-text"</span>,
+    <span class="hl-key">"type"</span>: <span class="hl-string">"default"</span>
+  },
+  {
+    <span class="hl-key">"id"</span>: <span class="hl-string">"submit-btn-text"</span>,
+    <span class="hl-key">"component"</span>: <span class="hl-string">"Text"</span>,
+    <span class="hl-key">"text"</span>: <span class="hl-string">"提交"</span>
+  },
+  {
+    <span class="hl-key">"id"</span>: <span class="hl-string">"submit-btn"</span>,
+    <span class="hl-key">"component"</span>: <span class="hl-string">"Button"</span>,
+    <span class="hl-key">"child"</span>: <span class="hl-string">"submit-btn-text"</span>,
+    <span class="hl-key">"type"</span>: <span class="hl-string">"primary"</span>
+  }
+]</code></pre><textarea class="code-input" placeholder="在此输入 JSON..." spellcheck="false" data-v-d6c91482>[
+  {
+    &quot;id&quot;: &quot;root&quot;,
+    &quot;component&quot;: &quot;Card&quot;,
+    &quot;child&quot;: &quot;main-column&quot;,
+    &quot;width&quot;: &quot;xl&quot;
+  },
+  {
+    &quot;id&quot;: &quot;main-column&quot;,
+    &quot;component&quot;: &quot;Column&quot;,
+    &quot;children&quot;: [
+      &quot;page-title&quot;,
+      &quot;section-divider-1&quot;,
+      &quot;text-variants-section&quot;,
+      &quot;section-divider-2&quot;,
+      &quot;card-widths-section&quot;,
+      &quot;section-divider-3&quot;,
+      &quot;form-fields-section&quot;,
+      &quot;section-divider-4&quot;,
+      &quot;choice-pickers-section&quot;,
+      &quot;section-divider-5&quot;,
+      &quot;buttons-section&quot;,
+      &quot;section-divider-6&quot;,
+      &quot;icons-section&quot;,
+      &quot;section-divider-7&quot;,
+      &quot;list-section&quot;,
+      &quot;action-buttons-row&quot;
+    ],
+    &quot;align&quot;: &quot;stretch&quot;,
+    &quot;gap&quot;: 8
+  },
+  {
+    &quot;id&quot;: &quot;page-title&quot;,
+    &quot;component&quot;: &quot;Text&quot;,
+    &quot;text&quot;: &quot;组件演示 - 所有场景&quot;,
+    &quot;variant&quot;: &quot;h3&quot;
+  },
+  {
+    &quot;id&quot;: &quot;section-divider-1&quot;,
+    &quot;component&quot;: &quot;Text&quot;,
+    &quot;text&quot;: &quot;━━━ 文本变体展示 ━━━&quot;,
+    &quot;variant&quot;: &quot;shortText&quot;
+  },
+  {
+    &quot;id&quot;: &quot;text-variants-section&quot;,
+    &quot;component&quot;: &quot;Column&quot;,
+    &quot;children&quot;: [
+      &quot;text-h3-demo&quot;,
+      &quot;text-short-demo&quot;,
+      &quot;text-long-demo&quot;
+    ],
+    &quot;align&quot;: &quot;stretch&quot;,
+    &quot;gap&quot;: 12
+  },
+  {
+    &quot;id&quot;: &quot;text-h3-demo&quot;,
+    &quot;component&quot;: &quot;Text&quot;,
+    &quot;text&quot;: &quot;H3 标题样式&quot;,
+    &quot;variant&quot;: &quot;h3&quot;
+  },
+  {
+    &quot;id&quot;: &quot;text-short-demo&quot;,
+    &quot;component&quot;: &quot;Row&quot;,
+    &quot;children&quot;: [&quot;text-short-label&quot;, &quot;text-short-content&quot;],
+    &quot;gap&quot;: 8,
+    &quot;align&quot;: &quot;center&quot;
+  },
+  {
+    &quot;id&quot;: &quot;text-short-label&quot;,
+    &quot;component&quot;: &quot;Text&quot;,
+    &quot;text&quot;: &quot;短文本:&quot;,
+    &quot;variant&quot;: &quot;shortText&quot;
+  },
+  {
+    &quot;id&quot;: &quot;text-short-content&quot;,
+    &quot;component&quot;: &quot;Text&quot;,
+    &quot;text&quot;: &quot;这是一段简短的描述文本&quot;,
+    &quot;variant&quot;: &quot;shortText&quot;
+  },
+  {
+    &quot;id&quot;: &quot;text-long-demo&quot;,
+    &quot;component&quot;: &quot;Text&quot;,
+    &quot;text&quot;: &quot;长文本变体：支持多行文本展示，适用于详细说明、备注、条款等需要大量文字描述的场景。可以配合 variant: &#39;longText&#39; 使用。&quot;,
+    &quot;variant&quot;: &quot;longText&quot;
+  },
+  {
+    &quot;id&quot;: &quot;section-divider-2&quot;,
+    &quot;component&quot;: &quot;Text&quot;,
+    &quot;text&quot;: &quot;━━━ Card 宽度展示 ━━━&quot;,
+    &quot;variant&quot;: &quot;shortText&quot;
+  },
+  {
+    &quot;id&quot;: &quot;card-widths-section&quot;,
+    &quot;component&quot;: &quot;Row&quot;,
+    &quot;children&quot;: [
+      &quot;card-xs-info&quot;,
+      &quot;card-sm-info&quot;,
+      &quot;card-md-info&quot;,
+      &quot;card-lg-info&quot;
+    ],
+    &quot;gap&quot;: 12,
+    &quot;align&quot;: &quot;stretch&quot;
+  },
+  {
+    &quot;id&quot;: &quot;card-xs-info&quot;,
+    &quot;component&quot;: &quot;Text&quot;,
+    &quot;text&quot;: &quot;xs=300px | sm=400px | md=560px | lg=720px | xl=960px | full=100%&quot;,
+    &quot;variant&quot;: &quot;shortText&quot;
+  },
+  {
+    &quot;id&quot;: &quot;card-sm-info&quot;,
+    &quot;component&quot;: &quot;Text&quot;,
+    &quot;text&quot;: &quot;宽度规格适用于不同场景：xs适合侧边栏，md适合表单，xl适合复杂页面&quot;,
+    &quot;variant&quot;: &quot;shortText&quot;
+  },
+  {
+    &quot;id&quot;: &quot;card-md-info&quot;,
+    &quot;component&quot;: &quot;Text&quot;,
+    &quot;text&quot;: &quot;默认宽度为 md (560px)，这是最常用的中等宽度&quot;,
+    &quot;variant&quot;: &quot;shortText&quot;
+  },
+  {
+    &quot;id&quot;: &quot;card-lg-info&quot;,
+    &quot;component&quot;: &quot;Text&quot;,
+    &quot;text&quot;: &quot;lg/xl 适合数据密集型页面或需要展示大量信息&quot;,
+    &quot;variant&quot;: &quot;shortText&quot;
+  },
+  {
+    &quot;id&quot;: &quot;section-divider-3&quot;,
+    &quot;component&quot;: &quot;Text&quot;,
+    &quot;text&quot;: &quot;━━━ 表单组件展示 ━━━&quot;,
+    &quot;variant&quot;: &quot;shortText&quot;
+  },
+  {
+    &quot;id&quot;: &quot;form-fields-section&quot;,
+    &quot;component&quot;: &quot;Column&quot;,
+    &quot;children&quot;: [
+      &quot;form-row-1&quot;,
+      &quot;form-row-2&quot;,
+      &quot;form-row-3&quot;,
+      &quot;form-row-4&quot;
+    ],
+    &quot;align&quot;: &quot;stretch&quot;,
+    &quot;gap&quot;: 16
+  },
+  {
+    &quot;id&quot;: &quot;form-row-1&quot;,
+    &quot;component&quot;: &quot;Row&quot;,
+    &quot;children&quot;: [&quot;textfield-short&quot;, &quot;textfield-required&quot;],
+    &quot;gap&quot;: 16,
+    &quot;align&quot;: &quot;stretch&quot;
+  },
+  {
+    &quot;id&quot;: &quot;textfield-short&quot;,
+    &quot;component&quot;: &quot;TextField&quot;,
+    &quot;label&quot;: &quot;短文本输入&quot;,
+    &quot;placeholder&quot;: &quot;请输入&quot;,
+    &quot;variant&quot;: &quot;shortText&quot;,
+    &quot;value&quot;: { &quot;path&quot;: &quot;/form/shortInput&quot;, &quot;default&quot;: &quot;默认值示例&quot; }
+  },
+  {
+    &quot;id&quot;: &quot;textfield-required&quot;,
+    &quot;component&quot;: &quot;TextField&quot;,
+    &quot;label&quot;: &quot;必填字段&quot;,
+    &quot;placeholder&quot;: &quot;此项必填&quot;,
+    &quot;required&quot;: true,
+    &quot;value&quot;: { &quot;path&quot;: &quot;/form/requiredField&quot; }
+  },
+  {
+    &quot;id&quot;: &quot;form-row-2&quot;,
+    &quot;component&quot;: &quot;Row&quot;,
+    &quot;children&quot;: [&quot;textfield-long&quot;, &quot;selectfield-demo&quot;],
+    &quot;gap&quot;: 16,
+    &quot;align&quot;: &quot;stretch&quot;
+  },
+  {
+    &quot;id&quot;: &quot;textfield-long&quot;,
+    &quot;component&quot;: &quot;TextField&quot;,
+    &quot;label&quot;: &quot;长文本输入&quot;,
+    &quot;placeholder&quot;: &quot;请输入详细描述...&quot;,
+    &quot;variant&quot;: &quot;longText&quot;,
+    &quot;rows&quot;: 3,
+    &quot;value&quot;: { &quot;path&quot;: &quot;/form/longInput&quot; }
+  },
+  {
+    &quot;id&quot;: &quot;selectfield-demo&quot;,
+    &quot;component&quot;: &quot;SelectField&quot;,
+    &quot;label&quot;: &quot;下拉选择&quot;,
+    &quot;placeholder&quot;: &quot;请选择选项&quot;,
+    &quot;options&quot;: [
+      { &quot;label&quot;: &quot;选项一&quot;, &quot;value&quot;: &quot;opt1&quot; },
+      { &quot;label&quot;: &quot;选项二&quot;, &quot;value&quot;: &quot;opt2&quot; },
+      { &quot;label&quot;: &quot;选项三&quot;, &quot;value&quot;: &quot;opt3&quot; },
+      { &quot;label&quot;: &quot;选项四&quot;, &quot;value&quot;: &quot;opt4&quot;, &quot;disabled&quot;: true }
+    ],
+    &quot;clearable&quot;: true,
+    &quot;required&quot;: true,
+    &quot;value&quot;: { &quot;path&quot;: &quot;/form/selectField&quot;, &quot;default&quot;: &quot;opt1&quot; }
+  },
+  {
+    &quot;id&quot;: &quot;form-row-3&quot;,
+    &quot;component&quot;: &quot;Row&quot;,
+    &quot;children&quot;: [&quot;datepicker-demo&quot;, &quot;datetime-demo&quot;],
+    &quot;gap&quot;: 16,
+    &quot;align&quot;: &quot;stretch&quot;
+  },
+  {
+    &quot;id&quot;: &quot;datepicker-demo&quot;,
+    &quot;component&quot;: &quot;DatePicker&quot;,
+    &quot;label&quot;: &quot;日期选择&quot;,
+    &quot;placeholder&quot;: &quot;选择日期&quot;,
+    &quot;value&quot;: { &quot;path&quot;: &quot;/form/datePicker&quot; }
+  },
+  {
+    &quot;id&quot;: &quot;datetime-demo&quot;,
+    &quot;component&quot;: &quot;DateTimeInput&quot;,
+    &quot;label&quot;: &quot;日期时间&quot;,
+    &quot;placeholder&quot;: &quot;选择日期时间&quot;,
+    &quot;enableDate&quot;: true,
+    &quot;enableTime&quot;: true,
+    &quot;value&quot;: { &quot;path&quot;: &quot;/form/dateTime&quot; }
+  },
+  {
+    &quot;id&quot;: &quot;form-row-4&quot;,
+    &quot;component&quot;: &quot;Row&quot;,
+    &quot;children&quot;: [&quot;input-demo&quot;, &quot;input-disabled&quot;],
+    &quot;gap&quot;: 16,
+    &quot;align&quot;: &quot;stretch&quot;
+  },
+  {
+    &quot;id&quot;: &quot;input-demo&quot;,
+    &quot;component&quot;: &quot;Input&quot;,
+    &quot;label&quot;: &quot;基础输入&quot;,
+    &quot;placeholder&quot;: &quot;普通输入框&quot;,
+    &quot;value&quot;: { &quot;path&quot;: &quot;/form/basicInput&quot; }
+  },
+  {
+    &quot;id&quot;: &quot;input-disabled&quot;,
+    &quot;component&quot;: &quot;Input&quot;,
+    &quot;label&quot;: &quot;禁用状态&quot;,
+    &quot;placeholder&quot;: &quot;不可编辑&quot;,
+    &quot;disabled&quot;: true,
+    &quot;value&quot;: { &quot;path&quot;: &quot;/form/disabledInput&quot; }
+  },
+  {
+    &quot;id&quot;: &quot;section-divider-4&quot;,
+    &quot;component&quot;: &quot;Text&quot;,
+    &quot;text&quot;: &quot;━━━ ChoicePicker 展示 ━━━&quot;,
+    &quot;variant&quot;: &quot;shortText&quot;
+  },
+  {
+    &quot;id&quot;: &quot;choice-pickers-section&quot;,
+    &quot;component&quot;: &quot;Column&quot;,
+    &quot;children&quot;: [
+      &quot;choice-single-label&quot;,
+      &quot;choice-single-picker&quot;,
+      &quot;choice-multi-label&quot;,
+      &quot;choice-multi-picker&quot;
+    ],
+    &quot;align&quot;: &quot;stretch&quot;,
+    &quot;gap&quot;: 8
+  },
+  {
+    &quot;id&quot;: &quot;choice-single-label&quot;,
+    &quot;component&quot;: &quot;Text&quot;,
+    &quot;text&quot;: &quot;单选模式 (mutuallyExclusive):&quot;,
+    &quot;variant&quot;: &quot;shortText&quot;
+  },
+  {
+    &quot;id&quot;: &quot;choice-single-picker&quot;,
+    &quot;component&quot;: &quot;ChoicePicker&quot;,
+    &quot;label&quot;: &quot;&quot;,
+    &quot;variant&quot;: &quot;mutuallyExclusive&quot;,
+    &quot;displayStyle&quot;: &quot;chips&quot;,
+    &quot;required&quot;: true,
+    &quot;options&quot;: [
+      { &quot;label&quot;: &quot;方案A&quot;, &quot;value&quot;: &quot;plan_a&quot; },
+      { &quot;label&quot;: &quot;方案B&quot;, &quot;value&quot;: &quot;plan_b&quot; },
+      { &quot;label&quot;: &quot;方案C&quot;, &quot;value&quot;: &quot;plan_c&quot; },
+      { &quot;label&quot;: &quot;自定义&quot;, &quot;value&quot;: &quot;custom&quot; }
+    ],
+    &quot;value&quot;: { &quot;path&quot;: &quot;/form/singleChoice&quot; }
+  },
+  {
+    &quot;id&quot;: &quot;choice-multi-label&quot;,
+    &quot;component&quot;: &quot;Text&quot;,
+    &quot;text&quot;: &quot;多选模式 (默认):&quot;,
+    &quot;variant&quot;: &quot;shortText&quot;
+  },
+  {
+    &quot;id&quot;: &quot;choice-multi-picker&quot;,
+    &quot;component&quot;: &quot;ChoicePicker&quot;,
+    &quot;label&quot;: &quot;&quot;,
+    &quot;variant&quot;: &quot;default&quot;,
+    &quot;displayStyle&quot;: &quot;chips&quot;,
+    &quot;options&quot;: [
+      { &quot;label&quot;: &quot;功能1&quot;, &quot;value&quot;: &quot;feature_1&quot;, &quot;description&quot;: &quot;基础功能模块&quot; },
+      { &quot;label&quot;: &quot;功能2&quot;, &quot;value&quot;: &quot;feature_2&quot;, &quot;description&quot;: &quot;高级功能模块&quot; },
+      { &quot;label&quot;: &quot;功能3&quot;, &quot;value&quot;: &quot;feature_3&quot;, &quot;description&quot;: &quot;扩展功能模块&quot; },
+      { &quot;label&quot;: &quot;功能4&quot;, &quot;value&quot;: &quot;feature_4&quot;, &quot;description&quot;: &quot;可选功能模块&quot; },
+      { &quot;label&quot;: &quot;功能5&quot;, &quot;value&quot;: &quot;feature_5&quot; },
+      { &quot;label&quot;: &quot;功能6&quot;, &quot;value&quot;: &quot;feature_6&quot;, &quot;disabled&quot;: true }
+    ],
+    &quot;value&quot;: { &quot;path&quot;: &quot;/form/multiChoice&quot; }
+  },
+  {
+    &quot;id&quot;: &quot;section-divider-5&quot;,
+    &quot;component&quot;: &quot;Text&quot;,
+    &quot;text&quot;: &quot;━━━ 按钮类型展示 ━━━&quot;,
+    &quot;variant&quot;: &quot;shortText&quot;
+  },
+  {
+    &quot;id&quot;: &quot;buttons-section&quot;,
+    &quot;component&quot;: &quot;Row&quot;,
+    &quot;children&quot;: [
+      &quot;btn-primary-info&quot;,
+      &quot;btn-success-info&quot;,
+      &quot;btn-warning-info&quot;,
+      &quot;btn-danger-info&quot;,
+      &quot;btn-info-info&quot;,
+      &quot;btn-default-info&quot;
+    ],
+    &quot;gap&quot;: 12,
+    &quot;align&quot;: &quot;center&quot;
+  },
+  {
+    &quot;id&quot;: &quot;btn-primary-info&quot;,
+    &quot;component&quot;: &quot;Button&quot;,
+    &quot;text&quot;: &quot;Primary&quot;,
+    &quot;type&quot;: &quot;primary&quot;
+  },
+  {
+    &quot;id&quot;: &quot;btn-success-info&quot;,
+    &quot;component&quot;: &quot;Button&quot;,
+    &quot;text&quot;: &quot;Success&quot;,
+    &quot;type&quot;: &quot;success&quot;
+  },
+  {
+    &quot;id&quot;: &quot;btn-warning-info&quot;,
+    &quot;component&quot;: &quot;Button&quot;,
+    &quot;text&quot;: &quot;Warning&quot;,
+    &quot;type&quot;: &quot;warning&quot;
+  },
+  {
+    &quot;id&quot;: &quot;btn-danger-info&quot;,
+    &quot;component&quot;: &quot;Button&quot;,
+    &quot;text&quot;: &quot;Danger&quot;,
+    &quot;type&quot;: &quot;danger&quot;
+  },
+  {
+    &quot;id&quot;: &quot;btn-info-info&quot;,
+    &quot;component&quot;: &quot;Button&quot;,
+    &quot;text&quot;: &quot;Info&quot;,
+    &quot;type&quot;: &quot;info&quot;
+  },
+  {
+    &quot;id&quot;: &quot;btn-default-info&quot;,
+    &quot;component&quot;: &quot;Button&quot;,
+    &quot;text&quot;: &quot;Default&quot;,
+    &quot;type&quot;: &quot;default&quot;
+  },
+  {
+    &quot;id&quot;: &quot;section-divider-6&quot;,
+    &quot;component&quot;: &quot;Text&quot;,
+    &quot;text&quot;: &quot;━━━ 图标展示 ━━━&quot;,
+    &quot;variant&quot;: &quot;shortText&quot;
+  },
+  {
+    &quot;id&quot;: &quot;icons-section&quot;,
+    &quot;component&quot;: &quot;Row&quot;,
+    &quot;children&quot;: [
+      &quot;icon-label&quot;,
+      &quot;icon-row&quot;
+    ],
+    &quot;gap&quot;: 16,
+    &quot;align&quot;: &quot;center&quot;
+  },
+  {
+    &quot;id&quot;: &quot;icon-label&quot;,
+    &quot;component&quot;: &quot;Text&quot;,
+    &quot;text&quot;: &quot;Element Plus 图标:&quot;,
+    &quot;variant&quot;: &quot;shortText&quot;
+  },
+  {
+    &quot;id&quot;: &quot;icon-row&quot;,
+    &quot;component&quot;: &quot;Row&quot;,
+    &quot;children&quot;: [
+      &quot;icon-edit&quot;,
+      &quot;icon-delete&quot;,
+      &quot;icon-search&quot;,
+      &quot;icon-setting&quot;,
+      &quot;icon-user&quot;,
+      &quot;icon-folder&quot;
+    ],
+    &quot;gap&quot;: 12,
+    &quot;align&quot;: &quot;center&quot;
+  },
+  {
+    &quot;id&quot;: &quot;icon-edit&quot;,
+    &quot;component&quot;: &quot;Icon&quot;,
+    &quot;name&quot;: &quot;Edit&quot;
+  },
+  {
+    &quot;id&quot;: &quot;icon-delete&quot;,
+    &quot;component&quot;: &quot;Icon&quot;,
+    &quot;name&quot;: &quot;Delete&quot;
+  },
+  {
+    &quot;id&quot;: &quot;icon-search&quot;,
+    &quot;component&quot;: &quot;Icon&quot;,
+    &quot;name&quot;: &quot;Search&quot;
+  },
+  {
+    &quot;id&quot;: &quot;icon-setting&quot;,
+    &quot;component&quot;: &quot;Icon&quot;,
+    &quot;name&quot;: &quot;Setting&quot;
+  },
+  {
+    &quot;id&quot;: &quot;icon-user&quot;,
+    &quot;component&quot;: &quot;Icon&quot;,
+    &quot;name&quot;: &quot;User&quot;
+  },
+  {
+    &quot;id&quot;: &quot;icon-folder&quot;,
+    &quot;component&quot;: &quot;Icon&quot;,
+    &quot;name&quot;: &quot;Folder&quot;
+  },
+  {
+    &quot;id&quot;: &quot;section-divider-7&quot;,
+    &quot;component&quot;: &quot;Text&quot;,
+    &quot;text&quot;: &quot;━━━ 列表展示 ━━━&quot;,
+    &quot;variant&quot;: &quot;shortText&quot;
+  },
+  {
+    &quot;id&quot;: &quot;list-section&quot;,
+    &quot;component&quot;: &quot;Column&quot;,
+    &quot;children&quot;: [
+      &quot;list-demo&quot;
+    ],
+    &quot;align&quot;: &quot;stretch&quot;
+  },
+  {
+    &quot;id&quot;: &quot;list-demo&quot;,
+    &quot;component&quot;: &quot;List&quot;,
+    &quot;items&quot;: [
+      { &quot;id&quot;: &quot;item1&quot;, &quot;label&quot;: &quot;列表项一 - 基本信息&quot; },
+      { &quot;id&quot;: &quot;item2&quot;, &quot;label&quot;: &quot;列表项二 - 详细描述&quot; },
+      { &quot;id&quot;: &quot;item3&quot;, &quot;label&quot;: &quot;列表项三 - 扩展说明&quot; },
+      { &quot;id&quot;: &quot;item4&quot;, &quot;label&quot;: &quot;列表项四 - 补充内容&quot; },
+      &quot;纯文本列表项&quot;
+    ],
+    &quot;value&quot;: { &quot;path&quot;: &quot;/form/listItems&quot; }
+  },
+  {
+    &quot;id&quot;: &quot;action-buttons-row&quot;,
+    &quot;component&quot;: &quot;Row&quot;,
+    &quot;children&quot;: [
+      &quot;reset-btn&quot;,
+      &quot;cancel-btn&quot;,
+      &quot;submit-btn&quot;
+    ],
+    &quot;justify&quot;: &quot;end&quot;,
+    &quot;gap&quot;: 12
+  },
+  {
+    &quot;id&quot;: &quot;reset-btn-text&quot;,
+    &quot;component&quot;: &quot;Text&quot;,
+    &quot;text&quot;: &quot;重置&quot;
+  },
+  {
+    &quot;id&quot;: &quot;reset-btn&quot;,
+    &quot;component&quot;: &quot;Button&quot;,
+    &quot;child&quot;: &quot;reset-btn-text&quot;,
+    &quot;type&quot;: &quot;warning&quot;
+  },
+  {
+    &quot;id&quot;: &quot;cancel-btn-text&quot;,
+    &quot;component&quot;: &quot;Text&quot;,
+    &quot;text&quot;: &quot;取消&quot;
+  },
+  {
+    &quot;id&quot;: &quot;cancel-btn&quot;,
+    &quot;component&quot;: &quot;Button&quot;,
+    &quot;child&quot;: &quot;cancel-btn-text&quot;,
+    &quot;type&quot;: &quot;default&quot;
+  },
+  {
+    &quot;id&quot;: &quot;submit-btn-text&quot;,
+    &quot;component&quot;: &quot;Text&quot;,
+    &quot;text&quot;: &quot;提交&quot;
+  },
+  {
+    &quot;id&quot;: &quot;submit-btn&quot;,
+    &quot;component&quot;: &quot;Button&quot;,
+    &quot;child&quot;: &quot;submit-btn-text&quot;,
+    &quot;type&quot;: &quot;primary&quot;
+  }
+]</textarea></div></div></div><!----></div><div class="data-section" data-v-d6c91482><div class="section-header" data-v-d6c91482><span class="section-title" data-v-d6c91482>Form Data</span></div><div class="data-body" data-v-d6c91482><div class="code-editor data-editor" data-v-d6c91482><div class="line-numbers" data-v-d6c91482><!--[--><span class="line-number" data-v-d6c91482>1</span><span class="line-number" data-v-d6c91482>2</span><span class="line-number" data-v-d6c91482>3</span><!--]--></div><div class="code-content" data-v-d6c91482><pre class="code-highlight" data-v-d6c91482><code data-v-d6c91482>{
+  <span class="hl-key">"form"</span>: {}
+}</code></pre></div></div></div></div></div><div class="preview-panel" data-v-d6c91482><div class="panel-header" data-v-d6c91482><span class="panel-title" data-v-d6c91482>预览</span><!----></div><div class="preview-body" data-v-d6c91482><!--[--><div class="a2ui-root" data-v-7a99ce0e><!--[--><div class="a2ui-empty" data-v-7a99ce0e><!--[-->无内容<!--]--></div><!--]--></div><!--]--></div></div></div><div class="playground-footer" data-v-d6c91482><div class="footer-left" data-v-d6c91482><span data-v-d6c91482>消息数: 0</span><!----></div></div></div></div></div></div>
+    <script>window.__VP_HASH_MAP__=JSON.parse("{\"components_a2-button.md\":\"DR9mj4F8\",\"components_a2-card.md\":\"DBttU6UE\",\"components_a2-choice-picker.md\":\"CiMI--36\",\"components_a2-column.md\":\"CoUQg-Be\",\"components_a2-date-picker.md\":\"J-wfxMP6\",\"components_a2-date-time-input.md\":\"DR85zsEu\",\"components_a2-icon.md\":\"B4CaNDmq\",\"components_a2-info-field.md\":\"Beo-KNe0\",\"components_a2-input.md\":\"DGQIUZuq\",\"components_a2-list.md\":\"rAbQR55H\",\"components_a2-row.md\":\"DI-DgfTL\",\"components_a2-select-field.md\":\"C5Kx4mMT\",\"components_a2-select.md\":\"Dvxxsaua\",\"components_a2-text-field.md\":\"DDBicBrA\",\"components_a2-text.md\":\"BX4rtZu_\",\"components_index.md\":\"BhDqDDVm\",\"en_components_a2-button.md\":\"B9Jk78Wa\",\"en_components_a2-card.md\":\"1PDqxGzT\",\"en_components_a2-choice-picker.md\":\"CcfkgHUS\",\"en_components_a2-column.md\":\"Dq9QHkaf\",\"en_components_a2-date-picker.md\":\"7Ey1Kb-4\",\"en_components_a2-date-time-input.md\":\"DLQ5sJmK\",\"en_components_a2-icon.md\":\"DA5FOS8y\",\"en_components_a2-info-field.md\":\"CLo_A4ZF\",\"en_components_a2-input.md\":\"HupSBuyT\",\"en_components_a2-list.md\":\"CLZD1uVL\",\"en_components_a2-row.md\":\"DEMuvlo7\",\"en_components_a2-select-field.md\":\"2yt4EbOc\",\"en_components_a2-select.md\":\"DjnXWhbc\",\"en_components_a2-text-field.md\":\"Bgy9kl2P\",\"en_components_a2-text.md\":\"NSej_vfM\",\"en_components_index.md\":\"CfUl5Nkr\",\"en_guide_architecture.md\":\"BjMPd_-L\",\"en_guide_getting-started.md\":\"B0_IGAwg\",\"en_guide_json-schema.md\":\"BwoWsHO3\",\"en_index.md\":\"aMONOHJQ\",\"en_playground.md\":\"BcomGOKn\",\"guide_architecture.md\":\"PEOXPOqc\",\"guide_getting-started.md\":\"B22-W26J\",\"guide_json-schema.md\":\"CEGsjq7D\",\"index.md\":\"CW7Zp_Lr\",\"playground.md\":\"BGfcWbMm\"}");window.__VP_SITE_DATA__=JSON.parse("{\"lang\":\"en-US\",\"dir\":\"ltr\",\"title\":\"A2UI\",\"description\":\"A VitePress site\",\"base\":\"/a2ui-vue-engine/\",\"head\":[],\"router\":{\"prefetchLinks\":true},\"appearance\":true,\"themeConfig\":{\"logo\":\"/logo.svg\",\"socialLinks\":[{\"icon\":\"github\",\"link\":\"https://github.com/chenhui9392/a2ui-vue-engine\"}]},\"locales\":{\"root\":{\"label\":\"简体中文\",\"lang\":\"zh-CN\",\"title\":\"A2UI\",\"description\":\"A2UI Vue3 渲染引擎文档\",\"themeConfig\":{\"nav\":[{\"text\":\"首页\",\"link\":\"/\"},{\"text\":\"Playground\",\"link\":\"/playground\"},{\"text\":\"指南\",\"link\":\"/guide/getting-started\"},{\"text\":\"组件\",\"link\":\"/components/\"}],\"sidebar\":{\"/guide/\":[{\"text\":\"指南\",\"items\":[{\"text\":\"快速开始\",\"link\":\"/guide/getting-started\"},{\"text\":\"架构设计\",\"link\":\"/guide/architecture\"},{\"text\":\"JSON 规范\",\"link\":\"/guide/json-schema\"}]}],\"/components/\":[{\"text\":\"布局组件\",\"items\":[{\"text\":\"A2Card\",\"link\":\"/components/a2-card\"},{\"text\":\"A2Row\",\"link\":\"/components/a2-row\"},{\"text\":\"A2Column\",\"link\":\"/components/a2-column\"},{\"text\":\"A2List\",\"link\":\"/components/a2-list\"}]},{\"text\":\"表单组件\",\"items\":[{\"text\":\"A2TextField\",\"link\":\"/components/a2-text-field\"},{\"text\":\"A2Input\",\"link\":\"/components/a2-input\"},{\"text\":\"A2Select\",\"link\":\"/components/a2-select\"},{\"text\":\"A2SelectField\",\"link\":\"/components/a2-select-field\"},{\"text\":\"A2DatePicker\",\"link\":\"/components/a2-date-picker\"},{\"text\":\"A2DateTimeInput\",\"link\":\"/components/a2-date-time-input\"},{\"text\":\"A2ChoicePicker\",\"link\":\"/components/a2-choice-picker\"}]},{\"text\":\"展示组件\",\"items\":[{\"text\":\"A2Text\",\"link\":\"/components/a2-text\"},{\"text\":\"A2Icon\",\"link\":\"/components/a2-icon\"},{\"text\":\"A2InfoField\",\"link\":\"/components/a2-info-field\"}]},{\"text\":\"操作组件\",\"items\":[{\"text\":\"A2Button\",\"link\":\"/components/a2-button\"}]}]},\"footer\":{\"message\":\"A2UI 文档\",\"copyright\":\"Copyright © 2026 A2UI Team\"},\"docFooter\":{\"prev\":\"上一页\",\"next\":\"下一页\"},\"outline\":{\"label\":\"页面导航\"},\"lastUpdated\":{\"text\":\"最后更新于\"}}},\"en\":{\"label\":\"English\",\"lang\":\"en\",\"title\":\"A2UI\",\"description\":\"A2UI Vue3 Render Engine Documentation\",\"link\":\"/en/\",\"themeConfig\":{\"nav\":[{\"text\":\"Home\",\"link\":\"/en/\"},{\"text\":\"Playground\",\"link\":\"/en/playground\"},{\"text\":\"Guide\",\"link\":\"/en/guide/getting-started\"},{\"text\":\"Components\",\"link\":\"/en/components/\"}],\"sidebar\":{\"/en/guide/\":[{\"text\":\"Guide\",\"items\":[{\"text\":\"Getting Started\",\"link\":\"/en/guide/getting-started\"},{\"text\":\"Architecture\",\"link\":\"/en/guide/architecture\"},{\"text\":\"JSON Schema\",\"link\":\"/en/guide/json-schema\"}]}],\"/en/components/\":[{\"text\":\"Layout Components\",\"items\":[{\"text\":\"A2Card\",\"link\":\"/en/components/a2-card\"},{\"text\":\"A2Row\",\"link\":\"/en/components/a2-row\"},{\"text\":\"A2Column\",\"link\":\"/en/components/a2-column\"},{\"text\":\"A2List\",\"link\":\"/en/components/a2-list\"}]},{\"text\":\"Form Components\",\"items\":[{\"text\":\"A2TextField\",\"link\":\"/en/components/a2-text-field\"},{\"text\":\"A2Input\",\"link\":\"/en/components/a2-input\"},{\"text\":\"A2Select\",\"link\":\"/en/components/a2-select\"},{\"text\":\"A2SelectField\",\"link\":\"/en/components/a2-select-field\"},{\"text\":\"A2DatePicker\",\"link\":\"/en/components/a2-date-picker\"},{\"text\":\"A2DateTimeInput\",\"link\":\"/en/components/a2-date-time-input\"},{\"text\":\"A2ChoicePicker\",\"link\":\"/en/components/a2-choice-picker\"}]},{\"text\":\"Display Components\",\"items\":[{\"text\":\"A2Text\",\"link\":\"/en/components/a2-text\"},{\"text\":\"A2Icon\",\"link\":\"/en/components/a2-icon\"},{\"text\":\"A2InfoField\",\"link\":\"/en/components/a2-info-field\"}]},{\"text\":\"Action Components\",\"items\":[{\"text\":\"A2Button\",\"link\":\"/en/components/a2-button\"}]}]},\"footer\":{\"message\":\"A2UI Documentation\",\"copyright\":\"Copyright © 2026 A2UI Team\"}}}},\"scrollOffset\":134,\"cleanUrls\":false}");</script>
+    
+  </body>
+</html>
