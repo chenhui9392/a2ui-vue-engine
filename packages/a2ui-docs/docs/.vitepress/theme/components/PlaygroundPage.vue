@@ -474,7 +474,7 @@ const mockExamples: Record<string, string> = {
     "id": "root",
     "component": "Card",
     "child": "main-column",
-    "width": "xl"
+    "width": "lg"
   },
   {
     "id": "main-column",
@@ -651,7 +651,7 @@ const mockExamples: Record<string, string> = {
     "placeholder": "请输入详细描述...",
     "variant": "longText",
     "rows": 3,
-    "value": { "path": "/form/longInput" }
+    "value": { "path": "/form/longInput", "default": "这是一段默认的长文本内容，用于展示多行输入的效果。" }
   },
   {
     "id": "selectfield-demo",
@@ -680,7 +680,7 @@ const mockExamples: Record<string, string> = {
     "component": "DatePicker",
     "label": "日期选择",
     "placeholder": "选择日期",
-    "value": { "path": "/form/datePicker" }
+    "value": { "path": "/form/datePicker", "default": "2026-04-29" }
   },
   {
     "id": "datetime-demo",
@@ -689,7 +689,7 @@ const mockExamples: Record<string, string> = {
     "placeholder": "选择日期时间",
     "enableDate": true,
     "enableTime": true,
-    "value": { "path": "/form/dateTime" }
+    "value": { "path": "/form/dateTime", "default": "2026-04-29 14:30:00" }
   },
   {
     "id": "form-row-4",
@@ -703,7 +703,7 @@ const mockExamples: Record<string, string> = {
     "component": "Input",
     "label": "基础输入",
     "placeholder": "普通输入框",
-    "value": { "path": "/form/basicInput" }
+    "value": { "path": "/form/basicInput", "default": "基础输入默认值" }
   },
   {
     "id": "input-disabled",
@@ -750,7 +750,7 @@ const mockExamples: Record<string, string> = {
       { "label": "方案C", "value": "plan_c" },
       { "label": "自定义", "value": "custom" }
     ],
-    "value": { "path": "/form/singleChoice" }
+    "value": { "path": "/form/singleChoice", "default": "plan_a" }
   },
   {
     "id": "choice-multi-label",
@@ -772,10 +772,37 @@ const mockExamples: Record<string, string> = {
       { "label": "功能5", "value": "feature_5" },
       { "label": "功能6", "value": "feature_6", "disabled": true }
     ],
-    "value": { "path": "/form/multiChoice" }
+    "value": { "path": "/form/multiChoice", "default": ["feature_1", "feature_2"] }
   },
   {
     "id": "section-divider-5",
+    "component": "Text",
+    "text": "━━━ InfoField 信息展示 ━━━",
+    "variant": "shortText"
+  },
+  {
+    "id": "info-section",
+    "component": "Column",
+    "children": ["info-tag", "info-quote"],
+    "align": "stretch",
+    "gap": 12
+  },
+  {
+    "id": "info-tag",
+    "component": "InfoField",
+    "label": "系统模块",
+    "value": { "path": "/form/systemModule", "default": "订单管理" },
+    "variant": "tag"
+  },
+  {
+    "id": "info-quote",
+    "component": "InfoField",
+    "label": "问题描述",
+    "value": { "path": "/form/issueDesc", "default": "系统提示订单状态异常，需要核实订单流转逻辑。" },
+    "variant": "quote"
+  },
+  {
+    "id": "section-divider-6",
     "component": "Text",
     "text": "━━━ 按钮类型展示 ━━━",
     "variant": "shortText"
@@ -831,7 +858,7 @@ const mockExamples: Record<string, string> = {
     "type": "default"
   },
   {
-    "id": "section-divider-6",
+    "id": "section-divider-7",
     "component": "Text",
     "text": "━━━ 图标展示 ━━━",
     "variant": "shortText"
@@ -897,7 +924,7 @@ const mockExamples: Record<string, string> = {
     "name": "Folder"
   },
   {
-    "id": "section-divider-7",
+    "id": "section-divider-8",
     "component": "Text",
     "text": "━━━ 列表展示 ━━━",
     "variant": "shortText"

@@ -75,6 +75,21 @@ interface ChoiceOption {
 }
 ```
 
+<PlaygroundEmbed 
+  title="多选默认值"
+  :json-example='[
+  { "id": "root", "component": "Card", "child": "multi-default-demo", "width": "xs" },
+  { "id": "multi-default-demo", "component": "Column", "children": ["multi-default-label", "multi-default-picker"], "align": "stretch" },
+  { "id": "multi-default-label", "component": "Text", "text": "请选择功能模块（默认已选中两项）:", "variant": "shortText" },
+  { "id": "multi-default-picker", "component": "ChoicePicker", "displayStyle": "chips", "choiceOptions": [
+      { "label": "用户管理", "value": "user" },
+      { "label": "订单管理", "value": "order" },
+      { "label": "库存管理", "value": "inventory" },
+      { "label": "财务管理", "value": "finance" }
+    ], "value": { "path": "/form/modules", "default": ["user", "order"] } }
+]'
+/>
+
 ## 选择模式
 
 ### 多选模式 (default)
