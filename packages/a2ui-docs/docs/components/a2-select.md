@@ -14,6 +14,7 @@
 | `filterable` | boolean | false | 可搜索 |
 | `multipleLimit` | number | 0 | 多选限制数量 |
 | `size` | `large \| default \| small` | `default` | 尺寸 |
+| `value` | `{ path: string, default?: any }` | - | 数据绑定路径与默认值 |
 
 ## 选项结构
 
@@ -22,6 +23,64 @@ interface SelectOption {
   label: string       // 显示文本
   value: string | number  // 选项值
   disabled?: boolean     // 是否禁用（可选）
+}
+```
+
+## 扁平格式默认值
+
+在扁平格式中，可以通过 `value.default` 设置初始选中项：
+
+```json
+{
+  "id": "selectField",
+  "component": "Select",
+  "placeholder": "请选择",
+  "options": [
+    { "label": "选项一", "value": "opt1" },
+    { "label": "选项二", "value": "opt2" }
+  ],
+  "value": { "path": "/form/select", "default": "opt1" }
+}
+```
+
+<PlaygroundEmbed
+  title="带默认值的选择框"
+  :json-example='[
+  {
+    "id": "root",
+    "component": "Card",
+    "child": "demo-column",
+    "width": "sm"
+  },
+  {
+    "id": "demo-column",
+    "component": "Column",
+    "children": ["select-default"],
+    "align": "stretch"
+  },
+  {
+    "id": "select-default",
+    "component": "Select",
+    "placeholder": "请选择选项",
+    "options": [
+      { "label": "选项一", "value": "opt1" },
+      { "label": "选项二", "value": "opt2" },
+      { "label": "选项三", "value": "opt3" }
+    ],
+    "value": { "path": "/form/select", "default": "opt1" }
+  }
+]'
+/>
+
+## 多选默认值
+
+多选模式下，`value.default` 需要传入数组：
+
+```json
+{
+  "component": "Select",
+  "multiple": true,
+  "value": { "path": "/form/select", "default": ["opt1", "opt2"] }
 }
 ```
 

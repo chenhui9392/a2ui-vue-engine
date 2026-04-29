@@ -1,5 +1,29 @@
 /* Custom VitePress layout styles */
 
+/* 缩小左侧边栏宽度 */
+:root {
+  --vp-sidebar-width: 220px;
+}
+
+/* 宽屏下调整中间内容区和右侧导航栏 */
+@media (min-width: 1280px) {
+  /* 缩小右侧页面导航栏 */
+  .VPDoc .aside {
+    width: 200px;
+    max-width: 200px;
+    padding-left: 16px;
+  }
+
+  /* 放大中间内容区域 */
+  .VPDoc .content {
+    max-width: none;
+  }
+
+  .VPDoc .container {
+    max-width: none;
+  }
+}
+
 /* Playground embed width - only for embedded playgrounds */
 .playground-embed {
   width: 100%;

@@ -11,6 +11,38 @@
 | `type` | `text | password | number` | `text` | 输入类型 |
 | `disabled` | boolean | false | 禁用状态 |
 | `clearable` | boolean | false | 清除按钮 |
+| `value` | `{ path: string, default?: any }` | - | 数据绑定路径与默认值 |
+
+## 扁平格式默认值
+
+在扁平格式中，可以通过 `value.default` 设置初始默认值：
+
+```json
+{
+  "id": "inputField",
+  "component": "Input",
+  "placeholder": "请输入内容",
+  "value": { "path": "/form/input", "default": "默认文本" }
+}
+```
+
+<PlaygroundEmbed 
+  title="带默认值的输入框"
+  :json-example='[
+  {
+    "id": "root",
+    "component": "Card",
+    "child": "inputField",
+    "width": "xs"
+  },
+  {
+    "id": "inputField",
+    "component": "Input",
+    "placeholder": "请输入内容",
+    "value": { "path": "/form/input", "default": "默认文本" }
+  }
+]'
+/>
 
 ## 基础示例
 

@@ -11,6 +11,10 @@
           <el-icon><Refresh /></el-icon>
           Reset
         </el-button>
+        <el-button size="small" @click="handleCopy">
+          <el-icon><CopyDocument /></el-icon>
+          Copy
+        </el-button>
       </div>
     </div>
 
@@ -50,7 +54,8 @@
 
 <script setup lang="ts">
 import { ref, computed, watch, onMounted } from 'vue'
-import { VideoPlay, Refresh } from '@element-plus/icons-vue'
+import { ElMessage } from 'element-plus'
+import { VideoPlay, Refresh, CopyDocument } from '@element-plus/icons-vue'
 import { A2UIRoot } from 'a2ui-vue-engine'
 import type { A2Node, FormDataResult } from 'a2ui-vue-engine'
 
@@ -121,6 +126,16 @@ function handleReset() {
   editorContent.value = originalContent.value
   error.value = ''
   handleRun()
+}
+
+// Handle copy
+async function handleCopy() {
+  try {
+    await navigator.clipboard.writeText(editorContent.value)
+    ElMessage.success('已复制到剪贴板!')
+  } catch (e) {
+    ElMessage.error('复制失败!')
+  }
 }
 
 // Handle message from A2UIRoot

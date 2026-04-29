@@ -236,6 +236,11 @@ function buildProps(flatNode: FlatA2Node): Record<string, any> {
     props.displayStyle = flatNode.displayStyle
   }
 
+  // ChoicePicker 默认值（统一通过 value.default 设置）
+  if (flatNode.component === 'ChoicePicker' && flatNode.value?.default !== undefined) {
+    props.defaultValue = flatNode.value.default
+  }
+
   // 禁用/只读
   if (flatNode.disabled !== undefined) {
     props.disabled = flatNode.disabled

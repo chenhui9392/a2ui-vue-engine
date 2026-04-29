@@ -13,6 +13,7 @@
 | `rows` | number | 4 | longText 时显示行数 |
 | `disabled` | boolean | false | 禁用状态 |
 | `required` | boolean | false | 必填字段 |
+| `value` | `{ path: string, default?: any }` | - | 数据绑定路径与默认值 |
 
 ## 扁平格式默认值
 

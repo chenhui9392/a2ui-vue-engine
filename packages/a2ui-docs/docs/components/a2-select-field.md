@@ -12,6 +12,7 @@
 | `options` | array | [] | 下拉选项 |
 | `clearable` | boolean | false | 清除按钮 |
 | `disabled` | boolean | false | 禁用状态 |
+| `value` | `{ path: string, default?: any }` | - | 数据绑定路径与默认值 |
 
 ## 选项结构
 

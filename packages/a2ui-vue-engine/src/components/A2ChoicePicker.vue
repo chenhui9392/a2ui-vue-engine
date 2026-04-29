@@ -162,13 +162,17 @@ watch(() => props.defaultValue, (newVal) => {
 }
 
 .choice-item:hover:not(.disabled) {
-  border-color: #409eff;
+  border-color: #2260FA;
 }
 
 .choice-item.selected:not(.disabled) {
-  border-color: #409eff;
-  border-width: 2px;
-  background: #ecf5ff;
+  border-color: #2260FA;
+  border-width: 1px;
+  background: #EBF3FF;
+}
+
+.choice-item.selected:not(.disabled) .choice-title {
+  color: #2260FA;
 }
 
 .choice-item.disabled {

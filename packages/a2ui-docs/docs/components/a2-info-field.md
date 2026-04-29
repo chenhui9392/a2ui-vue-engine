@@ -19,6 +19,7 @@
 | `variant` | `tag | text | quote` | `text` | 值的样式变体 |
 | `size` | `large | default` | `default` | 标签字体大小 |
 | `bgColor` | string | - | 整行背景色（设置后自动贴边显示） |
+| `value` | `{ path: string, default?: any }` | - | 数据绑定路径与默认值 |
 
 ## 变体说明
 
@@ -27,6 +28,37 @@
 | `text` | 普通文本样式 |
 | `tag` | 蓝色标签样式（背景 `#EFF4FF`，文字 `#2260FA`） |
 | `quote` | 灰色引用块样式（背景 `#F5F7FA`，圆角 `8px`） |
+
+## 扁平格式默认值
+
+在扁平格式中，可以通过 `value.default` 设置初始显示值：
+
+```json
+{
+  "id": "infoField",
+  "component": "InfoField",
+  "label": "系统名称",
+  "value": { "path": "/form/system", "default": "国内GOMS" }
+}
+```
+
+<PlaygroundEmbed 
+  title="带默认值的InfoField"
+  :json-example='[
+  {
+    "id": "root",
+    "component": "Card",
+    "child": "infoField",
+    "width": "xs"
+  },
+  {
+    "id": "infoField",
+    "component": "InfoField",
+    "label": "系统名称",
+    "value": { "path": "/form/system", "default": "国内GOMS" }
+  }
+]'
+/>
 
 ## 基础示例
 

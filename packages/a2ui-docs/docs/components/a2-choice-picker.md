@@ -12,7 +12,7 @@
 | `displayStyle` | `default` \| `chips` | `default` | 显示样式 |
 | `required` | boolean | false | 是否必填 |
 | `disabled` | boolean | false | 是否禁用 |
-| `defaultValue` | array \| string \| number | [] | 默认值 |
+| `value` | `{ path: string, default?: any }` | - | 数据绑定路径与默认值 |
 
 ## 选项配置
 
@@ -22,6 +22,56 @@ interface ChoiceOption {
   value: string | number  // 选项值
   description?: string    // 描述文本（可选）
   disabled?: boolean     // 是否禁用（可选）
+}
+```
+
+## 扁平格式默认值
+
+在扁平格式中，通过 `value.default` 设置默认选中项：
+
+- **多选模式**：传入选项值数组，如 `["internet", "email"]`
+- **单选模式**：传入单个选项值，如 `"internet"`
+
+```json
+{
+  "id": "picker",
+  "component": "ChoicePicker",
+  "variant": "mutuallyExclusive",
+  "choiceOptions": [
+    { "label": "外网访问", "value": "internet" },
+    { "label": "邮件收发", "value": "email" }
+  ],
+  "value": { "path": "/form/permission", "default": "internet" }
+}
+```
+
+<PlaygroundEmbed 
+  title="带默认值的单选"
+  :json-example='[
+  { "id": "root", "component": "Card", "child": "picker-demo", "width": "xs" },
+  { "id": "picker-demo", "component": "Column", "children": ["picker-label", "default-picker"], "align": "stretch" },
+  { "id": "picker-label", "component": "Text", "text": "选择权限类型:", "variant": "shortText" },
+  { "id": "default-picker", "component": "ChoicePicker", "variant": "mutuallyExclusive", "displayStyle": "chips", "choiceOptions": [
+      { "label": "外网访问", "value": "internet", "description": "访问外部网站和资源" },
+      { "label": "邮件收发", "value": "email", "description": "发送和接收外部邮件" },
+      { "label": "文件传输", "value": "ftp", "description": "上传下载外部文件" },
+      { "label": "VPN接入", "value": "vpn", "description": "远程接入公司内网" }
+    ], "value": { "path": "/form/permission", "default": "internet" } }
+]'
+/>
+
+## 多选默认值
+
+多选模式下，`value.default` 需要传入数组：
+
+```json
+{
+  "component": "ChoicePicker",
+  "choiceOptions": [
+    { "label": "选项一", "value": "opt1" },
+    { "label": "选项二", "value": "opt2" }
+  ],
+  "value": { "path": "/form/choices", "default": ["opt1", "opt2"] }
 }
 ```
 
@@ -40,7 +90,7 @@ interface ChoiceOption {
 <PlaygroundEmbed 
   title="基础多选"
   :json-example='[
-  { "id": "root", "component": "Card", "child": "picker-demo", "width": "md" },
+  { "id": "root", "component": "Card", "child": "picker-demo", "width": "xs" },
   { "id": "picker-demo", "component": "Column", "children": ["picker-label", "multi-picker"], "align": "stretch" },
   { "id": "picker-label", "component": "Text", "text": "请选择功能模块:", "variant": "shortText" },
   { "id": "multi-picker", "component": "ChoicePicker", "options": [
@@ -57,7 +107,7 @@ interface ChoiceOption {
 <PlaygroundEmbed 
   title="互斥单选"
   :json-example='[
-  { "id": "root", "component": "Card", "child": "single-demo", "width": "md" },
+  { "id": "root", "component": "Card", "child": "single-demo", "width": "xs" },
   { "id": "single-demo", "component": "Column", "children": ["single-label", "single-picker"], "align": "stretch" },
   { "id": "single-label", "component": "Text", "text": "选择审批方案:", "variant": "shortText" },
   { "id": "single-picker", "component": "ChoicePicker", "label": "", "variant": "mutuallyExclusive", "displayStyle": "chips", "required": true, "options": [
@@ -73,7 +123,7 @@ interface ChoiceOption {
 <PlaygroundEmbed 
   title="带描述的选项"
   :json-example='[
-  { "id": "root", "component": "Card", "child": "desc-demo", "width": "lg" },
+  { "id": "root", "component": "Card", "child": "desc-demo", "width": "xs![1777444993310](image/a2-choice-picker/1777444993310.png)![1777444998366](image/a2-choice-picker/1777444998366.png)![1777445005675](image/a2-choice-picker/1777445005675.png)![1777445009157](image/a2-choice-picker/1777445009157.png)" },
   { "id": "desc-demo", "component": "Column", "children": ["desc-label", "desc-picker"], "align": "stretch" },
   { "id": "desc-label", "component": "Text", "text": "选择权限类型:", "variant": "shortText" },
   { "id": "desc-picker", "component": "ChoicePicker", "variant": "mutuallyExclusive", "displayStyle": "chips", "options": [
@@ -90,13 +140,13 @@ interface ChoiceOption {
 <PlaygroundEmbed 
   title="必填与禁用"
   :json-example='[
-  { "id": "root", "component": "Card", "child": "state-demo", "width": "md" },
+  { "id": "root", "component": "Card", "child": "state-demo", "width": "xs" },
   { "id": "state-demo", "component": "Column", "children": ["required-picker", "disabled-picker"], "align": "stretch", "gap": 16 },
   { "id": "required-picker", "component": "ChoicePicker", "label": "必填项（带红色星号）", "variant": "mutuallyExclusive", "displayStyle": "chips", "required": true, "options": [
       { "label": "选项1", "value": "opt1" },
       { "label": "选项2", "value": "opt2" }
     ], "value": { "path": "/form/required" } },
-  { "id": "disabled-picker", "component": "ChoicePicker", "label": "禁用状态", "variant": "mutuallyExclusive", "displayStyle": "chips", "disabled": true, "defaultValue": "opt1", "options": [
+  { "id": "disabled-picker", "component": "ChoicePicker", "label": "禁用状态", "variant": "mutuallyExclusive", "displayStyle": "chips", "disabled": true, "value": { "path": "/form/disabled", "default": "opt1" }, "options": [
       { "label": "已选中选项", "value": "opt1" },
       { "label": "禁用选项", "value": "opt2", "disabled": true }
     ], "value": { "path": "/form/disabled" } }
