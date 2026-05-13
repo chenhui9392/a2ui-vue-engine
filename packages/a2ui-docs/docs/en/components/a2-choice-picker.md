@@ -35,6 +35,8 @@ Users can select multiple options.
 
 Users can only select one option. Clicking a new option automatically deselects the previous one.
 
+**Non-required single-select can deselect**: When `required` is `false`, clicking the already selected option again will deselect it, allowing users to "clear selection".
+
 ## Basic Example
 
 <PlaygroundEmbed 
@@ -55,7 +57,7 @@ Users can only select one option. Clicking a new option automatically deselects 
 ## Single-select Example
 
 <PlaygroundEmbed 
-  title="Mutually Exclusive Single-select"
+  title="Mutually Exclusive Single-select (Required)"
   :json-example='[
   { "id": "root", "component": "Card", "child": "single-demo", "width": "md" },
   { "id": "single-demo", "component": "Column", "children": ["single-label", "single-picker"], "align": "stretch" },
@@ -65,6 +67,24 @@ Users can only select one option. Clicking a new option automatically deselects 
       { "label": "Plan B - Standard", "value": "plan_b" },
       { "label": "Plan C - Detailed", "value": "plan_c" }
     ], "value": { "path": "/form/plan" } }
+]'
+/>
+
+## Non-required Single-select (Can Deselect)
+
+When single-select mode is set as non-required, users can click the already selected option again to deselect it.
+
+<PlaygroundEmbed 
+  title="Non-required Single-select (Click Selected to Deselect)"
+  :json-example='[
+  { "id": "root", "component": "Card", "child": "optional-demo", "width": "md" },
+  { "id": "optional-demo", "component": "Column", "children": ["optional-label", "optional-picker"], "align": "stretch" },
+  { "id": "optional-label", "component": "Text", "text": "Select priority (optional):", "variant": "shortText" },
+  { "id": "optional-picker", "component": "ChoicePicker", "label": "", "variant": "mutuallyExclusive", "displayStyle": "chips", "required": false, "options": [
+      { "label": "High", "value": "high" },
+      { "label": "Medium", "value": "medium" },
+      { "label": "Low", "value": "low" }
+    ], "value": { "path": "/form/priority" } }
 ]'
 />
 

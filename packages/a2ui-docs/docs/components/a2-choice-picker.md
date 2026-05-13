@@ -100,6 +100,8 @@ interface ChoiceOption {
 
 用户只能选择一个选项，点击新选项会自动取消之前的选中。
 
+**非必填单选可取消选中**：当 `required` 为 `false` 时，再次点击已选中的选项可以取消选中，实现"清空选择"的效果。
+
 ## 基础示例
 
 <PlaygroundEmbed 
@@ -120,7 +122,7 @@ interface ChoiceOption {
 ## 单选模式示例
 
 <PlaygroundEmbed 
-  title="互斥单选"
+  title="互斥单选（必填）"
   :json-example='[
   { "id": "root", "component": "Card", "child": "single-demo", "width": "xs" },
   { "id": "single-demo", "component": "Column", "children": ["single-label", "single-picker"], "align": "stretch" },
@@ -130,6 +132,24 @@ interface ChoiceOption {
       { "label": "方案B - 标准审批", "value": "plan_b" },
       { "label": "方案C - 详细审批", "value": "plan_c" }
     ], "value": { "path": "/form/plan" } }
+]'
+/>
+
+## 非必填单选（可取消选中）
+
+当单选模式设置为非必填时，用户可以再次点击已选中的选项来取消选中。
+
+<PlaygroundEmbed 
+  title="非必填单选（点击已选中可取消）"
+  :json-example='[
+  { "id": "root", "component": "Card", "child": "optional-demo", "width": "xs" },
+  { "id": "optional-demo", "component": "Column", "children": ["optional-label", "optional-picker"], "align": "stretch" },
+  { "id": "optional-label", "component": "Text", "text": "选择优先级（可不选）:", "variant": "shortText" },
+  { "id": "optional-picker", "component": "ChoicePicker", "label": "", "variant": "mutuallyExclusive", "displayStyle": "chips", "required": false, "options": [
+      { "label": "高", "value": "high" },
+      { "label": "中", "value": "medium" },
+      { "label": "低", "value": "low" }
+    ], "value": { "path": "/form/priority" } }
 ]'
 />
 

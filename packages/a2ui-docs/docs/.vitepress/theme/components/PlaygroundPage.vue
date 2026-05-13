@@ -723,8 +723,10 @@ const mockExamples: Record<string, string> = {
     "id": "choice-pickers-section",
     "component": "Column",
     "children": [
-      "choice-single-label",
-      "choice-single-picker",
+      "choice-single-required-label",
+      "choice-single-required-picker",
+      "choice-single-optional-label",
+      "choice-single-optional-picker",
       "choice-multi-label",
       "choice-multi-picker"
     ],
@@ -732,13 +734,13 @@ const mockExamples: Record<string, string> = {
     "gap": 8
   },
   {
-    "id": "choice-single-label",
+    "id": "choice-single-required-label",
     "component": "Text",
-    "text": "单选模式 (mutuallyExclusive):",
+    "text": "单选模式 (必填 - 不可取消选中):",
     "variant": "shortText"
   },
   {
-    "id": "choice-single-picker",
+    "id": "choice-single-required-picker",
     "component": "ChoicePicker",
     "label": "",
     "variant": "mutuallyExclusive",
@@ -750,7 +752,27 @@ const mockExamples: Record<string, string> = {
       { "label": "方案C", "value": "plan_c" },
       { "label": "自定义", "value": "custom" }
     ],
-    "value": { "path": "/form/singleChoice", "default": "plan_a" }
+    "value": { "path": "/form/singleChoiceRequired", "default": "plan_a" }
+  },
+  {
+    "id": "choice-single-optional-label",
+    "component": "Text",
+    "text": "单选模式 (非必填 - 点击已选中可取消):",
+    "variant": "shortText"
+  },
+  {
+    "id": "choice-single-optional-picker",
+    "component": "ChoicePicker",
+    "label": "",
+    "variant": "mutuallyExclusive",
+    "displayStyle": "chips",
+    "required": false,
+    "options": [
+      { "label": "选项1", "value": "opt_1" },
+      { "label": "选项2", "value": "opt_2" },
+      { "label": "选项3", "value": "opt_3" }
+    ],
+    "value": { "path": "/form/singleChoiceOptional" }
   },
   {
     "id": "choice-multi-label",

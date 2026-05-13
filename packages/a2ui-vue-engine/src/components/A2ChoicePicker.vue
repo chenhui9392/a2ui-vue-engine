@@ -89,7 +89,13 @@ function handleClick(option: ChoiceOption) {
 
   if (isMutuallyExclusive.value) {
     // 互斥模式：单选
-    selectedValues.value = [option.value]
+    const isCurrentlySelected = selectedValues.value.includes(option.value)
+    if (isCurrentlySelected && !props.required) {
+      // 非必填时，点击已选中项可取消选中
+      selectedValues.value = []
+    } else {
+      selectedValues.value = [option.value]
+    }
   } else {
     // 多选模式
     const index = selectedValues.value.indexOf(option.value)
@@ -100,7 +106,7 @@ function handleClick(option: ChoiceOption) {
     }
   }
 
-  emit('change', isMutuallyExclusive.value ? option.value : [...selectedValues.value])
+  emit('change', isMutuallyExclusive.value ? (selectedValues.value[0] ?? null) : [...selectedValues.value])
 }
 
 // 初始化默认值
