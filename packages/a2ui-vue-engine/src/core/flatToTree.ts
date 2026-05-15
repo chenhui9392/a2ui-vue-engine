@@ -166,6 +166,26 @@ function buildProps(flatNode: FlatA2Node): Record<string, any> {
     props.type = flatNode.type
   }
 
+  // Size
+  if (flatNode.size) {
+    props.size = flatNode.size
+  }
+
+  // Bold
+  if (flatNode.bold !== undefined) {
+    props.bold = flatNode.bold
+  }
+
+  // Color (text color)
+  if (flatNode.color) {
+    props.color = flatNode.color
+  }
+
+  // Border color
+  if (flatNode.borderColor) {
+    props.borderColor = flatNode.borderColor
+  }
+
   // Icon name (兼容 name，优先使用 icon)
   if (flatNode.icon) {
     props.icon = flatNode.icon
@@ -295,8 +315,8 @@ function buildProps(flatNode: FlatA2Node): Record<string, any> {
     }
   }
 
-  // Button 自定义背景色
-  if (flatNode.component === 'Button' && flatNode.bgColor) {
+  // 自定义背景色
+  if (flatNode.bgColor) {
     props.bgColor = flatNode.bgColor
   }
 

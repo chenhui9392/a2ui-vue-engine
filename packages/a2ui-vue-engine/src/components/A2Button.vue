@@ -2,7 +2,7 @@
  * @Author: hui.chenn
  * @Description: A2Button component with auto-styling based on content
  * @Date: 2026-04-15 16:30:00
- * @LastEditTime: 2026-04-16 17:30:00
+ * @LastEditTime: 2026-05-15 17:30:00
  * @LastEditors: hui.chenn
 -->
 <template>
@@ -22,6 +22,7 @@
     <slot>
       <template v-if="hasChildren">
         <img v-if="isSubmitButton" :src="submitIcon" class="btn-submit-icon" />
+        <img v-if="hasCustomIcon" :src="props.icon" class="btn-custom-icon" />
         <component
           v-for="(child, index) in childrenArray"
           :key="index"
@@ -30,6 +31,7 @@
       </template>
       <template v-else>
         <img v-if="isSubmitButton" :src="submitIcon" class="btn-submit-icon" />
+        <img v-if="hasCustomIcon" :src="props.icon" class="btn-custom-icon" />
         <span v-if="isSubmitButton">{{ text }}</span>
         <template v-else>{{ text }}</template>
       </template>
@@ -55,6 +57,8 @@ interface A2ButtonProps {
   circle?: boolean
   text?: string
   bgColor?: string
+  borderColor?: string
+  color?: string
   children?: A2Node[] | string
   context?: RenderContext
 }
@@ -69,6 +73,8 @@ const props = withDefaults(defineProps<A2ButtonProps>(), {
   circle: false,
   text: '',
   bgColor: '',
+  borderColor: '',
+  color: '',
   children: () => [],
 })
 
@@ -134,6 +140,8 @@ const buttonClass = computed(() => {
 })
 
 const buttonStyle = computed(() => {
+  const style: Record<string, string> = {}
+
   // disabled 状态统一显示灰色（优先级最高）
   if (props.disabled) {
     return {
@@ -142,14 +150,33 @@ const buttonStyle = computed(() => {
       color: '#ffffff',
     }
   }
-  // 显式 bgColor
+
+  // 自定义颜色：背景、边框、文字分别设置
   if (props.bgColor) {
-    return {
-      backgroundColor: props.bgColor,
-      borderColor: props.bgColor,
-      color: '#FFFFFF',
-    }
+    style.backgroundColor = props.bgColor
   }
+  if (props.borderColor) {
+    style.borderColor = props.borderColor
+  } else if (props.bgColor) {
+    // 兼容旧逻辑：只设 bgColor 时边框跟随背景
+    style.borderColor = props.bgColor
+  }
+  if (props.color) {
+    style.color = props.color
+  } else if (props.bgColor && !props.color) {
+    // 兼容旧逻辑：只设 bgColor 时文字为白色
+    style.color = '#FFFFFF'
+  }
+
+  // 当只设 bgColor 没设 borderColor 时，隐藏边框保持旧效果
+  if (props.bgColor && !props.borderColor) {
+    style.border = 'none'
+  }
+
+  if (Object.keys(style).length > 0) {
+    return style
+  }
+
   // 提交/保存/确认/确定类按钮自动使用 #2260FA
   if (isSubmitButton.value) {
     return {
@@ -158,6 +185,7 @@ const buttonStyle = computed(() => {
       color: '#FFFFFF',
     }
   }
+
   return {}
 })
 
@@ -168,6 +196,15 @@ const hasChildren = computed(() => {
 const childrenArray = computed(() => {
   if (!props.children) return []
   return Array.isArray(props.children) ? props.children : []
+})
+
+// Check if icon prop is a valid image URL
+const hasCustomIcon = computed(() => {
+  const icon = props.icon || ''
+  if (!icon) return false
+  return /^https?:\/\//i.test(icon) ||
+         /^data:/i.test(icon) ||
+         /\.(png|jpe?g|gif|svg|webp|bmp|ico)(\?.*)?$/i.test(icon)
 })
 
 function renderChild(node: A2Node) {
@@ -201,7 +238,7 @@ export default {
 
 /* 自定义背景色按钮 */
 .a2-button--custom {
-  border: none;
+  /* border 在 buttonStyle 中动态控制，当只设 bgColor 没设 borderColor 时隐藏 */
 }
 
 .a2-button--custom:hover {
@@ -252,11 +289,25 @@ export default {
   color: #ffffff !important;
 }
 
+.a2-button.is-disabled .btn-custom-icon,
+.a2-button.is-disabled .btn-submit-icon {
+  filter: grayscale(100%);
+}
+
 /* 提交按钮图标 */
 .btn-submit-icon {
   width: 14px;
   height: 14px;
   margin-right: 4px;
   vertical-align: middle;
+}
+
+/* 自定义图标 */
+.btn-custom-icon {
+  width: 14px;
+  height: 14px;
+  margin-right: 4px;
+  vertical-align: middle;
+  object-fit: contain;
 }
 </style>

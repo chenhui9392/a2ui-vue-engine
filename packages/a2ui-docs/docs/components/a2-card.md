@@ -6,10 +6,10 @@
 
 | 属性 | 类型 | 默认值 | 说明 |
 |------|------|--------|------|
-| `width` | `xs | sm | md | lg | xl | full` | `md` | 卡片宽度 |
+| `width` | `xs \| sm \| md \| lg \| xl \| full \| string` | `md` | 卡片宽度，支持预设值或自定义值（如 `500px`、`80%`） |
 | `header` | string | - | 头部标题（设置后自动显示 Document 图标） |
 | `headerBgColor` | string | `#F8F8FB` | 头部背景色 |
-| `shadow` | `always | hover | never` | `hover` | 阴影效果 |
+| `shadow` | `always \| hover \| never` | `hover` | 阴影效果 |
 
 ## 宽度规格
 
@@ -39,6 +39,31 @@
       "type": "a2-text",
       "props": {
         "text": "这是一个基础卡片。"
+      }
+    }
+  ]
+}'
+/>
+
+## 自定义宽度示例
+
+除预设值外，`width` 还支持任意 CSS 宽度值。
+
+<PlaygroundEmbed 
+  title="自定义宽度卡片"
+  :json-example='{
+  "id": "cardCustom",
+  "type": "a2-card",
+  "props": {
+    "width": "480px",
+    "header": "自定义宽度"
+  },
+  "children": [
+    {
+      "id": "text1",
+      "type": "a2-text",
+      "props": {
+        "text": "卡片宽度为 480px"
       }
     }
   ]

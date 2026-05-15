@@ -55,7 +55,7 @@ interface A2CardProps {
   children?: A2Node[] | string
   slots?: Record<string, A2Node[]>
   context?: RenderContext
-  width?: 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'full'
+  width?: 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'full' | string
 }
 
 const props = withDefaults(defineProps<A2CardProps>(), {
@@ -88,12 +88,18 @@ const hasFooter = computed(() => {
   return footerSlot.value && footerSlot.value.length > 0
 })
 
+const presetWidths = ['xs', 'sm', 'md', 'lg', 'xl', 'full']
+
 const cardClass = computed(() => {
-  return ['a2-card', `a2-card--${props.width}`, `a2-card--shadow-${props.shadow}`].join(' ')
+  const classes = ['a2-card', `a2-card--shadow-${props.shadow}`]
+  if (presetWidths.includes(props.width)) {
+    classes.push(`a2-card--${props.width}`)
+  }
+  return classes.join(' ')
 })
 
 const cardStyle = computed(() => {
-  const widthMap = {
+  const widthMap: Record<string, string> = {
     xs: '300px',
     sm: '400px',
     md: '560px',
@@ -102,7 +108,7 @@ const cardStyle = computed(() => {
     full: '100%',
   }
   return {
-    width: widthMap[props.width],
+    width: widthMap[props.width] || props.width,
   }
 })
 
