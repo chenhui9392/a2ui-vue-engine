@@ -91,6 +91,7 @@ Vertical column layout.
 | Prop | Type | Default | Description |
 |------|------|---------|-------------|
 | `span` | number | 24 | Width ratio (1-24) |
+| `gap` | number | 0 | Child spacing (px) |
 | `align` | `start \| center \| end \| stretch` | `stretch` | Horizontal alignment |
 
 **Example:**
@@ -403,7 +404,7 @@ Text display with variants.
 
 | Prop | Type | Default | Description |
 |------|------|---------|-------------|
-| `content` | string | - | Text content |
+| `text` | string | - | Text content |
 | `variant` | `h1 \| h2 \| h3 \| h4 \| p \| shortText \| longText` | `p` | Text style |
 | `size` | `large \| default \| small` | `default` | Font size |
 | `bold` | boolean | false | Bold |
@@ -417,7 +418,7 @@ Text display with variants.
 {
   "id": "t1",
   "type": "a2-text",
-  "props": { "content": "标题", "variant": "h3", "bold": true, "color": "#2260FA" }
+  "props": { "text": "标题", "variant": "h3", "bold": true, "color":="#2260FA" }
 }
 ```
 
@@ -431,7 +432,7 @@ Icon element (Element Plus Icons).
 
 | Prop | Type | Default | Description |
 |------|------|---------|-------------|
-| `icon` | string | - | Icon name |
+| `name` | string | - | Icon name |
 | `size` | number | 16 | Icon size (px) |
 | `color` | string | - | Icon color |
 
@@ -442,7 +443,7 @@ Icon element (Element Plus Icons).
 {
   "id": "icon1",
   "type": "a2-icon",
-  "props": { "icon": "Check", "size": 24, "color": "#67c23a" }
+  "props": { "name": "Check", "size": 24, "color": "#67c23a" }
 }
 ```
 

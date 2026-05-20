@@ -13,7 +13,7 @@ A2UI is a JSON Schema-driven Vue3 UI rendering engine. Components are declared v
 
 A2UI supports **two** formats:
 
-### 1. Nested Format (Recommended)
+### 1. Nested Format
 
 ```json
 {
@@ -30,20 +30,78 @@ Rules:
 - `props` contains all component properties
 - `children` is an array of child nodes
 
-### 2. Flat Format
+### 2. Flat Format (Recommended)
+
+All nodes are defined in a flat array. Parent-child relationships use `children` with ID strings:
 
 ```json
-{
-  "id": "uniqueId",
-  "component": "ComponentName",
-  "propName": "value"
-}
+[
+  {
+    "id": "root",
+    "component": "Card",
+    "width": "sm",
+    "children": ["titleText", "systemName", "submitBtn"]
+  },
+  {
+    "id": "titleText",
+    "component": "Text",
+    "text": "Title",
+    "variant": "h3",
+    "bold": true,
+    "color": "#F56C6C"
+  },
+  {
+    "id": "systemName",
+    "component": "InfoField",
+    "label": "System",
+    "content": "Value",
+    "variant": "tag"
+  },
+  {
+    "id": "submitBtn",
+    "component": "Button",
+    "text": "Submit",
+    "type": "primary",
+    "action": { "event": { "name": "submitForm" } }
+  }
+]
 ```
 
 Rules:
+- Input is an **array** of nodes, not a nested object
+- **First node must have `id: "root"`** (required by engine)
 - `component` uses PascalCase: `Button`, `Card`, `TextField`
-- Properties are flattened at the top level
-- `child` references another component's id (singular, not `children`)
+- `child` (singular) references a **single** child node ID as string: `"child": "nodeId"`
+- `children` (plural) is an array of child node IDs: `"children": ["id1", "id2"]`
+- Properties are flattened at the top level (no nested `props` object)
+- The engine auto-detects flat format and converts to tree internally
+
+### Flat Format Property Mapping
+
+| Flat Property | Maps To (Tree) | Components | Notes |
+|---------------|----------------|------------|-------|
+| `text` | `props.content` | Text | Text content |
+| `text` | `props.text` | Button | Button label |
+| `label` | `props.label` | InfoField, TextField, SelectField, DateTimeInput, ChoicePicker | Field label |
+| `content` | `props.modelValue` | InfoField | Static display value |
+| `content` | `props.content` | OptionCard | Card body text |
+| `variant` | `props.variant` | Text, TextField, InfoField, ChoicePicker | Visual variant |
+| `icon` | `props.icon` | Icon, Button, InfoField | Icon name or URL |
+| `name` | `props.icon` | Icon, OptionCard | Fallback icon name |
+| `type` | `props.type` | Button | Button style type |
+| `width` | `props.width` | Card | Card width preset |
+| `header` | `props.header` | Card | Card header title |
+| `headerBgColor` | `props.headerBgColor` | Card | Header background color |
+| `headerIcon` | `props.headerIcon` | Card | Header icon URL |
+| `align` | `props.justify` + `props.align` | Row | Horizontal alignment |
+| `justify` | `props.justify` | Row | Explicit horizontal distribution |
+| `gap` | `props.gap` | Column | Spacing (px) |
+| `color` | `props.color` | Text | Text color |
+| `bold` | `props.bold` | Text | Bold text |
+| `size` | `props.size` | Text, InfoField | Size preset |
+| `action` | `actions` array | Button | Click event config |
+| `value.path` | `bindings.modelValue` | Form fields, InfoField | Data binding path |
+| `value.default` | Initial data value | Form fields, InfoField | Default value for data binding |
 
 ## Component Catalog
 
@@ -88,6 +146,16 @@ For flat format:
 }
 ```
 
+InfoField with data binding and default value:
+```json
+{
+  "component": "InfoField",
+  "label": "系统名称",
+  "value": { "path": "/form/systemName", "default": "国内GOMS" },
+  "variant": "tag"
+}
+```
+
 ## Layout Patterns
 
 ### Card + Column Form
@@ -101,6 +169,7 @@ For flat format:
     {
       "id": "formCol",
       "type": "a2-column",
+      "props": { "gap": 16 },
       "children": [
         { "id": "name", "type": "a2-text-field", "props": { "label": "Name", "prop": "name" } },
         { "id": "email", "type": "a2-text-field", "props": { "label": "Email", "prop": "email" } },
@@ -124,6 +193,69 @@ For flat format:
   ]
 }
 ```
+
+### Minimal Flat Layout (Flat Format)
+
+For absolute minimum nesting, use flat format with ID references:
+
+```json
+[
+  {
+    "id": "root",
+    "component": "Card",
+    "width": "sm",
+    "header": "【创建工单2】",
+    "child": "bodyFields"
+  },
+  {
+    "id": "bodyFields",
+    "component": "Column",
+    "children": ["systemName", "moduleName", "questionContent", "btnRow"]
+  },
+  {
+    "id": "systemName",
+    "component": "InfoField",
+    "label": "系统名称",
+    "value": { "path": "/form/systemName", "default": "国内GOMS" },
+    "variant": "tag"
+  },
+  {
+    "id": "moduleName",
+    "component": "InfoField",
+    "label": "模块名称",
+    "value": { "path": "/form/moduleName", "default": "订单管理" },
+    "variant": "tag"
+  },
+  {
+    "id": "questionContent",
+    "component": "InfoField",
+    "label": "提问内容",
+    "value": { "path": "/form/question", "default": "提问内容提问内容提问内容，提问内容提问内容提问内容提问内容提问内容提问内容提问内容提问内容，提问内容提问内容。" },
+    "variant": "quote"
+  },
+  {
+    "id": "btnRow",
+    "component": "Row",
+    "children": ["submitBtn"]
+  },
+  {
+    "id": "submitBtn",
+    "component": "Button",
+    "text": "提交",
+    "type": "primary",
+    "action": { "event": { "name": "submitForm" } }
+  }
+]
+```
+
+Rules for minimal flat layout:
+- All nodes are siblings in a single flat array
+- Use `child` (string) for single child reference; use `children` (array) for multiple children
+- No nested objects or arrays inside node definitions
+- Logical depth: 2 levels (`Card > child`)
+- Use `value.path` + `value.default` for field values (data binding with default)
+- Use `header` on Card for title (auto-renders icon + gray bar + title text)
+- Wrap Button in Row for right-alignment (Row auto-applies `justify: end` when containing Button)
 
 ## Common Prop Patterns
 
@@ -159,15 +291,15 @@ External receives: `{ type: 'action', action: 'click', payload: { eventName: 'co
 ## Best Practices
 
 1. **Always assign unique `id`** to every component node
-2. **Use nested format** for new code; flat format for simple flat lists
+2. **Prefer flat format as default**: Use flat format for all A2UI JSON generation unless complex deep nesting is unavoidable; nested format is secondary
 3. **Wrap forms in `a2-card`** with `a2-column` for consistent spacing
 4. **Use `a2-row` + `a2-column`** for multi-column layouts
 5. **Use `value.path`** for all form data binding; set `default` when initial value needed
 6. **Auto icon for buttons**: Submit/save/confirm/ok buttons auto-use `Promotion` icon, no manual config needed
 7. **InfoField tag variant**: Use for status labels (blue: `#EFF4FF` bg, `#2260FA` text)
-8. **Minimize nesting depth**: Use `a2-card` `header` prop instead of manual Row+Icon+Text for card titles (saves 2+ levels). Keep layout to `Card > Column > children` (3 levels max) when possible
-9. **A2Column gap is fixed at 10px**: Do not set `gap` prop on Column; spacing is automatic
-10. **Correct prop names**: A2Text uses `content` (not `text`); A2Icon uses `icon` (not `name`)
+8. **Prefer flat format for read-only cards**: Flat format with ID references is ideal for info display cards (no deep nesting, easy to maintain)
+9. **InfoField value in flat format**: Use `value.path` + `value.default` for data binding; use `content` only for hardcoded static values without data binding
+10. **Flat format component names**: Use PascalCase `Card`, `Text`, `InfoField`, `Button` (not kebab-case)
 
 ## Reference
 
