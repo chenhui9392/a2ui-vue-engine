@@ -1,0 +1,1064 @@
+<?xml version="1.0" encoding="UTF-8"?><p:sld xmlns:a="http://schemas.openxmlformats.org/drawingml/2006/main" xmlns:r="http://schemas.openxmlformats.org/officeDocument/2006/relationships" xmlns:p="http://schemas.openxmlformats.org/presentationml/2006/main">
+  <p:cSld>
+    <p:bg>
+      <p:bgPr>
+        <a:solidFill>
+          <a:srgbClr val="0F172A"/>
+        </a:solidFill>
+        <a:effectLst/>
+      </p:bgPr>
+    </p:bg>
+    <p:spTree>
+      <p:nvGrpSpPr>
+        <p:cNvPr id="1" name=""/>
+        <p:cNvGrpSpPr/>
+        <p:nvPr/>
+      </p:nvGrpSpPr>
+      <p:grpSpPr>
+        <a:xfrm>
+          <a:off x="0" y="0"/>
+          <a:ext cx="0" cy="0"/>
+          <a:chOff x="0" y="0"/>
+          <a:chExt cx="0" cy="0"/>
+        </a:xfrm>
+      </p:grpSpPr>
+      <p:sp>
+        <p:nvSpPr>
+          <p:cNvPr id="2" name="Shape 0"/>
+          <p:cNvSpPr/>
+          <p:nvPr/>
+        </p:nvSpPr>
+        <p:spPr>
+          <a:xfrm>
+            <a:off x="457200" y="320040"/>
+            <a:ext cx="54864" cy="320040"/>
+          </a:xfrm>
+          <a:prstGeom prst="rect">
+            <a:avLst/>
+          </a:prstGeom>
+          <a:solidFill>
+            <a:srgbClr val="02C39A"/>
+          </a:solidFill>
+        </p:spPr>
+      </p:sp>
+      <p:sp>
+        <p:nvSpPr>
+          <p:cNvPr id="3" name="Text 1"/>
+          <p:cNvSpPr/>
+          <p:nvPr/>
+        </p:nvSpPr>
+        <p:spPr>
+          <a:xfrm>
+            <a:off x="640080" y="274320"/>
+            <a:ext cx="3657600" cy="411480"/>
+          </a:xfrm>
+          <a:prstGeom prst="rect">
+            <a:avLst/>
+          </a:prstGeom>
+          <a:noFill/>
+        </p:spPr>
+        <p:txBody>
+          <a:bodyPr wrap="square" lIns="0" tIns="0" rIns="0" bIns="0" rtlCol="0" anchor="ctr"/>
+          <a:lstStyle/>
+          <a:p>
+            <a:r>
+              <a:rPr lang="en-US" altLang="zh-CN" sz="1100" b="1">
+                <a:solidFill>
+                  <a:srgbClr val="02C39A"/>
+                </a:solidFill>
+                <a:latin typeface="Calibri" pitchFamily="34" charset="0"/>
+                <a:ea typeface="Calibri" pitchFamily="34" charset="-122"/>
+                <a:cs typeface="Calibri" pitchFamily="34" charset="-120"/>
+              </a:rPr>
+              <a:t xml:space="preserve">04  A2UI — </a:t>
+            </a:r>
+            <a:r>
+              <a:rPr lang="zh-CN" altLang="en-US" sz="1100" b="1">
+                <a:solidFill>
+                  <a:srgbClr val="02C39A"/>
+                </a:solidFill>
+                <a:latin typeface="Calibri" pitchFamily="34" charset="0"/>
+                <a:ea typeface="Calibri" pitchFamily="34" charset="-122"/>
+                <a:cs typeface="Calibri" pitchFamily="34" charset="-120"/>
+              </a:rPr>
+              <a:t>能力封装</a:t>
+            </a:r>
+            <a:endParaRPr lang="en-US" altLang="zh-CN" sz="1100" dirty="0"/>
+          </a:p>
+        </p:txBody>
+      </p:sp>
+      <p:sp>
+        <p:nvSpPr>
+          <p:cNvPr id="4" name="Text 2"/>
+          <p:cNvSpPr/>
+          <p:nvPr/>
+        </p:nvSpPr>
+        <p:spPr>
+          <a:xfrm>
+            <a:off x="457199" y="731519"/>
+            <a:ext cx="5000000" cy="681071"/>
+          </a:xfrm>
+          <a:prstGeom prst="rect">
+            <a:avLst/>
+          </a:prstGeom>
+          <a:noFill/>
+        </p:spPr>
+        <p:txBody>
+          <a:bodyPr wrap="square" lIns="0" tIns="0" rIns="0" bIns="0" rtlCol="0" anchor="ctr"/>
+          <a:lstStyle/>
+          <a:p>
+            <a:r>
+              <a:rPr lang="en-US" altLang="zh-CN" b="1">
+                <a:solidFill>
+                  <a:schemeClr val="bg1"/>
+                </a:solidFill>
+              </a:rPr>
+              <a:t xml:space="preserve">SKILL.md —— </a:t>
+            </a:r>
+            <a:r>
+              <a:rPr lang="zh-CN" altLang="en-US" b="1">
+                <a:solidFill>
+                  <a:schemeClr val="bg1"/>
+                </a:solidFill>
+              </a:rPr>
+              <a:t>核心规范与使用指南</a:t>
+            </a:r>
+          </a:p>
+        </p:txBody>
+      </p:sp>
+      <p:sp>
+        <p:nvSpPr>
+          <p:cNvPr id="7" name="Text 3"/>
+          <p:cNvSpPr/>
+          <p:nvPr/>
+        </p:nvSpPr>
+        <p:spPr>
+          <a:xfrm>
+            <a:off x="7772400" y="4754880"/>
+            <a:ext cx="1097280" cy="274320"/>
+          </a:xfrm>
+          <a:prstGeom prst="rect">
+            <a:avLst/>
+          </a:prstGeom>
+          <a:noFill/>
+        </p:spPr>
+        <p:txBody>
+          <a:bodyPr wrap="square" rtlCol="0" anchor="ctr"/>
+          <a:lstStyle/>
+          <a:p>
+            <a:pPr marL="0" indent="0" algn="r">
+              <a:buNone/>
+            </a:pPr>
+            <a:r>
+              <a:rPr lang="en-US" sz="900" dirty="0">
+                <a:solidFill>
+                  <a:srgbClr val="64748B"/>
+                </a:solidFill>
+                <a:latin typeface="Calibri" pitchFamily="34" charset="0"/>
+                <a:ea typeface="Calibri" pitchFamily="34" charset="-122"/>
+                <a:cs typeface="Calibri" pitchFamily="34" charset="-120"/>
+              </a:rPr>
+              <a:t>15 / 21</a:t>
+            </a:r>
+            <a:endParaRPr lang="en-US" sz="900" dirty="0"/>
+          </a:p>
+        </p:txBody>
+      </p:sp>
+      <p:sp>
+        <p:nvSpPr>
+          <p:cNvPr id="20" name="Card1Bg"/>
+          <p:cNvSpPr/>
+          <p:nvPr/>
+        </p:nvSpPr>
+        <p:spPr>
+          <a:xfrm>
+            <a:off x="457200" y="1550000"/>
+            <a:ext cx="3950000" cy="1450000"/>
+          </a:xfrm>
+          <a:prstGeom prst="roundRect">
+            <a:avLst>
+              <a:gd name="adj" fmla="val 5000"/>
+            </a:avLst>
+          </a:prstGeom>
+          <a:solidFill>
+            <a:srgbClr val="1E3A5F"/>
+          </a:solidFill>
+          <a:effectLst>
+            <a:outerShdw blurRad="76200" dist="19050" dir="8100000" algn="bl" rotWithShape="0">
+              <a:srgbClr val="000000">
+                <a:alpha val="20000"/>
+              </a:srgbClr>
+            </a:outerShdw>
+          </a:effectLst>
+        </p:spPr>
+      </p:sp>
+      <p:sp>
+        <p:nvSpPr>
+          <p:cNvPr id="21" name="Card1Bar"/>
+          <p:cNvSpPr/>
+          <p:nvPr/>
+        </p:nvSpPr>
+        <p:spPr>
+          <a:xfrm>
+            <a:off x="530352" y="1680000"/>
+            <a:ext cx="45720" cy="1100000"/>
+          </a:xfrm>
+          <a:prstGeom prst="rect">
+            <a:avLst/>
+          </a:prstGeom>
+          <a:solidFill>
+            <a:srgbClr val="02C39A"/>
+          </a:solidFill>
+        </p:spPr>
+      </p:sp>
+      <p:sp>
+        <p:nvSpPr>
+          <p:cNvPr id="22" name="Card1Title"/>
+          <p:cNvSpPr/>
+          <p:nvPr/>
+        </p:nvSpPr>
+        <p:spPr>
+          <a:xfrm>
+            <a:off x="640080" y="1630000"/>
+            <a:ext cx="3600000" cy="365760"/>
+          </a:xfrm>
+          <a:prstGeom prst="rect">
+            <a:avLst/>
+          </a:prstGeom>
+          <a:noFill/>
+        </p:spPr>
+        <p:txBody>
+          <a:bodyPr wrap="square" lIns="0" tIns="0" rIns="0" bIns="0" rtlCol="0" anchor="ctr"/>
+          <a:lstStyle/>
+          <a:p>
+            <a:pPr marL="0" indent="0">
+              <a:buNone/>
+            </a:pPr>
+            <a:r>
+              <a:rPr lang="zh-CN" altLang="en-US" sz="1600" b="1" dirty="0">
+                <a:solidFill>
+                  <a:srgbClr val="02C39A"/>
+                </a:solidFill>
+                <a:latin typeface="Calibri" pitchFamily="34" charset="0"/>
+                <a:ea typeface="Calibri" pitchFamily="34" charset="-122"/>
+                <a:cs typeface="Calibri" pitchFamily="34" charset="-120"/>
+              </a:rPr>
+              <a:t>JSON 格式与属性映射</a:t>
+            </a:r>
+          </a:p>
+        </p:txBody>
+      </p:sp>
+      <p:sp>
+        <p:nvSpPr>
+          <p:cNvPr id="23" name="Card1Content"/>
+          <p:cNvSpPr/>
+          <p:nvPr/>
+        </p:nvSpPr>
+        <p:spPr>
+          <a:xfrm>
+            <a:off x="640080" y="2020000"/>
+            <a:ext cx="3650000" cy="880000"/>
+          </a:xfrm>
+          <a:prstGeom prst="rect">
+            <a:avLst/>
+          </a:prstGeom>
+          <a:noFill/>
+        </p:spPr>
+        <p:txBody>
+          <a:bodyPr wrap="square" lIns="0" tIns="0" rIns="91440" bIns="0" rtlCol="0" anchor="t"/>
+          <a:lstStyle/>
+          <a:p>
+            <a:pPr marL="0" indent="0">
+              <a:buNone/>
+            </a:pPr>
+            <a:r>
+              <a:rPr lang="zh-CN" altLang="en-US" sz="1100" dirty="0">
+                <a:solidFill>
+                  <a:srgbClr val="CBD5E1"/>
+                </a:solidFill>
+                <a:latin typeface="Calibri" pitchFamily="34" charset="0"/>
+                <a:ea typeface="Calibri" pitchFamily="34" charset="-122"/>
+                <a:cs typeface="Calibri" pitchFamily="34" charset="-120"/>
+              </a:rPr>
+              <a:t>两种 JSON 格式：</a:t>
+            </a:r>
+            <a:r>
+              <a:rPr lang="en-US" altLang="zh-CN" sz="1100" b="1" dirty="0">
+                <a:solidFill>
+                  <a:srgbClr val="FFFFFF"/>
+                </a:solidFill>
+                <a:latin typeface="Calibri" pitchFamily="34" charset="0"/>
+                <a:ea typeface="Calibri" pitchFamily="34" charset="-122"/>
+                <a:cs typeface="Calibri" pitchFamily="34" charset="-120"/>
+              </a:rPr>
+              <a:t xml:space="preserve"> Nested Format</a:t>
+            </a:r>
+            <a:r>
+              <a:rPr lang="zh-CN" altLang="en-US" sz="1100" dirty="0">
+                <a:solidFill>
+                  <a:srgbClr val="CBD5E1"/>
+                </a:solidFill>
+                <a:latin typeface="Calibri" pitchFamily="34" charset="0"/>
+                <a:ea typeface="Calibri" pitchFamily="34" charset="-122"/>
+                <a:cs typeface="Calibri" pitchFamily="34" charset="-120"/>
+              </a:rPr>
+              <a:t>（嵌套）与</a:t>
+            </a:r>
+            <a:r>
+              <a:rPr lang="en-US" altLang="zh-CN" sz="1100" b="1" dirty="0">
+                <a:solidFill>
+                  <a:srgbClr val="FFFFFF"/>
+                </a:solidFill>
+                <a:latin typeface="Calibri" pitchFamily="34" charset="0"/>
+                <a:ea typeface="Calibri" pitchFamily="34" charset="-122"/>
+                <a:cs typeface="Calibri" pitchFamily="34" charset="-120"/>
+              </a:rPr>
+              <a:t xml:space="preserve"> Flat Format</a:t>
+            </a:r>
+            <a:r>
+              <a:rPr lang="zh-CN" altLang="en-US" sz="1100" dirty="0">
+                <a:solidFill>
+                  <a:srgbClr val="CBD5E1"/>
+                </a:solidFill>
+                <a:latin typeface="Calibri" pitchFamily="34" charset="0"/>
+                <a:ea typeface="Calibri" pitchFamily="34" charset="-122"/>
+                <a:cs typeface="Calibri" pitchFamily="34" charset="-120"/>
+              </a:rPr>
+              <a:t>（扁平，推荐）</a:t>
+            </a:r>
+          </a:p>
+          <a:p>
+            <a:pPr marL="0" indent="0">
+              <a:buNone/>
+            </a:pPr>
+            <a:r>
+              <a:rPr lang="zh-CN" altLang="en-US" sz="1100" dirty="0">
+                <a:solidFill>
+                  <a:srgbClr val="CBD5E1"/>
+                </a:solidFill>
+                <a:latin typeface="Calibri" pitchFamily="34" charset="0"/>
+                <a:ea typeface="Calibri" pitchFamily="34" charset="-122"/>
+                <a:cs typeface="Calibri" pitchFamily="34" charset="-120"/>
+              </a:rPr>
+              <a:t>Flat 属性映射：</a:t>
+            </a:r>
+            <a:r>
+              <a:rPr lang="en-US" altLang="zh-CN" sz="1100" b="1" dirty="0">
+                <a:solidFill>
+                  <a:srgbClr val="FFFFFF"/>
+                </a:solidFill>
+                <a:latin typeface="Calibri" pitchFamily="34" charset="0"/>
+                <a:ea typeface="Calibri" pitchFamily="34" charset="-122"/>
+                <a:cs typeface="Calibri" pitchFamily="34" charset="-120"/>
+              </a:rPr>
+              <a:t xml:space="preserve"> text</a:t>
+            </a:r>
+            <a:r>
+              <a:rPr lang="zh-CN" altLang="en-US" sz="1100" dirty="0">
+                <a:solidFill>
+                  <a:srgbClr val="CBD5E1"/>
+                </a:solidFill>
+                <a:latin typeface="Calibri" pitchFamily="34" charset="0"/>
+                <a:ea typeface="Calibri" pitchFamily="34" charset="-122"/>
+                <a:cs typeface="Calibri" pitchFamily="34" charset="-120"/>
+              </a:rPr>
+              <a:t xml:space="preserve"> → </a:t>
+            </a:r>
+            <a:r>
+              <a:rPr lang="en-US" altLang="zh-CN" sz="1100" b="1" dirty="0">
+                <a:solidFill>
+                  <a:srgbClr val="FFFFFF"/>
+                </a:solidFill>
+                <a:latin typeface="Calibri" pitchFamily="34" charset="0"/>
+                <a:ea typeface="Calibri" pitchFamily="34" charset="-122"/>
+                <a:cs typeface="Calibri" pitchFamily="34" charset="-120"/>
+              </a:rPr>
+              <a:t>props.content</a:t>
+            </a:r>
+            <a:r>
+              <a:rPr lang="zh-CN" altLang="en-US" sz="1100" dirty="0">
+                <a:solidFill>
+                  <a:srgbClr val="CBD5E1"/>
+                </a:solidFill>
+                <a:latin typeface="Calibri" pitchFamily="34" charset="0"/>
+                <a:ea typeface="Calibri" pitchFamily="34" charset="-122"/>
+                <a:cs typeface="Calibri" pitchFamily="34" charset="-120"/>
+              </a:rPr>
+              <a:t>，</a:t>
+            </a:r>
+            <a:r>
+              <a:rPr lang="en-US" altLang="zh-CN" sz="1100" b="1" dirty="0">
+                <a:solidFill>
+                  <a:srgbClr val="FFFFFF"/>
+                </a:solidFill>
+                <a:latin typeface="Calibri" pitchFamily="34" charset="0"/>
+                <a:ea typeface="Calibri" pitchFamily="34" charset="-122"/>
+                <a:cs typeface="Calibri" pitchFamily="34" charset="-120"/>
+              </a:rPr>
+              <a:t xml:space="preserve"> value.path</a:t>
+            </a:r>
+            <a:r>
+              <a:rPr lang="zh-CN" altLang="en-US" sz="1100" dirty="0">
+                <a:solidFill>
+                  <a:srgbClr val="CBD5E1"/>
+                </a:solidFill>
+                <a:latin typeface="Calibri" pitchFamily="34" charset="0"/>
+                <a:ea typeface="Calibri" pitchFamily="34" charset="-122"/>
+                <a:cs typeface="Calibri" pitchFamily="34" charset="-120"/>
+              </a:rPr>
+              <a:t xml:space="preserve"> → 数据绑定</a:t>
+            </a:r>
+          </a:p>
+        </p:txBody>
+      </p:sp>
+      <p:sp>
+        <p:nvSpPr>
+          <p:cNvPr id="30" name="Card2Bg"/>
+          <p:cNvSpPr/>
+          <p:nvPr/>
+        </p:nvSpPr>
+        <p:spPr>
+          <a:xfrm>
+            <a:off x="4636200" y="1550000"/>
+            <a:ext cx="3950000" cy="1450000"/>
+          </a:xfrm>
+          <a:prstGeom prst="roundRect">
+            <a:avLst>
+              <a:gd name="adj" fmla="val 5000"/>
+            </a:avLst>
+          </a:prstGeom>
+          <a:solidFill>
+            <a:srgbClr val="1E3A5F"/>
+          </a:solidFill>
+          <a:effectLst>
+            <a:outerShdw blurRad="76200" dist="19050" dir="8100000" algn="bl" rotWithShape="0">
+              <a:srgbClr val="000000">
+                <a:alpha val="20000"/>
+              </a:srgbClr>
+            </a:outerShdw>
+          </a:effectLst>
+        </p:spPr>
+      </p:sp>
+      <p:sp>
+        <p:nvSpPr>
+          <p:cNvPr id="31" name="Card2Bar"/>
+          <p:cNvSpPr/>
+          <p:nvPr/>
+        </p:nvSpPr>
+        <p:spPr>
+          <a:xfrm>
+            <a:off x="4709352" y="1680000"/>
+            <a:ext cx="45720" cy="1100000"/>
+          </a:xfrm>
+          <a:prstGeom prst="rect">
+            <a:avLst/>
+          </a:prstGeom>
+          <a:solidFill>
+            <a:srgbClr val="06B6D4"/>
+          </a:solidFill>
+        </p:spPr>
+      </p:sp>
+      <p:sp>
+        <p:nvSpPr>
+          <p:cNvPr id="32" name="Card2Title"/>
+          <p:cNvSpPr/>
+          <p:nvPr/>
+        </p:nvSpPr>
+        <p:spPr>
+          <a:xfrm>
+            <a:off x="4819080" y="1630000"/>
+            <a:ext cx="3600000" cy="365760"/>
+          </a:xfrm>
+          <a:prstGeom prst="rect">
+            <a:avLst/>
+          </a:prstGeom>
+          <a:noFill/>
+        </p:spPr>
+        <p:txBody>
+          <a:bodyPr wrap="square" lIns="0" tIns="0" rIns="0" bIns="0" rtlCol="0" anchor="ctr"/>
+          <a:lstStyle/>
+          <a:p>
+            <a:pPr marL="0" indent="0">
+              <a:buNone/>
+            </a:pPr>
+            <a:r>
+              <a:rPr lang="zh-CN" altLang="en-US" sz="1600" b="1" dirty="0">
+                <a:solidFill>
+                  <a:srgbClr val="06B6D4"/>
+                </a:solidFill>
+                <a:latin typeface="Calibri" pitchFamily="34" charset="0"/>
+                <a:ea typeface="Calibri" pitchFamily="34" charset="-122"/>
+                <a:cs typeface="Calibri" pitchFamily="34" charset="-120"/>
+              </a:rPr>
+              <a:t>组件体系与数据绑定</a:t>
+            </a:r>
+          </a:p>
+        </p:txBody>
+      </p:sp>
+      <p:sp>
+        <p:nvSpPr>
+          <p:cNvPr id="33" name="Card2Content"/>
+          <p:cNvSpPr/>
+          <p:nvPr/>
+        </p:nvSpPr>
+        <p:spPr>
+          <a:xfrm>
+            <a:off x="4819080" y="2020000"/>
+            <a:ext cx="3650000" cy="880000"/>
+          </a:xfrm>
+          <a:prstGeom prst="rect">
+            <a:avLst/>
+          </a:prstGeom>
+          <a:noFill/>
+        </p:spPr>
+        <p:txBody>
+          <a:bodyPr wrap="square" lIns="0" tIns="0" rIns="91440" bIns="0" rtlCol="0" anchor="t"/>
+          <a:lstStyle/>
+          <a:p>
+            <a:pPr marL="0" indent="0">
+              <a:buNone/>
+            </a:pPr>
+            <a:r>
+              <a:rPr lang="zh-CN" altLang="en-US" sz="1100" dirty="0">
+                <a:solidFill>
+                  <a:srgbClr val="CBD5E1"/>
+                </a:solidFill>
+                <a:latin typeface="Calibri" pitchFamily="34" charset="0"/>
+                <a:ea typeface="Calibri" pitchFamily="34" charset="-122"/>
+                <a:cs typeface="Calibri" pitchFamily="34" charset="-120"/>
+              </a:rPr>
+              <a:t>四大组件类：</a:t>
+            </a:r>
+            <a:r>
+              <a:rPr lang="en-US" altLang="zh-CN" sz="1100" b="1" dirty="0">
+                <a:solidFill>
+                  <a:srgbClr val="FFFFFF"/>
+                </a:solidFill>
+                <a:latin typeface="Calibri" pitchFamily="34" charset="0"/>
+                <a:ea typeface="Calibri" pitchFamily="34" charset="-122"/>
+                <a:cs typeface="Calibri" pitchFamily="34" charset="-120"/>
+              </a:rPr>
+              <a:t xml:space="preserve"> Layout</a:t>
+            </a:r>
+            <a:r>
+              <a:rPr lang="zh-CN" altLang="en-US" sz="1100" dirty="0">
+                <a:solidFill>
+                  <a:srgbClr val="CBD5E1"/>
+                </a:solidFill>
+                <a:latin typeface="Calibri" pitchFamily="34" charset="0"/>
+                <a:ea typeface="Calibri" pitchFamily="34" charset="-122"/>
+                <a:cs typeface="Calibri" pitchFamily="34" charset="-120"/>
+              </a:rPr>
+              <a:t>（Card/Row/Column/List）</a:t>
+            </a:r>
+          </a:p>
+          <a:p>
+            <a:pPr marL="0" indent="0">
+              <a:buNone/>
+            </a:pPr>
+            <a:r>
+              <a:rPr lang="en-US" altLang="zh-CN" sz="1100" b="1" dirty="0">
+                <a:solidFill>
+                  <a:srgbClr val="FFFFFF"/>
+                </a:solidFill>
+                <a:latin typeface="Calibri" pitchFamily="34" charset="0"/>
+                <a:ea typeface="Calibri" pitchFamily="34" charset="-122"/>
+                <a:cs typeface="Calibri" pitchFamily="34" charset="-120"/>
+              </a:rPr>
+              <a:t>Form</a:t>
+            </a:r>
+            <a:r>
+              <a:rPr lang="zh-CN" altLang="en-US" sz="1100" dirty="0">
+                <a:solidFill>
+                  <a:srgbClr val="CBD5E1"/>
+                </a:solidFill>
+                <a:latin typeface="Calibri" pitchFamily="34" charset="0"/>
+                <a:ea typeface="Calibri" pitchFamily="34" charset="-122"/>
+                <a:cs typeface="Calibri" pitchFamily="34" charset="-120"/>
+              </a:rPr>
+              <a:t>（TextField/Select/DatePicker）</a:t>
+            </a:r>
+          </a:p>
+          <a:p>
+            <a:pPr marL="0" indent="0">
+              <a:buNone/>
+            </a:pPr>
+            <a:r>
+              <a:rPr lang="en-US" altLang="zh-CN" sz="1100" b="1" dirty="0">
+                <a:solidFill>
+                  <a:srgbClr val="FFFFFF"/>
+                </a:solidFill>
+                <a:latin typeface="Calibri" pitchFamily="34" charset="0"/>
+                <a:ea typeface="Calibri" pitchFamily="34" charset="-122"/>
+                <a:cs typeface="Calibri" pitchFamily="34" charset="-120"/>
+              </a:rPr>
+              <a:t>Display</a:t>
+            </a:r>
+            <a:r>
+              <a:rPr lang="zh-CN" altLang="en-US" sz="1100" dirty="0">
+                <a:solidFill>
+                  <a:srgbClr val="CBD5E1"/>
+                </a:solidFill>
+                <a:latin typeface="Calibri" pitchFamily="34" charset="0"/>
+                <a:ea typeface="Calibri" pitchFamily="34" charset="-122"/>
+                <a:cs typeface="Calibri" pitchFamily="34" charset="-120"/>
+              </a:rPr>
+              <a:t>（Text/Icon/InfoField）、</a:t>
+            </a:r>
+            <a:r>
+              <a:rPr lang="en-US" altLang="zh-CN" sz="1100" b="1" dirty="0">
+                <a:solidFill>
+                  <a:srgbClr val="FFFFFF"/>
+                </a:solidFill>
+                <a:latin typeface="Calibri" pitchFamily="34" charset="0"/>
+                <a:ea typeface="Calibri" pitchFamily="34" charset="-122"/>
+                <a:cs typeface="Calibri" pitchFamily="34" charset="-120"/>
+              </a:rPr>
+              <a:t>Action</a:t>
+            </a:r>
+            <a:r>
+              <a:rPr lang="zh-CN" altLang="en-US" sz="1100" dirty="0">
+                <a:solidFill>
+                  <a:srgbClr val="CBD5E1"/>
+                </a:solidFill>
+                <a:latin typeface="Calibri" pitchFamily="34" charset="0"/>
+                <a:ea typeface="Calibri" pitchFamily="34" charset="-122"/>
+                <a:cs typeface="Calibri" pitchFamily="34" charset="-120"/>
+              </a:rPr>
+              <a:t>（Button）</a:t>
+            </a:r>
+          </a:p>
+          <a:p>
+            <a:pPr marL="0" indent="0">
+              <a:buNone/>
+            </a:pPr>
+            <a:r>
+              <a:rPr lang="zh-CN" altLang="en-US" sz="1100" dirty="0">
+                <a:solidFill>
+                  <a:srgbClr val="CBD5E1"/>
+                </a:solidFill>
+                <a:latin typeface="Calibri" pitchFamily="34" charset="0"/>
+                <a:ea typeface="Calibri" pitchFamily="34" charset="-122"/>
+                <a:cs typeface="Calibri" pitchFamily="34" charset="-120"/>
+              </a:rPr>
+              <a:t>数据绑定：</a:t>
+            </a:r>
+            <a:r>
+              <a:rPr lang="en-US" altLang="zh-CN" sz="1100" b="1" dirty="0">
+                <a:solidFill>
+                  <a:srgbClr val="FFFFFF"/>
+                </a:solidFill>
+                <a:latin typeface="Calibri" pitchFamily="34" charset="0"/>
+                <a:ea typeface="Calibri" pitchFamily="34" charset="-122"/>
+                <a:cs typeface="Calibri" pitchFamily="34" charset="-120"/>
+              </a:rPr>
+              <a:t xml:space="preserve"> value.path + value.default</a:t>
+            </a:r>
+            <a:r>
+              <a:rPr lang="zh-CN" altLang="en-US" sz="1100" dirty="0">
+                <a:solidFill>
+                  <a:srgbClr val="CBD5E1"/>
+                </a:solidFill>
+                <a:latin typeface="Calibri" pitchFamily="34" charset="0"/>
+                <a:ea typeface="Calibri" pitchFamily="34" charset="-122"/>
+                <a:cs typeface="Calibri" pitchFamily="34" charset="-120"/>
+              </a:rPr>
+              <a:t xml:space="preserve"> 双向绑定</a:t>
+            </a:r>
+          </a:p>
+        </p:txBody>
+      </p:sp>
+      <p:sp>
+        <p:nvSpPr>
+          <p:cNvPr id="40" name="Card3Bg"/>
+          <p:cNvSpPr/>
+          <p:nvPr/>
+        </p:nvSpPr>
+        <p:spPr>
+          <a:xfrm>
+            <a:off x="457200" y="3150000"/>
+            <a:ext cx="3950000" cy="1450000"/>
+          </a:xfrm>
+          <a:prstGeom prst="roundRect">
+            <a:avLst>
+              <a:gd name="adj" fmla="val 5000"/>
+            </a:avLst>
+          </a:prstGeom>
+          <a:solidFill>
+            <a:srgbClr val="1E3A5F"/>
+          </a:solidFill>
+          <a:effectLst>
+            <a:outerShdw blurRad="76200" dist="19050" dir="8100000" algn="bl" rotWithShape="0">
+              <a:srgbClr val="000000">
+                <a:alpha val="20000"/>
+              </a:srgbClr>
+            </a:outerShdw>
+          </a:effectLst>
+        </p:spPr>
+      </p:sp>
+      <p:sp>
+        <p:nvSpPr>
+          <p:cNvPr id="41" name="Card3Bar"/>
+          <p:cNvSpPr/>
+          <p:nvPr/>
+        </p:nvSpPr>
+        <p:spPr>
+          <a:xfrm>
+            <a:off x="530352" y="3280000"/>
+            <a:ext cx="45720" cy="1100000"/>
+          </a:xfrm>
+          <a:prstGeom prst="rect">
+            <a:avLst/>
+          </a:prstGeom>
+          <a:solidFill>
+            <a:srgbClr val="F59E0B"/>
+          </a:solidFill>
+        </p:spPr>
+      </p:sp>
+      <p:sp>
+        <p:nvSpPr>
+          <p:cNvPr id="42" name="Card3Title"/>
+          <p:cNvSpPr/>
+          <p:nvPr/>
+        </p:nvSpPr>
+        <p:spPr>
+          <a:xfrm>
+            <a:off x="640080" y="3230000"/>
+            <a:ext cx="3600000" cy="365760"/>
+          </a:xfrm>
+          <a:prstGeom prst="rect">
+            <a:avLst/>
+          </a:prstGeom>
+          <a:noFill/>
+        </p:spPr>
+        <p:txBody>
+          <a:bodyPr wrap="square" lIns="0" tIns="0" rIns="0" bIns="0" rtlCol="0" anchor="ctr"/>
+          <a:lstStyle/>
+          <a:p>
+            <a:pPr marL="0" indent="0">
+              <a:buNone/>
+            </a:pPr>
+            <a:r>
+              <a:rPr lang="zh-CN" altLang="en-US" sz="1600" b="1" dirty="0">
+                <a:solidFill>
+                  <a:srgbClr val="F59E0B"/>
+                </a:solidFill>
+                <a:latin typeface="Calibri" pitchFamily="34" charset="0"/>
+                <a:ea typeface="Calibri" pitchFamily="34" charset="-122"/>
+                <a:cs typeface="Calibri" pitchFamily="34" charset="-120"/>
+              </a:rPr>
+              <a:t>布局模式与属性配置</a:t>
+            </a:r>
+          </a:p>
+        </p:txBody>
+      </p:sp>
+      <p:sp>
+        <p:nvSpPr>
+          <p:cNvPr id="43" name="Card3Content"/>
+          <p:cNvSpPr/>
+          <p:nvPr/>
+        </p:nvSpPr>
+        <p:spPr>
+          <a:xfrm>
+            <a:off x="640080" y="3620000"/>
+            <a:ext cx="3650000" cy="880000"/>
+          </a:xfrm>
+          <a:prstGeom prst="rect">
+            <a:avLst/>
+          </a:prstGeom>
+          <a:noFill/>
+        </p:spPr>
+        <p:txBody>
+          <a:bodyPr wrap="square" lIns="0" tIns="0" rIns="91440" bIns="0" rtlCol="0" anchor="t"/>
+          <a:lstStyle/>
+          <a:p>
+            <a:pPr marL="0" indent="0">
+              <a:buNone/>
+            </a:pPr>
+            <a:r>
+              <a:rPr lang="zh-CN" altLang="en-US" sz="1100" dirty="0">
+                <a:solidFill>
+                  <a:srgbClr val="CBD5E1"/>
+                </a:solidFill>
+                <a:latin typeface="Calibri" pitchFamily="34" charset="0"/>
+                <a:ea typeface="Calibri" pitchFamily="34" charset="-122"/>
+                <a:cs typeface="Calibri" pitchFamily="34" charset="-120"/>
+              </a:rPr>
+              <a:t>布局模式：</a:t>
+            </a:r>
+            <a:r>
+              <a:rPr lang="en-US" altLang="zh-CN" sz="1100" b="1" dirty="0">
+                <a:solidFill>
+                  <a:srgbClr val="FFFFFF"/>
+                </a:solidFill>
+                <a:latin typeface="Calibri" pitchFamily="34" charset="0"/>
+                <a:ea typeface="Calibri" pitchFamily="34" charset="-122"/>
+                <a:cs typeface="Calibri" pitchFamily="34" charset="-120"/>
+              </a:rPr>
+              <a:t xml:space="preserve"> Card+Column</a:t>
+            </a:r>
+            <a:r>
+              <a:rPr lang="zh-CN" altLang="en-US" sz="1100" dirty="0">
+                <a:solidFill>
+                  <a:srgbClr val="CBD5E1"/>
+                </a:solidFill>
+                <a:latin typeface="Calibri" pitchFamily="34" charset="0"/>
+                <a:ea typeface="Calibri" pitchFamily="34" charset="-122"/>
+                <a:cs typeface="Calibri" pitchFamily="34" charset="-120"/>
+              </a:rPr>
+              <a:t xml:space="preserve"> 表单、</a:t>
+            </a:r>
+            <a:r>
+              <a:rPr lang="en-US" altLang="zh-CN" sz="1100" b="1" dirty="0">
+                <a:solidFill>
+                  <a:srgbClr val="FFFFFF"/>
+                </a:solidFill>
+                <a:latin typeface="Calibri" pitchFamily="34" charset="0"/>
+                <a:ea typeface="Calibri" pitchFamily="34" charset="-122"/>
+                <a:cs typeface="Calibri" pitchFamily="34" charset="-120"/>
+              </a:rPr>
+              <a:t>Row+Column</a:t>
+            </a:r>
+            <a:r>
+              <a:rPr lang="zh-CN" altLang="en-US" sz="1100" dirty="0">
+                <a:solidFill>
+                  <a:srgbClr val="CBD5E1"/>
+                </a:solidFill>
+                <a:latin typeface="Calibri" pitchFamily="34" charset="0"/>
+                <a:ea typeface="Calibri" pitchFamily="34" charset="-122"/>
+                <a:cs typeface="Calibri" pitchFamily="34" charset="-120"/>
+              </a:rPr>
+              <a:t xml:space="preserve"> 网格、极简扁平</a:t>
+            </a:r>
+          </a:p>
+          <a:p>
+            <a:pPr marL="0" indent="0">
+              <a:buNone/>
+            </a:pPr>
+            <a:r>
+              <a:rPr lang="zh-CN" altLang="en-US" sz="1100" dirty="0">
+                <a:solidFill>
+                  <a:srgbClr val="CBD5E1"/>
+                </a:solidFill>
+                <a:latin typeface="Calibri" pitchFamily="34" charset="0"/>
+                <a:ea typeface="Calibri" pitchFamily="34" charset="-122"/>
+                <a:cs typeface="Calibri" pitchFamily="34" charset="-120"/>
+              </a:rPr>
+              <a:t>常用属性：卡片宽度预设、按钮样式类型、</a:t>
+            </a:r>
+          </a:p>
+          <a:p>
+            <a:pPr marL="0" indent="0">
+              <a:buNone/>
+            </a:pPr>
+            <a:r>
+              <a:rPr lang="zh-CN" altLang="en-US" sz="1100" dirty="0">
+                <a:solidFill>
+                  <a:srgbClr val="CBD5E1"/>
+                </a:solidFill>
+                <a:latin typeface="Calibri" pitchFamily="34" charset="0"/>
+                <a:ea typeface="Calibri" pitchFamily="34" charset="-122"/>
+                <a:cs typeface="Calibri" pitchFamily="34" charset="-120"/>
+              </a:rPr>
+              <a:t>文本变体、对齐方式等</a:t>
+            </a:r>
+          </a:p>
+        </p:txBody>
+      </p:sp>
+      <p:sp>
+        <p:nvSpPr>
+          <p:cNvPr id="50" name="Card4Bg"/>
+          <p:cNvSpPr/>
+          <p:nvPr/>
+        </p:nvSpPr>
+        <p:spPr>
+          <a:xfrm>
+            <a:off x="4636200" y="3150000"/>
+            <a:ext cx="3950000" cy="1450000"/>
+          </a:xfrm>
+          <a:prstGeom prst="roundRect">
+            <a:avLst>
+              <a:gd name="adj" fmla="val 5000"/>
+            </a:avLst>
+          </a:prstGeom>
+          <a:solidFill>
+            <a:srgbClr val="1E3A5F"/>
+          </a:solidFill>
+          <a:effectLst>
+            <a:outerShdw blurRad="76200" dist="19050" dir="8100000" algn="bl" rotWithShape="0">
+              <a:srgbClr val="000000">
+                <a:alpha val="20000"/>
+              </a:srgbClr>
+            </a:outerShdw>
+          </a:effectLst>
+        </p:spPr>
+      </p:sp>
+      <p:sp>
+        <p:nvSpPr>
+          <p:cNvPr id="51" name="Card4Bar"/>
+          <p:cNvSpPr/>
+          <p:nvPr/>
+        </p:nvSpPr>
+        <p:spPr>
+          <a:xfrm>
+            <a:off x="4709352" y="3280000"/>
+            <a:ext cx="45720" cy="1100000"/>
+          </a:xfrm>
+          <a:prstGeom prst="rect">
+            <a:avLst/>
+          </a:prstGeom>
+          <a:solidFill>
+            <a:srgbClr val="8B5CF6"/>
+          </a:solidFill>
+        </p:spPr>
+      </p:sp>
+      <p:sp>
+        <p:nvSpPr>
+          <p:cNvPr id="52" name="Card4Title"/>
+          <p:cNvSpPr/>
+          <p:nvPr/>
+        </p:nvSpPr>
+        <p:spPr>
+          <a:xfrm>
+            <a:off x="4819080" y="3230000"/>
+            <a:ext cx="3600000" cy="365760"/>
+          </a:xfrm>
+          <a:prstGeom prst="rect">
+            <a:avLst/>
+          </a:prstGeom>
+          <a:noFill/>
+        </p:spPr>
+        <p:txBody>
+          <a:bodyPr wrap="square" lIns="0" tIns="0" rIns="0" bIns="0" rtlCol="0" anchor="ctr"/>
+          <a:lstStyle/>
+          <a:p>
+            <a:pPr marL="0" indent="0">
+              <a:buNone/>
+            </a:pPr>
+            <a:r>
+              <a:rPr lang="zh-CN" altLang="en-US" sz="1600" b="1" dirty="0">
+                <a:solidFill>
+                  <a:srgbClr val="8B5CF6"/>
+                </a:solidFill>
+                <a:latin typeface="Calibri" pitchFamily="34" charset="0"/>
+                <a:ea typeface="Calibri" pitchFamily="34" charset="-122"/>
+                <a:cs typeface="Calibri" pitchFamily="34" charset="-120"/>
+              </a:rPr>
+              <a:t>交互配置与最佳实践</a:t>
+            </a:r>
+          </a:p>
+        </p:txBody>
+      </p:sp>
+      <p:sp>
+        <p:nvSpPr>
+          <p:cNvPr id="53" name="Card4Content"/>
+          <p:cNvSpPr/>
+          <p:nvPr/>
+        </p:nvSpPr>
+        <p:spPr>
+          <a:xfrm>
+            <a:off x="4819080" y="3620000"/>
+            <a:ext cx="3650000" cy="880000"/>
+          </a:xfrm>
+          <a:prstGeom prst="rect">
+            <a:avLst/>
+          </a:prstGeom>
+          <a:noFill/>
+        </p:spPr>
+        <p:txBody>
+          <a:bodyPr wrap="square" lIns="0" tIns="0" rIns="91440" bIns="0" rtlCol="0" anchor="t"/>
+          <a:lstStyle/>
+          <a:p>
+            <a:pPr marL="0" indent="0">
+              <a:buNone/>
+            </a:pPr>
+            <a:r>
+              <a:rPr lang="zh-CN" altLang="en-US" sz="1100" dirty="0">
+                <a:solidFill>
+                  <a:srgbClr val="CBD5E1"/>
+                </a:solidFill>
+                <a:latin typeface="Calibri" pitchFamily="34" charset="0"/>
+                <a:ea typeface="Calibri" pitchFamily="34" charset="-122"/>
+                <a:cs typeface="Calibri" pitchFamily="34" charset="-120"/>
+              </a:rPr>
+              <a:t xml:space="preserve">按钮 Action：通过 </a:t>
+            </a:r>
+            <a:r>
+              <a:rPr lang="en-US" altLang="zh-CN" sz="1100" b="1" dirty="0">
+                <a:solidFill>
+                  <a:srgbClr val="FFFFFF"/>
+                </a:solidFill>
+                <a:latin typeface="Calibri" pitchFamily="34" charset="0"/>
+                <a:ea typeface="Calibri" pitchFamily="34" charset="-122"/>
+                <a:cs typeface="Calibri" pitchFamily="34" charset="-120"/>
+              </a:rPr>
+              <a:t>action</a:t>
+            </a:r>
+            <a:r>
+              <a:rPr lang="zh-CN" altLang="en-US" sz="1100" dirty="0">
+                <a:solidFill>
+                  <a:srgbClr val="CBD5E1"/>
+                </a:solidFill>
+                <a:latin typeface="Calibri" pitchFamily="34" charset="0"/>
+                <a:ea typeface="Calibri" pitchFamily="34" charset="-122"/>
+                <a:cs typeface="Calibri" pitchFamily="34" charset="-120"/>
+              </a:rPr>
+              <a:t xml:space="preserve"> 定义点击事件，外部接收通知</a:t>
+            </a:r>
+          </a:p>
+          <a:p>
+            <a:pPr marL="0" indent="0">
+              <a:buNone/>
+            </a:pPr>
+            <a:r>
+              <a:rPr lang="zh-CN" altLang="en-US" sz="1100" dirty="0">
+                <a:solidFill>
+                  <a:srgbClr val="CBD5E1"/>
+                </a:solidFill>
+                <a:latin typeface="Calibri" pitchFamily="34" charset="0"/>
+                <a:ea typeface="Calibri" pitchFamily="34" charset="-122"/>
+                <a:cs typeface="Calibri" pitchFamily="34" charset="-120"/>
+              </a:rPr>
+              <a:t>10 条最佳实践：优先扁平格式、</a:t>
+            </a:r>
+          </a:p>
+          <a:p>
+            <a:pPr marL="0" indent="0">
+              <a:buNone/>
+            </a:pPr>
+            <a:r>
+              <a:rPr lang="zh-CN" altLang="en-US" sz="1100" dirty="0">
+                <a:solidFill>
+                  <a:srgbClr val="CBD5E1"/>
+                </a:solidFill>
+                <a:latin typeface="Calibri" pitchFamily="34" charset="0"/>
+                <a:ea typeface="Calibri" pitchFamily="34" charset="-122"/>
+                <a:cs typeface="Calibri" pitchFamily="34" charset="-120"/>
+              </a:rPr>
+              <a:t>表单用 Card 包裹、InfoField 绑定数据</a:t>
+            </a:r>
+          </a:p>
+          <a:p>
+            <a:pPr marL="0" indent="0">
+              <a:buNone/>
+            </a:pPr>
+            <a:r>
+              <a:rPr lang="zh-CN" altLang="en-US" sz="1100" dirty="0">
+                <a:solidFill>
+                  <a:srgbClr val="CBD5E1"/>
+                </a:solidFill>
+                <a:latin typeface="Calibri" pitchFamily="34" charset="0"/>
+                <a:ea typeface="Calibri" pitchFamily="34" charset="-122"/>
+                <a:cs typeface="Calibri" pitchFamily="34" charset="-120"/>
+              </a:rPr>
+              <a:t>用 value.path 等</a:t>
+            </a:r>
+          </a:p>
+        </p:txBody>
+      </p:sp>
+    </p:spTree>
+  </p:cSld>
+  <p:clrMapOvr>
+    <a:masterClrMapping/>
+  </p:clrMapOvr>
+</p:sld>

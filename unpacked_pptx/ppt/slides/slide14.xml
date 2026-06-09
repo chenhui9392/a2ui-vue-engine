@@ -1,0 +1,1239 @@
+<?xml version="1.0" encoding="UTF-8"?><p:sld xmlns:a="http://schemas.openxmlformats.org/drawingml/2006/main" xmlns:r="http://schemas.openxmlformats.org/officeDocument/2006/relationships" xmlns:p="http://schemas.openxmlformats.org/presentationml/2006/main">
+  <p:cSld>
+    <p:bg>
+      <p:bgPr>
+        <a:solidFill>
+          <a:srgbClr val="0F172A"/>
+        </a:solidFill>
+        <a:effectLst/>
+      </p:bgPr>
+    </p:bg>
+    <p:spTree>
+      <p:nvGrpSpPr>
+        <p:cNvPr id="1" name=""/>
+        <p:cNvGrpSpPr/>
+        <p:nvPr/>
+      </p:nvGrpSpPr>
+      <p:grpSpPr>
+        <a:xfrm>
+          <a:off x="0" y="0"/>
+          <a:ext cx="0" cy="0"/>
+          <a:chOff x="0" y="0"/>
+          <a:chExt cx="0" cy="0"/>
+        </a:xfrm>
+      </p:grpSpPr>
+      <p:sp>
+        <p:nvSpPr>
+          <p:cNvPr id="2" name="Shape 0"/>
+          <p:cNvSpPr/>
+          <p:nvPr/>
+        </p:nvSpPr>
+        <p:spPr>
+          <a:xfrm>
+            <a:off x="457200" y="320040"/>
+            <a:ext cx="54864" cy="320040"/>
+          </a:xfrm>
+          <a:prstGeom prst="rect">
+            <a:avLst/>
+          </a:prstGeom>
+          <a:solidFill>
+            <a:srgbClr val="02C39A"/>
+          </a:solidFill>
+        </p:spPr>
+      </p:sp>
+      <p:sp>
+        <p:nvSpPr>
+          <p:cNvPr id="3" name="Text 1"/>
+          <p:cNvSpPr/>
+          <p:nvPr/>
+        </p:nvSpPr>
+        <p:spPr>
+          <a:xfrm>
+            <a:off x="640080" y="274320"/>
+            <a:ext cx="3657600" cy="411480"/>
+          </a:xfrm>
+          <a:prstGeom prst="rect">
+            <a:avLst/>
+          </a:prstGeom>
+          <a:noFill/>
+        </p:spPr>
+        <p:txBody>
+          <a:bodyPr wrap="square" lIns="0" tIns="0" rIns="0" bIns="0" rtlCol="0" anchor="ctr"/>
+          <a:lstStyle/>
+          <a:p>
+            <a:r>
+              <a:rPr lang="en-US" altLang="zh-CN" sz="1100" b="1">
+                <a:solidFill>
+                  <a:srgbClr val="02C39A"/>
+                </a:solidFill>
+                <a:latin typeface="Calibri" pitchFamily="34" charset="0"/>
+                <a:ea typeface="Calibri" pitchFamily="34" charset="-122"/>
+                <a:cs typeface="Calibri" pitchFamily="34" charset="-120"/>
+              </a:rPr>
+              <a:t xml:space="preserve">03  A2UI — </a:t>
+            </a:r>
+            <a:r>
+              <a:rPr lang="zh-CN" altLang="en-US" sz="1100" b="1">
+                <a:solidFill>
+                  <a:srgbClr val="02C39A"/>
+                </a:solidFill>
+                <a:latin typeface="Calibri" pitchFamily="34" charset="0"/>
+                <a:ea typeface="Calibri" pitchFamily="34" charset="-122"/>
+                <a:cs typeface="Calibri" pitchFamily="34" charset="-120"/>
+              </a:rPr>
+              <a:t>使用进阶</a:t>
+            </a:r>
+            <a:endParaRPr lang="en-US" altLang="zh-CN" sz="1100" dirty="0"/>
+          </a:p>
+        </p:txBody>
+      </p:sp>
+      <p:sp>
+        <p:nvSpPr>
+          <p:cNvPr id="4" name="Text 2"/>
+          <p:cNvSpPr/>
+          <p:nvPr/>
+        </p:nvSpPr>
+        <p:spPr>
+          <a:xfrm>
+            <a:off x="457200" y="731520"/>
+            <a:ext cx="8229600" cy="548640"/>
+          </a:xfrm>
+          <a:prstGeom prst="rect">
+            <a:avLst/>
+          </a:prstGeom>
+          <a:noFill/>
+        </p:spPr>
+        <p:txBody>
+          <a:bodyPr wrap="square" lIns="0" tIns="0" rIns="0" bIns="0" rtlCol="0" anchor="ctr"/>
+          <a:lstStyle/>
+          <a:p>
+            <a:pPr marL="0" indent="0">
+              <a:buNone/>
+            </a:pPr>
+            <a:r>
+              <a:rPr lang="en-US" sz="2000" b="1" dirty="0">
+                <a:solidFill>
+                  <a:srgbClr val="FFFFFF"/>
+                </a:solidFill>
+                <a:latin typeface="Calibri" pitchFamily="34" charset="0"/>
+                <a:ea typeface="Calibri" pitchFamily="34" charset="-122"/>
+                <a:cs typeface="Calibri" pitchFamily="34" charset="-120"/>
+              </a:rPr>
+              <a:t>阶段二：根据提示词生成 — 网络权限申请</a:t>
+            </a:r>
+            <a:endParaRPr lang="en-US" sz="2000" dirty="0"/>
+          </a:p>
+        </p:txBody>
+      </p:sp>
+      <p:pic>
+        <p:nvPicPr>
+          <p:cNvPr id="5" name="Image 0" descr="D:\work\program\tineco\desk\opsmind\ppt_images\image16.jpeg"/>
+          <p:cNvPicPr>
+            <a:picLocks noChangeAspect="1"/>
+          </p:cNvPicPr>
+          <p:nvPr/>
+        </p:nvPicPr>
+        <p:blipFill>
+          <a:blip r:embed="rId3"/>
+          <a:srcRect/>
+          <a:stretch>
+            <a:fillRect/>
+          </a:stretch>
+        </p:blipFill>
+        <p:spPr>
+          <a:xfrm>
+            <a:off x="5293575" y="424092"/>
+            <a:ext cx="3393225" cy="4467948"/>
+          </a:xfrm>
+          <a:prstGeom prst="rect">
+            <a:avLst/>
+          </a:prstGeom>
+          <a:effectLst>
+            <a:outerShdw blurRad="101600" dist="25400" dir="8100000" algn="bl" rotWithShape="0">
+              <a:srgbClr val="000000">
+                <a:alpha val="25000"/>
+              </a:srgbClr>
+            </a:outerShdw>
+          </a:effectLst>
+        </p:spPr>
+      </p:pic>
+      <p:sp>
+        <p:nvSpPr>
+          <p:cNvPr id="23" name="Text 20"/>
+          <p:cNvSpPr/>
+          <p:nvPr/>
+        </p:nvSpPr>
+        <p:spPr>
+          <a:xfrm>
+            <a:off x="7772400" y="4754880"/>
+            <a:ext cx="1097280" cy="274320"/>
+          </a:xfrm>
+          <a:prstGeom prst="rect">
+            <a:avLst/>
+          </a:prstGeom>
+          <a:noFill/>
+        </p:spPr>
+        <p:txBody>
+          <a:bodyPr wrap="square" rtlCol="0" anchor="ctr"/>
+          <a:lstStyle/>
+          <a:p>
+            <a:pPr marL="0" indent="0" algn="r">
+              <a:buNone/>
+            </a:pPr>
+            <a:r>
+              <a:rPr lang="en-US" sz="900" dirty="0">
+                <a:solidFill>
+                  <a:srgbClr val="64748B"/>
+                </a:solidFill>
+                <a:latin typeface="Calibri" pitchFamily="34" charset="0"/>
+                <a:ea typeface="Calibri" pitchFamily="34" charset="-122"/>
+                <a:cs typeface="Calibri" pitchFamily="34" charset="-120"/>
+              </a:rPr>
+              <a:t>13 / 21</a:t>
+            </a:r>
+            <a:endParaRPr lang="en-US" sz="900" dirty="0"/>
+          </a:p>
+        </p:txBody>
+      </p:sp>
+      <p:grpSp>
+        <p:nvGrpSpPr>
+          <p:cNvPr id="26" name="组合 25"/>
+          <p:cNvGrpSpPr/>
+          <p:nvPr/>
+        </p:nvGrpSpPr>
+        <p:grpSpPr>
+          <a:xfrm>
+            <a:off x="662152" y="1404708"/>
+            <a:ext cx="3635528" cy="3535860"/>
+            <a:chOff x="4846320" y="1336916"/>
+            <a:chExt cx="3635528" cy="3535860"/>
+          </a:xfrm>
+        </p:grpSpPr>
+        <p:sp>
+          <p:nvSpPr>
+            <p:cNvPr id="6" name="Shape 3"/>
+            <p:cNvSpPr/>
+            <p:nvPr/>
+          </p:nvSpPr>
+          <p:spPr>
+            <a:xfrm>
+              <a:off x="4846320" y="1336916"/>
+              <a:ext cx="3635528" cy="3383280"/>
+            </a:xfrm>
+            <a:prstGeom prst="roundRect">
+              <a:avLst>
+                <a:gd name="adj" fmla="val 2500"/>
+              </a:avLst>
+            </a:prstGeom>
+            <a:solidFill>
+              <a:srgbClr val="0D1B2A"/>
+            </a:solidFill>
+            <a:effectLst>
+              <a:outerShdw blurRad="101600" dist="25400" dir="8100000" algn="bl" rotWithShape="0">
+                <a:srgbClr val="000000">
+                  <a:alpha val="25000"/>
+                </a:srgbClr>
+              </a:outerShdw>
+            </a:effectLst>
+          </p:spPr>
+        </p:sp>
+        <p:sp>
+          <p:nvSpPr>
+            <p:cNvPr id="7" name="Shape 4"/>
+            <p:cNvSpPr/>
+            <p:nvPr/>
+          </p:nvSpPr>
+          <p:spPr>
+            <a:xfrm>
+              <a:off x="4919472" y="1474075"/>
+              <a:ext cx="45719" cy="3301299"/>
+            </a:xfrm>
+            <a:prstGeom prst="rect">
+              <a:avLst/>
+            </a:prstGeom>
+            <a:solidFill>
+              <a:srgbClr val="F59E0B"/>
+            </a:solidFill>
+          </p:spPr>
+        </p:sp>
+        <p:sp>
+          <p:nvSpPr>
+            <p:cNvPr id="8" name="Text 5"/>
+            <p:cNvSpPr/>
+            <p:nvPr/>
+          </p:nvSpPr>
+          <p:spPr>
+            <a:xfrm>
+              <a:off x="5166360" y="1428356"/>
+              <a:ext cx="2377440" cy="274320"/>
+            </a:xfrm>
+            <a:prstGeom prst="rect">
+              <a:avLst/>
+            </a:prstGeom>
+            <a:noFill/>
+          </p:spPr>
+          <p:txBody>
+            <a:bodyPr wrap="square" lIns="0" tIns="0" rIns="0" bIns="0" rtlCol="0" anchor="ctr"/>
+            <a:lstStyle/>
+            <a:p>
+              <a:pPr marL="0" indent="0">
+                <a:buNone/>
+              </a:pPr>
+              <a:r>
+                <a:rPr lang="en-US" sz="1200" b="1" dirty="0">
+                  <a:solidFill>
+                    <a:srgbClr val="F59E0B"/>
+                  </a:solidFill>
+                  <a:latin typeface="Calibri" pitchFamily="34" charset="0"/>
+                  <a:ea typeface="Calibri" pitchFamily="34" charset="-122"/>
+                  <a:cs typeface="Calibri" pitchFamily="34" charset="-120"/>
+                </a:rPr>
+                <a:t>提示词参数</a:t>
+              </a:r>
+              <a:endParaRPr lang="en-US" sz="1200" dirty="0"/>
+            </a:p>
+          </p:txBody>
+        </p:sp>
+        <p:sp>
+          <p:nvSpPr>
+            <p:cNvPr id="25" name="文本框 24"/>
+            <p:cNvSpPr txBox="1"/>
+            <p:nvPr/>
+          </p:nvSpPr>
+          <p:spPr>
+            <a:xfrm>
+              <a:off x="5038345" y="1702677"/>
+              <a:ext cx="3329992" cy="3170099"/>
+            </a:xfrm>
+            <a:prstGeom prst="rect">
+              <a:avLst/>
+            </a:prstGeom>
+            <a:noFill/>
+          </p:spPr>
+          <p:txBody>
+            <a:bodyPr wrap="square" rtlCol="0">
+              <a:spAutoFit/>
+            </a:bodyPr>
+            <a:lstStyle/>
+            <a:p>
+              <a:r>
+                <a:rPr lang="zh-CN" altLang="en-US" sz="800">
+                  <a:solidFill>
+                    <a:schemeClr val="bg1"/>
+                  </a:solidFill>
+                </a:rPr>
+                <a:t>你是网络权限申请流程智能助理，需严格按照以下规则处理用户请求：</a:t>
+              </a:r>
+            </a:p>
+            <a:p>
+              <a:r>
+                <a:rPr lang="en-US" altLang="zh-CN" sz="800">
+                  <a:solidFill>
+                    <a:schemeClr val="bg1"/>
+                  </a:solidFill>
+                </a:rPr>
+                <a:t xml:space="preserve">### </a:t>
+              </a:r>
+              <a:r>
+                <a:rPr lang="zh-CN" altLang="en-US" sz="800">
+                  <a:solidFill>
+                    <a:schemeClr val="bg1"/>
+                  </a:solidFill>
+                </a:rPr>
+                <a:t>一、固定参数预设（无需用户提供）</a:t>
+              </a:r>
+            </a:p>
+            <a:p>
+              <a:r>
+                <a:rPr lang="en-US" altLang="zh-CN" sz="800">
+                  <a:solidFill>
+                    <a:schemeClr val="bg1"/>
+                  </a:solidFill>
+                </a:rPr>
+                <a:t xml:space="preserve">- </a:t>
+              </a:r>
+              <a:r>
+                <a:rPr lang="zh-CN" altLang="en-US" sz="800">
+                  <a:solidFill>
+                    <a:schemeClr val="bg1"/>
+                  </a:solidFill>
+                </a:rPr>
+                <a:t>请求地址</a:t>
+              </a:r>
+              <a:r>
+                <a:rPr lang="en-US" altLang="zh-CN" sz="800">
+                  <a:solidFill>
+                    <a:schemeClr val="bg1"/>
+                  </a:solidFill>
+                </a:rPr>
+                <a:t>`url`</a:t>
+              </a:r>
+              <a:r>
+                <a:rPr lang="zh-CN" altLang="en-US" sz="800">
+                  <a:solidFill>
+                    <a:schemeClr val="bg1"/>
+                  </a:solidFill>
+                </a:rPr>
+                <a:t>固定为：</a:t>
+              </a:r>
+              <a:r>
+                <a:rPr lang="en-US" altLang="zh-CN" sz="800">
+                  <a:solidFill>
+                    <a:schemeClr val="bg1"/>
+                  </a:solidFill>
+                </a:rPr>
+                <a:t>`https://esb-gateway.tineco.com/restcloud/oa/v1/workflowNEW/create`</a:t>
+              </a:r>
+            </a:p>
+            <a:p>
+              <a:r>
+                <a:rPr lang="en-US" altLang="zh-CN" sz="800">
+                  <a:solidFill>
+                    <a:schemeClr val="bg1"/>
+                  </a:solidFill>
+                </a:rPr>
+                <a:t xml:space="preserve">- </a:t>
+              </a:r>
+              <a:r>
+                <a:rPr lang="zh-CN" altLang="en-US" sz="800">
+                  <a:solidFill>
+                    <a:schemeClr val="bg1"/>
+                  </a:solidFill>
+                </a:rPr>
+                <a:t>入参默认值：</a:t>
+              </a:r>
+              <a:r>
+                <a:rPr lang="en-US" altLang="zh-CN" sz="800">
+                  <a:solidFill>
+                    <a:schemeClr val="bg1"/>
+                  </a:solidFill>
+                </a:rPr>
+                <a:t>`workflowId`=&quot;479546&quot;</a:t>
+              </a:r>
+              <a:r>
+                <a:rPr lang="zh-CN" altLang="en-US" sz="800">
+                  <a:solidFill>
+                    <a:schemeClr val="bg1"/>
+                  </a:solidFill>
+                </a:rPr>
+                <a:t>、</a:t>
+              </a:r>
+              <a:r>
+                <a:rPr lang="en-US" altLang="zh-CN" sz="800">
+                  <a:solidFill>
+                    <a:schemeClr val="bg1"/>
+                  </a:solidFill>
+                </a:rPr>
+                <a:t>`tableId`=&quot;983&quot;</a:t>
+              </a:r>
+              <a:r>
+                <a:rPr lang="zh-CN" altLang="en-US" sz="800">
+                  <a:solidFill>
+                    <a:schemeClr val="bg1"/>
+                  </a:solidFill>
+                </a:rPr>
+                <a:t>、</a:t>
+              </a:r>
+              <a:r>
+                <a:rPr lang="en-US" altLang="zh-CN" sz="800">
+                  <a:solidFill>
+                    <a:schemeClr val="bg1"/>
+                  </a:solidFill>
+                </a:rPr>
+                <a:t>`requestName`=&quot;</a:t>
+              </a:r>
+              <a:r>
+                <a:rPr lang="zh-CN" altLang="en-US" sz="800">
+                  <a:solidFill>
+                    <a:schemeClr val="bg1"/>
+                  </a:solidFill>
+                </a:rPr>
+                <a:t>网络权限申请流程</a:t>
+              </a:r>
+              <a:r>
+                <a:rPr lang="en-US" altLang="zh-CN" sz="800">
+                  <a:solidFill>
+                    <a:schemeClr val="bg1"/>
+                  </a:solidFill>
+                </a:rPr>
+                <a:t>&quot;</a:t>
+              </a:r>
+              <a:r>
+                <a:rPr lang="zh-CN" altLang="en-US" sz="800">
+                  <a:solidFill>
+                    <a:schemeClr val="bg1"/>
+                  </a:solidFill>
+                </a:rPr>
+                <a:t>、</a:t>
+              </a:r>
+              <a:r>
+                <a:rPr lang="en-US" altLang="zh-CN" sz="800">
+                  <a:solidFill>
+                    <a:schemeClr val="bg1"/>
+                  </a:solidFill>
+                </a:rPr>
+                <a:t>`isNextFlow`=&quot;0&quot;</a:t>
+              </a:r>
+            </a:p>
+            <a:p>
+              <a:r>
+                <a:rPr lang="en-US" altLang="zh-CN" sz="800">
+                  <a:solidFill>
+                    <a:schemeClr val="bg1"/>
+                  </a:solidFill>
+                </a:rPr>
+                <a:t xml:space="preserve">### </a:t>
+              </a:r>
+              <a:r>
+                <a:rPr lang="zh-CN" altLang="en-US" sz="800">
+                  <a:solidFill>
+                    <a:schemeClr val="bg1"/>
+                  </a:solidFill>
+                </a:rPr>
+                <a:t>二、参数收集规则</a:t>
+              </a:r>
+            </a:p>
+            <a:p>
+              <a:r>
+                <a:rPr lang="en-US" altLang="zh-CN" sz="800">
+                  <a:solidFill>
+                    <a:schemeClr val="bg1"/>
+                  </a:solidFill>
+                </a:rPr>
+                <a:t xml:space="preserve">1. </a:t>
+              </a:r>
+              <a:r>
+                <a:rPr lang="zh-CN" altLang="en-US" sz="800">
+                  <a:solidFill>
+                    <a:schemeClr val="bg1"/>
+                  </a:solidFill>
+                </a:rPr>
+                <a:t>必须收集的必填参数：</a:t>
+              </a:r>
+            </a:p>
+            <a:p>
+              <a:r>
+                <a:rPr lang="en-US" altLang="zh-CN" sz="800">
+                  <a:solidFill>
+                    <a:schemeClr val="bg1"/>
+                  </a:solidFill>
+                </a:rPr>
+                <a:t xml:space="preserve">- </a:t>
+              </a:r>
+              <a:r>
+                <a:rPr lang="zh-CN" altLang="en-US" sz="800">
+                  <a:solidFill>
+                    <a:schemeClr val="bg1"/>
+                  </a:solidFill>
+                </a:rPr>
+                <a:t>申请人的</a:t>
+              </a:r>
+              <a:r>
+                <a:rPr lang="en-US" altLang="zh-CN" sz="800">
+                  <a:solidFill>
+                    <a:schemeClr val="bg1"/>
+                  </a:solidFill>
+                </a:rPr>
+                <a:t>`workCode`</a:t>
+              </a:r>
+              <a:r>
+                <a:rPr lang="zh-CN" altLang="en-US" sz="800">
+                  <a:solidFill>
+                    <a:schemeClr val="bg1"/>
+                  </a:solidFill>
+                </a:rPr>
+                <a:t>（工号）</a:t>
+              </a:r>
+            </a:p>
+            <a:p>
+              <a:r>
+                <a:rPr lang="en-US" altLang="zh-CN" sz="800">
+                  <a:solidFill>
+                    <a:schemeClr val="bg1"/>
+                  </a:solidFill>
+                </a:rPr>
+                <a:t>- `sqyy`</a:t>
+              </a:r>
+              <a:r>
+                <a:rPr lang="zh-CN" altLang="en-US" sz="800">
+                  <a:solidFill>
+                    <a:schemeClr val="bg1"/>
+                  </a:solidFill>
+                </a:rPr>
+                <a:t>（申请原因）</a:t>
+              </a:r>
+            </a:p>
+            <a:p>
+              <a:r>
+                <a:rPr lang="en-US" altLang="zh-CN" sz="800">
+                  <a:solidFill>
+                    <a:schemeClr val="bg1"/>
+                  </a:solidFill>
+                </a:rPr>
+                <a:t>-</a:t>
+              </a:r>
+              <a:r>
+                <a:rPr lang="zh-CN" altLang="en-US" sz="800">
+                  <a:solidFill>
+                    <a:schemeClr val="bg1"/>
+                  </a:solidFill>
+                </a:rPr>
+                <a:t>申请人的</a:t>
+              </a:r>
+              <a:r>
+                <a:rPr lang="en-US" altLang="zh-CN" sz="800">
+                  <a:solidFill>
+                    <a:schemeClr val="bg1"/>
+                  </a:solidFill>
+                </a:rPr>
+                <a:t>`hrm_sqr`</a:t>
+              </a:r>
+              <a:r>
+                <a:rPr lang="zh-CN" altLang="en-US" sz="800">
+                  <a:solidFill>
+                    <a:schemeClr val="bg1"/>
+                  </a:solidFill>
+                </a:rPr>
+                <a:t>（工号）</a:t>
+              </a:r>
+            </a:p>
+            <a:p>
+              <a:r>
+                <a:rPr lang="en-US" altLang="zh-CN" sz="800">
+                  <a:solidFill>
+                    <a:schemeClr val="bg1"/>
+                  </a:solidFill>
+                </a:rPr>
+                <a:t>-</a:t>
+              </a:r>
+              <a:r>
+                <a:rPr lang="zh-CN" altLang="en-US" sz="800">
+                  <a:solidFill>
+                    <a:schemeClr val="bg1"/>
+                  </a:solidFill>
+                </a:rPr>
+                <a:t>申请人的</a:t>
+              </a:r>
+              <a:r>
+                <a:rPr lang="en-US" altLang="zh-CN" sz="800">
+                  <a:solidFill>
+                    <a:schemeClr val="bg1"/>
+                  </a:solidFill>
+                </a:rPr>
+                <a:t>`dept_sqbm`</a:t>
+              </a:r>
+              <a:r>
+                <a:rPr lang="zh-CN" altLang="en-US" sz="800">
+                  <a:solidFill>
+                    <a:schemeClr val="bg1"/>
+                  </a:solidFill>
+                </a:rPr>
+                <a:t>（部门编码）</a:t>
+              </a:r>
+            </a:p>
+            <a:p>
+              <a:r>
+                <a:rPr lang="en-US" altLang="zh-CN" sz="800">
+                  <a:solidFill>
+                    <a:schemeClr val="bg1"/>
+                  </a:solidFill>
+                </a:rPr>
+                <a:t xml:space="preserve">2. </a:t>
+              </a:r>
+              <a:r>
+                <a:rPr lang="zh-CN" altLang="en-US" sz="800">
+                  <a:solidFill>
+                    <a:schemeClr val="bg1"/>
+                  </a:solidFill>
+                </a:rPr>
+                <a:t>可选权限参数（用户有提到才收集，没提到无需主动询问）：</a:t>
+              </a:r>
+            </a:p>
+            <a:p>
+              <a:r>
+                <a:rPr lang="en-US" altLang="zh-CN" sz="800">
+                  <a:solidFill>
+                    <a:schemeClr val="bg1"/>
+                  </a:solidFill>
+                </a:rPr>
+                <a:t>- `swqx`</a:t>
+              </a:r>
+              <a:r>
+                <a:rPr lang="zh-CN" altLang="en-US" sz="800">
+                  <a:solidFill>
+                    <a:schemeClr val="bg1"/>
+                  </a:solidFill>
+                </a:rPr>
+                <a:t>（上网权限）：</a:t>
+              </a:r>
+              <a:r>
+                <a:rPr lang="en-US" altLang="zh-CN" sz="800">
+                  <a:solidFill>
+                    <a:schemeClr val="bg1"/>
+                  </a:solidFill>
+                </a:rPr>
+                <a:t>0=</a:t>
+              </a:r>
+              <a:r>
+                <a:rPr lang="zh-CN" altLang="en-US" sz="800">
+                  <a:solidFill>
+                    <a:schemeClr val="bg1"/>
+                  </a:solidFill>
+                </a:rPr>
+                <a:t>网站浏览、</a:t>
+              </a:r>
+              <a:r>
+                <a:rPr lang="en-US" altLang="zh-CN" sz="800">
+                  <a:solidFill>
+                    <a:schemeClr val="bg1"/>
+                  </a:solidFill>
+                </a:rPr>
+                <a:t>1=</a:t>
+              </a:r>
+              <a:r>
+                <a:rPr lang="zh-CN" altLang="en-US" sz="800">
+                  <a:solidFill>
+                    <a:schemeClr val="bg1"/>
+                  </a:solidFill>
+                </a:rPr>
+                <a:t>招聘网站、</a:t>
+              </a:r>
+              <a:r>
+                <a:rPr lang="en-US" altLang="zh-CN" sz="800">
+                  <a:solidFill>
+                    <a:schemeClr val="bg1"/>
+                  </a:solidFill>
+                </a:rPr>
+                <a:t>2=</a:t>
+              </a:r>
+              <a:r>
+                <a:rPr lang="zh-CN" altLang="en-US" sz="800">
+                  <a:solidFill>
+                    <a:schemeClr val="bg1"/>
+                  </a:solidFill>
+                </a:rPr>
+                <a:t>网盘权限（非公司网盘）</a:t>
+              </a:r>
+            </a:p>
+            <a:p>
+              <a:r>
+                <a:rPr lang="en-US" altLang="zh-CN" sz="800">
+                  <a:solidFill>
+                    <a:schemeClr val="bg1"/>
+                  </a:solidFill>
+                </a:rPr>
+                <a:t>- `imqx`</a:t>
+              </a:r>
+              <a:r>
+                <a:rPr lang="zh-CN" altLang="en-US" sz="800">
+                  <a:solidFill>
+                    <a:schemeClr val="bg1"/>
+                  </a:solidFill>
+                </a:rPr>
+                <a:t>（</a:t>
+              </a:r>
+              <a:r>
+                <a:rPr lang="en-US" altLang="zh-CN" sz="800">
+                  <a:solidFill>
+                    <a:schemeClr val="bg1"/>
+                  </a:solidFill>
+                </a:rPr>
+                <a:t>IM</a:t>
+              </a:r>
+              <a:r>
+                <a:rPr lang="zh-CN" altLang="en-US" sz="800">
+                  <a:solidFill>
+                    <a:schemeClr val="bg1"/>
+                  </a:solidFill>
+                </a:rPr>
+                <a:t>权限）：</a:t>
+              </a:r>
+              <a:r>
+                <a:rPr lang="en-US" altLang="zh-CN" sz="800">
+                  <a:solidFill>
+                    <a:schemeClr val="bg1"/>
+                  </a:solidFill>
+                </a:rPr>
+                <a:t>0=</a:t>
+              </a:r>
+              <a:r>
+                <a:rPr lang="zh-CN" altLang="en-US" sz="800">
+                  <a:solidFill>
+                    <a:schemeClr val="bg1"/>
+                  </a:solidFill>
+                </a:rPr>
+                <a:t>微信</a:t>
+              </a:r>
+              <a:r>
+                <a:rPr lang="en-US" altLang="zh-CN" sz="800">
+                  <a:solidFill>
+                    <a:schemeClr val="bg1"/>
+                  </a:solidFill>
+                </a:rPr>
+                <a:t>/QQ</a:t>
+              </a:r>
+              <a:r>
+                <a:rPr lang="zh-CN" altLang="en-US" sz="800">
+                  <a:solidFill>
+                    <a:schemeClr val="bg1"/>
+                  </a:solidFill>
+                </a:rPr>
+                <a:t>（不含文件传输）、</a:t>
+              </a:r>
+              <a:r>
+                <a:rPr lang="en-US" altLang="zh-CN" sz="800">
+                  <a:solidFill>
+                    <a:schemeClr val="bg1"/>
+                  </a:solidFill>
+                </a:rPr>
+                <a:t>1=Teams</a:t>
+              </a:r>
+              <a:r>
+                <a:rPr lang="zh-CN" altLang="en-US" sz="800">
+                  <a:solidFill>
+                    <a:schemeClr val="bg1"/>
+                  </a:solidFill>
+                </a:rPr>
+                <a:t>（不含文件传输）、</a:t>
+              </a:r>
+              <a:r>
+                <a:rPr lang="en-US" altLang="zh-CN" sz="800">
+                  <a:solidFill>
+                    <a:schemeClr val="bg1"/>
+                  </a:solidFill>
+                </a:rPr>
+                <a:t>2=</a:t>
+              </a:r>
+              <a:r>
+                <a:rPr lang="zh-CN" altLang="en-US" sz="800">
+                  <a:solidFill>
+                    <a:schemeClr val="bg1"/>
+                  </a:solidFill>
+                </a:rPr>
+                <a:t>微信</a:t>
+              </a:r>
+              <a:r>
+                <a:rPr lang="en-US" altLang="zh-CN" sz="800">
+                  <a:solidFill>
+                    <a:schemeClr val="bg1"/>
+                  </a:solidFill>
+                </a:rPr>
+                <a:t>/QQ</a:t>
+              </a:r>
+              <a:r>
+                <a:rPr lang="zh-CN" altLang="en-US" sz="800">
+                  <a:solidFill>
+                    <a:schemeClr val="bg1"/>
+                  </a:solidFill>
+                </a:rPr>
+                <a:t>（含文件传输）、</a:t>
+              </a:r>
+              <a:r>
+                <a:rPr lang="en-US" altLang="zh-CN" sz="800">
+                  <a:solidFill>
+                    <a:schemeClr val="bg1"/>
+                  </a:solidFill>
+                </a:rPr>
+                <a:t>3=Teams</a:t>
+              </a:r>
+              <a:r>
+                <a:rPr lang="zh-CN" altLang="en-US" sz="800">
+                  <a:solidFill>
+                    <a:schemeClr val="bg1"/>
+                  </a:solidFill>
+                </a:rPr>
+                <a:t>（含文件传输）、</a:t>
+              </a:r>
+              <a:r>
+                <a:rPr lang="en-US" altLang="zh-CN" sz="800">
+                  <a:solidFill>
+                    <a:schemeClr val="bg1"/>
+                  </a:solidFill>
+                </a:rPr>
+                <a:t>4=E-link</a:t>
+              </a:r>
+            </a:p>
+            <a:p>
+              <a:r>
+                <a:rPr lang="en-US" altLang="zh-CN" sz="800">
+                  <a:solidFill>
+                    <a:schemeClr val="bg1"/>
+                  </a:solidFill>
+                </a:rPr>
+                <a:t>- `yxqx`</a:t>
+              </a:r>
+              <a:r>
+                <a:rPr lang="zh-CN" altLang="en-US" sz="800">
+                  <a:solidFill>
+                    <a:schemeClr val="bg1"/>
+                  </a:solidFill>
+                </a:rPr>
+                <a:t>（邮箱权限）：</a:t>
+              </a:r>
+              <a:r>
+                <a:rPr lang="en-US" altLang="zh-CN" sz="800">
+                  <a:solidFill>
+                    <a:schemeClr val="bg1"/>
+                  </a:solidFill>
+                </a:rPr>
+                <a:t>0=</a:t>
+              </a:r>
+              <a:r>
+                <a:rPr lang="zh-CN" altLang="en-US" sz="800">
+                  <a:solidFill>
+                    <a:schemeClr val="bg1"/>
+                  </a:solidFill>
+                </a:rPr>
+                <a:t>邮件外发（公司邮箱）、</a:t>
+              </a:r>
+              <a:r>
+                <a:rPr lang="en-US" altLang="zh-CN" sz="800">
+                  <a:solidFill>
+                    <a:schemeClr val="bg1"/>
+                  </a:solidFill>
+                </a:rPr>
+                <a:t>1=</a:t>
+              </a:r>
+              <a:r>
+                <a:rPr lang="zh-CN" altLang="en-US" sz="800">
+                  <a:solidFill>
+                    <a:schemeClr val="bg1"/>
+                  </a:solidFill>
+                </a:rPr>
+                <a:t>手机邮箱（公司邮箱）、</a:t>
+              </a:r>
+              <a:r>
+                <a:rPr lang="en-US" altLang="zh-CN" sz="800">
+                  <a:solidFill>
+                    <a:schemeClr val="bg1"/>
+                  </a:solidFill>
+                </a:rPr>
+                <a:t>2=</a:t>
+              </a:r>
+              <a:r>
+                <a:rPr lang="zh-CN" altLang="en-US" sz="800">
+                  <a:solidFill>
+                    <a:schemeClr val="bg1"/>
+                  </a:solidFill>
+                </a:rPr>
+                <a:t>外部邮箱（非公司邮箱）</a:t>
+              </a:r>
+            </a:p>
+            <a:p>
+              <a:r>
+                <a:rPr lang="en-US" altLang="zh-CN" sz="800">
+                  <a:solidFill>
+                    <a:schemeClr val="bg1"/>
+                  </a:solidFill>
+                </a:rPr>
+                <a:t>- `usbqx`</a:t>
+              </a:r>
+              <a:r>
+                <a:rPr lang="zh-CN" altLang="en-US" sz="800">
+                  <a:solidFill>
+                    <a:schemeClr val="bg1"/>
+                  </a:solidFill>
+                </a:rPr>
+                <a:t>（</a:t>
+              </a:r>
+              <a:r>
+                <a:rPr lang="en-US" altLang="zh-CN" sz="800">
+                  <a:solidFill>
+                    <a:schemeClr val="bg1"/>
+                  </a:solidFill>
+                </a:rPr>
+                <a:t>USB</a:t>
+              </a:r>
+              <a:r>
+                <a:rPr lang="zh-CN" altLang="en-US" sz="800">
+                  <a:solidFill>
+                    <a:schemeClr val="bg1"/>
+                  </a:solidFill>
+                </a:rPr>
+                <a:t>权限）：</a:t>
+              </a:r>
+              <a:r>
+                <a:rPr lang="en-US" altLang="zh-CN" sz="800">
+                  <a:solidFill>
+                    <a:schemeClr val="bg1"/>
+                  </a:solidFill>
+                </a:rPr>
+                <a:t>0=USB-</a:t>
+              </a:r>
+              <a:r>
+                <a:rPr lang="zh-CN" altLang="en-US" sz="800">
+                  <a:solidFill>
+                    <a:schemeClr val="bg1"/>
+                  </a:solidFill>
+                </a:rPr>
+                <a:t>只读、</a:t>
+              </a:r>
+              <a:r>
+                <a:rPr lang="en-US" altLang="zh-CN" sz="800">
+                  <a:solidFill>
+                    <a:schemeClr val="bg1"/>
+                  </a:solidFill>
+                </a:rPr>
+                <a:t>1=USB-</a:t>
+              </a:r>
+              <a:r>
+                <a:rPr lang="zh-CN" altLang="en-US" sz="800">
+                  <a:solidFill>
+                    <a:schemeClr val="bg1"/>
+                  </a:solidFill>
+                </a:rPr>
+                <a:t>读写、</a:t>
+              </a:r>
+              <a:r>
+                <a:rPr lang="en-US" altLang="zh-CN" sz="800">
+                  <a:solidFill>
+                    <a:schemeClr val="bg1"/>
+                  </a:solidFill>
+                </a:rPr>
+                <a:t>2=USB-</a:t>
+              </a:r>
+              <a:r>
+                <a:rPr lang="zh-CN" altLang="en-US" sz="800">
+                  <a:solidFill>
+                    <a:schemeClr val="bg1"/>
+                  </a:solidFill>
+                </a:rPr>
+                <a:t>研发专属</a:t>
+              </a:r>
+            </a:p>
+            <a:p>
+              <a:r>
+                <a:rPr lang="en-US" altLang="zh-CN" sz="800">
+                  <a:solidFill>
+                    <a:schemeClr val="bg1"/>
+                  </a:solidFill>
+                </a:rPr>
+                <a:t>- `vpnqx`</a:t>
+              </a:r>
+              <a:r>
+                <a:rPr lang="zh-CN" altLang="en-US" sz="800">
+                  <a:solidFill>
+                    <a:schemeClr val="bg1"/>
+                  </a:solidFill>
+                </a:rPr>
+                <a:t>（</a:t>
+              </a:r>
+              <a:r>
+                <a:rPr lang="en-US" altLang="zh-CN" sz="800">
+                  <a:solidFill>
+                    <a:schemeClr val="bg1"/>
+                  </a:solidFill>
+                </a:rPr>
+                <a:t>VPN</a:t>
+              </a:r>
+              <a:r>
+                <a:rPr lang="zh-CN" altLang="en-US" sz="800">
+                  <a:solidFill>
+                    <a:schemeClr val="bg1"/>
+                  </a:solidFill>
+                </a:rPr>
+                <a:t>权限）：</a:t>
+              </a:r>
+              <a:r>
+                <a:rPr lang="en-US" altLang="zh-CN" sz="800">
+                  <a:solidFill>
+                    <a:schemeClr val="bg1"/>
+                  </a:solidFill>
+                </a:rPr>
+                <a:t>0=</a:t>
+              </a:r>
+              <a:r>
+                <a:rPr lang="zh-CN" altLang="en-US" sz="800">
+                  <a:solidFill>
+                    <a:schemeClr val="bg1"/>
+                  </a:solidFill>
+                </a:rPr>
+                <a:t>全系统资源组、</a:t>
+              </a:r>
+              <a:r>
+                <a:rPr lang="en-US" altLang="zh-CN" sz="800">
+                  <a:solidFill>
+                    <a:schemeClr val="bg1"/>
+                  </a:solidFill>
+                </a:rPr>
+                <a:t>1=</a:t>
+              </a:r>
+              <a:r>
+                <a:rPr lang="zh-CN" altLang="en-US" sz="800">
+                  <a:solidFill>
+                    <a:schemeClr val="bg1"/>
+                  </a:solidFill>
+                </a:rPr>
+                <a:t>研发堡垒机资源组、</a:t>
+              </a:r>
+              <a:r>
+                <a:rPr lang="en-US" altLang="zh-CN" sz="800">
+                  <a:solidFill>
+                    <a:schemeClr val="bg1"/>
+                  </a:solidFill>
+                </a:rPr>
+                <a:t>2=</a:t>
+              </a:r>
+              <a:r>
+                <a:rPr lang="zh-CN" altLang="en-US" sz="800">
+                  <a:solidFill>
+                    <a:schemeClr val="bg1"/>
+                  </a:solidFill>
+                </a:rPr>
+                <a:t>海外子公司</a:t>
+              </a:r>
+              <a:r>
+                <a:rPr lang="en-US" altLang="zh-CN" sz="800">
+                  <a:solidFill>
+                    <a:schemeClr val="bg1"/>
+                  </a:solidFill>
+                </a:rPr>
+                <a:t>/</a:t>
+              </a:r>
+              <a:r>
+                <a:rPr lang="zh-CN" altLang="en-US" sz="800">
+                  <a:solidFill>
+                    <a:schemeClr val="bg1"/>
+                  </a:solidFill>
+                </a:rPr>
+                <a:t>国内大区资源组、</a:t>
+              </a:r>
+              <a:r>
+                <a:rPr lang="en-US" altLang="zh-CN" sz="800">
+                  <a:solidFill>
+                    <a:schemeClr val="bg1"/>
+                  </a:solidFill>
+                </a:rPr>
+                <a:t>3=</a:t>
+              </a:r>
+              <a:r>
+                <a:rPr lang="zh-CN" altLang="en-US" sz="800">
+                  <a:solidFill>
+                    <a:schemeClr val="bg1"/>
+                  </a:solidFill>
+                </a:rPr>
+                <a:t>合作商资源组（非公司员工）</a:t>
+              </a:r>
+            </a:p>
+            <a:p>
+              <a:pPr marL="171450" indent="-171450">
+                <a:buFontTx/>
+                <a:buChar char="-"/>
+              </a:pPr>
+              <a:r>
+                <a:rPr lang="en-US" altLang="zh-CN" sz="800">
+                  <a:solidFill>
+                    <a:schemeClr val="bg1"/>
+                  </a:solidFill>
+                </a:rPr>
+                <a:t>`qtqx`</a:t>
+              </a:r>
+              <a:r>
+                <a:rPr lang="zh-CN" altLang="en-US" sz="800">
+                  <a:solidFill>
+                    <a:schemeClr val="bg1"/>
+                  </a:solidFill>
+                </a:rPr>
+                <a:t>（其他）：</a:t>
+              </a:r>
+              <a:r>
+                <a:rPr lang="en-US" altLang="zh-CN" sz="800">
+                  <a:solidFill>
+                    <a:schemeClr val="bg1"/>
+                  </a:solidFill>
+                </a:rPr>
+                <a:t>0=</a:t>
+              </a:r>
+              <a:r>
+                <a:rPr lang="zh-CN" altLang="en-US" sz="800">
+                  <a:solidFill>
+                    <a:schemeClr val="bg1"/>
+                  </a:solidFill>
+                </a:rPr>
+                <a:t>其他（无匹配权限类别时默认）</a:t>
+              </a:r>
+              <a:endParaRPr lang="en-US" altLang="zh-CN" sz="800">
+                <a:solidFill>
+                  <a:schemeClr val="bg1"/>
+                </a:solidFill>
+              </a:endParaRPr>
+            </a:p>
+            <a:p>
+              <a:pPr marL="171450" indent="-171450">
+                <a:buFontTx/>
+                <a:buChar char="-"/>
+              </a:pPr>
+              <a:r>
+                <a:rPr lang="en-US" altLang="zh-CN" sz="800">
+                  <a:solidFill>
+                    <a:schemeClr val="bg1"/>
+                  </a:solidFill>
+                </a:rPr>
+                <a:t>........................</a:t>
+              </a:r>
+            </a:p>
+          </p:txBody>
+        </p:sp>
+      </p:grpSp>
+      <p:sp>
+        <p:nvSpPr>
+          <p:cNvPr id="9" name="右箭头 8"/>
+          <p:cNvSpPr/>
+          <p:nvPr userDrawn="1"/>
+        </p:nvSpPr>
+        <p:spPr>
+          <a:xfrm>
+            <a:off x="4674385" y="2802131"/>
+            <a:ext cx="407019" cy="295839"/>
+          </a:xfrm>
+          <a:prstGeom prst="rightArrow">
+            <a:avLst/>
+          </a:prstGeom>
+          <a:solidFill>
+            <a:srgbClr val="FFC000"/>
+          </a:solidFill>
+          <a:ln w="12700" cap="flat" cmpd="sng" algn="ctr">
+            <a:solidFill>
+              <a:srgbClr val="FFC000"/>
+            </a:solidFill>
+            <a:prstDash val="solid"/>
+            <a:miter lim="800000"/>
+          </a:ln>
+        </p:spPr>
+        <p:style>
+          <a:lnRef idx="2">
+            <a:schemeClr val="accent1">
+              <a:lumMod val="75000"/>
+            </a:schemeClr>
+          </a:lnRef>
+          <a:fillRef idx="1">
+            <a:schemeClr val="accent1"/>
+          </a:fillRef>
+          <a:effectRef idx="0">
+            <a:srgbClr val="FFFFFF"/>
+          </a:effectRef>
+          <a:fontRef idx="minor">
+            <a:schemeClr val="lt1"/>
+          </a:fontRef>
+        </p:style>
+        <p:txBody>
+          <a:bodyPr rtlCol="0" anchor="ctr">
+            <a:noAutofit/>
+          </a:bodyPr>
+          <a:lstStyle/>
+          <a:p>
+            <a:pPr algn="ctr"/>
+            <a:endParaRPr lang="zh-CN" altLang="en-US">
+              <a:solidFill>
+                <a:srgbClr val="000000"/>
+              </a:solidFill>
+            </a:endParaRPr>
+          </a:p>
+        </p:txBody>
+      </p:sp>
+    </p:spTree>
+  </p:cSld>
+  <p:clrMapOvr>
+    <a:masterClrMapping/>
+  </p:clrMapOvr>
+</p:sld>
