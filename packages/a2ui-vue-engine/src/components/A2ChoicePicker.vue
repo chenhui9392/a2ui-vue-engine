@@ -171,26 +171,28 @@ watch(() => props.defaultValue, (newVal) => {
   border-color: #2260FA;
 }
 
-.choice-item.selected:not(.disabled) {
+.choice-item.selected {
   border-color: #2260FA;
   border-width: 1px;
   background: #EBF3FF;
 }
 
-.choice-item.selected:not(.disabled) .choice-title {
+.choice-item.selected .choice-title {
   color: #2260FA;
 }
 
-.choice-item.disabled {
-  cursor: not-allowed;
-  opacity: 0.6;
-  background: #f5f7fa;
-}
-
+.choice-item.disabled,
 .a2-choice-picker.is-disabled .choice-item {
   cursor: not-allowed;
   opacity: 0.6;
   background: #f5f7fa;
+}
+
+/* 禁用状态下，保留选中项的高亮（默认值可见），只通过透明度表达不可交互 */
+.choice-item.selected.disabled,
+.a2-choice-picker.is-disabled .choice-item.selected {
+  background: #EBF3FF;
+  border-color: #2260FA;
 }
 
 .choice-content {
