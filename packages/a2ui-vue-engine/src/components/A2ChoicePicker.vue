@@ -106,7 +106,9 @@ function handleClick(option: ChoiceOption) {
     }
   }
 
-  emit('change', isMutuallyExclusive.value ? (selectedValues.value[0] ?? null) : [...selectedValues.value])
+  const result = isMutuallyExclusive.value ? (selectedValues.value[0] ?? null) : [...selectedValues.value]
+    emit('change', result)
+    emit('update:modelValue', result)
 }
 
 // 初始化默认值
