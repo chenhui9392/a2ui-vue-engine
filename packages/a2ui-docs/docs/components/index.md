@@ -30,3 +30,10 @@ A2UI 提供完整的 JSON 驱动组件库。
 ### 操作组件
 
 - [A2Button](/components/a2-button) - 按钮，支持动作
+
+### 数据组件
+
+- [A2Table](/components/a2-table) - 表格，支持列声明、单元格渲染、选择、排序、空态
+- [A2Search](/components/a2-search) - 协议驱动的搜索表单，自动绑定 Form / DataSource / Table
+- [A2Toolbar](/components/a2-toolbar) - 工具栏，统一走 Action System；支持新增/删除/刷新/导出/批量/自定义
+- [A2Dialog / A2Drawer](/components/a2-dialog) - 统一 Dialog Runtime；支持动态 Form / Table / Footer / Submit / Cancel / API

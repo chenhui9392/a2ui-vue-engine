@@ -24,6 +24,12 @@ import A2SelectField from './A2SelectField.vue'
 import A2ChoicePicker from './A2ChoicePicker.vue'
 import A2OptionCard from './A2OptionCard.vue'
 import A2InfoField from './A2InfoField.vue'
+import A2Table from './A2Table.vue'
+import A2Search from './A2Search.vue'
+import A2Toolbar from './A2Toolbar.vue'
+import A2Overlay from './A2Overlay.vue'
+import A2Dialog from './A2Dialog.vue'
+import A2Drawer from './A2Drawer.vue'
 
 // Default component map - can be extended or overridden
 export const defaultComponentMap: ComponentMapper = {
@@ -43,6 +49,12 @@ export const defaultComponentMap: ComponentMapper = {
   'a2-choice-picker': A2ChoicePicker,
   'a2-option-card': A2OptionCard,
   'a2-info-field': A2InfoField,
+  'a2-table': A2Table,
+  'a2-search': A2Search,
+  'a2-toolbar': A2Toolbar,
+  'a2-overlay': A2Overlay,
+  'a2-dialog': A2Dialog,
+  'a2-drawer': A2Drawer,
 }
 
 // Global component map instance

@@ -11,6 +11,11 @@ const SELF_RENDER_CHILDREN_TYPES = [
   'a2-list',
   'a2-button',
   'a2-option-card',
+  'a2-table',
+  'a2-toolbar',
+  'a2-overlay',
+  'a2-dialog',
+  'a2-drawer',
 ]
 
 // Helper function to set value at a nested path in data
@@ -107,6 +112,25 @@ export function renderNode(
     }
   }
 
+  // Add generic two-way binding for any bindings.<propName> with type='path'
+  // e.g. bindings.visible → onUpdate:visible → 写回 data
+  if (node.bindings) {
+    for (const key of Object.keys(node.bindings)) {
+      if (key === 'modelValue') continue
+      const bind = node.bindings[key]
+      if (bind && bind.type === 'path' && typeof bind.value === 'string') {
+        const path = bind.value
+        const handlerKey = `onUpdate:${key}`
+        if (!eventHandlers[handlerKey]) {
+          eventHandlers[handlerKey] = (value: any) => {
+            setPathValue(data, path, value)
+            onEvent?.('dataUpdate', { path, value }, componentContext)
+          }
+        }
+      }
+    }
+  }
+
   // Pass children and context as props for components that render them internally
   const childrenProps: Record<string, any> = {}
   const shouldPassChildrenAsProps = SELF_RENDER_CHILDREN_TYPES.includes(node.type)
@@ -120,6 +144,11 @@ export function renderNode(
     if (!childrenProps.context) {
       childrenProps.context = context
     }
+  }
+  // 白名单组件即使没有 children / slots，也总是需要 context
+  // （例如 A2Toolbar 通过 props.buttons / props.rightButtons 内部渲染 A2Node）
+  if (shouldPassChildrenAsProps && !childrenProps.context) {
+    childrenProps.context = context
   }
 
   // Render slots - 只有不需要自己渲染 children 的组件才通过 slots 传递

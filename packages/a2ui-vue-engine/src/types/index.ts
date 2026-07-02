@@ -59,6 +59,13 @@ export interface FlatA2Node {
   bgColor?: string
   // InfoField/OptionCard 等的尺寸
   size?: 'large' | 'default'
+  // ---- Additive 直通字段（扁平格式承载复杂组件的通用能力）----
+  // props: 直接透传给渲染节点的 props（V2.x 起：Table/Search/Toolbar/Overlay 等 Page 级组件依赖）
+  props?: Record<string, any>
+  // bindings: 直接透传绑定（如 { visible: { type: 'path', value: 'drawer.visible' } }）
+  bindings?: Record<string, BindingConfig>
+  // actions: 直接透传事件动作
+  actions?: ActionConfig[]
 }
 
 // A2UI Node Schema (树形格式 - 用于渲染)

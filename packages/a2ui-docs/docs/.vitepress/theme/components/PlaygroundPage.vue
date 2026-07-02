@@ -7,11 +7,20 @@
         <el-tag type="info" size="small">JSON 调试工具</el-tag>
       </div>
       <div class="header-right">
-        <el-select v-model="selectedExample" placeholder="选择示例" size="default" style="width: 180px; margin-right: 8px;">
+        <el-select v-model="selectedExample" placeholder="选择示例" size="default" style="width: 280px; margin-right: 8px;">
           <el-option label="组件全览" value="allComponents" />
           <el-option label="员工信息登记表" value="employee" />
           <el-option label="网络权限申请单" value="network" />
           <el-option label="创建工单" value="workorder" />
+          <el-option label="工单列表 (Table)" value="workorderTable" />
+          <el-option label="工单列表 · 分页 (Table + Pagination)" value="workorderTablePaging" />
+          <el-option label="搜索表单 (Search)" value="workorderSearch" />
+          <el-option label="搜索 + 列表 (Search + Table)" value="workorderSearchTable" />
+          <el-option label="工具栏 (Toolbar)" value="workorderToolbar" />
+          <el-option label="Toolbar + Search + Table" value="workorderFullPage" />
+          <el-option label="Dialog + Form" value="workorderDialog" />
+          <el-option label="Drawer + Table" value="workorderDrawer" />
+          <el-option label="✨ 工单管理系统 (完整示例)" value="workorderSystem" />
         </el-select>
         <el-tooltip :content="runButtonTooltip" placement="bottom">
           <el-button type="primary" :disabled="!canRun" @click="handleRun">
@@ -98,12 +107,22 @@
       </div>
 
       <!-- Right: Preview -->
-      <div class="preview-panel">
+      <div class="preview-panel" :class="{ 'preview-panel--fullscreen': previewFullscreen }">
         <div class="panel-header">
           <span class="panel-title">预览</span>
           <el-tag type="success" size="small" v-if="renderSuccess">
             已渲染
           </el-tag>
+          <div class="panel-header-actions">
+            <el-tooltip :content="previewFullscreen ? '退出全屏 (Esc)' : '全屏预览'" placement="bottom">
+              <el-button size="small" text @click="togglePreviewFullscreen">
+                <el-icon>
+                  <Close v-if="previewFullscreen" />
+                  <FullScreen v-else />
+                </el-icon>
+              </el-button>
+            </el-tooltip>
+          </div>
         </div>
         <div class="preview-body">
           <A2UIRoot
@@ -126,9 +145,9 @@
 </template>
 
 <script setup lang="ts">
-import { ref, computed, watch, onMounted } from 'vue'
+import { ref, computed, watch, onMounted, onBeforeUnmount } from 'vue'
 import { ElMessage } from 'element-plus'
-import { VideoPlay, Document, CopyDocument, Refresh } from '@element-plus/icons-vue'
+import { VideoPlay, Document, CopyDocument, Refresh, FullScreen, Close } from '@element-plus/icons-vue'
 import { A2UIRoot } from 'a2ui-vue-engine'
 import type { A2Node, FormDataResult } from 'a2ui-vue-engine'
 
@@ -239,6 +258,550 @@ const mockExamples: Record<string, string> = {
     "type": "primary"
   }
 ]`,
+
+  workorderTable: `{
+  "id": "workorderTable",
+  "type": "a2-table",
+  "props": {
+    "rowKey": "id",
+    "columns": [
+      { "id": "no", "title": "工单号", "field": "no", "width": 140 },
+      { "id": "title", "title": "标题", "field": "title" },
+      { "id": "status", "title": "状态", "field": "status", "width": 100, "align": "center" },
+      { "id": "priority", "title": "优先级", "field": "priority", "width": 90, "align": "center" },
+      { "id": "assignee", "title": "负责人", "field": "assignee", "width": 100 },
+      { "id": "createdAt", "title": "创建时间", "field": "createdAt", "format": "datetime", "width": 180 }
+    ],
+    "selection": { "mode": "multiple" },
+    "data": [
+      { "id": 1, "no": "WO-2026-001", "title": "空调无法制冷", "status": "待处理", "priority": "P0", "assignee": "张三", "createdAt": "2026-07-01T09:12:00" },
+      { "id": 2, "no": "WO-2026-002", "title": "会议室网络故障", "status": "处理中", "priority": "P1", "assignee": "李四", "createdAt": "2026-07-01T10:30:00" },
+      { "id": 3, "no": "WO-2026-003", "title": "打印机卡纸", "status": "处理中", "priority": "P2", "assignee": "王五", "createdAt": "2026-06-30T14:20:00" },
+      { "id": 4, "no": "WO-2026-004", "title": "门禁卡失效", "status": "已完成", "priority": "P2", "assignee": "赵六", "createdAt": "2026-06-30T11:00:00" }
+    ]
+  }
+}`,
+
+  workorderTablePaging: `{
+  "id": "workorderTablePaging",
+  "type": "a2-table",
+  "props": {
+    "rowKey": "id",
+    "pagination": {
+      "enabled": true,
+      "pageSize": 5,
+      "pageSizes": [5, 10, 20],
+      "layout": "total, sizes, prev, pager, next, jumper"
+    },
+    "columns": [
+      { "id": "no", "title": "工单号", "field": "no", "width": 140 },
+      { "id": "title", "title": "标题", "field": "title" },
+      { "id": "status", "title": "状态", "field": "status", "width": 100, "align": "center" },
+      { "id": "priority", "title": "优先级", "field": "priority", "width": 90, "align": "center" },
+      { "id": "assignee", "title": "负责人", "field": "assignee", "width": 100 },
+      { "id": "createdAt", "title": "创建时间", "field": "createdAt", "format": "datetime", "width": 180 }
+    ],
+    "data": [
+      { "id": 1,  "no": "WO-2026-001", "title": "空调无法制冷",   "status": "待处理", "priority": "P0", "assignee": "张三", "createdAt": "2026-07-01T09:12:00" },
+      { "id": 2,  "no": "WO-2026-002", "title": "会议室网络故障", "status": "处理中", "priority": "P1", "assignee": "李四", "createdAt": "2026-07-01T10:30:00" },
+      { "id": 3,  "no": "WO-2026-003", "title": "打印机卡纸",     "status": "处理中", "priority": "P2", "assignee": "王五", "createdAt": "2026-06-30T14:20:00" },
+      { "id": 4,  "no": "WO-2026-004", "title": "门禁卡失效",     "status": "已完成", "priority": "P2", "assignee": "赵六", "createdAt": "2026-06-30T11:00:00" },
+      { "id": 5,  "no": "WO-2026-005", "title": "邮箱登录异常",   "status": "待处理", "priority": "P1", "assignee": "钱七", "createdAt": "2026-06-30T09:15:00" },
+      { "id": 6,  "no": "WO-2026-006", "title": "会议室投屏故障", "status": "已完成", "priority": "P2", "assignee": "孙八", "createdAt": "2026-06-29T18:00:00" },
+      { "id": 7,  "no": "WO-2026-007", "title": "打印机缺纸",     "status": "已完成", "priority": "P2", "assignee": "周九", "createdAt": "2026-06-29T14:10:00" },
+      { "id": 8,  "no": "WO-2026-008", "title": "电脑蓝屏",       "status": "处理中", "priority": "P1", "assignee": "吴十", "createdAt": "2026-06-29T09:30:00" },
+      { "id": 9,  "no": "WO-2026-009", "title": "VPN 无法连接",   "status": "待处理", "priority": "P0", "assignee": "郑一", "createdAt": "2026-06-28T20:00:00" },
+      { "id": 10, "no": "WO-2026-010", "title": "座位调整",       "status": "已完成", "priority": "P2", "assignee": "冯二", "createdAt": "2026-06-28T16:45:00" },
+      { "id": 11, "no": "WO-2026-011", "title": "工位改造",       "status": "处理中", "priority": "P2", "assignee": "陈三", "createdAt": "2026-06-28T11:20:00" },
+      { "id": 12, "no": "WO-2026-012", "title": "耗材申领",       "status": "待处理", "priority": "P2", "assignee": "褚四", "createdAt": "2026-06-27T15:00:00" },
+      { "id": 13, "no": "WO-2026-013", "title": "门禁卡补办",     "status": "已完成", "priority": "P1", "assignee": "卫五", "createdAt": "2026-06-27T10:45:00" },
+      { "id": 14, "no": "WO-2026-014", "title": "网络布线",       "status": "处理中", "priority": "P1", "assignee": "蒋六", "createdAt": "2026-06-26T09:15:00" },
+      { "id": 15, "no": "WO-2026-015", "title": "打印机维护",     "status": "待处理", "priority": "P2", "assignee": "沈七", "createdAt": "2026-06-25T14:30:00" }
+    ]
+  }
+}`,
+
+  workorderSearch: `{
+  "id": "workorderSearch",
+  "type": "a2-search",
+  "props": {
+    "config": {
+      "fields": [
+        { "id": "keyword", "label": "关键字", "type": "text", "placeholder": "工单号 / 标题" },
+        { "id": "status", "label": "状态", "type": "select", "options": [
+          { "label": "全部", "value": "" },
+          { "label": "待处理", "value": "pending" },
+          { "label": "处理中", "value": "processing" },
+          { "label": "已完成", "value": "done" }
+        ] },
+        { "id": "level", "label": "级别", "type": "select", "options": [
+          { "label": "P0", "value": "P0" },
+          { "label": "P1", "value": "P1" },
+          { "label": "P2", "value": "P2" }
+        ] },
+        { "id": "assignee", "label": "负责人", "type": "text" },
+        { "id": "createdRange", "label": "创建时间", "type": "daterange", "span": 12 }
+      ],
+      "collapsible": true,
+      "collapseAfter": 3,
+      "defaultCollapsed": true,
+      "submitText": "搜索",
+      "resetText": "重置"
+    }
+  }
+}`,
+
+  workorderSearchTable: `{
+  "id": "workorderPage",
+  "type": "a2-list",
+  "children": [
+    {
+      "id": "workorderSearch",
+      "type": "a2-search",
+      "props": {
+        "config": {
+          "fields": [
+            { "id": "keyword", "label": "关键字", "type": "text", "placeholder": "工单号 / 标题" },
+            { "id": "status", "label": "状态", "type": "select", "options": [
+              { "label": "全部", "value": "" },
+              { "label": "待处理", "value": "pending" },
+              { "label": "处理中", "value": "processing" },
+              { "label": "已完成", "value": "done" }
+            ] },
+            { "id": "priority", "label": "级别", "type": "select", "options": [
+              { "label": "P0", "value": "P0" },
+              { "label": "P1", "value": "P1" },
+              { "label": "P2", "value": "P2" }
+            ] },
+            { "id": "assignee", "label": "负责人", "type": "text" },
+            { "id": "createdRange", "label": "创建时间", "type": "daterange", "span": 12 }
+          ],
+          "collapsible": true,
+          "collapseAfter": 3,
+          "defaultCollapsed": true,
+          "submitText": "搜索",
+          "resetText": "重置"
+        }
+      }
+    },
+    {
+      "id": "workorderTable",
+      "type": "a2-table",
+      "props": {
+        "rowKey": "id",
+        "columns": [
+          { "id": "no", "title": "工单号", "field": "no", "width": 140 },
+          { "id": "title", "title": "标题", "field": "title" },
+          { "id": "status", "title": "状态", "field": "status", "width": 100, "align": "center" },
+          { "id": "priority", "title": "优先级", "field": "priority", "width": 90, "align": "center" },
+          { "id": "assignee", "title": "负责人", "field": "assignee", "width": 100 },
+          { "id": "createdAt", "title": "创建时间", "field": "createdAt", "format": "datetime", "width": 180 }
+        ],
+        "selection": { "mode": "multiple" },
+        "data": [
+          { "id": 1, "no": "WO-2026-001", "title": "空调无法制冷", "status": "待处理", "priority": "P0", "assignee": "张三", "createdAt": "2026-07-01T09:12:00" },
+          { "id": 2, "no": "WO-2026-002", "title": "会议室网络故障", "status": "处理中", "priority": "P1", "assignee": "李四", "createdAt": "2026-07-01T10:30:00" },
+          { "id": 3, "no": "WO-2026-003", "title": "打印机卡纸", "status": "处理中", "priority": "P2", "assignee": "王五", "createdAt": "2026-06-30T14:20:00" },
+          { "id": 4, "no": "WO-2026-004", "title": "门禁卡失效", "status": "已完成", "priority": "P2", "assignee": "赵六", "createdAt": "2026-06-30T11:00:00" },
+          { "id": 5, "no": "WO-2026-005", "title": "邮箱登录异常", "status": "待处理", "priority": "P1", "assignee": "钱七", "createdAt": "2026-06-30T09:15:00" }
+        ]
+      }
+    }
+  ]
+}`,
+
+  workorderSystem: `[
+  {
+    "id": "root",
+    "component": "List",
+    "children": [ "pageSearch", "pageToolbar", "pageTable", "detailDrawer"]
+  },
+  {
+    "id": "pageSearch",
+    "component": "Search",
+    "props": {
+      "labelWidth": "70px",
+      "config": {
+        "fields": [
+          { "id": "keyword",  "label": "关键字", "type": "text", "placeholder": "工单号 / 标题" },
+          { "id": "status",   "label": "状态",   "type": "select", "options": [
+            { "label": "全部",   "value": "" },
+            { "label": "待处理", "value": "pending" },
+            { "label": "处理中", "value": "processing" },
+            { "label": "已完成", "value": "done" }
+          ] },
+          { "id": "priority", "label": "优先级", "type": "select", "options": [
+            { "label": "P0", "value": "P0" },
+            { "label": "P1", "value": "P1" },
+            { "label": "P2", "value": "P2" }
+          ] },
+          { "id": "assignee", "label": "负责人", "type": "text" },
+          { "id": "createdRange", "label": "创建时间", "type": "daterange", "span": 12 },
+          { "id": "resolvedRange", "label": "解决时间", "type": "daterange", "span": 12 }
+        ],
+        "collapsible": true,
+        "collapseAfter": 3,
+        "defaultCollapsed": true,
+        "submitText": "搜索",
+        "resetText": "重置"
+      }
+    }
+  },
+  {
+    "id": "pageToolbar",
+    "component": "Toolbar",
+    "props": {
+      "bordered": false,
+      "buttons": [
+        {
+          "id": "createOrder",
+          "type": "a2-button",
+          "props": { "text": "新建工单" },
+          "actions": [
+            { "event": "click", "type": "emit", "payload": { "action": "openCreateOrder" } }
+          ]
+        },
+        {
+          "id": "batchDelete",
+          "preset": "delete",
+          "props": { "text": "批量删除" }
+        },
+        {
+          "id": "batchApprove",
+          "type": "a2-button",
+          "props": { "text": "批量审批", "type": "success" },
+          "actions": [
+            { "event": "click", "type": "emit", "payload": { "action": "batchApprove" } }
+          ]
+        }
+      ],
+      "rightButtons": [
+        { "id": "refresh", "preset": "refresh" },
+        { "id": "export",  "preset": "export" }
+      ]
+    }
+  },
+  {
+    "id": "pageTable",
+    "component": "Table",
+    "props": {
+      "rowKey": "id",
+      "size": "default",
+      "stripe": true,
+      "border": false,
+      "maxHeight": 540,
+      "selection": { "mode": "multiple", "preserveSelection": true },
+      "pagination": {
+        "enabled": true,
+        "pageSize": 10,
+        "pageSizes": [5, 10, 20, 50],
+        "layout": "total, sizes, prev, pager, next, jumper"
+      },
+      "columns": [
+        { "id": "no",         "title": "工单号",   "field": "no",        "width": 160 },
+        { "id": "title",      "title": "标题",     "field": "title",     "minWidth": 200 },
+        { "id": "status",     "title": "状态",     "field": "status",    "width": 100, "align": "center" },
+        { "id": "priority",   "title": "优先级",   "field": "priority",  "width": 90,  "align": "center" },
+        { "id": "assignee",   "title": "负责人",   "field": "assignee",  "width": 100 },
+        { "id": "department", "title": "所属部门", "field": "department","width": 140 },
+        { "id": "createdAt",  "title": "创建时间", "field": "createdAt", "format": "datetime", "width": 180, "sortable": true },
+        { "id": "resolvedAt", "title": "解决时间", "field": "resolvedAt","format": "datetime", "width": 180 },
+        {
+          "id": "actions", "title": "操作", "width": 180, "align": "center", "fixed": "right",
+          "cellRender": {
+            "id": "actionRow", "type": "a2-row", "props": { "justify": "center", "gap": 4, "wrap": false },
+            "children": [
+              {
+                "id": "viewBtn", "type": "a2-button",
+                "props": { "text": "查看", "variant": "text", "color": "#2260FA" },
+                "actions": [ { "event": "click", "type": "emit", "payload": { "action": "viewOrder" } } ]
+              },
+              {
+                "id": "editBtn", "type": "a2-button",
+                "props": { "text": "编辑", "variant": "text", "color": "#2260FA" },
+                "actions": [ { "event": "click", "type": "emit", "payload": { "action": "editOrder" } } ]
+              },
+              {
+                "id": "delBtn", "type": "a2-button",
+                "props": { "text": "删除", "variant": "text", "color": "#F56C6C" },
+                "actions": [ { "event": "click", "type": "emit", "payload": { "action": "deleteOrder" } } ]
+              }
+            ]
+          }
+        }
+      ],
+      "data": [
+        { "id": 1,  "no": "WO-2026-001", "title": "空调无法制冷",     "status": "待处理", "priority": "P0", "assignee": "张三", "department": "行政部",     "createdAt": "2026-07-01T09:12:00", "resolvedAt": null },
+        { "id": 2,  "no": "WO-2026-002", "title": "会议室网络故障",   "status": "处理中", "priority": "P1", "assignee": "李四", "department": "IT运维部",   "createdAt": "2026-07-01T10:30:00", "resolvedAt": null },
+        { "id": 3,  "no": "WO-2026-003", "title": "打印机卡纸",       "status": "处理中", "priority": "P2", "assignee": "王五", "department": "IT运维部",   "createdAt": "2026-06-30T14:20:00", "resolvedAt": null },
+        { "id": 4,  "no": "WO-2026-004", "title": "门禁卡失效",       "status": "已完成", "priority": "P2", "assignee": "赵六", "department": "行政部",     "createdAt": "2026-06-30T11:00:00", "resolvedAt": "2026-06-30T15:20:00" },
+        { "id": 5,  "no": "WO-2026-005", "title": "邮箱登录异常",     "status": "待处理", "priority": "P1", "assignee": "钱七", "department": "IT运维部",   "createdAt": "2026-06-30T09:15:00", "resolvedAt": null },
+        { "id": 6,  "no": "WO-2026-006", "title": "会议室投屏故障",   "status": "已完成", "priority": "P2", "assignee": "孙八", "department": "行政部",     "createdAt": "2026-06-29T18:00:00", "resolvedAt": "2026-06-30T09:30:00" },
+        { "id": 7,  "no": "WO-2026-007", "title": "打印机缺纸",       "status": "已完成", "priority": "P2", "assignee": "周九", "department": "行政部",     "createdAt": "2026-06-29T14:10:00", "resolvedAt": "2026-06-29T15:00:00" },
+        { "id": 8,  "no": "WO-2026-008", "title": "电脑蓝屏",         "status": "处理中", "priority": "P1", "assignee": "吴十", "department": "IT运维部",   "createdAt": "2026-06-29T09:30:00", "resolvedAt": null },
+        { "id": 9,  "no": "WO-2026-009", "title": "VPN 无法连接",     "status": "待处理", "priority": "P0", "assignee": "郑一", "department": "IT运维部",   "createdAt": "2026-06-28T20:00:00", "resolvedAt": null },
+        { "id": 10, "no": "WO-2026-010", "title": "座位调整",         "status": "已完成", "priority": "P2", "assignee": "冯二", "department": "行政部",     "createdAt": "2026-06-28T16:45:00", "resolvedAt": "2026-06-29T10:00:00" },
+        { "id": 11, "no": "WO-2026-011", "title": "工位改造",         "status": "处理中", "priority": "P2", "assignee": "陈三", "department": "行政部",     "createdAt": "2026-06-28T11:20:00", "resolvedAt": null },
+        { "id": 12, "no": "WO-2026-012", "title": "耗材申领",         "status": "待处理", "priority": "P2", "assignee": "褚四", "department": "行政部",     "createdAt": "2026-06-27T15:00:00", "resolvedAt": null },
+        { "id": 13, "no": "WO-2026-013", "title": "门禁卡补办",       "status": "已完成", "priority": "P1", "assignee": "卫五", "department": "行政部",     "createdAt": "2026-06-27T10:45:00", "resolvedAt": "2026-06-27T14:20:00" },
+        { "id": 14, "no": "WO-2026-014", "title": "网络布线",         "status": "处理中", "priority": "P1", "assignee": "蒋六", "department": "IT运维部",   "createdAt": "2026-06-26T09:15:00", "resolvedAt": null },
+        { "id": 15, "no": "WO-2026-015", "title": "打印机维护",       "status": "待处理", "priority": "P2", "assignee": "沈七", "department": "IT运维部",   "createdAt": "2026-06-25T14:30:00", "resolvedAt": null },
+        { "id": 16, "no": "WO-2026-016", "title": "会议室预订故障",   "status": "已完成", "priority": "P1", "assignee": "韩八", "department": "IT运维部",   "createdAt": "2026-06-25T09:00:00", "resolvedAt": "2026-06-25T13:20:00" },
+        { "id": 17, "no": "WO-2026-017", "title": "工牌绑定",         "status": "处理中", "priority": "P2", "assignee": "杨九", "department": "人力资源部", "createdAt": "2026-06-24T14:20:00", "resolvedAt": null },
+        { "id": 18, "no": "WO-2026-018", "title": "外网访问受限",     "status": "待处理", "priority": "P1", "assignee": "朱十", "department": "IT运维部",   "createdAt": "2026-06-24T11:00:00", "resolvedAt": null },
+        { "id": 19, "no": "WO-2026-019", "title": "IP 电话故障",      "status": "已完成", "priority": "P2", "assignee": "秦一", "department": "IT运维部",   "createdAt": "2026-06-23T18:30:00", "resolvedAt": "2026-06-24T09:20:00" },
+        { "id": 20, "no": "WO-2026-020", "title": "共享盘挂载失败",   "status": "处理中", "priority": "P0", "assignee": "尤二", "department": "IT运维部",   "createdAt": "2026-06-23T10:15:00", "resolvedAt": null },
+        { "id": 21, "no": "WO-2026-021", "title": "音响调试",         "status": "已完成", "priority": "P2", "assignee": "许三", "department": "行政部",     "createdAt": "2026-06-22T16:00:00", "resolvedAt": "2026-06-22T17:30:00" },
+        { "id": 22, "no": "WO-2026-022", "title": "工位灯故障",       "status": "待处理", "priority": "P2", "assignee": "何四", "department": "行政部",     "createdAt": "2026-06-22T09:40:00", "resolvedAt": null },
+        { "id": 23, "no": "WO-2026-023", "title": "空气净化器维护",   "status": "已完成", "priority": "P2", "assignee": "吕五", "department": "行政部",     "createdAt": "2026-06-21T14:10:00", "resolvedAt": "2026-06-21T18:00:00" }
+      ]
+    }
+  },
+  {
+    "id": "detailDrawer",
+    "component": "Drawer",
+    "bindings": {
+      "visible": { "type": "path", "value": "drawer.visible" }
+    },
+    "props": {
+      "config": {
+        "title": "工单详情",
+        "size": "md",
+        "placement": "right",
+        "content": {
+          "id": "detailBody",
+          "type": "a2-column",
+          "props": { "gap": 12 },
+          "children": [
+            {
+              "id": "detailTitle",
+              "type": "a2-text",
+              "bindings": { "content": { "type": "path", "value": "drawer.data.title" } },
+              "props": { "variant": "h4" }
+            },
+            {
+              "id": "detailInfoRow",
+              "type": "a2-row",
+              "props": { "gap": 24, "wrap": true },
+              "children": [
+                {
+                  "id": "detailNo",       "type": "a2-info-field", "props": { "label": "工单号" },
+                  "bindings": { "value": { "type": "path", "value": "drawer.data.no" } }
+                },
+                {
+                  "id": "detailStatus",   "type": "a2-info-field", "props": { "label": "状态" },
+                  "bindings": { "value": { "type": "path", "value": "drawer.data.status" } }
+                },
+                {
+                  "id": "detailPriority", "type": "a2-info-field", "props": { "label": "优先级" },
+                  "bindings": { "value": { "type": "path", "value": "drawer.data.priority" } }
+                },
+                {
+                  "id": "detailAssignee", "type": "a2-info-field", "props": { "label": "负责人" },
+                  "bindings": { "value": { "type": "path", "value": "drawer.data.assignee" } }
+                },
+                {
+                  "id": "detailDept",     "type": "a2-info-field", "props": { "label": "部门" },
+                  "bindings": { "value": { "type": "path", "value": "drawer.data.department" } }
+                },
+                {
+                  "id": "detailCreatedAt","type": "a2-info-field", "props": { "label": "创建时间" },
+                  "bindings": { "value": { "type": "path", "value": "drawer.data.createdAt" } }
+                }
+              ]
+            }
+          ]
+        },
+        "footer": [
+          { "id": "close", "preset": "close" }
+        ]
+      }
+    }
+  }
+]`,
+
+  workorderDialog: `{
+  "id": "createDialog",
+  "type": "a2-dialog",
+  "props": {
+    "visible": true,
+    "config": {
+      "title": "新建工单",
+      "size": "sm",
+      "content": {
+        "id": "form",
+        "type": "a2-column",
+        "props": { "gap": 12 },
+        "children": [
+          {
+            "id": "titleField",
+            "type": "a2-text-field",
+            "props": { "label": "标题", "placeholder": "请输入工单标题" },
+            "bindings": { "modelValue": { "type": "path", "value": "form.title" } }
+          },
+          {
+            "id": "levelField",
+            "type": "a2-select-field",
+            "props": {
+              "label": "级别",
+              "options": [
+                { "label": "P0", "value": "P0" },
+                { "label": "P1", "value": "P1" },
+                { "label": "P2", "value": "P2" }
+              ]
+            },
+            "bindings": { "modelValue": { "type": "path", "value": "form.level" } }
+          },
+          {
+            "id": "descField",
+            "type": "a2-text-field",
+            "props": { "label": "描述", "variant": "longText", "rows": 3 },
+            "bindings": { "modelValue": { "type": "path", "value": "form.desc" } }
+          }
+        ]
+      },
+      "footer": [
+        { "id": "cancel", "preset": "cancel" },
+        { "id": "ok",     "preset": "submit" }
+      ],
+      "submitApi": {
+        "url": "/api/orders",
+        "method": "POST",
+        "payloadFrom": "formData",
+        "extraPayload": { "source": "ui" }
+      }
+    }
+  }
+}`,
+
+  workorderDrawer: `{
+  "id": "detailDrawer",
+  "type": "a2-drawer",
+  "props": {
+    "visible": true,
+    "config": {
+      "title": "工单详情",
+      "size": "lg",
+      "placement": "right",
+      "content": {
+        "id": "detailTable",
+        "type": "a2-table",
+        "props": {
+          "rowKey": "id",
+          "columns": [
+            { "id": "no", "title": "编号", "field": "no", "width": 120 },
+            { "id": "title", "title": "标题", "field": "title" },
+            { "id": "status", "title": "状态", "field": "status", "width": 100, "align": "center" },
+            { "id": "createdAt", "title": "创建时间", "field": "createdAt", "format": "datetime", "width": 180 }
+          ],
+          "data": [
+            { "id": 1, "no": "WO-001", "title": "空调维修", "status": "处理中", "createdAt": "2026-07-01T09:12:00" },
+            { "id": 2, "no": "WO-002", "title": "网络故障", "status": "已完成", "createdAt": "2026-07-01T10:30:00" }
+          ]
+        }
+      },
+      "footer": [
+        { "id": "close", "preset": "close" }
+      ]
+    }
+  }
+}`,
+
+  workorderToolbar: `{
+  "id": "workorderToolbar",
+  "type": "a2-toolbar",
+  "props": {
+    "title": "工单管理",
+    "buttons": [
+      { "id": "add", "preset": "add" },
+      { "id": "batchDelete", "preset": "delete", "props": { "text": "批量删除" } },
+      {
+        "id": "batchApprove",
+        "type": "a2-button",
+        "props": { "text": "批量审批", "type": "success" },
+        "actions": [
+          { "event": "click", "type": "emit", "payload": { "action": "batchApprove" } }
+        ]
+      }
+    ],
+    "rightButtons": [
+      { "id": "refresh", "preset": "refresh" },
+      { "id": "export", "preset": "export" }
+    ]
+  }
+}`,
+
+  workorderFullPage: `{
+  "id": "workorderFullPage",
+  "type": "a2-list",
+  "children": [
+    {
+      "id": "workorderToolbar",
+      "type": "a2-toolbar",
+      "props": {
+        "title": "工单管理",
+        "buttons": [
+          { "id": "add", "preset": "add" },
+          { "id": "batchDelete", "preset": "delete", "props": { "text": "批量删除" } }
+        ],
+        "rightButtons": [
+          { "id": "refresh", "preset": "refresh" },
+          { "id": "export", "preset": "export" }
+        ]
+      }
+    },
+    {
+      "id": "workorderSearch",
+      "type": "a2-search",
+      "props": {
+        "config": {
+          "fields": [
+            { "id": "keyword", "label": "关键字", "type": "text", "placeholder": "工单号 / 标题" },
+            { "id": "status", "label": "状态", "type": "select", "options": [
+              { "label": "全部", "value": "" },
+              { "label": "待处理", "value": "pending" },
+              { "label": "处理中", "value": "processing" },
+              { "label": "已完成", "value": "done" }
+            ] },
+            { "id": "priority", "label": "级别", "type": "select", "options": [
+              { "label": "P0", "value": "P0" },
+              { "label": "P1", "value": "P1" },
+              { "label": "P2", "value": "P2" }
+            ] },
+            { "id": "assignee", "label": "负责人", "type": "text" },
+            { "id": "createdRange", "label": "创建时间", "type": "daterange", "span": 12 }
+          ],
+          "collapsible": true,
+          "collapseAfter": 3,
+          "defaultCollapsed": true
+        }
+      }
+    },
+    {
+      "id": "workorderTable",
+      "type": "a2-table",
+      "props": {
+        "rowKey": "id",
+        "columns": [
+          { "id": "no", "title": "工单号", "field": "no", "width": 140 },
+          { "id": "title", "title": "标题", "field": "title" },
+          { "id": "status", "title": "状态", "field": "status", "width": 100, "align": "center" },
+          { "id": "priority", "title": "优先级", "field": "priority", "width": 90, "align": "center" },
+          { "id": "assignee", "title": "负责人", "field": "assignee", "width": 100 },
+          { "id": "createdAt", "title": "创建时间", "field": "createdAt", "format": "datetime", "width": 180 }
+        ],
+        "selection": { "mode": "multiple" },
+        "data": [
+          { "id": 1, "no": "WO-2026-001", "title": "空调无法制冷", "status": "待处理", "priority": "P0", "assignee": "张三", "createdAt": "2026-07-01T09:12:00" },
+          { "id": 2, "no": "WO-2026-002", "title": "会议室网络故障", "status": "处理中", "priority": "P1", "assignee": "李四", "createdAt": "2026-07-01T10:30:00" },
+          { "id": 3, "no": "WO-2026-003", "title": "打印机卡纸", "status": "处理中", "priority": "P2", "assignee": "王五", "createdAt": "2026-06-30T14:20:00" },
+          { "id": 4, "no": "WO-2026-004", "title": "门禁卡失效", "status": "已完成", "priority": "P2", "assignee": "赵六", "createdAt": "2026-06-30T11:00:00" },
+          { "id": 5, "no": "WO-2026-005", "title": "邮箱登录异常", "status": "待处理", "priority": "P1", "assignee": "钱七", "createdAt": "2026-06-30T09:15:00" }
+        ]
+      }
+    }
+  ]
+}`,
   network: `[
   {
     "id": "root",
@@ -1197,10 +1760,41 @@ function handleReset() {
 }
 
 // Handle action
+// 追踪最近一次表格行点击（供后续按钮 action 使用）
+const lastClickedRow = ref<any>(null)
+
 function handleAction(payload: any) {
   console.log('A2UI Action:', payload)
 
-  ElMessage.info(`Action: ${payload.type}`)
+  // Table 行点击（点击按钮时会先冒泡触发行点击）
+  if (payload && payload.type === 'rowClick' && payload.row) {
+    lastClickedRow.value = payload.row
+    // 行点击本身不 toast，避免噪声
+    return
+  }
+
+  // 从协议 emit 上抛的 action 消息统一格式为 { type: 'action', action, payload, event }
+  // 或组件兜底 emit 的 action 格式为 { type: 'click', ... }
+  const actionName = payload?.payload?.action || payload?.action || payload?.type
+
+  // 拦截「查看 / 编辑」→ 打开 Drawer
+  if ((actionName === 'viewOrder' || actionName === 'editOrder') && a2uiRootRef.value) {
+    const row = lastClickedRow.value
+    if (row) {
+      const title = actionName === 'viewOrder' ? `工单详情 · ${row.no || ''}` : `编辑工单 · ${row.no || ''}`
+      a2uiRootRef.value.updateData({
+        drawer: {
+          visible: true,
+          mode: actionName === 'viewOrder' ? 'view' : 'edit',
+          data: { ...row, title },
+        },
+      })
+      ElMessage.info(`${actionName === 'viewOrder' ? '查看' : '编辑'}：${row.no}`)
+      return
+    }
+  }
+
+  ElMessage.info(`Action: ${actionName || payload.type}`)
 }
 
 // Handle form data change
@@ -1218,7 +1812,23 @@ watch(selectedExample, (newExample) => {
 // Initialize on mount
 onMounted(() => {
   handleRun()
+  window.addEventListener('keydown', handleGlobalKeydown)
 })
+
+onBeforeUnmount(() => {
+  window.removeEventListener('keydown', handleGlobalKeydown)
+})
+
+// 全屏预览：Esc 退出
+const previewFullscreen = ref(false)
+function togglePreviewFullscreen() {
+  previewFullscreen.value = !previewFullscreen.value
+}
+function handleGlobalKeydown(e: KeyboardEvent) {
+  if (e.key === 'Escape' && previewFullscreen.value) {
+    previewFullscreen.value = false
+  }
+}
 </script>
 
 <style scoped>
@@ -1483,17 +2093,39 @@ onMounted(() => {
   max-width: 50%;
   overflow: hidden;
   background: #fff;
+  transition: all 0.2s ease;
+}
+
+/* 全屏预览模式：占满整个视口 */
+.preview-panel--fullscreen {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  min-width: 100vw;
+  max-width: 100vw;
+  width: 100vw;
+  height: 100vh;
+  border-radius: 0;
+  box-shadow: 0 0 40px rgba(0, 0, 0, 0.2);
 }
 
 .panel-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  gap: 8px;
   height: 36px;
   padding: 8px 16px;
   background: #f0f2f5;
   border-bottom: 1px solid #e4e7ed;
   flex-shrink: 0;
+}
+
+.panel-header-actions {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  gap: 4px;
 }
 
 .panel-title {
@@ -1511,12 +2143,24 @@ onMounted(() => {
   background: #fff;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: stretch;
   justify-content: flex-start;
 }
 
+/* 让内部所有直接子容器占满宽度，防止溢出 */
+.preview-body :deep(.a2-list),
+.preview-body :deep(.a2-column),
+.preview-body :deep(.a2-row) {
+  width: 100%;
+  min-width: 0;
+}
+.preview-body :deep(.a2-list > .a2-list-item) {
+  width: 100%;
+  min-width: 0;
+}
+
 .preview-body :deep(.el-form) {
-  width: auto;
+  width: 100%;
 }
 
 /* Footer */

@@ -30,3 +30,10 @@ A2UI provides a comprehensive set of JSON-driven components.
 ### Action Components
 
 - [A2Button](/en/components/a2-button) - Button with actions
+
+### Data Components
+
+- [A2Table](/en/components/a2-table) - Table with columns, cell rendering, selection, sorting and empty state
+- [A2Search](/en/components/a2-search) - Schema-driven search form auto-bound to Form / DataSource / Table
+- [A2Toolbar](/en/components/a2-toolbar) - Toolbar unified through Action System; presets add/delete/refresh/export/batch/custom
+- [A2Dialog / A2Drawer](/en/components/a2-dialog) - Unified Dialog Runtime; dynamic Form / Table / Footer / Submit / Cancel / API

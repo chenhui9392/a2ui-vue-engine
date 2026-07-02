@@ -43,6 +43,7 @@ export default defineConfig({
                 { text: '快速开始', link: '/guide/getting-started' },
                 { text: '架构设计', link: '/guide/architecture' },
                 { text: 'JSON 规范', link: '/guide/json-schema' },
+                { text: 'DataSource', link: '/guide/data-source' },
               ]
             }
           ],
@@ -80,6 +81,15 @@ export default defineConfig({
               text: '操作组件',
               items: [
                 { text: 'A2Button', link: '/components/a2-button' },
+              ]
+            },
+            {
+              text: '数据组件',
+              items: [
+                { text: 'A2Table', link: '/components/a2-table' },
+                { text: 'A2Search', link: '/components/a2-search' },
+                { text: 'A2Toolbar', link: '/components/a2-toolbar' },
+                { text: 'A2Dialog / A2Drawer', link: '/components/a2-dialog' },
               ]
             }
           ]
@@ -158,6 +168,15 @@ export default defineConfig({
               text: 'Action Components',
               items: [
                 { text: 'A2Button', link: '/en/components/a2-button' },
+              ]
+            },
+            {
+              text: 'Data Components',
+              items: [
+                { text: 'A2Table', link: '/en/components/a2-table' },
+                { text: 'A2Search', link: '/en/components/a2-search' },
+                { text: 'A2Toolbar', link: '/en/components/a2-toolbar' },
+                { text: 'A2Dialog / A2Drawer', link: '/en/components/a2-dialog' },
               ]
             }
           ]

@@ -45,6 +45,11 @@ export function convertFlatToTree(flatNodes: FlatA2Node[], rootId?: string): A2N
     // Build props from flat node properties
     const props: Record<string, any> = buildProps(flatNode)
 
+    // Merge additive `props` field (V2.x：承载 Table/Search/Toolbar 等复杂 props)
+    if (flatNode.props && typeof flatNode.props === 'object') {
+      Object.assign(props, flatNode.props)
+    }
+
     // Row 包含按钮时默认右对齐
     if (flatNode.component === 'Row' && !props.justify) {
       const childIds = flatNode.children || []
@@ -57,10 +62,10 @@ export function convertFlatToTree(flatNodes: FlatA2Node[], rootId?: string): A2N
       }
     }
 
-    // Build bindings
+    // Build bindings（含 additive 直通 bindings 合并）
     const bindings: Record<string, BindingConfig> | undefined = buildBindings(flatNode)
 
-    // Build actions
+    // Build actions（含 additive 直通 actions 合并）
     const actions: ActionConfig[] | undefined = buildActions(flatNode)
 
     // Build children - pass the recursive function and nodeMap
@@ -324,44 +329,56 @@ function buildProps(flatNode: FlatA2Node): Record<string, any> {
 }
 
 /**
- * Build bindings from value.path
+ * Build bindings from value.path (+ 兼容 additive 直通 bindings)
  */
 function buildBindings(flatNode: FlatA2Node): Record<string, BindingConfig> | undefined {
-  if (!flatNode.value?.path) return undefined
+  const bindings: Record<string, BindingConfig> = {}
 
-  // Convert /form/name to form.name for path resolution
-  let bindingPath = flatNode.value.path
-  if (bindingPath.startsWith('/')) {
-    // Remove leading slash and convert slashes to dots
-    bindingPath = bindingPath.substring(1).replace(/\//g, '.')
-  }
-
-  // Create modelValue binding
-  const bindings: Record<string, BindingConfig> = {
-    modelValue: {
+  if (flatNode.value?.path) {
+    // Convert /form/name to form.name for path resolution
+    let bindingPath = flatNode.value.path
+    if (bindingPath.startsWith('/')) {
+      // Remove leading slash and convert slashes to dots
+      bindingPath = bindingPath.substring(1).replace(/\//g, '.')
+    }
+    bindings.modelValue = {
       type: 'path',
       value: bindingPath,
-    },
+    }
   }
 
-  return bindings
+  // Merge additive 直通 bindings（覆盖优先）
+  if (flatNode.bindings && typeof flatNode.bindings === 'object') {
+    for (const key of Object.keys(flatNode.bindings)) {
+      bindings[key] = flatNode.bindings[key]
+    }
+  }
+
+  return Object.keys(bindings).length > 0 ? bindings : undefined
 }
 
 /**
- * Build actions from action config
+ * Build actions from action config (+ 兼容 additive 直通 actions)
  */
 function buildActions(flatNode: FlatA2Node): ActionConfig[] | undefined {
-  if (!flatNode.action?.event?.name) return undefined
+  const actions: ActionConfig[] = []
 
-  return [
-    {
+  if (flatNode.action?.event?.name) {
+    actions.push({
       event: 'click',
       type: 'emit',
       payload: {
         eventName: flatNode.action.event.name,
       },
-    },
-  ]
+    })
+  }
+
+  // Merge additive 直通 actions
+  if (flatNode.actions && Array.isArray(flatNode.actions)) {
+    for (const a of flatNode.actions) actions.push(a)
+  }
+
+  return actions.length > 0 ? actions : undefined
 }
 
 /**

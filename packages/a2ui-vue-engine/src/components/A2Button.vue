@@ -15,13 +15,15 @@
     :plain="plain"
     :round="round"
     :circle="circle"
+    :link="isLinkMode"
+    :text="isTextMode || undefined"
     :class="buttonClass"
     :style="buttonStyle"
     @click="handleClick"
   >
     <slot>
       <template v-if="hasChildren">
-        <img v-if="isSubmitButton" :src="submitIcon" class="btn-submit-icon" />
+        <img v-if="isSubmitButton && !isTextLike" :src="submitIcon" class="btn-submit-icon" />
         <img v-if="hasCustomIcon" :src="props.icon" class="btn-custom-icon" />
         <component
           v-for="(child, index) in childrenArray"
@@ -30,10 +32,9 @@
         />
       </template>
       <template v-else>
-        <img v-if="isSubmitButton" :src="submitIcon" class="btn-submit-icon" />
+        <img v-if="isSubmitButton && !isTextLike" :src="submitIcon" class="btn-submit-icon" />
         <img v-if="hasCustomIcon" :src="props.icon" class="btn-custom-icon" />
-        <span v-if="isSubmitButton">{{ text }}</span>
-        <template v-else>{{ text }}</template>
+        <span class="a2-button__label">{{ text }}</span>
       </template>
     </slot>
   </el-button>
@@ -55,7 +56,13 @@ interface A2ButtonProps {
   plain?: boolean
   round?: boolean
   circle?: boolean
+  /** 文字按钮模式（对齐 el-button 的 text；也支持 variant='text'）*/
   text?: string
+  variant?: 'text' | 'link' | 'default'
+  /** 显式 link 模式（下划线文字按钮）*/
+  link?: boolean
+  /** text 模式下的背景色（灰） */
+  bg?: boolean
   bgColor?: string
   borderColor?: string
   color?: string
@@ -71,6 +78,8 @@ const props = withDefaults(defineProps<A2ButtonProps>(), {
   plain: false,
   round: false,
   circle: false,
+  link: false,
+  bg: false,
   text: '',
   bgColor: '',
   borderColor: '',
@@ -127,20 +136,36 @@ const isSubmitButton = computed(() => {
   return text.includes('提交') || text.includes('确认') || text.includes('保存') || text.includes('确定')
 })
 
+/** text 模式：variant='text' 或显式 text prop */
+const isTextMode = computed(() => props.variant === 'text')
+/** link 模式：显式 link 或 variant='link' */
+const isLinkMode = computed(() => props.link || props.variant === 'link')
+/** 是否属于「文字类按钮」（text / link），此时不显示背景、不显示提交图标 */
+const isTextLike = computed(() => isTextMode.value || isLinkMode.value)
+
 const buttonClass = computed(() => {
   const classes = ['a2-button']
   if (props.bgColor) {
     classes.push('a2-button--custom')
   }
-  // 提交类按钮添加特殊样式类
-  if (isSubmitButton.value) {
+  // 提交类按钮添加特殊样式类（text/link 模式除外）
+  if (isSubmitButton.value && !isTextLike.value) {
     classes.push('a2-button--submit')
+  }
+  if (isTextLike.value) {
+    classes.push('a2-button--text-like')
   }
   return classes.join(' ')
 })
 
 const buttonStyle = computed(() => {
   const style: Record<string, string> = {}
+
+  // text / link 模式不套用任何背景色（避免蓝色底色覆盖）
+  if (isTextLike.value) {
+    if (props.color) style.color = props.color
+    return style
+  }
 
   // disabled 状态统一显示灰色（优先级最高）
   if (props.disabled) {
@@ -232,8 +257,14 @@ export default {
 <style scoped>
 .a2-button {
   min-width: 80px;
-  border-radius: var(--a2-radius-md);
-  transition: all var(--a2-transition-fast);
+  border-radius: var(--a2-radius-md, 6px);
+  transition: all var(--a2-transition-fast, 0.15s);
+}
+
+/* 兜底：确保 label 文字始终可见 */
+.a2-button .a2-button__label {
+  display: inline-block;
+  line-height: 1;
 }
 
 /* 自定义背景色按钮 */
@@ -249,34 +280,50 @@ export default {
   opacity: 0.85;
 }
 
-/* 主要按钮样式 */
+/* 主要按钮样式（fallback 到 element-plus 默认蓝色） */
 .a2-button.el-button--primary {
-  background-color: var(--a2-color-primary);
-  border-color: var(--a2-color-primary);
+  background-color: var(--a2-color-primary, #409eff);
+  border-color: var(--a2-color-primary, #409eff);
+  color: #ffffff;
 }
 
 /* 次要按钮样式 */
 .a2-button.el-button--default {
-  background-color: var(--a2-bg-base);
-  border-color: var(--a2-border-base);
+  background-color: var(--a2-bg-base, #ffffff);
+  border-color: var(--a2-border-base, #dcdfe6);
 }
 
 /* 危险按钮样式 */
 .a2-button.el-button--danger {
-  background-color: var(--a2-color-danger);
-  border-color: var(--a2-color-danger);
+  background-color: var(--a2-color-danger, #f56c6c);
+  border-color: var(--a2-color-danger, #f56c6c);
+  color: #ffffff;
 }
 
 /* 警告按钮样式 */
 .a2-button.el-button--warning {
-  background-color: var(--a2-color-warning);
-  border-color: var(--a2-color-warning);
+  background-color: var(--a2-color-warning, #e6a23c);
+  border-color: var(--a2-color-warning, #e6a23c);
+  color: #ffffff;
 }
 
 /* 成功按钮样式 */
 .a2-button.el-button--success {
-  background-color: var(--a2-color-success);
-  border-color: var(--a2-color-success);
+  background-color: var(--a2-color-success, #67c23a);
+  border-color: var(--a2-color-success, #67c23a);
+  color: #ffffff;
+}
+
+/* text / link 文字按钮：去掉最小宽度，避免操作列过宽 */
+.a2-button.a2-button--text-like {
+  min-width: 0;
+  padding-left: 4px;
+  padding-right: 4px;
+  background: transparent !important;
+  border: none !important;
+}
+.a2-button.a2-button--text-like:hover {
+  background: transparent !important;
 }
 
 /* disabled 状态统一灰色 */
