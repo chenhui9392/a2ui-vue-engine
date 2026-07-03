@@ -1,12 +1,33 @@
 lockfileVersion: '6.0'
 
-settings:
-  autoInstallPeers: true
-  excludeLinksFromLockfile: false
-
 importers:
 
   .: {}
+
+  examples/crud-demo:
+    dependencies:
+      '@element-plus/icons-vue':
+        specifier: ^2.3.0
+        version: 2.3.2(vue@3.5.33)
+      a2ui-vue-engine:
+        specifier: workspace:*
+        version: link:../../packages/a2ui-vue-engine
+      element-plus:
+        specifier: ^2.5.0
+        version: 2.13.7(typescript@5.9.3)(vue@3.5.33)
+      vue:
+        specifier: ^3.4.0
+        version: 3.5.33(typescript@5.9.3)
+    devDependencies:
+      '@vitejs/plugin-vue':
+        specifier: ^5.0.0
+        version: 5.2.4(vite@5.4.21)(vue@3.5.33)
+      typescript:
+        specifier: ^5.3.0
+        version: 5.9.3
+      vite:
+        specifier: ^5.0.0
+        version: 5.4.21
 
   examples/demo-app:
     dependencies:
@@ -28,7 +49,7 @@ importers:
         version: 5.9.3
       vite:
         specifier: ^5.0.0
-        version: 5.4.21(@types/node@20.19.39)
+        version: 5.4.21
 
   packages/a2ui-docs:
     dependencies:
@@ -43,7 +64,7 @@ importers:
         version: 2.13.7(typescript@5.9.3)(vue@3.5.33)
       vitepress:
         specifier: ^1.0.0
-        version: 1.6.4(@algolia/client-search@5.51.0)(search-insights@2.17.3)(typescript@5.9.3)
+        version: 1.6.4(typescript@5.9.3)
       vue:
         specifier: ^3.4.0
         version: 3.5.33(typescript@5.9.3)
@@ -78,16 +99,12 @@ importers:
         version: 5.9.3
       vite:
         specifier: ^5.0.0
-        version: 5.4.21(@types/node@20.19.39)
+        version: 5.4.21
       vite-plugin-monaco-editor:
         specifier: ^1.1.0
         version: 1.1.0(monaco-editor@0.45.0)
 
   packages/a2ui-vue-engine:
-    dependencies:
-      '@element-plus/icons-vue':
-        specifier: ^2.3.0
-        version: 2.3.2(vue@3.5.33)
     devDependencies:
       '@types/node':
         specifier: ^20.10.0
@@ -126,47 +143,44 @@ packages:
       '@algolia/requester-node-http': 5.51.0
     dev: false
 
-  /@algolia/autocomplete-core@1.17.7(@algolia/client-search@5.51.0)(algoliasearch@5.51.0)(search-insights@2.17.3):
+  /@algolia/autocomplete-core@1.17.7(algoliasearch@5.51.0):
     resolution: {integrity: sha512-BjiPOW6ks90UKl7TwMv7oNQMnzU+t/wk9mgIDi6b1tXpUek7MW0lbNOUHpvam9pe3lVCf4xPFT+lK7s+e+fs7Q==}
     dependencies:
-      '@algolia/autocomplete-plugin-algolia-insights': 1.17.7(@algolia/client-search@5.51.0)(algoliasearch@5.51.0)(search-insights@2.17.3)
-      '@algolia/autocomplete-shared': 1.17.7(@algolia/client-search@5.51.0)(algoliasearch@5.51.0)
+      '@algolia/autocomplete-plugin-algolia-insights': 1.17.7(algoliasearch@5.51.0)
+      '@algolia/autocomplete-shared': 1.17.7(algoliasearch@5.51.0)
     transitivePeerDependencies:
       - '@algolia/client-search'
       - algoliasearch
       - search-insights
     dev: false
 
-  /@algolia/autocomplete-plugin-algolia-insights@1.17.7(@algolia/client-search@5.51.0)(algoliasearch@5.51.0)(search-insights@2.17.3):
+  /@algolia/autocomplete-plugin-algolia-insights@1.17.7(algoliasearch@5.51.0):
     resolution: {integrity: sha512-Jca5Ude6yUOuyzjnz57og7Et3aXjbwCSDf/8onLHSQgw1qW3ALl9mrMWaXb5FmPVkV3EtkD2F/+NkT6VHyPu9A==}
     peerDependencies:
       search-insights: '>= 1 < 3'
     dependencies:
-      '@algolia/autocomplete-shared': 1.17.7(@algolia/client-search@5.51.0)(algoliasearch@5.51.0)
-      search-insights: 2.17.3
+      '@algolia/autocomplete-shared': 1.17.7(algoliasearch@5.51.0)
     transitivePeerDependencies:
       - '@algolia/client-search'
       - algoliasearch
     dev: false
 
-  /@algolia/autocomplete-preset-algolia@1.17.7(@algolia/client-search@5.51.0)(algoliasearch@5.51.0):
+  /@algolia/autocomplete-preset-algolia@1.17.7(algoliasearch@5.51.0):
     resolution: {integrity: sha512-ggOQ950+nwbWROq2MOCIL71RE0DdQZsceqrg32UqnhDz8FlO9rL8ONHNsI2R1MH0tkgVIDKI/D0sMiUchsFdWA==}
     peerDependencies:
       '@algolia/client-search': '>= 4.9.1 < 6'
       algoliasearch: '>= 4.9.1 < 6'
     dependencies:
-      '@algolia/autocomplete-shared': 1.17.7(@algolia/client-search@5.51.0)(algoliasearch@5.51.0)
-      '@algolia/client-search': 5.51.0
+      '@algolia/autocomplete-shared': 1.17.7(algoliasearch@5.51.0)
       algoliasearch: 5.51.0
     dev: false
 
-  /@algolia/autocomplete-shared@1.17.7(@algolia/client-search@5.51.0)(algoliasearch@5.51.0):
+  /@algolia/autocomplete-shared@1.17.7(algoliasearch@5.51.0):
     resolution: {integrity: sha512-o/1Vurr42U/qskRSuhBH+VKxMvkkUVTLU6WZQr+L5lGZZLYWyhdzWjW0iGXY7EkwRTjBqvN2EsR81yCTGV/kmg==}
     peerDependencies:
       '@algolia/client-search': '>= 4.9.1 < 6'
       algoliasearch: '>= 4.9.1 < 6'
     dependencies:
-      '@algolia/client-search': 5.51.0
       algoliasearch: 5.51.0
     dev: false
 
@@ -316,10 +330,10 @@ packages:
     resolution: {integrity: sha512-y05ayQFyUmCXze79+56v/4HpycYF3uFqB78pLPrSV5ZKAlDuIAAJNhaRi8tTdRNXh05yxX/TyNnzD6LwSM89vQ==}
     dev: false
 
-  /@docsearch/js@3.8.2(@algolia/client-search@5.51.0)(search-insights@2.17.3):
+  /@docsearch/js@3.8.2:
     resolution: {integrity: sha512-Q5wY66qHn0SwA7Taa0aDbHiJvaFJLOJyHmooQ7y8hlwwQLQ/5WwCcoX0g7ii04Qi2DJlHsd0XXzJ8Ypw9+9YmQ==}
     dependencies:
-      '@docsearch/react': 3.8.2(@algolia/client-search@5.51.0)(search-insights@2.17.3)
+      '@docsearch/react': 3.8.2
       preact: 10.29.1
     transitivePeerDependencies:
       - '@algolia/client-search'
@@ -329,7 +343,7 @@ packages:
       - search-insights
     dev: false
 
-  /@docsearch/react@3.8.2(@algolia/client-search@5.51.0)(search-insights@2.17.3):
+  /@docsearch/react@3.8.2:
     resolution: {integrity: sha512-xCRrJQlTt8N9GU0DG4ptwHRkfnSnD/YpdeaXe02iKfqs97TkZJv60yE+1eq/tjPcVnTW8dP5qLP7itifFVV5eg==}
     peerDependencies:
       '@types/react': '>= 16.8.0 < 19.0.0'
@@ -346,11 +360,10 @@ packages:
       search-insights:
         optional: true
     dependencies:
-      '@algolia/autocomplete-core': 1.17.7(@algolia/client-search@5.51.0)(algoliasearch@5.51.0)(search-insights@2.17.3)
-      '@algolia/autocomplete-preset-algolia': 1.17.7(@algolia/client-search@5.51.0)(algoliasearch@5.51.0)
+      '@algolia/autocomplete-core': 1.17.7(algoliasearch@5.51.0)
+      '@algolia/autocomplete-preset-algolia': 1.17.7(algoliasearch@5.51.0)
       '@docsearch/css': 3.8.2
       algoliasearch: 5.51.0
-      search-insights: 2.17.3
     transitivePeerDependencies:
       - '@algolia/client-search'
     dev: false
@@ -972,6 +985,7 @@ packages:
     resolution: {integrity: sha512-orrrD74MBUyK8jOAD/r0+lfa1I2MO6I+vAkmAWzMYbCcgrN4lCrmK52gRFQq/JRxfYPfonkr4b0jcY7Olqdqbw==}
     dependencies:
       undici-types: 6.21.0
+    dev: true
 
   /@types/unist@3.0.3:
     resolution: {integrity: sha512-ko/gIFJRv177XgZsZcBwnqJN5x/Gien8qNOn0D5bQU/zAzVf9Zt3BlcUiLqhV9y4ARk0GbT3tnUiPNgnTXzc/Q==}
@@ -995,7 +1009,7 @@ packages:
       vite: ^5.0.0 || ^6.0.0
       vue: ^3.2.25
     dependencies:
-      vite: 5.4.21(@types/node@20.19.39)
+      vite: 5.4.21
       vue: 3.5.33(typescript@5.9.3)
 
   /@volar/language-core@1.11.1:
@@ -1842,10 +1856,6 @@ packages:
       '@rollup/rollup-win32-x64-msvc': 4.60.2
       fsevents: 2.3.3
 
-  /search-insights@2.17.3:
-    resolution: {integrity: sha512-RQPdCYTa8A68uM2jwxoY842xDhvx3E5LFL1LxvxCNMev4o5mLuokczhzjAgGwUZBAmOKZknArSxLKmXtIi2AxQ==}
-    dev: false
-
   /semver@7.5.4:
     resolution: {integrity: sha512-1bCSESV6Pv+i21Hvpxp3Dx+pSD8lIPt8uVjRrxAUt/nbswYc+tK6Y2btiULjd4+fnq15PX+nqQDC7Oft7WkwcA==}
     engines: {node: '>=10'}
@@ -1952,6 +1962,7 @@ packages:
 
   /undici-types@6.21.0:
     resolution: {integrity: sha512-iwDZqg0QAGrg9Rav5H4n0M64c3mkR59cJ6wQp+7C4nI0gsmExaedaYLNO44eT4AtBBwjbTiGPMlt2Md0T9H9JQ==}
+    dev: true
 
   /unist-util-is@6.0.1:
     resolution: {integrity: sha512-LsiILbtBETkDz8I9p1dQ0uyRUWuaQzd/cuEeS1hoRSyW5E5XGmTzlwY1OrNzzakGowI9Dr/I8HVaw4hTtnxy8g==}
@@ -2049,6 +2060,43 @@ packages:
       monaco-editor: 0.45.0
     dev: true
 
+  /vite@5.4.21:
+    resolution: {integrity: sha512-o5a9xKjbtuhY6Bi5S3+HvbRERmouabWbyUcpXXUA1u+GNUKoROi9byOJ8M0nHbHYHkYICiMlqxkg1KkYmm25Sw==}
+    engines: {node: ^18.0.0 || >=20.0.0}
+    hasBin: true
+    peerDependencies:
+      '@types/node': ^18.0.0 || >=20.0.0
+      less: '*'
+      lightningcss: ^1.21.0
+      sass: '*'
+      sass-embedded: '*'
+      stylus: '*'
+      sugarss: '*'
+      terser: ^5.4.0
+    peerDependenciesMeta:
+      '@types/node':
+        optional: true
+      less:
+        optional: true
+      lightningcss:
+        optional: true
+      sass:
+        optional: true
+      sass-embedded:
+        optional: true
+      stylus:
+        optional: true
+      sugarss:
+        optional: true
+      terser:
+        optional: true
+    dependencies:
+      esbuild: 0.21.5
+      postcss: 8.5.12
+      rollup: 4.60.2
+    optionalDependencies:
+      fsevents: 2.3.3
+
   /vite@5.4.21(@types/node@20.19.39):
     resolution: {integrity: sha512-o5a9xKjbtuhY6Bi5S3+HvbRERmouabWbyUcpXXUA1u+GNUKoROi9byOJ8M0nHbHYHkYICiMlqxkg1KkYmm25Sw==}
     engines: {node: ^18.0.0 || >=20.0.0}
@@ -2086,8 +2134,9 @@ packages:
       rollup: 4.60.2
     optionalDependencies:
       fsevents: 2.3.3
+    dev: true
 
-  /vitepress@1.6.4(@algolia/client-search@5.51.0)(search-insights@2.17.3)(typescript@5.9.3):
+  /vitepress@1.6.4(typescript@5.9.3):
     resolution: {integrity: sha512-+2ym1/+0VVrbhNyRoFFesVvBvHAVMZMK0rw60E3X/5349M1GuVdKeazuksqopEdvkKwKGs21Q729jX81/bkBJg==}
     hasBin: true
     peerDependencies:
@@ -2100,7 +2149,7 @@ packages:
         optional: true
     dependencies:
       '@docsearch/css': 3.8.2
-      '@docsearch/js': 3.8.2(@algolia/client-search@5.51.0)(search-insights@2.17.3)
+      '@docsearch/js': 3.8.2
       '@iconify-json/simple-icons': 1.2.80
       '@shikijs/core': 2.5.0
       '@shikijs/transformers': 2.5.0
@@ -2115,7 +2164,7 @@ packages:
       mark.js: 8.11.1
       minisearch: 7.2.0
       shiki: 2.5.0
-      vite: 5.4.21(@types/node@20.19.39)
+      vite: 5.4.21
       vue: 3.5.33(typescript@5.9.3)
     transitivePeerDependencies:
       - '@algolia/client-search'
@@ -2216,3 +2265,7 @@ packages:
   /zwitch@2.0.4:
     resolution: {integrity: sha512-bXE4cR/kVZhKZX/RjPEflHaKVhUVl85noU3v6b8apfQEc1x4A+zBxjZ4lN8LqGd6WZ3dl98pY4o717VFmoPp+A==}
     dev: false
+
+settings:
+  autoInstallPeers: true
+  excludeLinksFromLockfile: false

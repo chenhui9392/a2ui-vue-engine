@@ -5,3 +5,4 @@
  */
 export * from './types'
 export * from './SearchRuntime'
+export * from './pageRuntimeBridge'

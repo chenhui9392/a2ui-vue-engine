@@ -23,8 +23,14 @@ export * from './renderer'
 // Components
 export * from './components'
 
+// HTTP Client (Runtime 网络门面：Adapter Pattern，Runtime 不直接依赖 axios / fetch)
+export * from './http'
+
 // DataSource (V2 · additive, 不绑定 Table，可被 Tree / Chart / Description 等复用)
 export * from './data-source'
+
+// Page Runtime (Coordinator + PageState + Dispatch，唯一司机)
+export * from './page-runtime'
 
 // Search Runtime (V2 · additive, 协议驱动，Form + DataSource 桥接)
 export * from './search-runtime'

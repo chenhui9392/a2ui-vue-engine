@@ -5,6 +5,7 @@
  */
 export * from './types'
 export * from './transport'
+export * from './httpClientTransport'
 export * from './cache'
 export * from './utils'
 export * from './DataSource'
