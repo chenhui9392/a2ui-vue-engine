@@ -2,7 +2,7 @@
   "name": "a2ui-playground",
   "version": "0.0.1",
   "private": true,
-  "description": "A2UI JSON Debug Tool",
+  "description": "A2UI Official Playground - Runtime / Schema / Component / DataSource / Action 调试",
   "type": "module",
   "scripts": {
     "dev": "vite",

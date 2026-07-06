@@ -34,18 +34,22 @@
       <template v-else>
         <img v-if="isSubmitButton && !isTextLike" :src="submitIcon" class="btn-submit-icon" />
         <img v-if="hasCustomIcon" :src="props.icon" class="btn-custom-icon" />
-        <span class="a2-button__label">{{ text }}</span>
+        <span class="a2-button__label">{{ buttonText }}</span>
       </template>
     </slot>
   </el-button>
 </template>
 
 <script setup lang="ts">
-import { computed, defineComponent } from 'vue'
+import { computed, useAttrs, defineComponent } from 'vue'
 import submitIcon from '../assets/icons/submit.png'
 import { ElButton } from 'element-plus'
 import type { A2Node, RenderContext } from '../types'
 import { renderNode } from '../renderer/renderNode'
+
+// useAttrs: 兜底读取可能未被 declareProps 正确识别的 type/text
+// （Vue 3 + TypeScript interface 编译时，个别 prop 可能漏声明，导致 type/text 进入 $attrs）
+const attrs = useAttrs()
 
 interface A2ButtonProps {
   type?: 'primary' | 'success' | 'warning' | 'danger' | 'info' | 'default'
@@ -95,6 +99,8 @@ const emit = defineEmits<{
 // Get text content from children for auto-styling
 const buttonText = computed(() => {
   if (props.text) return props.text
+  // 兜底：若 text 未被 declareProps 识别，从 $attrs 读取
+  if (attrs.text && typeof attrs.text === 'string') return attrs.text
   if (props.children && Array.isArray(props.children)) {
     // Find Text component and get its content
     const textNode = props.children.find(child => child.type === 'a2-text')
@@ -110,6 +116,8 @@ const buttonText = computed(() => {
 const autoType = computed(() => {
   // If type is explicitly set, use it
   if (props.type) return props.type
+  // 兜底：若 type 未被 declareProps 识别，从 $attrs 读取
+  if (attrs.type && typeof attrs.type === 'string') return attrs.type as any
 
   const text = buttonText.value.toLowerCase()
 
@@ -251,6 +259,11 @@ function handleClick(event: MouseEvent) {
 <script lang="ts">
 export default {
   name: 'A2Button',
+  // 禁止 $attrs 透传到 el-button：
+  // text（字符串）会被 el-button 误读为 boolean true → 文字模式（无背景）→ type=primary 失效
+  // type（primary）若透传会与 :type="autoType" 冲突
+  // 通过 useAttrs() 在 computed 中兜底读取，不依赖透传
+  inheritAttrs: false,
 }
 </script>
 

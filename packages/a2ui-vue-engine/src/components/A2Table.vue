@@ -127,8 +127,8 @@ import { computed, defineComponent, ref, watch } from 'vue'
 import { ElPagination } from 'element-plus'
 import type { A2Node, RenderContext } from '../types'
 import { renderNode } from '../renderer/renderNode'
-import type { DataSource } from '../data-source'
-import type { PageRuntime } from '../page-runtime'
+import type { DataSource } from '../engine/data-source'
+import type { PageRuntime } from '../runtime/page-runtime'
 
 interface A2TableColumn {
   id: string

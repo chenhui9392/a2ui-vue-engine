@@ -8,8 +8,7 @@
     "build": "pnpm -r build",
     "build:engine": "pnpm -F a2ui-vue-engine build",
     "playground": "pnpm -F a2ui-playground dev",
-    "docs": "pnpm -F a2ui-docs dev",
-    "crud": "pnpm -F crud-demo dev"
+    "docs": "pnpm -F a2ui-docs dev"
   },
   "keywords": [
     "a2ui",

@@ -15,7 +15,7 @@ export * from './types'
 export * from './core'
 
 // Mapper
-export * from './mapper'
+export * from './core/mapper'
 
 // Renderer
 export * from './renderer'
@@ -24,19 +24,19 @@ export * from './renderer'
 export * from './components'
 
 // HTTP Client (Runtime 网络门面：Adapter Pattern，Runtime 不直接依赖 axios / fetch)
-export * from './http'
+export * from './infra/http'
+
+// API Resolver (apiKey + context → resolved API，支持热更新 / 多环境 / 多租户)
+export * from './infra/api'
+
+// Env Manager (dev/test/prod/mock 切换 + baseURL 映射)
+export * from './infra/env'
 
 // DataSource (V2 · additive, 不绑定 Table，可被 Tree / Chart / Description 等复用)
-export * from './data-source'
+export * from './engine/data-source'
 
-// Page Runtime (Coordinator + PageState + Dispatch，唯一司机)
-export * from './page-runtime'
-
-// Search Runtime (V2 · additive, 协议驱动，Form + DataSource 桥接)
-export * from './search-runtime'
-
-// Dialog Runtime (V2 · additive, Dialog / Drawer 共享的统一 Runtime)
-export * from './dialog-runtime'
+// Runtime (PageRuntime / SearchRuntime / DialogRuntime / createRuntime 工厂)
+export * from './runtime'
 
 // Root
 export { A2UIRoot, installA2UIRoot } from './root'
@@ -44,6 +44,7 @@ export { default as A2UIRootComponent } from './root'
 
 // Plugin
 export { createA2UI, A2UIPlugin, A2UIPluginSymbol } from './plugin'
+export type { A2UIPluginContext } from './plugin'
 
 // Default export
 import { A2UIPlugin } from './plugin'

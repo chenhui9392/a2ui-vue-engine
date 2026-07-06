@@ -92,7 +92,7 @@ import {
   type OverlayMode,
   type OverlayPlacement,
   type OverlaySize,
-} from '../dialog-runtime'
+} from '../runtime/dialog-runtime'
 
 interface A2OverlayProps {
   /** 展示模式：dialog / drawer */

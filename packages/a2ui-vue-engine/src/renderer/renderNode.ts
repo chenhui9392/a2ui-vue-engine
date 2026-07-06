@@ -1,6 +1,6 @@
 import { h, VNode, defineComponent, Component } from 'vue'
 import type { A2Node, RenderContext, ComponentContext, ActionConfig, BindingConfig } from '../types'
-import { resolveProps } from '../mapper'
+import { resolveProps } from '../core/mapper'
 
 // 组件列表：这些组件需要自己渲染 children，不应该通过 slots 传递
 const SELF_RENDER_CHILDREN_TYPES = [
@@ -238,7 +238,10 @@ function executeAction(
 ): void {
   switch (action.type) {
     case 'emit':
-      context.emit(action.event, action.payload)
+      // 自动携带 row / rowIndex（表格 cellRender 内按钮场景）：
+      //   schema 只需声明 events: { click: 'view' }，Runtime 即可收到 { action:'view', row }
+      //   非 row 上下文（row 不存在）不影响 payload
+      context.emit(action.event, withRowContext(action.payload, context.data))
       break
     
     case 'callback':
@@ -274,6 +277,25 @@ function executeAction(
 // Capitalize first letter
 function capitalize(str: string): string {
   return str.charAt(0).toUpperCase() + str.slice(1)
+}
+
+/**
+ * 把 row / rowIndex 自动合并到 emit payload（仅当 context.data 中存在时）。
+ *
+ * 表格 cellRender 内的按钮只需声明 events: { click: 'view' }，
+ * Runtime 即可收到 { action: 'view', row, rowIndex }，无需 handler / callback / JS 字符串。
+ *
+ * 非 row 上下文（普通工具栏按钮等）context.data.row 不存在，payload 原样透传。
+ */
+function withRowContext(payload: any, data: Record<string, any>): any {
+  if (!data || (data.row === undefined && data.rowIndex === undefined)) {
+    return payload
+  }
+  return {
+    ...(payload || {}),
+    ...(data.row !== undefined ? { row: data.row } : {}),
+    ...(data.rowIndex !== undefined ? { rowIndex: data.rowIndex } : {}),
+  }
 }
 
 // Create render function for dynamic component

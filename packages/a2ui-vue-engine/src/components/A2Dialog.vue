@@ -23,7 +23,7 @@
 <script setup lang="ts">
 import A2Overlay from './A2Overlay.vue'
 import type { A2Node, RenderContext } from '../types'
-import type { DialogRuntimeConfig, OverlaySubmitPayload } from '../dialog-runtime'
+import type { DialogRuntimeConfig, OverlaySubmitPayload } from '../runtime/dialog-runtime'
 
 interface A2DialogProps {
   config?: DialogRuntimeConfig

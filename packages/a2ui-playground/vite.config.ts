@@ -1,9 +1,7 @@
 /*
  * @Author: hui.chenn
  * @Description: A2UI Playground Vite Config
- * @Date: 2026-04-15 15:45:13
- * @LastEditTime: 2026-04-15 17:30:00
- * @LastEditors: hui.chenn
+ * @Date: 2026-07-06 10:00:00
  */
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
@@ -15,6 +13,14 @@ export default defineConfig({
   ],
   server: {
     port: 3001,
+    host: '127.0.0.1',
+    proxy: {
+      '/hinton-agent-mario-server': {
+        target: 'https://hinton-test-inner.tineco.com',
+        changeOrigin: true,
+        secure: false,
+      },
+    },
   },
   resolve: {
     alias: [

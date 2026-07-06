@@ -138,9 +138,9 @@ import { computed, inject, onBeforeUnmount, watch } from 'vue'
 import { ElForm, ElFormItem, ElRow, ElCol, ElInput, ElInputNumber, ElSelect, ElOption, ElDatePicker, ElSwitch, ElButton, ElIcon } from 'element-plus'
 import { ArrowDown, ArrowUp } from '@element-plus/icons-vue'
 import type { Ref } from 'vue'
-import { SearchRuntime } from '../search-runtime'
-import type { SearchRuntimeConfig, SearchFormBridge, SearchDataSourceBridge, SearchSubmitPayload } from '../search-runtime'
-import type { DataSource } from '../data-source'
+import { SearchRuntime } from '../runtime/search-runtime'
+import type { SearchRuntimeConfig, SearchFormBridge, SearchDataSourceBridge, SearchSubmitPayload } from '../runtime/search-runtime'
+import type { DataSource } from '../engine/data-source'
 
 interface A2SearchProps {
   /** 协议驱动配置 */
@@ -282,8 +282,8 @@ const actionSpan = computed(() => {
   const remaining = 24 - remainder
   // 如果字段刚好铺满 24 的整数倍 → actions 独占下一行 span=24 靠右
   if (remainder === 0) return 24
-  // 至少 8 栅格容纳 搜索/重置/展开 三按钮
-  if (remaining < 8) return 24
+  // 至少 6 栅格容纳 搜索/重置/展开 三按钮（与最后一行字段同水平线）
+  if (remaining < 6) return 24
   return remaining
 })
 

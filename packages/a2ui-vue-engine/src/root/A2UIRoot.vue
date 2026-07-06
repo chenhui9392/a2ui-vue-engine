@@ -121,13 +121,18 @@ function generateFormDataFromFlat(nodes: FlatA2Node[]): FormDataResult {
 const rootRef = ref<HTMLElement | null>(null)
 const tree = shallowRef<A2Node | null>(props.initialTree || null)
 const flatNodes = shallowRef<FlatA2Node[] | null>(null)
-const data = ref<Record<string, any>>({ ...props.initialData })
+// runtime 模式下直接复用 runtime.state（同一份响应式 state，action dispatcher 写入即生效）
+const data = props.runtime
+  ? props.runtime.state
+  : ref<Record<string, any>>({ ...props.initialData })
 const error = ref<Error | null>(null)
 const loading = ref(false)
 const processor = shallowRef<MessageProcessor | null>(null)
 
 // Component map
 const mergedComponentMap = computed<ComponentMapper>(() => {
+  // runtime 模式：直接用 runtime.componentMap（已含 Search/Table 绑定版 + 用户覆盖）
+  if (props.runtime) return props.runtime.componentMap
   return createComponentMap(props.componentMap)
 })
 
@@ -180,13 +185,19 @@ function getFormData(): FormDataResult {
 // Handle events from components
 function handleEvent(event: string, payload: any, context: any): void {
   console.log('A2UI Event:', event, payload, context)
-  // Emit to parent
-  emit('message', {
+  const msg = {
     type: 'action',
     id: `event-${Date.now()}`,
     action: event,
     payload,
-  } as A2Message)
+  } as A2Message
+  // runtime 模式：直接路由到 runtime.handleMessage（内部走 action dispatcher）
+  if (props.runtime) {
+    props.runtime.handleMessage(msg)
+    return
+  }
+  // Emit to parent
+  emit('message', msg)
 }
 
 // Initialize message processor
@@ -314,9 +325,24 @@ defineExpose({
 })
 
 // Lifecycle
-onMounted(() => {
+onMounted(async () => {
   initProcessor()
   emit('ready')
+
+  if (props.runtime) {
+    // runtime 模式：先注入节点树（UI 骨架立即渲染），再初始化 DataSource（auto fetch）
+    // 这样即使 init 慢或失败，用户也能立即看到搜索栏/工具栏/表格骨架
+    processMessage({
+      type: 'node',
+      node: props.runtime.initialNodes as any,
+    } as A2Message)
+    try {
+      await props.runtime.init()
+    } catch (e) {
+      console.error('[A2UIRoot] runtime.init() failed:', e)
+    }
+    return
+  }
 
   if (props.streamUrl) {
     processStream(props.streamUrl)
@@ -325,10 +351,13 @@ onMounted(() => {
 
 onUnmounted(() => {
   processor.value?.reset()
+  props.runtime?.destroy()
 })
 
 // Watch for prop changes
 watch(() => props.initialData, (newData) => {
+  // runtime 模式下 state 由 runtime 持有，不接受 initialData 覆盖
+  if (props.runtime) return
   data.value = { ...data.value, ...newData }
 }, { deep: true })
 

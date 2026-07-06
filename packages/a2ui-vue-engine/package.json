@@ -43,11 +43,12 @@
     "url": "https://github.com/chenhui9392/a2ui-vue-engine/issues"
   },
   "peerDependencies": {
-    "vue": "^3.4.0",
+    "@element-plus/icons-vue": "^2.3.0",
     "element-plus": "^2.5.0",
-    "@element-plus/icons-vue": "^2.3.0"
+    "vue": "^3.4.0"
   },
   "devDependencies": {
+    "@element-plus/icons-vue": "^2.3.2",
     "@types/node": "^20.10.0",
     "@vitejs/plugin-vue": "^5.0.0",
     "element-plus": "^2.5.0",

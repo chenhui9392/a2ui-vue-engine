@@ -1,4 +1,13 @@
-import type { Component } from 'vue'
+import type { Component, Ref } from 'vue'
+import type { HttpClient } from '../infra/http'
+import type {
+  ApiResolver,
+  ApiResolverProvider,
+  ApiContext,
+  ApiEntryMap,
+  ApiEnv,
+} from '../infra/api'
+import type { EnvManager } from '../infra/env'
 
 // Form Data Result - for extracting form fields from schema
 export interface FormDataResult {
@@ -157,6 +166,19 @@ export interface A2UIPluginOptions {
   components?: ComponentMapper
   theme?: Record<string, any>
   onError?: (error: Error) => void
+  // --- API / HTTP / Env（V2 新增，全部可选，向后兼容） ---
+  /** HttpClient 实例；提供后由 plugin 注入到 provide 链供组件树 inject */
+  httpClient?: HttpClient
+  /** ApiResolver 实例；未提供时按 apiEntries / apiProvider 自动构造 */
+  apiResolver?: ApiResolver
+  /** 静态 API 表（构造默认 resolver 的 entries） */
+  apiEntries?: ApiEntryMap
+  /** 远程 API manifest provider（异步拉取） */
+  apiProvider?: ApiResolverProvider
+  /** 默认 context（env / project / tenant 等） */
+  defaultContext?: Partial<ApiContext>
+  /** 环境管理；可传 EnvManager 实例或直接传 ApiEnv 字符串 */
+  env?: EnvManager | ApiEnv
 }
 
 // Render Context
@@ -167,12 +189,31 @@ export interface RenderContext {
   onEvent?: (event: string, payload: any, context: ComponentContext) => void
 }
 
+// Runtime Handle - A2UIRoot 消费 runtime 时所需的最小契约
+// （完整 A2UIRuntime 见 runtime/createRuntime.ts，结构化兼容本接口）
+export interface A2UIRuntimeHandle {
+  /** 合并后的组件表（含 Search/Table 绑定版） */
+  componentMap: ComponentMapper
+  /** 响应式 state（schema.state 的运行时副本） */
+  state: Ref<Record<string, any>>
+  /** 归一化后的扁平节点（由 schema.components 生成） */
+  initialNodes: FlatA2Node[]
+  /** 首屏初始化（DataSource auto fetch 等） */
+  init(): Promise<void>
+  /** 处理 A2UIRoot 上抛的 message（内部路由到 action dispatcher） */
+  handleMessage(message: A2Message): void
+  /** 销毁 */
+  destroy(): void
+}
+
 // Root Component Props
 export interface A2UIRootProps {
   initialData?: Record<string, any>
   initialTree?: A2Node
   streamUrl?: string
   componentMap?: ComponentMapper
+  /** 注入 Runtime：提供后 A2UIRoot 自动使用 runtime.componentMap / state / initialNodes，并把 message 路由到 runtime.handleMessage */
+  runtime?: A2UIRuntimeHandle
   onMessage?: MessageHandler
   onError?: (error: Error) => void
 }
