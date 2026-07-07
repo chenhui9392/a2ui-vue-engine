@@ -42,7 +42,7 @@ export const components = {
     props: {
       bordered: false,
       buttons: [
-        { id: 'createBtn', type: 'a2-button', props: { text: '新建规则'}, events: { click: 'create' } },
+        { id: 'createBtn', type: 'a2-button', props: { text: '新建规则', type: 'primary' }, events: { click: 'create' } },
       ],
       rightButtons: [
         { id: 'refresh', type: 'a2-button', props: { text: '刷新', variant: 'text', color: '#2260FA' }, events: { click: 'refresh' } },

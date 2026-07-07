@@ -147,38 +147,17 @@ export const crudPageSchemaExample = `{
       "props": {
         "config": {
           "title": "编辑规则", "size": "md", "placement": "right",
+          "columns": 2,
           "content": {
             "id": "editBody", "type": "a2-column", "props": { "gap": 12 },
             "children": [
-              { "id": "editRow1", "type": "a2-row", "props": { "gutter": 12 }, "children": [
-                { "id": "e-ruleNo-col", "type": "a2-column", "props": { "span": 12 }, "children": [
-                  { "id": "e-ruleNo", "type": "input.text", "props": { "label": "规则编号", "placeholder": "请输入" }, "bindings": { "modelValue": { "type": "path", "value": "forms.default.ruleNo" } } }
-                ]},
-                { "id": "e-ruleType-col", "type": "a2-column", "props": { "span": 12 }, "children": [
-                  { "id": "e-ruleType", "type": "input.text", "props": { "label": "规则类型", "placeholder": "请输入" }, "bindings": { "modelValue": { "type": "path", "value": "forms.default.ruleType" } } }
-                ]}
-              ]},
-              { "id": "editRow2", "type": "a2-row", "props": { "gutter": 12 }, "children": [
-                { "id": "e-faultLevel-col", "type": "a2-column", "props": { "span": 12 }, "children": [
-                  { "id": "e-faultLevel", "type": "input.select", "props": { "label": "故障等级", "options": [{ "label": "P1", "value": "P1" }, { "label": "P2", "value": "P2" }, { "label": "P3", "value": "P3" }] }, "bindings": { "modelValue": { "type": "path", "value": "forms.default.faultLevel" } } }
-                ]},
-                { "id": "e-status-col", "type": "a2-column", "props": { "span": 12 }, "children": [
-                  { "id": "e-status", "type": "input.select", "props": { "label": "状态", "options": [{ "label": "有效", "value": "active" }, { "label": "失效", "value": "inactive" }] }, "bindings": { "modelValue": { "type": "path", "value": "forms.default.status" } } }
-                ]}
-              ]},
-              { "id": "editRow3", "type": "a2-row", "props": { "gutter": 12 }, "children": [
-                { "id": "e-productName-col", "type": "a2-column", "props": { "span": 12 }, "children": [
-                  { "id": "e-productName", "type": "input.text", "props": { "label": "产品名称", "placeholder": "请输入" }, "bindings": { "modelValue": { "type": "path", "value": "forms.default.productName" } } }
-                ]},
-                { "id": "e-validDate-col", "type": "a2-column", "props": { "span": 12 }, "children": [
-                  { "id": "e-validDate", "type": "input.datetime", "props": { "label": "生效日期", "placeholder": "选择生效日期", "enableDate": true, "enableTime": true }, "bindings": { "modelValue": { "type": "path", "value": "forms.default.validDate" } } }
-                ]}
-              ]},
-              { "id": "editRow4", "type": "a2-row", "props": { "gutter": 12 }, "children": [
-                { "id": "e-submitterName-col", "type": "a2-column", "props": { "span": 12 }, "children": [
-                  { "id": "e-submitterName", "type": "input.text", "props": { "label": "创建人名称", "placeholder": "请输入" }, "bindings": { "modelValue": { "type": "path", "value": "forms.default.submitterName" } } }
-                ]}
-              ]}
+              { "id": "e-ruleNo", "type": "input.text", "props": { "label": "规则编号", "placeholder": "请输入" }, "bindings": { "modelValue": { "type": "path", "value": "forms.default.ruleNo" } } },
+              { "id": "e-ruleType", "type": "input.text", "props": { "label": "规则类型", "placeholder": "请输入" }, "bindings": { "modelValue": { "type": "path", "value": "forms.default.ruleType" } } },
+              { "id": "e-faultLevel", "type": "input.select", "props": { "label": "故障等级", "options": [{ "label": "P1", "value": "P1" }, { "label": "P2", "value": "P2" }, { "label": "P3", "value": "P3" }] }, "bindings": { "modelValue": { "type": "path", "value": "forms.default.faultLevel" } } },
+              { "id": "e-status", "type": "input.select", "props": { "label": "状态", "options": [{ "label": "有效", "value": "active" }, { "label": "失效", "value": "inactive" }] }, "bindings": { "modelValue": { "type": "path", "value": "forms.default.status" } } },
+              { "id": "e-productName", "type": "input.text", "props": { "label": "产品名称", "placeholder": "请输入" }, "bindings": { "modelValue": { "type": "path", "value": "forms.default.productName" } } },
+              { "id": "e-validDate", "type": "input.datetime", "props": { "label": "生效日期", "placeholder": "选择生效日期", "enableDate": true, "enableTime": true }, "bindings": { "modelValue": { "type": "path", "value": "forms.default.validDate" } } },
+              { "id": "e-submitterName", "type": "input.text", "props": { "label": "创建人名称", "placeholder": "请输入" }, "bindings": { "modelValue": { "type": "path", "value": "forms.default.submitterName" } } }
             ]
           },
           "footer": [
@@ -194,38 +173,17 @@ export const crudPageSchemaExample = `{
       "props": {
         "config": {
           "title": "新建规则", "size": "md",
+          "columns": 2,
           "content": {
             "id": "createBody", "type": "a2-column", "props": { "gap": 12 },
             "children": [
-              { "id": "createRow1", "type": "a2-row", "props": { "gutter": 12 }, "children": [
-                { "id": "c-ruleNo-col", "type": "a2-column", "props": { "span": 12 }, "children": [
-                  { "id": "c-ruleNo", "type": "input.text", "props": { "label": "规则编号", "placeholder": "请输入" }, "bindings": { "modelValue": { "type": "path", "value": "forms.default.ruleNo" } } }
-                ]},
-                { "id": "c-ruleType-col", "type": "a2-column", "props": { "span": 12 }, "children": [
-                  { "id": "c-ruleType", "type": "input.text", "props": { "label": "规则类型", "placeholder": "请输入" }, "bindings": { "modelValue": { "type": "path", "value": "forms.default.ruleType" } } }
-                ]}
-              ]},
-              { "id": "createRow2", "type": "a2-row", "props": { "gutter": 12 }, "children": [
-                { "id": "c-faultLevel-col", "type": "a2-column", "props": { "span": 12 }, "children": [
-                  { "id": "c-faultLevel", "type": "input.select", "props": { "label": "故障等级", "options": [{ "label": "P1", "value": "P1" }, { "label": "P2", "value": "P2" }, { "label": "P3", "value": "P3" }] }, "bindings": { "modelValue": { "type": "path", "value": "forms.default.faultLevel" } } }
-                ]},
-                { "id": "c-status-col", "type": "a2-column", "props": { "span": 12 }, "children": [
-                  { "id": "c-status", "type": "input.select", "props": { "label": "状态", "options": [{ "label": "有效", "value": "active" }, { "label": "失效", "value": "inactive" }] }, "bindings": { "modelValue": { "type": "path", "value": "forms.default.status" } } }
-                ]}
-              ]},
-              { "id": "createRow3", "type": "a2-row", "props": { "gutter": 12 }, "children": [
-                { "id": "c-productName-col", "type": "a2-column", "props": { "span": 12 }, "children": [
-                  { "id": "c-productName", "type": "input.text", "props": { "label": "产品名称", "placeholder": "请输入" }, "bindings": { "modelValue": { "type": "path", "value": "forms.default.productName" } } }
-                ]},
-                { "id": "c-validDate-col", "type": "a2-column", "props": { "span": 12 }, "children": [
-                  { "id": "c-validDate", "type": "input.datetime", "props": { "label": "生效日期", "placeholder": "选择生效日期", "enableDate": true, "enableTime": true }, "bindings": { "modelValue": { "type": "path", "value": "forms.default.validDate" } } }
-                ]}
-              ]},
-              { "id": "createRow4", "type": "a2-row", "props": { "gutter": 12 }, "children": [
-                { "id": "c-submitterName-col", "type": "a2-column", "props": { "span": 12 }, "children": [
-                  { "id": "c-submitterName", "type": "input.text", "props": { "label": "创建人名称", "placeholder": "请输入" }, "bindings": { "modelValue": { "type": "path", "value": "forms.default.submitterName" } } }
-                ]}
-              ]}
+              { "id": "c-ruleNo", "type": "input.text", "props": { "label": "规则编号", "placeholder": "请输入" }, "bindings": { "modelValue": { "type": "path", "value": "forms.default.ruleNo" } } },
+              { "id": "c-ruleType", "type": "input.text", "props": { "label": "规则类型", "placeholder": "请输入" }, "bindings": { "modelValue": { "type": "path", "value": "forms.default.ruleType" } } },
+              { "id": "c-faultLevel", "type": "input.select", "props": { "label": "故障等级", "options": [{ "label": "P1", "value": "P1" }, { "label": "P2", "value": "P2" }, { "label": "P3", "value": "P3" }] }, "bindings": { "modelValue": { "type": "path", "value": "forms.default.faultLevel" } } },
+              { "id": "c-status", "type": "input.select", "props": { "label": "状态", "options": [{ "label": "有效", "value": "active" }, { "label": "失效", "value": "inactive" }] }, "bindings": { "modelValue": { "type": "path", "value": "forms.default.status" } } },
+              { "id": "c-productName", "type": "input.text", "props": { "label": "产品名称", "placeholder": "请输入" }, "bindings": { "modelValue": { "type": "path", "value": "forms.default.productName" } } },
+              { "id": "c-validDate", "type": "input.datetime", "props": { "label": "生效日期", "placeholder": "选择生效日期", "enableDate": true, "enableTime": true }, "bindings": { "modelValue": { "type": "path", "value": "forms.default.validDate" } } },
+              { "id": "c-submitterName", "type": "input.text", "props": { "label": "创建人名称", "placeholder": "请输入" }, "bindings": { "modelValue": { "type": "path", "value": "forms.default.submitterName" } } }
             ]
           },
           "footer": [

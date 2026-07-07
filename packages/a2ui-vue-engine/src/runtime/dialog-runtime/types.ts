@@ -56,6 +56,13 @@ export interface DialogRuntimeConfig {
   /** 主体 Schema：Form、Table、任意 A2Node 组合 */
   content?: A2Node | A2Node[]
 
+  /**
+   * 表单一行几列（默认 2）
+   * 仅在 content 为 a2-column 时生效：自动注入 columns prop，切换为 CSS Grid 布局
+   * 设为 1 则单列纵排
+   */
+  columns?: number
+
   /** 底部按钮 */
   footer?: OverlayFooterButton[]
   /** 是否隐藏 footer 分隔线 */

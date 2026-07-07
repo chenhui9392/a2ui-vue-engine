@@ -60,6 +60,11 @@ interface A2ColumnProps {
   align?: 'start' | 'center' | 'end' | 'stretch' | 'baseline'
   children?: A2Node[] | string
   context?: RenderContext
+  /**
+   * 网格列数：设置后使用 CSS Grid 布局，每行显示指定列数（默认不开启，走 flex column）
+   * 用于 Dialog/Drawer 表单多列场景
+   */
+  columns?: number
   // Position context for special styling
   isFirst?: boolean
   isLast?: boolean
@@ -94,6 +99,10 @@ const childrenArray = computed(() => {
 const colClass = computed(() => {
   const classes: string[] = ['a2-column']
 
+  if (props.columns && props.columns > 0) {
+    classes.push('a2-column--grid')
+  }
+
   if (props.align) {
     classes.push(`a2-column--align-${props.align}`)
   }
@@ -103,6 +112,14 @@ const colClass = computed(() => {
 
 const colStyle = computed(() => {
   const style: Record<string, string> = {}
+
+  // 网格模式：CSS Grid 多列布局（Dialog/Drawer 表单场景）
+  if (props.columns && props.columns > 0) {
+    style.display = 'grid'
+    style.gridTemplateColumns = `repeat(${props.columns}, minmax(0, 1fr))`
+    style.gap = '12px'
+    return style
+  }
 
   // Alignment
   if (props.align === 'stretch') {
@@ -159,6 +176,17 @@ export default {
   flex-direction: column;
   width: 100%;
   gap: var(--a2-gap-block);
+}
+
+/* 网格模式：Dialog/Drawer 表单多列布局 */
+.a2-column--grid {
+  display: grid;
+}
+
+/* 网格模式下，子项（el-form-item 等）撑满格子 */
+.a2-column--grid :deep(.el-form-item),
+.a2-column--grid :deep(.el-form-item__content) {
+  width: 100%;
 }
 
 .a2-column--align-stretch {

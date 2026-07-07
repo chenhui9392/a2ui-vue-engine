@@ -228,6 +228,11 @@ const resolvedWidth = computed(() => {
 
 const contentNodes = computed<A2Node[]>(() => {
   const raw = config.value.content
+  // columns 配置：注入到 a2-column content，切换为 CSS Grid 多列布局（默认 2 列）
+  const columns = config.value.columns ?? 2
+  if (raw && !Array.isArray(raw) && (raw.type === 'a2-column' || raw.type === 'layout.column')) {
+    return [{ ...raw, props: { ...raw.props, columns } }]
+  }
   if (Array.isArray(raw)) return raw
   if (raw) return [raw]
   // 兼容：也可从 props.children 传入
