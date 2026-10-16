@@ -5,15 +5,33 @@ export interface FormDataResult {
   form: Record<string, string>
 }
 
+export interface A2StepItem {
+  title: string
+  description?: string
+}
+
+export interface A2TableColumn {
+  prop: string
+  label: string
+  width?: number | string
+  align?: 'left' | 'center' | 'right'
+}
+
+export type A2TableCellValue = string | number | boolean | null
+export type A2TableRow = Record<string, A2TableCellValue>
+
 // 扁平化节点格式（新格式）- 节点通过 child/children 引用其他节点ID
 export interface FlatA2Node {
   id: string
-  component: string // 组件名称：Card, Row, Column, Text, TextField, DateTimeInput, Button, Icon, SelectField, ChoicePicker, OptionCard
+  component: string // 组件名称：Card, Row, Column, Text, TextField, DateTimeInput, Button, Icon, SelectField, ChoicePicker, OptionCard, Step, Table
   child?: string | string[] // 单个子节点ID或ID数组
   children?: string[] // 子节点ID数组
   text?: string // Text组件的文本内容，或Button的按钮文字
   label?: string // TextField/DateTimeInput/SelectField/ChoicePicker的标签；OptionCard的标题
   variant?: string // Text/TextField的变体：shortText, longText, h3等；ChoicePicker: mutuallyExclusive
+  bold?: boolean // 文本是否加粗
+  color?: string // 文本颜色
+  borderColor?: string // 边框颜色
   value?: { path: string; default?: string | number | boolean } // 数据绑定路径及默认值
   align?: string // Row/Column的对齐方式：center, stretch, start, end
   justify?: string // Row的水平分布：start, end, center, space-between
@@ -42,9 +60,15 @@ export interface FlatA2Node {
   // ChoicePicker 多选选项
   choiceOptions?: Array<{ label: string; value: string | number; description?: string; disabled?: boolean }>
   // ChoicePicker 列数
-  columns?: number
+  columns?: number | A2TableColumn[]
   // ChoicePicker 显示样式: chips
   displayStyle?: 'default' | 'chips'
+  // Step 步骤条
+  steps?: A2StepItem[]
+  active?: number
+  direction?: 'horizontal' | 'vertical'
+  // Table 静态数据
+  data?: A2TableRow[]
   // 禁用/只读
   disabled?: boolean
   // 必填

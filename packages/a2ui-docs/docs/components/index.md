@@ -10,6 +10,8 @@ A2UI 提供完整的 JSON 驱动组件库。
 - [A2Row](/components/a2-row) - 水平行布局
 - [A2Column](/components/a2-column) - 垂直列布局
 - [A2List](/components/a2-list) - 重复项列表
+- [A2Step](/components/a2-step) - 步骤进度展示
+- [A2Table](/components/a2-table) - 基础数据表格
 
 ### 表单组件
 

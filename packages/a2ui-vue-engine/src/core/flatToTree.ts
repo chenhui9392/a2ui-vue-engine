@@ -247,8 +247,21 @@ function buildProps(flatNode: FlatA2Node): Record<string, any> {
   }
 
   // ChoicePicker 列数
-  if (flatNode.columns !== undefined) {
+  if (flatNode.component === 'ChoicePicker' && typeof flatNode.columns === 'number') {
     props.columns = flatNode.columns
+  }
+
+  // Step 配置
+  if (flatNode.component === 'Step') {
+    if (Array.isArray(flatNode.steps)) props.steps = flatNode.steps
+    if (flatNode.active !== undefined) props.active = flatNode.active
+    if (flatNode.direction) props.direction = flatNode.direction
+  }
+
+  // Table 配置。与 ChoicePicker 的数字 columns 保持独立。
+  if (flatNode.component === 'Table') {
+    if (Array.isArray(flatNode.columns)) props.columns = flatNode.columns
+    if (Array.isArray(flatNode.data)) props.data = flatNode.data
   }
 
   // ChoicePicker 显示样式

@@ -83,6 +83,13 @@ export default defineConfig({
               items: [
                 { text: 'A2Button', link: '/components/a2-button' },
               ]
+            },
+            {
+              text: '流程与数据组件',
+              items: [
+                { text: 'A2Step', link: '/components/a2-step' },
+                { text: 'A2Table', link: '/components/a2-table' },
+              ]
             }
           ]
         },
@@ -160,6 +167,13 @@ export default defineConfig({
               text: 'Action Components',
               items: [
                 { text: 'A2Button', link: '/en/components/a2-button' },
+              ]
+            },
+            {
+              text: 'Process and Data Components',
+              items: [
+                { text: 'A2Step', link: '/en/components/a2-step' },
+                { text: 'A2Table', link: '/en/components/a2-table' },
               ]
             }
           ]

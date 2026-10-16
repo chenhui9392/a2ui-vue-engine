@@ -12,6 +12,7 @@
           <el-option label="员工信息登记表" value="employee" />
           <el-option label="网络权限申请单" value="network" />
           <el-option label="创建工单" value="workorder" />
+          <el-option label="Step 与基础表格" value="stepTable" />
         </el-select>
         <el-tooltip :content="runButtonTooltip" placement="bottom">
           <el-button type="primary" :disabled="!canRun" @click="handleRun">
@@ -467,6 +468,37 @@ const mockExamples: Record<string, string> = {
     "id": "submit-btn",
     "component": "Button",
     "text": "提交"
+  }
+]`,
+  stepTable: `[
+  {
+    "id": "root",
+    "component": "Column",
+    "children": ["progress", "records"],
+    "gap": 24
+  },
+  {
+    "id": "progress",
+    "component": "Step",
+    "active": 1,
+    "steps": [
+      { "title": "提交申请", "description": "填写申请信息" },
+      { "title": "部门审批", "description": "等待部门审批" },
+      { "title": "完成" }
+    ]
+  },
+  {
+    "id": "records",
+    "component": "Table",
+    "columns": [
+      { "prop": "name", "label": "姓名" },
+      { "prop": "department", "label": "部门" },
+      { "prop": "status", "label": "状态", "align": "center" }
+    ],
+    "data": [
+      { "name": "张三", "department": "研发部", "status": "审批中" },
+      { "name": "李四", "department": "产品部", "status": "已完成" }
+    ]
   }
 ]`,
   allComponents: `[

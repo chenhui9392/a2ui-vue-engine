@@ -10,6 +10,8 @@ A2UI provides a comprehensive set of JSON-driven components.
 - [A2Row](/en/components/a2-row) - Horizontal row layout
 - [A2Column](/en/components/a2-column) - Vertical column layout
 - [A2List](/en/components/a2-list) - Repeating item list
+- [A2Step](/en/components/a2-step) - Step progress display
+- [A2Table](/en/components/a2-table) - Basic data table
 
 ### Form Components
 

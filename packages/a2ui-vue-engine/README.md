@@ -127,6 +127,8 @@ const formData = a2uiRootRef.value.getFormData()
 | `A2Row` | Horizontal layout container |
 | `A2Column` | Vertical layout container |
 | `A2List` | List container |
+| `A2Step` | Workflow progress steps |
+| `A2Table` | Basic static data table without search, pagination, or row actions |
 
 ### Form Components
 
