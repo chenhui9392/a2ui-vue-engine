@@ -58,6 +58,7 @@ interface A2ColumnProps {
   xl?: number | ResponsiveConfig
   tag?: string
   align?: 'start' | 'center' | 'end' | 'stretch' | 'baseline'
+  gap?: number | string
   children?: A2Node[] | string
   context?: RenderContext
   // Position context for special styling
@@ -115,8 +116,9 @@ const colStyle = computed(() => {
     style.alignItems = 'flex-start'
   }
 
-  // Unified standard: 10px gap between all children
-  style.gap = '10px'
+  if (props.gap !== undefined) {
+    style.gap = typeof props.gap === 'number' ? `${props.gap}px` : props.gap
+  }
 
   return style
 })
@@ -152,32 +154,3 @@ export default {
   name: 'A2Column',
 }
 </script>
-
-<style scoped>
-.a2-column {
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  gap: var(--a2-gap-block);
-}
-
-.a2-column--align-stretch {
-  align-items: stretch;
-}
-
-.a2-column--align-center {
-  align-items: center;
-}
-
-.a2-column--align-start {
-  align-items: flex-start;
-}
-
-.a2-column--align-end {
-  align-items: flex-end;
-}
-
-.a2-column--align-baseline {
-  align-items: baseline;
-}
-</style>

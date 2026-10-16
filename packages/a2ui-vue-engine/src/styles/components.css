@@ -1,0 +1,540 @@
+/* Optional visual styles for A2UI components. */
+
+/* A2Button.vue optional theme styles */
+.a2-button {
+  min-width: 80px;
+  border-radius: var(--a2-radius-md);
+  transition: all var(--a2-transition-fast);
+}
+
+/* 自定义背景色按钮 */
+.a2-button--custom {
+  /* border 在 buttonStyle 中动态控制，当只设 bgColor 没设 borderColor 时隐藏 */
+}
+
+.a2-button--custom:hover {
+  opacity: 0.9;
+}
+
+.a2-button--custom:active {
+  opacity: 0.85;
+}
+
+/* 自定义图标 */
+.a2-button .btn-custom-icon {
+  width: 14px;
+  height: 14px;
+  margin-right: 4px;
+  vertical-align: middle;
+  object-fit: contain;
+}
+
+/* A2Card.vue optional theme styles */
+.a2-card {
+  background: #FFFFFF;
+  border: 1px solid #E4E7ED;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.a2-card--shadow-hover:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.a2-card--shadow-always {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* 卡片头部 */
+.a2-card .card-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 16px;
+}
+
+.a2-card .card-header-box{
+  background: #2260FA;
+  padding: 5px;
+  border-radius: 6px;
+}
+
+.a2-card .card-header-icon {
+  width: 18px;
+  height: 18px;
+  color: #606266;
+}
+
+.a2-card .card-header-text {
+  font-size: 14px;
+  font-weight: 500;
+  color: #303133;
+}
+
+/* 卡片主体 */
+.a2-card .card-body {
+  padding: 16px;
+}
+
+/* 卡片底部 */
+.a2-card .card-footer {
+  padding: 12px 16px;
+  border-top: 1px solid #E4E7ED;
+  background: #FFFFFF;
+}
+
+/* Card 统一宽度标准 */
+.a2-card--xs { width: 300px; }
+.a2-card--sm { width: 400px; }
+.a2-card--md { width: 560px; }
+.a2-card--lg { width: 720px; }
+.a2-card--xl { width: 960px; }
+.a2-card--full { width: 100%; }
+
+/* A2ChoicePicker.vue optional theme styles */
+.a2-choice-picker {
+  width: 100%;
+}
+
+.a2-choice-picker.is-required .choice-label {
+  color: #303133;
+}
+
+.a2-choice-picker .choice-label {
+  font-size: 14px;
+  color: #606266;
+  margin-bottom: 12px;
+  line-height: 1.5;
+}
+
+.a2-choice-picker .required-mark {
+  color: #f56c6c;
+  margin-left: 2px;
+}
+
+.a2-choice-picker .choice-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  width: 100%;
+}
+
+.a2-choice-picker .choice-item {
+  padding: 4px 10px;
+  border: 1px solid #e4e7ed;
+  border-radius: 16px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  background: #fff;
+  box-sizing: border-box;
+}
+
+.a2-choice-picker .choice-item:hover:not(.disabled) {
+  border-color: #2260FA;
+}
+
+.a2-choice-picker .choice-item.selected {
+  border-color: #2260FA;
+  border-width: 1px;
+  background: #EBF3FF;
+}
+
+.a2-choice-picker .choice-item.selected .choice-title {
+  color: #2260FA;
+}
+
+.a2-choice-picker .choice-item.disabled,
+.a2-choice-picker.is-disabled .choice-item {
+  cursor: not-allowed;
+  opacity: 0.6;
+  background: #f5f7fa;
+}
+
+/* 禁用状态下，保留选中项的高亮（默认值可见），只通过透明度表达不可交互 */
+.a2-choice-picker .choice-item.selected.disabled,
+.a2-choice-picker.is-disabled .choice-item.selected {
+  background: #EBF3FF;
+  border-color: #2260FA;
+}
+
+.a2-choice-picker .choice-content {
+  width: 100%;
+}
+
+.a2-choice-picker .choice-title {
+  font-size: 13px;
+  font-weight: 500;
+  color: #303133;
+  line-height: 1.5;
+}
+
+.a2-choice-picker .choice-desc {
+  font-size: 12px;
+  color: #909399;
+  margin-top: 4px;
+  line-height: 1.4;
+}
+
+@media (max-width: 600px) {
+  .a2-choice-picker .choice-grid {
+    flex-direction: column;
+  }
+}
+
+/* A2Column.vue optional theme styles */
+.a2-column {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: var(--a2-column-gap, var(--a2-gap-block, 10px));
+}
+
+.a2-column--align-stretch {
+  align-items: stretch;
+}
+
+.a2-column--align-center {
+  align-items: center;
+}
+
+.a2-column--align-start {
+  align-items: flex-start;
+}
+
+.a2-column--align-end {
+  align-items: flex-end;
+}
+
+.a2-column--align-baseline {
+  align-items: baseline;
+}
+
+/* A2DatePicker.vue optional theme styles */
+.a2-datepicker {
+  width: 100%;
+  border-radius: var(--a2-radius-md);
+}
+
+/* A2DateTimeInput.vue optional theme styles */
+.a2-date-time-input {
+  width: 100%;
+}
+
+.a2-date-time-input .el-date-editor {
+  width: 100%;
+  border-radius: var(--a2-radius-md);
+}
+
+/* A2Icon.vue optional theme styles */
+.a2-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity var(--a2-transition-fast);
+}
+
+.a2-icon:hover {
+  opacity: 0.8;
+}
+
+/* A2InfoField.vue optional theme styles */
+.a2-info-field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 100%;
+}
+
+/* 标签行 */
+.a2-info-field .info-field-label-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.a2-info-field .info-field-icon {
+  width: 16px;
+  height: 16px;
+  color: #606266;
+  flex-shrink: 0;
+}
+
+.a2-info-field .info-field-icon--img {
+  width: 16px;
+  height: 16px;
+  object-fit: contain;
+  display: block;
+}
+
+.a2-info-field .info-field-label {
+  font-size: 14px;
+  font-weight: 500;
+  color: #303133;
+  line-height: 1.5;
+}
+
+.a2-info-field .info-field-label--large {
+  font-size: 16px;
+  font-weight: 600;
+}
+
+/* 值行 */
+.a2-info-field .info-field-value {
+  font-size: 14px;
+  color: #606266;
+  line-height: 1.5;
+  word-break: break-all;
+  padding: 0 4px;
+}
+
+/* Tag 样式值 */
+.a2-info-field .info-field-value--tag {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 12px;
+  font-size: 13px;
+  color: #2260FA;
+  width: fit-content;
+}
+
+/* Quote 引用样式值 */
+.a2-info-field .info-field-value--quote {
+  position: relative;
+  font-size: 14px;
+  color: #606266;
+  line-height: 1.8;
+}
+
+/* A2Input.vue optional theme styles */
+.a2-input {
+  width: 100%;
+  border-radius: var(--a2-radius-md);
+}
+
+/* A2List.vue optional theme styles */
+.a2-list {
+  width: 100%;
+  border-radius: var(--a2-radius-md);
+}
+
+.a2-list-item {
+  padding: var(--a2-spacing-md) 0;
+  border-bottom: 1px solid var(--a2-border-lighter);
+}
+
+.a2-list-item:last-child {
+  border-bottom: none;
+}
+
+.a2-list-empty {
+  padding: var(--a2-spacing-xl);
+  text-align: center;
+  color: var(--a2-text-secondary);
+}
+
+/* A2OptionCard.vue optional theme styles */
+.a2-option-card {
+  display: flex;
+  flex-direction: column;
+  padding: 16px;
+  background: #FFFFFF;
+  border: 1px solid #E4E7ED;
+  border-radius: 8px;
+  transition: all 0.2s ease;
+  min-width: 120px;
+  position: relative;
+}
+
+.a2-option-card:hover:not(.a2-option-card--disabled) {
+  border-color: #409EFF;
+  background: #F5F7FA;
+}
+
+/* 选中状态 - 蓝色边框和背景 */
+.a2-option-card--selected {
+  border-color: #409EFF;
+  background: linear-gradient(135deg, #ECF5FF 0%, #FFFFFF 100%);
+  box-shadow: 0 2px 8px rgba(64, 158, 255, 0.15);
+}
+
+.a2-option-card--selected .option-card-title {
+  color: #409EFF;
+}
+
+.a2-option-card--selected .option-card-icon {
+  color: #409EFF;
+}
+
+/* 禁用状态 */
+.a2-option-card--disabled {
+  opacity: 0.6;
+}
+
+/* 标题行 */
+.a2-option-card .option-card-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.a2-option-card .option-card-icon {
+  color: #606266;
+  flex-shrink: 0;
+  width: 18px;
+  height: 18px;
+}
+
+.a2-option-card .option-card-title {
+  font-size: 14px;
+  font-weight: 500;
+  color: #303133;
+  line-height: 1.5;
+  flex: 1;
+}
+
+/* 选中标记图标 */
+.a2-option-card .option-card-check {
+  color: #409EFF;
+  width: 16px;
+  height: 16px;
+}
+
+/* 内容行 */
+.a2-option-card .option-card-content {
+  margin-top: 8px;
+  font-size: 12px;
+  color: #909399;
+  line-height: 1.5;
+}
+
+/* 尺寸变体 */
+.a2-option-card--small {
+  padding: 12px;
+  min-width: 100px;
+}
+
+.a2-option-card--small .option-card-title {
+  font-size: 13px;
+}
+
+.a2-option-card--small .option-card-content {
+  font-size: 11px;
+}
+
+.a2-option-card--large {
+  padding: 20px;
+  min-width: 160px;
+}
+
+.a2-option-card--large .option-card-title {
+  font-size: 16px;
+}
+
+.a2-option-card--large .option-card-content {
+  font-size: 14px;
+  margin-top: 12px;
+}
+
+/* A2Row.vue optional theme styles */
+.a2-row {
+  width: 100%;
+  gap: var(--a2-row-gap, var(--a2-gap-inline, 10px));
+}
+
+/* A2Select.vue optional theme styles */
+.a2-select {
+  width: 100%;
+  border-radius: var(--a2-radius-md);
+}
+
+/* A2SelectField.vue optional theme styles */
+.a2-select-field {
+  width: 100%;
+}
+
+.a2-select-field__select {
+  width: 100%;
+  border-radius: var(--a2-radius-md);
+}
+
+.a2-select-field .el-form-item__content {
+  border-radius: var(--a2-radius-md);
+}
+
+/* A2Text.vue optional theme styles */
+.a2-text {
+  display: inline;
+  font-family: var(--a2-font-family);
+}
+
+.a2-text--primary {
+  color: var(--a2-color-primary);
+}
+
+.a2-text--success {
+  color: var(--a2-color-success);
+}
+
+.a2-text--warning {
+  color: var(--a2-color-warning);
+}
+
+.a2-text--danger {
+  color: var(--a2-color-danger);
+}
+
+.a2-text--info {
+  color: var(--a2-color-info);
+}
+
+.a2-text--large {
+  font-size: var(--a2-font-size-lg);
+}
+
+.a2-text--default {
+  font-size: var(--a2-font-size-md);
+}
+
+.a2-text--small {
+  font-size: var(--a2-font-size-xs);
+}
+
+.a2-text--h3 {
+  font-size: var(--a2-font-size-title);
+  font-weight: 600;
+  line-height: var(--a2-line-height-sm);
+}
+
+.a2-text--bold {
+  font-weight: 600;
+}
+
+.a2-text--italic {
+  font-style: italic;
+}
+
+.a2-text--underline {
+  text-decoration: underline;
+}
+
+.a2-text--truncated {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  display: block;
+}
+
+/* A2TextField.vue optional theme styles */
+.a2-text-field {
+  width: 100%;
+}
+
+.a2-text-field .el-form-item__content {
+  border-radius: var(--a2-radius-md);
+}
+
+/* 输入框全宽 */
+.a2-text-field .el-input,
+.a2-text-field .el-textarea {
+  width: 100%;
+}

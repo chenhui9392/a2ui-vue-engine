@@ -1,0 +1,117 @@
+/* Minimal structural styles. Visual theme is opt-in through theme.css. */
+.a2ui-root {
+  width: 100%;
+  min-width: 0;
+}
+
+.a2ui-loading,
+.a2ui-empty {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100px;
+}
+
+.a2ui-error {
+  padding: 16px;
+}
+
+.a2ui-error button {
+  margin-top: 8px;
+}
+
+.a2-row,
+.a2-column,
+.a2-card,
+.a2-list,
+.a2-info-field,
+.a2-choice-picker,
+.a2-option-card {
+  box-sizing: border-box;
+  min-width: 0;
+}
+
+.a2-card {
+  display: block;
+}
+
+.a2-datepicker,
+.a2-input,
+.a2-date-time-input,
+.a2-select,
+.a2-select-field,
+.a2-text-field,
+.a2-list {
+  width: 100%;
+}
+
+.a2-row {
+  width: 100%;
+  gap: var(--a2-row-gap, 10px);
+}
+
+.a2-column {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: var(--a2-column-gap, 10px);
+}
+
+.a2-info-field {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.a2-info-field .info-field-label-row,
+.a2-card .card-header,
+.a2-option-card .option-card-header {
+  display: flex;
+  align-items: center;
+}
+
+.a2-choice-picker .choice-grid {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.a2-option-card {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.a2-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.a2-text--truncated {
+  display: block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.a2-column--align-stretch { align-items: stretch; }
+.a2-column--align-center { align-items: center; }
+.a2-column--align-start { align-items: flex-start; }
+.a2-column--align-end { align-items: flex-end; }
+.a2-column--align-baseline { align-items: baseline; }
+
+.a2-button .btn-custom-icon {
+  width: 14px;
+  height: 14px;
+  margin-right: 4px;
+  vertical-align: middle;
+  object-fit: contain;
+}
+
+.a2-date-time-input .el-date-editor,
+.a2-select-field .el-select,
+.a2-text-field .el-input,
+.a2-text-field .el-textarea {
+  width: 100%;
+}

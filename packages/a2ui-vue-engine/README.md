@@ -30,12 +30,30 @@ yarn add a2ui-vue-engine
 
 ```typescript
 import { createApp } from 'vue'
-import A2UIPlugin from 'a2ui-vue-engine'
-import 'a2ui-vue-engine/style.css'
+import ElementPlus from 'element-plus'
 import 'element-plus/dist/index.css'
+import A2UIPlugin from 'a2ui-vue-engine'
+import 'a2ui-vue-engine/base.css'
+// Optional: import the bundled legacy theme if you want the previous default appearance.
+// import 'a2ui-vue-engine/theme.css'
 
 const app = createApp(App)
 app.use(A2UIPlugin)
+app.use(ElementPlus)
+```
+
+The engine does not apply its bundled visual theme automatically. Import `base.css` for layout support, then define the visual rules in your application. `theme.css` is optional and restores the bundled legacy appearance.
+
+```css
+.customer-form {
+  --a2-row-gap: 16px;
+  --a2-column-gap: 20px;
+}
+
+.customer-form .a2-card {
+  max-width: 800px;
+  border: 1px solid #d0d5dd;
+}
 ```
 
 ### Basic Example

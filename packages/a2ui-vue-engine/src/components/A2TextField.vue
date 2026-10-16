@@ -165,19 +165,3 @@ export default {
   name: 'A2TextField',
 }
 </script>
-
-<style scoped>
-.a2-text-field {
-  width: 100%;
-}
-
-.a2-text-field :deep(.el-form-item__content) {
-  border-radius: var(--a2-radius-md);
-}
-
-/* 输入框全宽 */
-.a2-text-field :deep(.el-input),
-.a2-text-field :deep(.el-textarea) {
-  width: 100%;
-}
-</style>

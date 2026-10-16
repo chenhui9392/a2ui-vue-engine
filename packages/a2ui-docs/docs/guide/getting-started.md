@@ -31,7 +31,9 @@ import { createApp } from 'vue'
 import ElementPlus from 'element-plus'
 import 'element-plus/dist/index.css'
 import A2UIPlugin from 'a2ui-vue-engine'
-import 'a2ui-vue-engine/style.css'
+import 'a2ui-vue-engine/base.css'
+// Optional bundled theme:
+// import 'a2ui-vue-engine/theme.css'
 
 const app = createApp(App)
 app.use(ElementPlus)

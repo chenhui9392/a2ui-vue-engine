@@ -8,11 +8,34 @@
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import { resolve } from 'path'
+import { copyFileSync, existsSync, mkdirSync, readFileSync, writeFileSync } from 'node:fs'
 import dts from 'vite-plugin-dts'
+
+function emitOptionalStyles() {
+  return {
+    name: 'a2ui-optional-styles',
+    writeBundle() {
+      const distDir = resolve(__dirname, 'dist')
+      const stylesDir = resolve(__dirname, 'src/styles')
+      mkdirSync(distDir, { recursive: true })
+      copyFileSync(resolve(stylesDir, 'base.css'), resolve(distDir, 'base.css'))
+      copyFileSync(resolve(stylesDir, 'variables.css'), resolve(distDir, 'variables.css'))
+
+      const variablesCss = readFileSync(resolve(stylesDir, 'variables.css'), 'utf8')
+      const componentThemeCss = readFileSync(resolve(stylesDir, 'components.css'), 'utf8')
+      const componentCssPath = resolve(distDir, 'style.css')
+      const componentCss = existsSync(componentCssPath)
+        ? readFileSync(componentCssPath, 'utf8')
+        : ''
+      writeFileSync(resolve(distDir, 'theme.css'), `${variablesCss}\n${componentThemeCss}\n${componentCss}`)
+    },
+  }
+}
 
 export default defineConfig({
   plugins: [
     vue(),
+    emitOptionalStyles(),
     dts({
       insertTypesEntry: true,
       outDir: 'dist',

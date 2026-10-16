@@ -20,8 +20,16 @@ export default defineConfig({
     alias: [
       // 更具体的路径必须放在前面，确保优先匹配
       {
+        find: 'a2ui-vue-engine/theme.css',
+        replacement: resolve(__dirname, '../a2ui-vue-engine/src/styles/index.css'),
+      },
+      {
         find: 'a2ui-vue-engine/style.css',
         replacement: resolve(__dirname, '../a2ui-vue-engine/src/styles/index.css'),
+      },
+      {
+        find: 'a2ui-vue-engine/base.css',
+        replacement: resolve(__dirname, '../a2ui-vue-engine/src/styles/base.css'),
       },
       // 开发模式下直接引用源文件，而不是构建后的 dist
       {

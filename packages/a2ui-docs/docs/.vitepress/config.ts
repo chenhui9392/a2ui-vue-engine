@@ -14,6 +14,8 @@ export default defineConfig({
     },
     resolve: {
       alias: {
+        'a2ui-vue-engine/base.css': path.resolve(__dirname, '../../../a2ui-vue-engine/src/styles/base.css'),
+        'a2ui-vue-engine/theme.css': path.resolve(__dirname, '../../../a2ui-vue-engine/src/styles/index.css'),
         'a2ui-vue-engine': path.resolve(__dirname, '../../../a2ui-vue-engine/src'),
       },
     },

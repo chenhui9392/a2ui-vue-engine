@@ -110,10 +110,3 @@ export default {
   name: 'A2DatePicker',
 }
 </script>
-
-<style scoped>
-.a2-datepicker {
-  width: 100%;
-  border-radius: var(--a2-radius-md);
-}
-</style>

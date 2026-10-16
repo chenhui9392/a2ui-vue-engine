@@ -103,25 +103,3 @@ export default {
   name: 'A2List',
 }
 </script>
-
-<style scoped>
-.a2-list {
-  width: 100%;
-  border-radius: var(--a2-radius-md);
-}
-
-.a2-list-item {
-  padding: var(--a2-spacing-md) 0;
-  border-bottom: 1px solid var(--a2-border-lighter);
-}
-
-.a2-list-item:last-child {
-  border-bottom: none;
-}
-
-.a2-list-empty {
-  padding: var(--a2-spacing-xl);
-  text-align: center;
-  color: var(--a2-text-secondary);
-}
-</style>

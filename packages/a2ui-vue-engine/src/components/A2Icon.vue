@@ -94,7 +94,7 @@ const resolvedIcon = computed(() => {
 
   // Return placeholder if no icon found
   return {
-    template: '<span style="font-size: 12px; color: #999;">?</span>'
+    template: '<span class="a2-icon__fallback">?</span>'
   }
 })
 </script>
@@ -104,16 +104,3 @@ export default {
   name: 'A2Icon',
 }
 </script>
-
-<style scoped>
-.a2-icon {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  transition: opacity var(--a2-transition-fast);
-}
-
-.a2-icon:hover {
-  opacity: 0.8;
-}
-</style>

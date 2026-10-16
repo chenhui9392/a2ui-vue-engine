@@ -37,6 +37,7 @@ interface A2RowProps {
   gutter?: number | [number, number]
   justify?: 'start' | 'end' | 'center' | 'space-around' | 'space-between' | 'space-evenly'
   align?: 'top' | 'middle' | 'bottom' | 'center' | 'stretch'
+  gap?: number | string
   tag?: string
   children?: A2Node[] | string
   context?: RenderContext
@@ -80,12 +81,7 @@ const rowClass = computed(() => {
   return 'a2-row'
 })
 
-const rowStyle = computed(() => {
-  const style: Record<string, string> = {}
-  // Unified standard: 10px gap between buttons in action rows
-  style.gap = '10px'
-  return style
-})
+const rowStyle = computed(() => props.gap === undefined ? {} : { gap: typeof props.gap === 'number' ? `${props.gap}px` : props.gap })
 
 function renderChild(node: A2Node) {
   if (!props.context) return null
@@ -108,15 +104,3 @@ export default {
   name: 'A2Row',
 }
 </script>
-
-<style scoped>
-.a2-row {
-  width: 100%;
-  gap: var(--a2-gap-inline);
-}
-
-/* 确保使用 CSS 变量 */
-:deep(.el-row) {
-  gap: 10px;
-}
-</style>

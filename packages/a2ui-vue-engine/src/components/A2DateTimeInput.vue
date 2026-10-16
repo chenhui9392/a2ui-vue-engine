@@ -122,14 +122,3 @@ export default {
   name: 'A2DateTimeInput',
 }
 </script>
-
-<style scoped>
-.a2-date-time-input {
-  width: 100%;
-}
-
-.a2-date-time-input :deep(.el-date-editor) {
-  width: 100%;
-  border-radius: var(--a2-radius-md);
-}
-</style>

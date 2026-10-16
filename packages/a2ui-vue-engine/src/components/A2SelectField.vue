@@ -133,18 +133,3 @@ export default {
   name: 'A2SelectField',
 }
 </script>
-
-<style scoped>
-.a2-select-field {
-  width: 100%;
-}
-
-.a2-select-field__select {
-  width: 100%;
-  border-radius: var(--a2-radius-md);
-}
-
-.a2-select-field :deep(.el-form-item__content) {
-  border-radius: var(--a2-radius-md);
-}
-</style>

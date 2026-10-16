@@ -4,7 +4,7 @@
  * @Date: 2026-04-27 12:00:00
 -->
 <template>
-  <div class="a2-info-field" :style="fieldStyle">
+  <div :class="fieldClasses" :style="fieldStyle">
     <!-- 标签行：图标 + 名称 -->
     <div class="info-field-label-row">
       <!-- 图片图标 -->
@@ -19,7 +19,7 @@
       <span :class="['info-field-label', props.size === 'large' ? 'info-field-label--large' : '']">{{ label }}</span>
     </div>
     <!-- 值行 -->
-    <div v-if="displayValue" :class="valueClass" :style="valueStyle">
+    <div v-if="displayValue" :class="valueClass">
       {{ displayValue }}
     </div>
   </div>
@@ -85,17 +85,14 @@ const displayValue = computed(() => {
 })
 
 // 整行背景色
-const fieldStyle = computed(() => {
-  if (props.bgColor) {
-    return {
-      backgroundColor: props.bgColor,
-      margin: '-16px -16px 0 -16px',
-      padding: '12px 16px',
-      width: 'calc(100% + 32px)',
-    }
-  }
-  return {}
-})
+const fieldClasses = computed(() => [
+  'a2-info-field',
+  props.bgColor ? 'a2-info-field--custom-bg' : '',
+])
+
+const fieldStyle = computed(() => props.bgColor
+  ? { backgroundColor: props.bgColor }
+  : {})
 
 const valueClass = computed(() => {
   return [
@@ -103,24 +100,6 @@ const valueClass = computed(() => {
     props.variant === 'tag' ? 'info-field-value--tag' : '',
     props.variant === 'quote' ? 'info-field-value--quote' : '',
   ]
-})
-
-const valueStyle = computed(() => {
-  if (props.variant === 'tag') {
-    return {
-      background: '#EFF4FF',
-      borderRadius: '6px',
-      border: '1px solid #CED9F3',
-    }
-  }
-  if (props.variant === 'quote') {
-    return {
-      background: '#F5F7FA',
-      borderRadius: '8px',
-      padding: '12px 16px',
-    }
-  }
-  return {}
 })
 
 function handleClick(event: MouseEvent) {
@@ -134,72 +113,3 @@ export default {
   name: 'A2InfoField',
 }
 </script>
-
-<style scoped>
-.a2-info-field {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-  width: 100%;
-}
-
-/* 标签行 */
-.info-field-label-row {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-
-.info-field-icon {
-  width: 16px;
-  height: 16px;
-  color: #606266;
-  flex-shrink: 0;
-}
-
-.info-field-icon--img {
-  width: 16px;
-  height: 16px;
-  object-fit: contain;
-  display: block;
-}
-
-.info-field-label {
-  font-size: 14px;
-  font-weight: 500;
-  color: #303133;
-  line-height: 1.5;
-}
-
-.info-field-label--large {
-  font-size: 16px;
-  font-weight: 600;
-}
-
-/* 值行 */
-.info-field-value {
-  font-size: 14px;
-  color: #606266;
-  line-height: 1.5;
-  word-break: break-all;
-  padding: 0 4px;
-}
-
-/* Tag 样式值 */
-.info-field-value--tag {
-  display: inline-flex;
-  align-items: center;
-  padding: 4px 12px;
-  font-size: 13px;
-  color: #2260FA;
-  width: fit-content;
-}
-
-/* Quote 引用样式值 */
-.info-field-value--quote {
-  position: relative;
-  font-size: 14px;
-  color: #606266;
-  line-height: 1.8;
-}
-</style>

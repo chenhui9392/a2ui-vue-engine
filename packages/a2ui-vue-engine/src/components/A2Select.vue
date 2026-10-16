@@ -110,10 +110,3 @@ export default {
   name: 'A2Select',
 }
 </script>
-
-<style scoped>
-.a2-select {
-  width: 100%;
-  border-radius: var(--a2-radius-md);
-}
-</style>

@@ -115,10 +115,3 @@ export default {
   name: 'A2Input',
 }
 </script>
-
-<style scoped>
-.a2-input {
-  width: 100%;
-  border-radius: var(--a2-radius-md);
-}
-</style>

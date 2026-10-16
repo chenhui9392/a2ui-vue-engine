@@ -12,8 +12,10 @@
       "require": "./dist/a2ui-vue-engine.umd.cjs",
       "types": "./dist/index.d.ts"
     },
-    "./style.css": "./dist/style.css",
-    "./styles": "./dist/style.css"
+    "./base.css": "./dist/base.css",
+    "./theme.css": "./dist/theme.css",
+    "./style.css": "./dist/theme.css",
+    "./styles": "./dist/theme.css"
   },
   "files": [
     "dist",

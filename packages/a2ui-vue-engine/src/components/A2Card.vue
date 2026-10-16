@@ -9,8 +9,8 @@
   <div :class="cardClass" :style="cardStyle">
     <!-- 自定义头部区域 -->
     <div v-if="header" :class="headerClass" :style="headerStyleObj">
-      <div class="card-header-box" v-if="props.header">
-        <img  :src="cardHeaderIcon" class="card-header-icon" />
+      <div class="card-header-box" v-if="headerIcon">
+        <img :src="headerIcon" class="card-header-icon" />
       </div>
       <span class="card-header-text">{{ header }}</span>
     </div>
@@ -43,7 +43,6 @@
 
 <script setup lang="ts">
 import { computed, defineComponent } from 'vue'
-import cardHeaderIcon from '../assets/icons/card-header.png'
 import type { A2Node, RenderContext } from '../types'
 import { renderNode } from '../renderer/renderNode'
 
@@ -61,11 +60,10 @@ interface A2CardProps {
 const props = withDefaults(defineProps<A2CardProps>(), {
   header: '',
   headerIcon: '',
-  headerBgColor: '#F8F8FB',
-  shadow: 'hover',
+  headerBgColor: '',
+  shadow: 'never',
   children: () => [],
   slots: () => ({}),
-  width: 'md',
 })
 
 const emit = defineEmits<{
@@ -107,18 +105,17 @@ const cardStyle = computed(() => {
     xl: '960px',
     full: '100%',
   }
-  return {
-    width: widthMap[props.width] || props.width,
-  }
+  if (!props.width) return {}
+  return { width: widthMap[props.width] || props.width }
 })
 
 const headerClass = computed(() => {
-  return ['card-header', props.header ? 'card-header--with-icon' : ''].join(' ')
+  return ['card-header', props.headerIcon ? 'card-header--with-icon' : ''].join(' ')
 })
 
-const headerStyleObj = computed(() => ({
-  backgroundColor: props.headerBgColor,
-}))
+const headerStyleObj = computed(() => props.headerBgColor
+  ? { backgroundColor: props.headerBgColor }
+  : {})
 
 function renderChild(node: A2Node) {
   if (!props.context) return null
@@ -151,66 +148,3 @@ export default {
   name: 'A2Card',
 }
 </script>
-
-<style scoped>
-.a2-card {
-  background: #FFFFFF;
-  border: 1px solid #E4E7ED;
-  border-radius: 12px;
-  overflow: hidden;
-}
-
-.a2-card--shadow-hover:hover {
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-}
-
-.a2-card--shadow-always {
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-}
-
-/* 卡片头部 */
-.card-header {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  padding: 12px 16px;
-}
-
-.card-header-box{
-  background: #2260FA;
-  padding: 5px;
-  border-radius: 6px;
-}
-
-.card-header-icon {
-  width: 18px;
-  height: 18px;
-  color: #606266;
-}
-
-.card-header-text {
-  font-size: 14px;
-  font-weight: 500;
-  color: #303133;
-}
-
-/* 卡片主体 */
-.card-body {
-  padding: 16px;
-}
-
-/* 卡片底部 */
-.card-footer {
-  padding: 12px 16px;
-  border-top: 1px solid #E4E7ED;
-  background: #FFFFFF;
-}
-
-/* Card 统一宽度标准 */
-.a2-card--xs { width: 300px; }
-.a2-card--sm { width: 400px; }
-.a2-card--md { width: 560px; }
-.a2-card--lg { width: 720px; }
-.a2-card--xl { width: 960px; }
-.a2-card--full { width: 100%; }
-</style>
